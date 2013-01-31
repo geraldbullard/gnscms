@@ -1,4 +1,6 @@
 gnscms
 ======
 
-A truly simple yet powerful CMS
+A truly simple yet powerful CMS...
+
+It all started back when...
