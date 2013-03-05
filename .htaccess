@@ -15,7 +15,7 @@
 <IfModule mod_rewrite.c>
   Options +FollowSymLinks
   RewriteEngine On
-  RewriteBase /afternooncms/
+  RewriteBase /
   
   RewriteCond %{SCRIPT_FILENAME} -d
   RewriteCond %{SCRIPT_FILENAME} -f

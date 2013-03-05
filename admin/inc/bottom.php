@@ -47,8 +47,8 @@
   <script src="js/jquery.uniform.min.js"></script>
   <!-- plugin for gallery image view -->
   <script src="js/jquery.colorbox.min.js"></script>
-  <!-- rich text editor library -->
-  <script src="js/jquery.cleditor.min.js"></script>
+  <!-- rich text editor library
+  <script src="js/jquery.cleditor.min.js"></script> -->
   <!-- notification plugin -->
   <script src="js/jquery.noty.js"></script>
   <!-- file manager library -->
