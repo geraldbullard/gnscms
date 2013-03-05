@@ -1,0 +1,1504 @@
+/* begin Page */
+/* Created by Artisteer v3.0.0.39952 */
+
+#login-main, table
+{
+    font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+    font-size: 12px;
+    text-align: justify;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
+{
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+h1 a:link, h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 a:link,
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited,
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover
+{
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.login-postcontent a
+{
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  text-decoration: underline;
+  color: #2B5973;
+}
+
+.login-postcontent a:link
+{
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  text-decoration: underline;
+  color: #2B5973;
+}
+
+.login-postcontent a:visited, .login-postcontent a.visited
+{
+  color: #506B86;
+}
+
+.login-postcontent  a:hover, .login-postcontent a.hover
+{
+  text-decoration: none;
+  color: #3A789C;
+}
+
+.login-postcontent h1
+{
+   color: #2B5973;
+margin: 21px 0;    
+}
+
+.login-blockcontent h1
+{
+margin: 21px 0; 
+}
+
+.login-postcontent h2
+{
+   color: #3A789C;
+margin: 19px 0;
+   font-size: 22px;    
+}
+
+.login-blockcontent h2
+{
+margin: 19px 0;
+   font-size: 22px; 
+}
+
+.login-postcontent h2 a, .login-postcontent h2 a:link, .login-postcontent h2 a:hover, .login-postcontent h2 a:visited, .login-blockcontent h2 a, .login-blockcontent h2 a:link, .login-blockcontent h2 a:hover, .login-blockcontent h2 a:visited 
+{
+   font-size: 22px; 
+}
+
+.login-postcontent h3
+{
+   color: #3B4F63;
+margin: 19px 0;
+   font-size: 18px;    
+}
+
+.login-blockcontent h3
+{
+margin: 19px 0;
+   font-size: 18px; 
+}
+
+.login-postcontent h3 a, .login-postcontent h3 a:link, .login-postcontent h3 a:hover, .login-postcontent h3 a:visited, .login-blockcontent h3 a, .login-blockcontent h3 a:link, .login-blockcontent h3 a:hover, .login-blockcontent h3 a:visited 
+{
+   font-size: 18px; 
+}
+
+.login-postcontent h4
+{
+   color: #374A5C;
+margin: 20px 0;
+   font-size: 16px;    
+}
+
+.login-blockcontent h4
+{
+margin: 20px 0;
+   font-size: 16px; 
+}
+
+.login-postcontent h4 a, .login-postcontent h4 a:link, .login-postcontent h4 a:hover, .login-postcontent h4 a:visited, .login-blockcontent h4 a, .login-blockcontent h4 a:link, .login-blockcontent h4 a:hover, .login-blockcontent h4 a:visited 
+{
+   font-size: 16px; 
+}
+
+.login-postcontent h5
+{
+   color: #374A5C;
+margin: 26px 0;
+   font-size: 14px;    
+}
+
+.login-blockcontent h5
+{
+margin: 26px 0;
+   font-size: 14px; 
+}
+
+.login-postcontent h5 a, .login-postcontent h5 a:link, .login-postcontent h5 a:hover, .login-postcontent h5 a:visited, .login-blockcontent h5 a, .login-blockcontent h5 a:link, .login-blockcontent h5 a:hover, .login-blockcontent h5 a:visited 
+{
+   font-size: 14px; 
+}
+
+.login-postcontent h6
+{
+   color: #506B86;
+margin: 35px 0;
+   font-size: 14px;    
+}
+
+.login-blockcontent h6
+{
+margin: 35px 0;
+   font-size: 14px; 
+}
+
+.login-postcontent h6 a, .login-postcontent h6 a:link, .login-postcontent h6 a:hover, .login-postcontent h6 a:visited, .login-blockcontent h6 a, .login-blockcontent h6 a:link, .login-blockcontent h6 a:hover, .login-blockcontent h6 a:visited 
+{
+   font-size: 14px; 
+}
+
+ul
+{
+  list-style-type: none;
+}
+
+ol
+{
+  list-style-position: inside;
+}
+
+html 
+{
+    height:100%;
+}
+
+#login-main
+{
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  left: 0;
+  top: 0;
+  cursor:default;
+  overflow:visible;
+  float: left;
+  clear: left;
+}
+
+#login-page-background-glare
+{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  min-width: 900px;
+}
+
+#login-page-background-glare-image
+{
+   width:100%;  
+  position: fixed;
+  top: 0;
+  height:343px;
+    background-image: url('images/page_gl.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+html:first-child #login-page-background-glare
+{
+  border: 1px solid transparent; /* Opera fix */
+}
+
+body
+{
+  padding: 0; 
+  margin:0;
+  color: #0D1216;
+  height:100%;
+  min-height:100%;
+  background-color: #FFFFFF;
+  background-image: url('images/Bottom_texture.jpg');
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-position: top left;
+  min-width: 900px;
+}
+
+.cleared
+{
+  display:block;
+  clear: both;
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 0;
+  height:0;
+  overflow:hidden;
+}
+
+.reset-box
+{
+  overflow:hidden;
+  display:table; 
+}
+
+form
+{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+table.position
+{
+  position: relative;
+  width: 100%;
+  table-layout: fixed;
+}
+/* end Page */
+
+/* begin Box, Sheet */
+.login-sheet
+{
+  position: relative;
+  margin: 0 auto;
+  min-width: 35px;
+  min-height: 35px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  cursor:auto;
+  width: 900px;
+}
+
+.login-sheet-body
+{
+  position: relative;
+  padding: 13px;
+    padding-top:13px;
+    padding-bottom:13px;
+}
+
+.login-sheet-tr, .login-sheet-tl, .login-sheet-br, .login-sheet-bl, .login-sheet-tc, .login-sheet-bc,.login-sheet-cr, .login-sheet-cl
+{
+  position: absolute;
+}
+
+.login-sheet-tr, .login-sheet-tl, .login-sheet-br, .login-sheet-bl
+{
+  width: 34px;
+  height: 34px;
+  background-image: url('images/sheet_s.png');
+}
+
+.login-sheet-tl
+{
+  top: 0;
+  left: 0;
+  clip: rect(auto, 17px, 17px, auto);
+}
+
+.login-sheet-tr
+{
+  top: 0;
+  right: 0;
+  clip: rect(auto, auto, 17px, 17px);
+}
+
+.login-sheet-bl
+{
+  bottom: 0;
+  left: 0;
+  clip: rect(17px, 17px, auto, auto);
+}
+
+.login-sheet-br
+{
+  bottom: 0;
+  right: 0;
+  clip: rect(17px, auto, auto, 17px);
+}
+
+.login-sheet-tc, .login-sheet-bc
+{
+  left: 17px;
+  right: 17px;
+  height: 34px;
+  background-image: url('images/sheet_h.png');
+}
+
+.login-sheet-tc
+{
+  top: 0;
+  clip: rect(auto, auto, 17px, auto);
+}
+
+.login-sheet-bc
+{
+  bottom: 0;
+  clip: rect(17px, auto, auto, auto);
+}
+
+.login-sheet-cr, .login-sheet-cl
+{
+  top: 17px;
+  bottom: 17px;
+  width: 34px;
+  background-image: url('images/sheet_v.png');
+}
+
+.login-sheet-cr
+{
+  right: 0;
+  clip: rect(auto, auto, auto, 17px);
+}
+
+.login-sheet-cl
+{
+  left: 0;
+  clip: rect(auto, 17px, auto, auto);
+}
+
+.login-sheet-cc
+{
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  right: 17px;
+  bottom: 17px;
+  background-image: url('images/sheet_c.png');
+}
+
+#login-page-background-top-texture, #login-page-background-middle-texture{
+  min-width: 900px;
+}
+
+/* end Box, Sheet */
+
+/* begin Header */
+div.login-header
+{
+    margin: 0 auto;
+  position: relative;
+  width:100%;
+  height: 100px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.login-header-clip
+{
+  position: absolute;
+  width:100%;
+  left:0;
+  overflow:hidden;
+  height:100px;
+}
+
+div.login-header-center
+{
+	position: relative;
+	width: 874px;
+	left:50%;
+}
+
+div.login-header-png
+{
+  position: absolute;
+  left:-50%;
+  top: 0;
+  width: 874px;
+  height: 100px;
+  background-image: url('images/header.png');
+  background-repeat: no-repeat;
+  background-position:center center; 
+}
+
+div.login-header-jpeg
+{
+  position: absolute;
+  top: 0;
+  left:-50%;
+  width: 874px;
+  height: 100px;
+  background-image: url('images/header.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* end Header */
+
+/* begin Logo */
+div.login-logo
+{
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  margin-left: 0;
+}
+
+
+
+#headline, #slogan 
+{
+    display: block;
+    min-width: 150px;
+    text-align: left;
+}
+/* end Logo */
+
+/* begin Menu */
+/* menu structure */
+
+.login-hmenu a, .login-hmenu a:link, .login-hmenu a:visited, .login-hmenu a:hover
+{
+    outline: none;
+}
+
+.login-hmenu, .login-hmenu ul
+{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style-type: none;
+  display: block;
+}
+
+.login-hmenu li
+{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: block;
+  float: left;
+  position: relative;
+  z-index: 5;
+  background: none;
+}
+
+.login-hmenu li:hover
+{
+  z-index: 10000;
+  white-space: normal;
+}
+
+.login-hmenu li li
+{
+  float: none;
+}
+
+.login-hmenu ul
+{
+  visibility: hidden;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  background: none;
+  min-height: 0;
+  background-image: url('images/spacer.gif');
+  padding: 10px 30px 30px 30px;
+  margin: -10px 0 0 -30px;
+}
+
+.login-hmenu li:hover>ul
+{
+  visibility: visible;
+  top: 100%;
+}
+
+.login-hmenu li li:hover>ul
+{
+  top: 0;
+  left: 100%;
+}
+
+.login-hmenu:after, .login-hmenu ul:after
+{
+  content: ".";
+  height: 0;
+  display: block;
+  visibility: hidden;
+  overflow: hidden;
+  clear: both;
+}
+.login-hmenu{
+  min-height: 0;
+  position:relative;
+  padding: 8px 3px 0 3px;
+}
+
+.login-hmenu ul ul
+{
+  padding: 30px 30px 30px 10px;
+  margin: -30px 0 0 -10px;
+}
+
+/* menu structure */
+
+.login-nav
+{
+   position: relative;
+  margin:0 auto;
+  min-height: 32px;
+  z-index: 100;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.login-nav-outer
+{
+    position:absolute;
+    width:100%;
+}
+
+.login-nav-l, .login-nav-r
+{
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  height: 100%;
+  background-image: url('images/nav.png');
+}
+
+.login-nav-l
+{
+  left: 0;
+  right: 4px;
+}
+
+.login-nav-r
+{
+  right: 0;
+  width: 874px;
+  clip: rect(auto, auto, auto, 870px);
+}
+
+/* end Menu */
+
+/* begin MenuItem */
+.login-hmenu a
+{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 24px;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+}
+
+.login-hmenu ul li
+{
+    margin:0;
+    clear: both;
+}
+
+.login-hmenu a .r, .login-hmenu a .l
+{
+  position: absolute;
+  display: block;
+  top: 0;
+  z-index: -1;
+  height: 82px;
+  background-image: url('images/menuitem.png');
+}
+
+.login-hmenu a .l
+{
+  left: 0;
+  right: 0;
+}
+
+.login-hmenu a .r
+{
+  width: 400px;
+  right: 0;
+  clip: rect(auto, auto, auto, 400px);
+}
+
+.login-hmenu a .t, .login-hmenu ul a, .login-hmenu a:link, .login-hmenu a:visited, .login-hmenu a:hover
+{
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+}
+
+.login-hmenu a .t
+{
+  color: #D2E4EE;
+  padding: 0 22px;
+  margin: 0 0;
+  line-height: 24px;
+  text-align: center;
+}
+
+.login-hmenu a:hover .l, .login-hmenu a:hover .r
+{
+  top: -29px;
+}
+
+.login-hmenu li:hover>a .l, .login-hmenu li:hover>a .r
+{
+  top: -29px;
+}
+
+.login-hmenu li:hover a .l, .login-hmenu li:hover a .r
+{
+  top: -29px;
+}
+.login-hmenu a:hover .t
+{
+  color: #D9E0E8;
+}
+
+.login-hmenu li:hover a .t
+{
+  color: #D9E0E8;
+}
+
+.login-hmenu li:hover>a .t
+{
+  color: #D9E0E8;
+}
+
+.login-hmenu a.active .l, .login-hmenu a.active .r
+{
+  top: -58px;
+}
+
+.login-hmenu a.active .t
+{
+  color: #000000;
+}
+/* end MenuItem */
+
+/* begin MenuSeparator */
+.login-hmenu .login-hmenu-li-separator
+{
+  display: block;
+  width: 2px;
+  height:24px;
+}
+/* end MenuSeparator */
+
+/* begin MenuSubItem */
+.login-hmenu ul a
+{
+  display: block;
+  white-space: nowrap;
+  height: 20px;
+  width: 180px;
+  overflow: hidden;
+  background-image: url('images/subitem.png');
+  background-position: left top;
+  background-repeat: repeat-x;
+  border-width: 0;
+  border-style: solid;
+  text-align: left;
+  text-indent: 12px;
+  text-decoration: none;
+  line-height: 20px;
+  color: #152B38;
+  margin:0;
+  padding:0;
+}
+
+.login-nav ul.login-hmenu ul span, .login-nav ul.login-hmenu ul span span
+{
+  display: inline;
+  float: none;
+  margin: inherit;
+  padding: inherit;
+  background-image: none;
+  text-align: inherit;
+  text-decoration: inherit;
+}
+
+.login-hmenu ul a:link, .login-hmenu ul a:visited, .login-hmenu ul a:hover, .login-hmenu ul a:active, .login-nav ul.login-hmenu ul span, .login-nav ul.login-hmenu ul span span
+{
+  text-align: left;
+  text-indent: 12px;
+  text-decoration: none;
+  line-height: 20px;
+  color: #152B38;
+  margin:0;
+  padding:0;
+}
+
+.login-hmenu ul li a:hover
+{
+  color: #000000;
+  background-position: 0 -20px;
+}
+
+.login-hmenu ul li:hover>a
+{
+  color: #000000;
+  background-position: 0 -20px;
+}
+
+.login-nav .login-hmenu ul li a:hover span, .login-nav .login-hmenu ul li a:hover span span
+{
+  color: #000000;
+}
+
+.login-nav .login-hmenu ul li:hover>a span, .login-nav .login-hmenu ul li:hover>a span span
+{
+  color: #000000;
+}
+
+/* end MenuSubItem */
+
+/* begin Layout */
+.login-content-layout
+{
+  display: table;
+  position:relative;
+  margin: 0 auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: Transparent;
+  border: none !important;
+  padding:0 !important;
+  width:100%;
+  margin-top:0;
+  margin-bottom:0;
+}
+.login-layout-cell, .login-content-layout-row
+{
+  background-color: Transparent;
+  vertical-align: top;
+  text-align: left;
+  border: none;
+  margin:0;
+  padding:0;
+}
+
+.login-content-layout .login-content-layout{margin:0;}
+.login-content-layout .login-layout-cell, .login-content-layout .login-layout-cell .login-content-layout .login-layout-cell{display: table-cell;}
+.login-layout-cell .login-layout-cell{display: block;}
+.login-content-layout-row {display: table-row;}
+.login-layout-glare{position:relative;}/* end Layout */
+
+/* begin Box, Block */
+.login-block
+{
+  position: relative;
+  min-width: 3px;
+  min-height: 3px;
+  margin: 7px;
+}
+
+.login-block-body
+{
+  position: relative;
+  padding: 8px;
+}
+
+.login-block-tr, .login-block-tl, .login-block-br, .login-block-bl, .login-block-tc, .login-block-bc,.login-block-cr, .login-block-cl
+{
+  position: absolute;
+}
+
+.login-block-tr, .login-block-tl, .login-block-br, .login-block-bl
+{
+  width: 2px;
+  height: 2px;
+  background-image: url('images/block_s.png');
+}
+
+.login-block-tl
+{
+  top: 0;
+  left: 0;
+  clip: rect(auto, 1px, 1px, auto);
+}
+
+.login-block-tr
+{
+  top: 0;
+  right: 0;
+  clip: rect(auto, auto, 1px, 1px);
+}
+
+.login-block-bl
+{
+  bottom: 0;
+  left: 0;
+  clip: rect(1px, 1px, auto, auto);
+}
+
+.login-block-br
+{
+  bottom: 0;
+  right: 0;
+  clip: rect(1px, auto, auto, 1px);
+}
+
+.login-block-tc, .login-block-bc
+{
+  left: 1px;
+  right: 1px;
+  height: 2px;
+  background-image: url('images/block_h.png');
+}
+
+.login-block-tc
+{
+  top: 0;
+  clip: rect(auto, auto, 1px, auto);
+}
+
+.login-block-bc
+{
+  bottom: 0;
+  clip: rect(1px, auto, auto, auto);
+}
+
+.login-block-cr, .login-block-cl
+{
+  top: 1px;
+  bottom: 1px;
+  width: 2px;
+  background-image: url('images/block_v.png');
+}
+
+.login-block-cr
+{
+  right: 0;
+  clip: rect(auto, auto, auto, 1px);
+}
+
+.login-block-cl
+{
+  left: 0;
+  clip: rect(auto, 1px, auto, auto);
+}
+
+.login-block-cc
+{
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background-color: #E2E8EE;
+}
+
+div.login-block img
+{
+/* WARNING do NOT collapse this to 'border' - inheritance! */
+    border-color: #B2C2D1;
+  border-style: solid;
+  margin: 0;
+}
+
+/* end Box, Block */
+
+/* begin Box, BlockContent */
+.login-blockcontent
+{
+  position: relative;
+  margin: 0 auto;
+  min-width: 1px;
+  min-height: 1px;
+}
+
+.login-blockcontent-body
+{
+  position: relative;
+  padding: 0;
+  color: #283643;
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  font-size: 12px;
+}
+
+.login-blockcontent-body table,
+.login-blockcontent-body li, 
+.login-blockcontent-body a,
+.login-blockcontent-body a:link,
+.login-blockcontent-body a:visited,
+.login-blockcontent-body a:hover
+{
+  color: #283643;
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  font-size: 12px;
+}
+
+.login-blockcontent-body a, .login-blockcontent-body a:link
+{
+  color: #2B5973;
+  text-decoration: underline;
+}
+
+.login-blockcontent-body a:visited, .login-blockcontent-body a.visited
+{
+  color: #6685A3;
+  text-decoration: underline;
+}
+
+.login-blockcontent-body a:hover, .login-blockcontent-body a.hover
+{
+  color: #387599;
+  text-decoration: none;
+}
+
+.login-blockcontent-body ul li
+{
+  text-decoration: none;
+  line-height: 125%;    
+  color: #364759;
+  padding: 0 0 0 13px;
+  background-image: url('images/blockcontentbullets.png');
+  background-repeat: no-repeat;
+}/* end Box, BlockContent */
+
+/* begin Button */
+.login-button-wrapper a.login-button,
+.login-button-wrapper a.login-button:link,
+.login-button-wrapper input.login-button,
+.login-button-wrapper button.login-button
+{
+  text-decoration: none;
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  font-size: 12px;
+  position:relative;
+  top:0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  color: #11222D !important;
+  width: auto;
+  outline: none;
+  border: none;
+  background: none;
+  line-height: 34px;
+  height: 34px;
+  margin: 0 !important;
+  padding: 0 21px !important;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.login-button img, .login-button-wrapper img
+{
+  margin: 0;
+  vertical-align: middle;
+}
+
+.login-button-wrapper
+{
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  height: 34px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+
+.firefox2 .login-button-wrapper
+{
+  display: block;
+  float: left;
+}
+
+input, select, textarea
+{
+  vertical-align: middle;
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  font-size: 12px;
+}
+
+.login-block select 
+{
+    width:96%;
+}
+
+.login-button-wrapper.hover .login-button, .login-button-wrapper.hover a.login-button:link, .login-button:hover
+{
+  color: #331F00 !important;
+  text-decoration: none !important;
+}
+
+.login-button-wrapper.active .login-button, .login-button-wrapper.active a.login-button:link
+{
+  color: #D9E0E8 !important;
+}
+
+.login-button-wrapper .login-button-l, .login-button-wrapper .login-button-r
+{
+  display: block;
+  position: absolute;
+  height: 112px;
+  margin: 0;
+  padding: 0;
+  background-image: url('images/button.png');
+}
+
+.login-button-wrapper .login-button-l
+{
+  left: 0;
+  right: 11px;
+}
+
+.login-button-wrapper .login-button-r
+{
+  width: 411px;
+  right: 0;
+  clip: rect(auto, auto, auto, 400px);
+}
+
+.login-button-wrapper.hover .login-button-l, .login-button-wrapper.hover .login-button-r
+{
+  top: -39px;
+}
+
+.login-button-wrapper.active .login-button-l, .login-button-wrapper.active .login-button-r
+{
+  top: -78px;
+}
+
+.login-button-wrapper input
+{
+  float: none !important;
+}
+/* end Button */
+
+/* begin Box, Post */
+.login-post
+{
+  position: relative;
+  min-width: 1px;
+  min-height: 1px;
+  margin: 7px;
+}
+
+.login-post-body
+{
+  position: relative;
+  padding: 10px;
+}
+
+a img
+{
+  border: 0;
+}
+
+.login-article img, img.login-article, .login-block img, .login-footer img
+{
+  border: solid 1px #B2C2D1;
+  margin: 10px;
+}
+
+.login-metadata-icons img
+{
+  border: none;
+  vertical-align: middle;
+  margin: 2px;
+}
+
+.login-article table, table.login-article
+{
+  border-collapse: collapse;
+  margin: 1px;
+}
+
+.login-article th, .login-article td
+{
+  padding: 6px;
+  border: solid 1px #8099B3;
+  vertical-align: top;
+  text-align: left;
+}
+
+.login-article th
+{
+  text-align: center;
+  vertical-align: middle;
+  padding: 7px;
+}
+
+.stats table
+{ 
+  width: 100%;	
+}
+
+.stats td
+{ 
+  width: 50%;	
+  padding: 6px;
+  border: none;
+  vertical-align: top;
+  text-align: left;
+}
+
+pre
+{
+  overflow: auto;
+  padding: 0.1em;
+}
+
+/* end Box, Post */
+
+/* begin PostHeaderIcon */
+h2.login-postheader
+{
+  color: #1D3C4E;
+  margin: 5px 0;
+  font-size: 22px;
+}
+
+h2.login-postheader a, 
+h2.login-postheader a:link, 
+h2.login-postheader a:visited,
+h2.login-postheader a.visited,
+h2.login-postheader a:hover,
+h2.login-postheader a.hovered
+{
+  font-size: 22px;
+}
+
+h2.login-postheader a, h2.login-postheader a:link
+{
+  text-decoration: none;
+  color: #244A61;
+}
+
+h2.login-postheader a:visited, h2.login-postheader a.visited
+{
+  color: #54708C;
+}
+
+h2.login-postheader a:hover,  h2.login-postheader a.hovered
+{
+  color: #3A789C;
+}
+
+/* end PostHeaderIcon */
+
+/* begin PostMetadata, PostMetadataHeader */
+.login-postmetadataheader
+{
+  overflow:hidden;
+  padding: 1px;
+  background-color: #D6DEE6;
+  border-color: #B2C2D1;
+  border-style: solid;
+  border-width: 1px;
+}
+/* end PostMetadata, PostMetadataHeader */
+
+/* begin PostIcons, PostHeaderIcons */
+.login-postheadericons,
+.login-postheadericons a,
+.login-postheadericons a:link,
+.login-postheadericons a:visited,
+.login-postheadericons a:hover
+{
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  font-size: 11px;
+  color: #324253;
+}
+
+.login-postheadericons
+{
+  padding: 1px;
+}
+
+.login-postheadericons a, .login-postheadericons a:link
+{
+  text-decoration: underline;
+  color: #28536C;
+}
+
+.login-postheadericons a:visited, .login-postheadericons a.visited
+{
+  font-style: italic;
+  font-weight: normal;
+  color: #28536C;
+}
+
+.login-postheadericons a:hover, .login-postheadericons a.hover
+{
+  font-style: italic;
+  font-weight: normal;
+  text-decoration: none;
+  color: #367091;
+}
+/* end PostIcons, PostHeaderIcons */
+
+/* begin PostBullets */
+.login-post ol, .login-post ul
+{
+  margin: 1em 0 1em 2em;
+  padding: 0;
+}
+
+.login-post li
+{
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  font-size: 12px;
+  color: #283643;
+  padding: 0 0 0 13px;
+}
+
+.login-post li ol, .login-post li ul
+{
+  margin: 0.5em 0 0.5em 2em;
+  padding: 0;
+}
+
+.login-post ol>li
+{
+  background: none;
+  padding-left: 0;
+  /* overrides overflow for "ul li" and sets the default value */
+  overflow: visible;
+}
+
+.login-post ul>li
+{
+  background-image: url('images/postbullets.png');
+  background-repeat: no-repeat;
+  padding-left: 13px;
+  /* makes "ul li" not to align behind the image if they are in the same line */
+  overflow-x: visible;
+  overflow-y: hidden;
+}
+
+/* end PostBullets */
+
+/* begin PostQuote */
+.login-postcontent blockquote,
+.login-postcontent blockquote a,
+.login-postcontent blockquote a:link,
+.login-postcontent blockquote a:visited,
+.login-postcontent blockquote a:hover
+{
+  color: #1E1300;
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  font-style: italic;
+  font-weight: normal;
+  text-align: left;
+}
+
+.login-postcontent blockquote p
+{
+   margin: 2px 0 2px 15px;
+}
+
+.login-postcontent blockquote
+{
+   border: solid 1px #FEC262;
+  margin: 10px 10px 10px 50px;
+  padding: 6px 6px 6px 43px;
+  background-color: #FFE0AE;
+  background-image: url('images/postquote.png');
+  background-position: left top;
+  background-repeat: no-repeat;
+  /* makes blockquote not to align behind the image if they are in the same line */
+  overflow: auto;
+  clear:both;
+}
+
+/* end PostQuote */
+
+/* begin PostMetadata, PostMetadataFooter */
+.login-postmetadatafooter
+{
+  overflow:hidden;
+  padding: 1px;
+  background-color: #D6DEE6;
+  border-color: #B2C2D1;
+  border-style: solid;
+  border-width: 1px;
+}
+/* end PostMetadata, PostMetadataFooter */
+
+/* begin PostIcons, PostFooterIcons */
+.login-postfootericons,
+.login-postfootericons a,
+.login-postfootericons a:link,
+.login-postfootericons a:visited,
+.login-postfootericons a:hover
+{
+  font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+  font-size: 11px;
+  text-decoration: none;
+  color: #324253;
+}
+
+.login-postfootericons
+{
+  padding: 1px;
+}
+
+.login-postfootericons a, .login-postfootericons a:link
+{
+  text-decoration: underline;
+  color: #28536C;
+}
+
+.login-postfootericons a:visited, .login-postfootericons a.visited
+{
+  color: #28536C;
+}
+
+.login-postfootericons a:hover, .login-postfootericons a.hover
+{
+  text-decoration: none;
+  color: #367091;
+}
+/* end PostIcons, PostFooterIcons */
+
+/* begin Footer */
+.login-footer
+{
+  position: relative;
+  margin-top:10px;
+  margin-bottom:0;
+  width: 100%;
+}
+
+.login-footer-b 
+{
+  position: absolute;
+  left:4px;
+  right:4px;
+  bottom:0;
+  height:4px;
+  background-image: url('images/footer_b.png');
+}
+
+.login-footer-r, .login-footer-l
+{
+  position: absolute;
+  height:4px;
+  background-image: url('images/footer_s.png');
+  bottom: 0;
+}
+
+.login-footer-l
+{
+  left: 0;
+  width:4px;
+}
+
+.login-footer-r
+{
+  right: 0;
+  width:8px;
+  clip: rect(auto, auto, auto, 4px);
+}
+
+.login-footer-t
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  background-color: #B2C2D1;
+}
+
+.login-footer-body
+{
+    position:relative;
+    padding: 10px;
+}
+
+.login-footer-text p
+{
+  padding:0;
+  margin:0;
+  text-align: center;
+}
+
+.login-footer-text,
+.login-footer-text a,
+.login-footer-text a:link,
+.login-footer-text a:visited,
+.login-footer-text a:hover,
+.login-footer-text td, 
+.login-footer-text th,
+.login-footer-text caption
+{
+    color: #131A20;
+    font-size: 11px;
+}
+
+.login-footer-text
+{
+  min-height: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.login-footer-text a,
+.login-footer-text a:link
+{
+  color: #22485D;
+  text-decoration: underline;
+}
+
+.login-footer-text a:visited
+{
+  color: #304050;
+}
+
+.login-footer-text a:hover
+{
+  color: #162E3C;
+  text-decoration: none;
+}
+
+div.login-footer img
+{
+/* WARNING do NOT collapse this to 'border' - inheritance! */
+    border-width: 1px;
+    border-color: #B2C2D1;
+  border-style: solid;
+  margin: 10px;
+}/* end Footer */
+
+/* begin PageFooter */
+.login-page-footer, 
+.login-page-footer a,
+.login-page-footer a:link,
+.login-page-footer a:visited,
+.login-page-footer a:hover
+{
+  font-family: Arial;
+  font-size: 10px;
+  letter-spacing: normal;
+  word-spacing: normal;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+  color: #377395;
+}
+
+.login-page-footer
+{
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  color: #394D60;
+}
+/* end PageFooter */
+
+/* begin LayoutCell, content */
+
+/* end LayoutCell, content */
+
+

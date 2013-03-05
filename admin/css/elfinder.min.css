@@ -1,0 +1,1523 @@
+/*!
+ * elFinder - file manager for web
+ * Version 2.0 rc1 (2012-04-10)
+ * http://elfinder.org
+ * 
+ * Copyright 2009-2012, Studio 42
+ * Licensed under a 3 clauses BSD license
+ */
+
+.elfinder-dialog-resize {
+    margin-top: 0.3em;
+}
+.elfinder-resize-type {
+    float: left;
+    margin-bottom: 0.4em;
+}
+.elfinder-resize-control {
+    padding-top: 3em;
+}
+.elfinder-resize-control input[type="text"] {
+    border: 1px solid #AAAAAA;
+    text-align: right;
+}
+.elfinder-resize-preview {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #AAAAAA;
+    float: right;
+    height: 400px;
+    overflow: auto;
+    padding: 10px;
+    position: relative;
+    width: 400px;
+}
+.elfinder-resize-handle {
+    position: relative;
+}
+.elfinder-resize-handle-hline, .elfinder-resize-handle-vline {
+    background-image: url("../img/crop.gif");
+    position: absolute;
+}
+.elfinder-resize-handle-hline {
+    background-repeat: repeat-x;
+    height: 1px !important;
+    width: 100%;
+}
+.elfinder-resize-handle-vline {
+    background-repeat: repeat-y;
+    height: 100%;
+    width: 1px !important;
+}
+.elfinder-resize-handle-hline-top {
+    left: 0;
+    top: 0;
+}
+.elfinder-resize-handle-hline-bottom {
+    bottom: 0;
+    left: 0;
+}
+.elfinder-resize-handle-vline-left {
+    left: 0;
+    top: 0;
+}
+.elfinder-resize-handle-vline-right {
+    right: 0;
+    top: 0;
+}
+.elfinder-resize-handle-point {
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid #777777;
+    height: 8px;
+    position: absolute;
+    width: 8px;
+}
+.elfinder-resize-handle-point-n {
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -5px;
+    top: 0;
+}
+.elfinder-resize-handle-point-ne {
+    margin-right: -5px;
+    margin-top: -5px;
+    right: 0;
+    top: 0;
+}
+.elfinder-resize-handle-point-e {
+    margin-right: -5px;
+    margin-top: -5px;
+    right: 0;
+    top: 50%;
+}
+.elfinder-resize-handle-point-se {
+    bottom: 0;
+    margin-bottom: -5px;
+    margin-right: -5px;
+    right: 0;
+}
+.elfinder-resize-handle-point-s {
+    bottom: 0;
+    left: 50%;
+    margin-bottom: -5px;
+    margin-left: -5px;
+}
+.elfinder-resize-handle-point-sw {
+    bottom: 0;
+    left: 0;
+    margin-bottom: -5px;
+    margin-left: -5px;
+}
+.elfinder-resize-handle-point-w {
+    left: 0;
+    margin-left: -5px;
+    margin-top: -5px;
+    top: 50%;
+}
+.elfinder-resize-handle-point-nw {
+    left: 0;
+    margin-left: -5px;
+    margin-top: -5px;
+    top: 0;
+}
+.elfinder-resize-spinner {
+    background: url("../img/progress.gif") repeat-x scroll center bottom transparent;
+    height: 30px;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -25px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 200px;
+}
+.elfinder-resize-row {
+    margin-bottom: 7px;
+    position: relative;
+}
+.elfinder-resize-label {
+    float: left;
+    padding-top: 3px;
+    width: 80px;
+}
+.elfinder-resize-reset {
+    height: 16px;
+    margin-top: -8px;
+    position: absolute;
+    width: 16px;
+}
+.elfinder-dialog .elfinder-dialog-resize .ui-resizable-e {
+    height: 100%;
+    width: 10px;
+}
+.elfinder-dialog .elfinder-dialog-resize .ui-resizable-s {
+    height: 10px;
+    width: 100%;
+}
+.elfinder-dialog .elfinder-dialog-resize .ui-resizable-se {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    margin-bottom: -7px;
+    margin-right: -7px;
+    right: 0;
+}
+.elfinder-dialog-resize .ui-icon-grip-solid-vertical {
+    margin-right: -11px;
+    margin-top: -8px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.elfinder-dialog-resize .ui-icon-grip-solid-horizontal {
+    bottom: 0;
+    left: 50%;
+    margin-bottom: -11px;
+    margin-left: -8px;
+    position: absolute;
+}
+.elfinder-resize-row .elfinder-buttonset {
+    float: right;
+}
+.elfinder-resize-rotate-slider {
+    float: left;
+    margin: 7px 7px 0;
+    width: 195px;
+}
+.elfinder-file-edit {
+    border: 1px solid #CCCCCC;
+    height: 99%;
+    margin: 0;
+    padding: 2px;
+    width: 99%;
+}
+.elfinder-help {
+    margin-bottom: 0.5em;
+}
+.elfinder-help .ui-tabs-panel {
+    padding: 0.5em;
+}
+.elfinder-dialog .ui-tabs .ui-tabs-nav li a {
+    padding: 0.2em 1em;
+}
+.elfinder-help-shortcuts {
+    height: 300px;
+    margin: 0.5em 0;
+    overflow: auto;
+    padding: 1em;
+}
+.elfinder-help-shortcut {
+    clear: both;
+    white-space: nowrap;
+}
+.elfinder-help-shortcut-pattern {
+    float: left;
+    width: 160px;
+}
+.elfinder-help-logo {
+    background: url("../img/logo.png") no-repeat scroll center center transparent;
+    float: left;
+    height: 96px;
+    margin-right: 1em;
+    width: 100px;
+}
+.elfinder-help h3 {
+    font-size: 1.5em;
+    margin: 0.2em 0 0.3em;
+}
+.elfinder-help-separator {
+    clear: both;
+    padding: 0.5em;
+}
+.elfinder-help-link {
+    padding: 2px;
+}
+.elfinder-help .ui-priority-secondary {
+    font-size: 0.9em;
+}
+.elfinder-help .ui-priority-primary {
+    margin-bottom: 7px;
+}
+.elfinder-help-team {
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    font-size: 0.9em;
+    margin: 0.5em 0;
+    text-align: right;
+}
+.elfinder-help-team div {
+    float: left;
+}
+.elfinder-help-license {
+    font-size: 0.9em;
+}
+.elfinder-help-disabled {
+    font-weight: 700;
+    margin: 90px 0;
+    text-align: center;
+}
+.elfinder-help .elfinder-dont-panic {
+    background: radial-gradient(circle farthest-corner at 80px 80px , #D90004 35%, #960004 100%) repeat scroll 0 0 transparent;
+    border: 1px solid transparent;
+    border-radius: 100px 100px 100px 100px;
+    box-shadow: 5px 5px 9px #111111;
+    display: block;
+    height: 200px;
+    margin: 30px auto;
+    outline: medium none;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+}
+.elfinder-help .elfinder-dont-panic span {
+    color: #FFFFFF;
+    font-size: 3em;
+    font-weight: 700;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 45px;
+}
+.elfinder {
+    display: block;
+    padding: 0;
+    position: relative;
+}
+.elfinder-rtl {
+    direction: rtl;
+    text-align: right;
+}
+.elfinder-workzone {
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+.elfinder-perms, .elfinder-symlink {
+    background-image: url("../img/toolbar.png");
+    background-position: 0 -528px;
+    background-repeat: no-repeat;
+    height: 16px;
+    position: absolute;
+    width: 16px;
+}
+.elfinder-na .elfinder-perms {
+    background-position: 0 -96px;
+}
+.elfinder-ro .elfinder-perms {
+    background-position: 0 -64px;
+}
+.elfinder-wo .elfinder-perms {
+    background-position: 0 -80px;
+}
+.elfinder-drag-helper {
+    height: 50px;
+    padding: 0 0 0 25px;
+    width: 60px;
+    z-index: 100000;
+}
+.elfinder-drag-helper-icon-plus {
+    background: url("../img/toolbar.png") no-repeat scroll 0 -544px transparent;
+    display: none;
+    height: 16px;
+    left: 43px;
+    position: absolute;
+    top: 55px;
+    width: 16px;
+}
+.elfinder-drag-helper-plus .elfinder-drag-helper-icon-plus {
+    display: block;
+}
+.elfinder-drag-num {
+    background-color: red;
+    border-radius: 8px 8px 8px 8px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    height: 14px;
+    left: 0;
+    padding-top: 2px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 16px;
+}
+.elfinder-drag-helper .elfinder-cwd-icon {
+    float: left;
+    margin: 0 0 0 -24px;
+}
+.elfinder-overlay {
+    opacity: 0;
+}
+.elfinder .elfinder-panel {
+    background-image: none;
+    padding: 7px 12px;
+    position: relative;
+}
+.elfinder-contextmenu, .elfinder-contextmenu-sub {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #AAAAAA;
+    color: #555555;
+    display: none;
+    padding: 4px 0;
+    position: absolute;
+}
+.elfinder-contextmenu-sub {
+    top: 5px;
+}
+.elfinder-contextmenu-ltr .elfinder-contextmenu-sub {
+    margin-left: -5px;
+}
+.elfinder-contextmenu-rtl .elfinder-contextmenu-sub {
+    margin-right: -5px;
+}
+.elfinder-contextmenu-item {
+    cursor: default;
+    display: block;
+    padding: 4px 30px;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.elfinder-contextmenu .elfinder-contextmenu-item span {
+    display: block;
+    font-size: 0.76em;
+}
+.elfinder-contextmenu-ltr .elfinder-contextmenu-item {
+    text-align: left;
+}
+.elfinder-contextmenu-rtl .elfinder-contextmenu-item {
+    text-align: right;
+}
+.elfinder-contextmenu-ltr .elfinder-contextmenu-sub .elfinder-contextmenu-item {
+    padding-left: 12px;
+}
+.elfinder-contextmenu-rtl .elfinder-contextmenu-sub .elfinder-contextmenu-item {
+    padding-right: 12px;
+}
+.elfinder-contextmenu-arrow, .elfinder-contextmenu-icon {
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+}
+.elfinder-contextmenu-ltr .elfinder-contextmenu-icon {
+    left: 8px;
+}
+.elfinder-contextmenu-rtl .elfinder-contextmenu-icon {
+    right: 8px;
+}
+.elfinder-contextmenu-arrow {
+    background: url("../img/arrows-normal.png") no-repeat scroll 5px 4px transparent;
+    height: 16px;
+    width: 16px;
+}
+.elfinder-contextmenu-ltr .elfinder-contextmenu-arrow {
+    right: 5px;
+}
+.elfinder-contextmenu-rtl .elfinder-contextmenu-arrow {
+    background-position: 0 -10px;
+    left: 5px;
+}
+.elfinder-contextmenu .ui-state-hover {
+    background-image: none;
+    border: 0 solid;
+}
+.elfinder-contextmenu-separator {
+    border-top: 1px solid #CCCCCC;
+    height: 0;
+    margin: 0 1px;
+}
+.elfinder-cwd-wrapper {
+    margin: 0;
+    overflow: auto;
+    padding: 2px;
+    position: relative;
+}
+.elfinder-cwd-wrapper-list {
+    padding: 0;
+}
+.elfinder-cwd {
+    -moz-user-select: -moz-none;
+    cursor: default;
+    font-size: 0.7em;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.elfinder .elfinder-cwd-wrapper.elfinder-droppable-active {
+    border: 2px solid #8CAFED;
+    padding: 0;
+}
+.elfinder-cwd-view-icons .elfinder-cwd-file {
+    cursor: default;
+    height: 80px;
+    overflow: hidden;
+    padding-bottom: 2px;
+    width: 120px;
+}
+.elfinder-ltr .elfinder-cwd-view-icons .elfinder-cwd-file {
+    float: left;
+    margin: 0 3px 12px 0;
+}
+.elfinder-rtl .elfinder-cwd-view-icons .elfinder-cwd-file {
+    float: right;
+    margin: 0 0 5px 3px;
+}
+.elfinder-cwd-view-icons .elfinder-cwd-file .ui-state-hover {
+    border: 0 solid;
+}
+.elfinder-cwd-view-icons .elfinder-cwd-file-wrapper {
+    height: 52px;
+    margin: 1px auto;
+    padding: 2px;
+    position: relative;
+    width: 52px;
+}
+.elfinder-cwd-view-icons .elfinder-cwd-filename {
+    border-radius: 8px 8px 8px 8px;
+    margin: 3px 1px 0;
+    overflow: hidden;
+    padding: 1px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: pre;
+}
+.elfinder-cwd-view-icons .elfinder-perms {
+    bottom: 4px;
+    right: 2px;
+}
+.elfinder-cwd-view-icons .elfinder-symlink {
+    bottom: 6px;
+    left: 0;
+}
+.elfinder-cwd-icon {
+    background: url("../img/icons-big.png") no-repeat scroll 0 0 padding-box transparent;
+    display: block;
+    height: 48px;
+    margin: 0 auto;
+    width: 48px;
+}
+.elfinder-cwd .elfinder-droppable-active .elfinder-cwd-icon {
+    background-position: 0 -100px;
+}
+.elfinder-cwd-icon-directory {
+    background-position: 0 -50px;
+}
+.elfinder-cwd-icon-application {
+    background-position: 0 -150px;
+}
+.elfinder-cwd-icon-x-empty, .elfinder-cwd-icon-text {
+    background-position: 0 -200px;
+}
+.elfinder-cwd-icon-image, .elfinder-cwd-icon-vnd-adobe-photoshop, .elfinder-cwd-icon-postscript {
+    background-position: 0 -250px;
+}
+.elfinder-cwd-icon-audio {
+    background-position: 0 -300px;
+}
+.elfinder-cwd-icon-video, .elfinder-cwd-icon-flash-video {
+    background-position: 0 -350px;
+}
+.elfinder-cwd-icon-rtf, .elfinder-cwd-icon-rtfd {
+    background-position: 0 -401px;
+}
+.elfinder-cwd-icon-pdf {
+    background-position: 0 -450px;
+}
+.elfinder-cwd-icon-vnd-ms-office, .elfinder-cwd-icon-msword, .elfinder-cwd-icon-vnd-ms-word, .elfinder-cwd-icon-vnd-oasis-opendocument-text, .elfinder-cwd-icon-ms-excel, .elfinder-cwd-icon-vnd-ms-excel, .elfinder-cwd-icon-vnd-oasis-opendocument-spreadsheet, .elfinder-cwd-icon-vnd-ms-powerpoint, .elfinder-cwd-icon-vnd-oasis-opendocument-presentation {
+    background-position: 0 -500px;
+}
+.elfinder-cwd-icon-html {
+    background-position: 0 -550px;
+}
+.elfinder-cwd-icon-css {
+    background-position: 0 -600px;
+}
+.elfinder-cwd-icon-javascript, .elfinder-cwd-icon-x-javascript {
+    background-position: 0 -650px;
+}
+.elfinder-cwd-icon-x-perl {
+    background-position: 0 -700px;
+}
+.elfinder-cwd-icon-x-python {
+    background-position: 0 -750px;
+}
+.elfinder-cwd-icon-x-ruby {
+    background-position: 0 -800px;
+}
+.elfinder-cwd-icon-x-sh, .elfinder-cwd-icon-x-shellscript {
+    background-position: 0 -850px;
+}
+.elfinder-cwd-icon-x-c, .elfinder-cwd-icon-x-csrc, .elfinder-cwd-icon-x-chdr, .elfinder-cwd-icon-x-c--, .elfinder-cwd-icon-x-c--src, .elfinder-cwd-icon-x-c--hdr, .elfinder-cwd-icon-x-java, .elfinder-cwd-icon-x-java-source {
+    background-position: 0 -900px;
+}
+.elfinder-cwd-icon-x-php {
+    background-position: 0 -950px;
+}
+.elfinder-cwd-icon-xml {
+    background-position: 0 -1000px;
+}
+.elfinder-cwd-icon-zip, .elfinder-cwd-icon-x-zip, .elfinder-cwd-icon-x-7z-compressed {
+    background-position: 0 -1050px;
+}
+.elfinder-cwd-icon-x-gzip, .elfinder-cwd-icon-x-tar {
+    background-position: 0 -1100px;
+}
+.elfinder-cwd-icon-x-bzip, .elfinder-cwd-icon-x-bzip2 {
+    background-position: 0 -1150px;
+}
+.elfinder-cwd-icon-x-rar, .elfinder-cwd-icon-x-rar-compressed {
+    background-position: 0 -1200px;
+}
+.elfinder-cwd-icon-x-shockwave-flash {
+    background-position: 0 -1250px;
+}
+.elfinder-cwd-icon-group {
+    background-position: 0 -1300px;
+}
+.elfinder-cwd input {
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.elfinder-cwd-view-icons input, .elfinder-cwd-view-icons {
+    text-align: center;
+}
+.elfinder-cwd table {
+    border: 0 solid;
+    border-collapse: collapse;
+    margin: 0 0 10px;
+    width: 100%;
+}
+.elfinder .elfinder-cwd table thead tr {
+    border-left: 0 solid;
+    border-right: 0 solid;
+    border-top: 0 solid;
+}
+.elfinder .elfinder-cwd table thead td {
+    font-size: 0.9em;
+}
+.elfinder .elfinder-cwd table td {
+    border: 0 solid;
+    cursor: default;
+    overflow: hidden;
+    padding: 3px 12px;
+    text-align: right;
+    white-space: pre;
+}
+.elfinder-ltr .elfinder-cwd table td {
+    text-align: right;
+}
+.elfinder-ltr .elfinder-cwd table td:first-child {
+    text-align: left;
+}
+.elfinder-rtl .elfinder-cwd table td {
+    text-align: left;
+}
+.elfinder-rtl .elfinder-cwd table td:first-child {
+    text-align: right;
+}
+.elfinder-odd-row {
+    background: none repeat scroll 0 0 #EEEEEE;
+}
+.elfinder-cwd-view-list .elfinder-cwd-file-wrapper {
+    position: relative;
+    width: 97%;
+}
+.elfinder-ltr .elfinder-cwd-view-list .elfinder-cwd-file-wrapper {
+    padding-left: 23px;
+}
+.elfinder-rtl .elfinder-cwd-view-list .elfinder-cwd-file-wrapper {
+    padding-right: 23px;
+}
+.elfinder-cwd-view-list .elfinder-perms, .elfinder-cwd-view-list .elfinder-symlink {
+    margin-top: -6px;
+    top: 50%;
+}
+.elfinder-ltr .elfinder-cwd-view-list .elfinder-perms {
+    left: 7px;
+}
+.elfinder-ltr .elfinder-cwd-view-list .elfinder-symlink {
+    left: -7px;
+}
+.elfinder-cwd-view-list td .elfinder-cwd-icon {
+    background-image: url("../img/icons-small.png");
+    height: 16px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+.elfinder-ltr .elfinder-cwd-view-list .elfinder-cwd-icon {
+    left: 0;
+}
+.elfinder-rtl .elfinder-cwd-view-list .elfinder-cwd-icon {
+    right: 0;
+}
+.std42-dialog {
+    padding: 0;
+}
+.std42-dialog .ui-dialog-titlebar {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-left: 0 solid transparent;
+    border-right: 0 solid transparent;
+    border-top: 0 solid transparent;
+    font-size: 0.82em;
+    font-weight: 400;
+    padding: 0.2em 1em;
+}
+.std42-dialog .ui-dialog-titlebar-close, .std42-dialog .ui-dialog-titlebar-close:hover {
+    padding: 1px;
+}
+.elfinder-rtl .elfinder-dialog .ui-dialog-titlebar {
+    text-align: right;
+}
+.elfinder-rtl .elfinder-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close {
+    left: 0.3em;
+    right: auto;
+}
+.std42-dialog .ui-dialog-content {
+    font-size: 0.72em;
+    padding: 0.3em 0.5em;
+}
+.std42-dialog .ui-dialog-buttonpane {
+    border: 0 solid;
+    font-size: 0.76em;
+    margin: 0;
+    padding: 0.5em 0.7em;
+}
+.std42-dialog .ui-dialog-buttonpane button {
+    margin: 0 0 0 0.4em;
+    outline: 0 solid;
+    padding: 0;
+}
+.std42-dialog .ui-dialog-buttonpane button span {
+    padding: 2px 9px;
+}
+.elfinder-dialog .ui-resizable-e, .elfinder-dialog .ui-resizable-s {
+    height: 0;
+    width: 0;
+}
+.std42-dialog .ui-button input {
+    cursor: pointer;
+}
+.elfinder-dialog-icon {
+    background: url("../img/dialogs.png") no-repeat scroll 0 0 transparent;
+    height: 32px;
+    left: 12px;
+    margin-top: -15px;
+    position: absolute;
+    top: 50%;
+    width: 32px;
+}
+.elfinder-rtl .elfinder-dialog-icon {
+    left: auto;
+    right: 12px;
+}
+.elfinder-dialog-error .ui-dialog-content, .elfinder-dialog-confirm .ui-dialog-content {
+    min-height: 35px;
+    padding-left: 56px;
+}
+.elfinder-rtl .elfinder-dialog-error .ui-dialog-content, .elfinder-rtl .elfinder-dialog-confirm .ui-dialog-content {
+    padding-left: 0;
+    padding-right: 56px;
+}
+.elfinder-dialog-notify .ui-dialog-titlebar-close {
+    display: none;
+}
+.elfinder-dialog-notify .ui-dialog-content {
+    padding: 0;
+}
+.elfinder-notify {
+    border-bottom: 1px solid #CCCCCC;
+    overflow: hidden;
+    padding: 0.5em;
+    position: relative;
+    text-align: center;
+}
+.elfinder-ltr .elfinder-notify {
+    padding-left: 30px;
+}
+.elfinder-rtl .elfinder-notify {
+    padding-right: 30px;
+}
+.elfinder-notify:last-child {
+    border: 0 solid;
+}
+.elfinder-notify-progressbar {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border: 1px solid #AAAAAA;
+    height: 8px;
+    margin: 5px auto;
+    overflow: hidden;
+    width: 180px;
+}
+.elfinder-notify-progress {
+    background: url("../img/progress.gif") repeat-x scroll center center transparent;
+    height: 8px;
+    width: 100%;
+}
+.elfinder-notify-progressbar, .elfinder-notify-progress {
+    border-radius: 2px 2px 2px 2px;
+}
+.elfinder-dialog-icon-open, .elfinder-dialog-icon-file, .elfinder-dialog-icon-reload {
+    background-position: 0 -225px;
+}
+.elfinder-dialog-icon-mkdir {
+    background-position: 0 -64px;
+}
+.elfinder-dialog-icon-mkfile {
+    background-position: 0 -96px;
+}
+.elfinder-dialog-icon-copy, .elfinder-dialog-icon-prepare, .elfinder-dialog-icon-move {
+    background-position: 0 -128px;
+}
+.elfinder-dialog-icon-upload {
+    background-position: 0 -160px;
+}
+.elfinder-dialog-icon-rm {
+    background-position: 0 -192px;
+}
+.elfinder-dialog-icon-download {
+    background-position: 0 -260px;
+}
+.elfinder-dialog-icon-save {
+    background-position: 0 -295px;
+}
+.elfinder-dialog-icon-rename {
+    background-position: 0 -330px;
+}
+.elfinder-dialog-icon-archive, .elfinder-dialog-icon-extract {
+    background-position: 0 -365px;
+}
+.elfinder-dialog-icon-search {
+    background-position: 0 -402px;
+}
+.elfinder-dialog-confirm-applyall {
+    padding-top: 3px;
+}
+.elfinder-dialog-confirm .elfinder-dialog-icon {
+    background-position: 0 -32px;
+}
+.elfinder-info-title .elfinder-cwd-icon {
+    float: left;
+    height: 48px;
+    margin-right: 1em;
+    width: 48px;
+}
+.elfinder-info-title strong {
+    display: block;
+    padding: 0.3em 0 0.5em;
+}
+.elfinder-info-tb {
+    border: 0 solid;
+    font-size: 0.9em;
+    margin: 1em 0.2em;
+    min-width: 200px;
+}
+.elfinder-info-tb td {
+    padding: 2px;
+    white-space: nowrap;
+}
+.elfinder-info-tb tr td:first-child {
+    text-align: right;
+}
+.elfinder-info-tb span {
+    float: left;
+}
+.elfinder-info-tb a {
+    outline: medium none;
+    text-decoration: underline;
+}
+.elfinder-info-tb a:hover {
+    text-decoration: none;
+}
+.elfinder-info-spinner {
+    background: url("../img/spinner-mini.gif") no-repeat scroll center center transparent;
+    float: left;
+    height: 14px;
+    margin: 0 5px;
+    width: 14px;
+}
+.elfinder-upload-dropbox {
+    border: 3px dashed #AAAAAA;
+    font-size: 1.2em;
+    padding: 2em 0;
+    text-align: center;
+}
+.elfinder-upload-dropbox.ui-state-hover {
+    background: none repeat scroll 0 0 #DFDFDF;
+    border: 3px dashed #555555;
+}
+.elfinder-upload-dialog-or {
+    font-size: 1.2em;
+    margin: 0.3em 0;
+    text-align: center;
+}
+.elfinder-upload-dialog-wrapper {
+    text-align: center;
+}
+.elfinder-upload-dialog-wrapper .ui-button {
+    overflow: hidden;
+    position: relative;
+}
+.elfinder-upload-dialog-wrapper .ui-button form {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.elfinder-upload-dialog-wrapper .ui-button form input {
+    font-size: 3em;
+    padding: 0 20px;
+}
+.dialogelfinder .dialogelfinder-drag {
+    border-left: 0 solid;
+    border-right: 0 solid;
+    border-top: 0 solid;
+    cursor: move;
+    font-size: 0.9em;
+    font-weight: 400;
+    padding: 2px 12px;
+    position: relative;
+    text-align: left;
+}
+.elfinder-rtl .dialogelfinder-drag {
+    text-align: right;
+}
+.dialogelfinder-drag-close {
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+}
+.elfinder-ltr .dialogelfinder-drag-close {
+    right: 12px;
+}
+.elfinder-rtl .dialogelfinder-drag-close {
+    left: 12px;
+}
+.elfinder .elfinder-navbar {
+    -moz-user-select: none;
+    background-image: none;
+    border-bottom: 0 solid;
+    border-top: 0 solid;
+    display: none;
+    font-size: 0.72em;
+    overflow: auto;
+    padding: 3px 5px;
+    position: relative;
+    width: 230px;
+}
+.elfinder-ltr .elfinder-navbar {
+    border-left: 0 solid;
+    float: left;
+}
+.elfinder-rtl .elfinder-navbar {
+    border-right: 0 solid;
+    float: right;
+}
+.elfinder-ltr .ui-resizable-e {
+    margin-left: 10px;
+}
+.elfinder-tree {
+    display: table;
+    margin: 0 0 0.5em;
+    width: 100%;
+}
+.elfinder-navbar-dir {
+    border: 1px solid transparent;
+    cursor: default;
+    display: block;
+    margin: 0;
+    outline: 0 solid;
+    padding: 3px 12px;
+    position: relative;
+    white-space: nowrap;
+}
+.elfinder-ltr .elfinder-navbar-dir {
+    padding-left: 35px;
+}
+.elfinder-rtl .elfinder-navbar-dir {
+    padding-right: 35px;
+}
+.elfinder-navbar-arrow {
+    background-image: url("../img/arrows-normal.png");
+    background-repeat: no-repeat;
+    display: none;
+    height: 14px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 12px;
+}
+.ui-state-active .elfinder-navbar-arrow {
+    background-image: url("../img/arrows-active.png");
+}
+.elfinder-navbar-collapsed .elfinder-navbar-arrow {
+    display: block;
+}
+.elfinder-ltr .elfinder-navbar-collapsed .elfinder-navbar-arrow {
+    background-position: 0 4px;
+    left: 0;
+}
+.elfinder-rtl .elfinder-navbar-collapsed .elfinder-navbar-arrow {
+    background-position: 0 -10px;
+    right: 0;
+}
+.elfinder-ltr .elfinder-navbar-expanded .elfinder-navbar-arrow, .elfinder-rtl .elfinder-navbar-expanded .elfinder-navbar-arrow {
+    background-position: 0 -21px;
+}
+.elfinder-navbar-icon {
+    background-image: url("../img/toolbar.png");
+    background-position: 0 -16px;
+    background-repeat: no-repeat;
+    height: 16px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+.elfinder-ltr .elfinder-navbar-icon {
+    left: 14px;
+}
+.elfinder-rtl .elfinder-navbar-icon {
+    right: 14px;
+}
+.elfinder-tree .elfinder-navbar-root .elfinder-navbar-icon {
+    background-position: 0 0;
+}
+.elfinder-places .elfinder-navbar-root .elfinder-navbar-icon {
+    background-position: 0 -48px;
+}
+.ui-state-active .elfinder-navbar-icon, .elfinder-droppable-active .elfinder-navbar-icon, .ui-state-hover .elfinder-navbar-icon {
+    background-position: 0 -32px;
+}
+.elfinder-navbar-subtree {
+    display: none;
+}
+.elfinder-ltr .elfinder-navbar-subtree {
+    margin-left: 12px;
+}
+.elfinder-rtl .elfinder-navbar-subtree {
+    margin-right: 12px;
+}
+.elfinder-navbar-spinner {
+    background: url("../img/spinner-mini.gif") no-repeat scroll center center transparent;
+    display: block;
+    height: 14px;
+    margin-top: -7px;
+    position: absolute;
+    top: 50%;
+    width: 14px;
+}
+.elfinder-ltr .elfinder-navbar-spinner {
+    left: 0;
+    margin-left: -2px;
+}
+.elfinder-rtl .elfinder-navbar-spinner {
+    margin-right: -2px;
+    right: 0;
+}
+.elfinder-navbar .elfinder-perms {
+    margin-top: -8px;
+    top: 50%;
+}
+.elfinder-ltr .elfinder-navbar .elfinder-perms {
+    left: 18px;
+}
+.elfinder-rtl .elfinder-navbar .elfinder-perms {
+    right: 18px;
+}
+.elfinder-ltr .elfinder-navbar .elfinder-symlink {
+    left: 8px;
+}
+.elfinder-rtl .elfinder-navbar .elfinder-symlink {
+    right: 8px;
+}
+.elfinder-navbar .ui-resizable-handle {
+    background: url("../img/resize.png") no-repeat scroll center center transparent;
+    left: 0;
+    width: 12px;
+}
+.elfinder-nav-handle-icon {
+    margin: -8px 2px 0;
+    opacity: 0.5;
+    position: absolute;
+    top: 50%;
+}
+.elfinder-places {
+    border: 1px solid transparent;
+}
+.elfinder-places.elfinder-droppable-active {
+    border: 1px solid #8CAFED;
+}
+.elfinder-place-drag .elfinder-navbar-dir {
+    font-size: 0.9em;
+}
+.elfinder-quicklook {
+    background: url("../img/quicklook-bg.png") repeat scroll 0 0 transparent;
+    border-radius: 7px 7px 7px 7px;
+    display: none;
+    overflow: hidden;
+    padding: 20px 0 40px;
+    position: absolute;
+}
+.elfinder-quicklook .ui-resizable-se {
+    background: url("../img/toolbar.png") no-repeat scroll 0 -496px transparent;
+    bottom: 3px;
+    height: 14px;
+    right: 5px;
+    width: 14px;
+}
+.elfinder-quicklook-fullscreen {
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 0 0 0 0;
+    display: block;
+    padding: 0;
+    z-index: 90000;
+}
+.elfinder-quicklook-fullscreen .elfinder-quicklook-titlebar {
+    display: none;
+}
+.elfinder-quicklook-fullscreen .elfinder-quicklook-preview {
+    border: 0 solid;
+}
+.elfinder-quicklook-titlebar {
+    background: none repeat scroll 0 0 #777777;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    cursor: move;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+.elfinder-quicklook-title {
+    color: #FFFFFF;
+    font-size: 0.7em;
+    overflow: hidden;
+    padding: 2px 0;
+    white-space: nowrap;
+}
+.elfinder-quicklook-titlebar .ui-icon {
+    cursor: default;
+    height: 16px;
+    left: 4px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+.elfinder-quicklook-preview {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color transparent;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.elfinder-quicklook-info-wrapper {
+    left: 0;
+    margin-top: -50px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+.elfinder-quicklook-info {
+    padding: 0 12px 0 112px;
+}
+.elfinder-quicklook-info .elfinder-quicklook-info-data:first-child {
+    color: #FFFFFF;
+    font-weight: 700;
+    padding-bottom: 0.5em;
+}
+.elfinder-quicklook-info-data {
+    color: #FFFFFF;
+    font-size: 0.72em;
+    padding-bottom: 0.2em;
+}
+.elfinder-quicklook .elfinder-cwd-icon {
+    left: 32px;
+    margin-top: -20px;
+    position: absolute;
+    top: 50%;
+}
+.elfinder-quicklook-preview img {
+    display: block;
+    margin: 0 auto;
+}
+.elfinder-quicklook-navbar {
+    border: 1px solid transparent;
+    border-radius: 19px 19px 19px 19px;
+    bottom: 4px;
+    height: 32px;
+    left: 50%;
+    margin-left: -70px;
+    padding: 0;
+    position: absolute;
+    width: 140px;
+}
+.elfinder-quicklook-fullscreen .elfinder-quicklook-navbar {
+    background: none repeat scroll 0 0 #000000;
+    border: 1px solid #EEEEEE;
+    margin-left: -94px;
+    padding: 5px;
+    width: 188px;
+}
+.elfinder-quicklook-fullscreen .elfinder-quicklook-navbar-icon-close, .elfinder-quicklook-fullscreen .elfinder-quicklook-navbar-separator {
+    display: inline;
+}
+.elfinder-quicklook-navbar-icon {
+    background: url("../img/quicklook-icons.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 32px;
+    margin: 0 7px;
+    width: 32px;
+}
+.elfinder-quicklook-navbar-icon-fullscreen {
+    background-position: 0 -64px;
+}
+.elfinder-quicklook-navbar-icon-fullscreen-off {
+    background-position: 0 -96px;
+}
+.elfinder-quicklook-navbar-icon-prev {
+    background-position: 0 0;
+}
+.elfinder-quicklook-navbar-icon-next {
+    background-position: 0 -32px;
+}
+.elfinder-quicklook-navbar-icon-close {
+    background-position: 0 -128px;
+    display: none;
+}
+.elfinder-quicklook-navbar-separator {
+    border-left: 1px solid #FFFFFF;
+    display: none;
+    float: left;
+    height: 32px;
+    width: 1px;
+}
+.elfinder-quicklook-preview-text-wrapper {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #222222;
+    font-size: 0.9em;
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+}
+pre.elfinder-quicklook-preview-text {
+    margin: 0;
+    padding: 3px 9px;
+}
+.elfinder-quicklook-preview-html, .elfinder-quicklook-preview-pdf {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0 solid;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}
+.elfinder-quicklook-preview-flash {
+    height: 100%;
+    width: 100%;
+}
+.elfinder-quicklook-preview-audio {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+embed.elfinder-quicklook-preview-audio {
+    background: none repeat scroll 0 0 transparent;
+    height: 30px;
+}
+.elfinder-quicklook-preview-video {
+    height: 100%;
+    width: 100%;
+}
+.elfinder-statusbar {
+    border-bottom: 0 solid transparent;
+    border-left: 0 solid transparent;
+    border-right: 0 solid transparent;
+    font-weight: 400;
+    padding: 0.2em 0.5em;
+    text-align: center;
+}
+.elfinder-statusbar a {
+    text-decoration: none;
+}
+.elfinder-statusbar div {
+    font-size: 0.7em;
+}
+.elfinder-path {
+    max-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.elfinder-ltr .elfinder-path {
+    float: left;
+}
+.elfinder-rtl .elfinder-path {
+    float: right;
+}
+.elfinder-stat-size {
+    white-space: nowrap;
+}
+.elfinder-ltr .elfinder-stat-size {
+    float: right;
+}
+.elfinder-rtl .elfinder-stat-size {
+    float: left;
+}
+.elfinder-stat-selected {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.elfinder-toolbar {
+    border-left: 0 solid transparent;
+    border-right: 0 solid transparent;
+    border-top: 0 solid transparent;
+    padding: 4px 0 3px;
+}
+.elfinder-buttonset {
+    background: none repeat scroll 0 0 transparent;
+    border-radius: 4px 4px 4px 4px;
+    float: left;
+    margin: 1px 4px;
+    padding: 0;
+}
+.elfinder .elfinder-button {
+    border: 0 solid;
+    float: left;
+    height: 16px;
+    margin: 0;
+    overflow: hidden;
+    padding: 4px;
+    position: relative;
+    width: 16px;
+}
+.elfinder .ui-icon-search {
+    cursor: pointer;
+}
+.elfinder-button:first-child {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.elfinder-button:last-child {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.elfinder-toolbar-button-separator {
+    border-bottom: 0 solid;
+    border-right: 0 solid;
+    border-top: 0 solid;
+    float: left;
+    height: 24px;
+    padding: 0;
+    width: 0;
+}
+.elfinder .elfinder-button.ui-state-disabled {
+    opacity: 1;
+}
+.elfinder .elfinder-button.ui-state-disabled .elfinder-button-icon {
+    opacity: 0.4;
+}
+.elfinder-rtl .elfinder-buttonset {
+    float: right;
+}
+.elfinder-button-icon {
+    background: url("../img/toolbar.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+.elfinder-button-icon-home {
+    background-position: 0 0;
+}
+.elfinder-button-icon-back {
+    background-position: 0 -112px;
+}
+.elfinder-button-icon-forward {
+    background-position: 0 -128px;
+}
+.elfinder-button-icon-up {
+    background-position: 0 -144px;
+}
+.elfinder-button-icon-reload {
+    background-position: 0 -160px;
+}
+.elfinder-button-icon-open {
+    background-position: 0 -176px;
+}
+.elfinder-button-icon-mkdir {
+    background-position: 0 -192px;
+}
+.elfinder-button-icon-mkfile {
+    background-position: 0 -208px;
+}
+.elfinder-button-icon-rm {
+    background-position: 0 -224px;
+}
+.elfinder-button-icon-copy {
+    background-position: 0 -240px;
+}
+.elfinder-button-icon-cut {
+    background-position: 0 -256px;
+}
+.elfinder-button-icon-paste {
+    background-position: 0 -272px;
+}
+.elfinder-button-icon-getfile {
+    background-position: 0 -288px;
+}
+.elfinder-button-icon-duplicate {
+    background-position: 0 -304px;
+}
+.elfinder-button-icon-rename {
+    background-position: 0 -320px;
+}
+.elfinder-button-icon-edit {
+    background-position: 0 -336px;
+}
+.elfinder-button-icon-quicklook {
+    background-position: 0 -352px;
+}
+.elfinder-button-icon-upload {
+    background-position: 0 -368px;
+}
+.elfinder-button-icon-download {
+    background-position: 0 -384px;
+}
+.elfinder-button-icon-info {
+    background-position: 0 -400px;
+}
+.elfinder-button-icon-extract {
+    background-position: 0 -416px;
+}
+.elfinder-button-icon-archive {
+    background-position: 0 -432px;
+}
+.elfinder-button-icon-view {
+    background-position: 0 -448px;
+}
+.elfinder-button-icon-view-list {
+    background-position: 0 -464px;
+}
+.elfinder-button-icon-help {
+    background-position: 0 -480px;
+}
+.elfinder-button-icon-resize {
+    background-position: 0 -512px;
+}
+.elfinder-button-icon-search {
+    background-position: 0 -561px;
+}
+.elfinder-button-icon-sort {
+    background-position: 0 -577px;
+}
+.elfinder-button-icon-rotate-r {
+    background-position: 0 -625px;
+}
+.elfinder-button-icon-rotate-l {
+    background-position: 0 -641px;
+}
+.elfinder .elfinder-menubutton {
+    overflow: visible;
+}
+.elfinder-button-menu {
+    left: 0;
+    padding: 3px 0;
+    position: absolute;
+    top: 26px;
+}
+.elfinder-button-menu-item {
+    cursor: default;
+    font-size: 0.72em;
+    padding: 5px 19px;
+    position: relative;
+    white-space: nowrap;
+}
+.elfinder-button-menu .ui-state-hover {
+    border: 0 solid;
+}
+.elfinder-menu-item-sort-dir {
+    background: url("../img/toolbar.png") no-repeat scroll 0 -594px transparent;
+    display: none;
+    height: 16px;
+    left: 2px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+.elfinder-button-menu-item-selected .elfinder-menu-item-sort-dir {
+    display: block;
+}
+.elfinder-menu-item-sort-desc .elfinder-menu-item-sort-dir {
+    background-position: 0 -608px;
+}
+.elfinder-button form {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.elfinder .elfinder-button form input {
+    background: none repeat scroll 0 0 transparent;
+    cursor: default;
+}
+.elfinder .elfinder-button-search {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 solid;
+    float: right;
+    height: auto;
+    margin: 1px 4px;
+    min-height: 26px;
+    padding: 0;
+    width: 202px;
+}
+.elfinder-ltr .elfinder-button-search {
+    float: right;
+    margin-right: 10px;
+}
+.elfinder-rtl .elfinder-button-search {
+    float: left;
+    margin-left: 10px;
+}
+.elfinder-button-search input {
+    border: 1px solid #AAAAAA;
+    border-radius: 12px 12px 12px 12px;
+    font-size: 0.8em;
+    height: 22px;
+    line-height: 22px;
+    outline: 0 solid;
+    padding: 0 20px;
+    width: 160px;
+}
+.elfinder-rtl .elfinder-button-search input {
+    direction: rtl;
+}
+.elfinder-button-search .ui-icon {
+    height: 18px;
+    margin: -13px 4px 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 50%;
+}
+.elfinder-ltr .elfinder-button-search .ui-icon-search {
+    left: 0;
+}
+.elfinder-rtl .elfinder-button-search .ui-icon-search, .elfinder-ltr .elfinder-button-search .ui-icon-close {
+    right: 0;
+}
+.elfinder-rtl .elfinder-button-search .ui-icon-close {
+    left: 0;
+}

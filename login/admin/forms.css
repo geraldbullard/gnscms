@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*DL, DT, DD TAGS LIST DATA*/
+dl {
+    margin-bottom:5px;
+}
+ 
+dl dt {
+    color:#000;
+    float:left;
+    clear:left; //
+    margin-right:10px;
+    padding:4px;
+    width:300px;
+}
+
+dl dt label {
+	font-weight:bold;
+}
+
+dl dt span {
+	font-size:10px;
+}
+ 
+dl dd {
+    margin:2px 0 0 50px;
+    padding:5px 0;
+    float:left;
+}
+fieldset {
+	margin-bottom:5px;
+	width: 700px;
+	background-color: #EEEEEE; /* for non-css3 browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#DDDDDD)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #EEEEEE,  #DDDDDD); /* for firefox 3.6+ */ 
+}
+fieldset legend {
+	font-weight:bold;
+	font-size:1.25em;
+}
+div.clear
+{
+clear:both;
+}
+table {
+	background-color: #EEEEEE; /* for non-css3 browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#DDDDDD)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #EEEEEE,  #DDDDDD); /* for firefox 3.6+ */ 
+	}
+table th {
+	align: left;
+}
+		

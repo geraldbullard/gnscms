@@ -1,0 +1,6 @@
+gnscms
+======
+
+A truly simple yet powerful CMS...
+
+It all started back when I ran across and article on creating a cms in an afternoon by Matt Doyle... 

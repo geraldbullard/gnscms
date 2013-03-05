@@ -1,0 +1,104 @@
+body
+{
+  padding: 0; 
+  margin:0;
+  color: #FFFFFF;
+  height:100%;
+  min-height:100%;
+  background-color: #FFFFFF;
+  background-image: url('Bottom_texture.jpg');
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-position: top left;
+  min-width: 900px;
+}
+
+A {
+	TEXT-DECORATION: underline
+}
+A:hover {
+	TEXT-DECORATION: none
+}
+UL {
+	MARGIN-TOP: 10px; MARGIN-BOTTOM: 10px; MARGIN-LEFT: 0px
+}
+LI {
+	MARGIN-LEFT: 18px
+}
+LI.error {
+	MARGIN-LEFT: 15px
+}
+LI.grey {
+	MARGIN-LEFT: 15px
+}
+FORM {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+
+.textform {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif
+}
+.textform A {
+	COLOR: #FFFFFF
+}
+.text {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.text H1 {
+	MARGIN-TOP: 0px; FONT-WEIGHT: normal; FONT-SIZE: 18px; MARGIN-BOTTOM: 15px; COLOR: #000000; LINE-HEIGHT: 15px
+}
+.text H2 {
+	MARGIN-TOP: 0px; FONT-SIZE: 16px; MARGIN-BOTTOM: 15px; COLOR: #000000
+}
+.text H3 {
+	MARGIN-TOP: 0px; FONT-SIZE: 14px; MARGIN-BOTTOM: 15px; COLOR: #000000
+}
+.text H4 {
+	MARGIN-TOP: 0px; FONT-SIZE: 12px; MARGIN-BOTTOM: 15px; COLOR: #000000
+}
+.text SPAN.date {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #ffffff
+}
+.text SPAN.sub {
+	FONT-SIZE: 11px; COLOR: #676767
+}
+.text A.sublink {
+	FONT-SIZE: 11px; COLOR: #666666
+}
+.text B.black {
+	COLOR: #000000
+}
+.text SPAN.black {
+	COLOR: #000000
+}
+
+.table {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 5px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; COLOR: #515151; PADDING-TOP: 2px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.table SPAN.header {
+	COLOR: #ffffff
+}
+.table SPAN.headergrey {
+	COLOR: #676767
+}
+.table A.black {
+	COLOR: #000000
+}
+.table SPAN.black {
+	COLOR: #000000
+}
+.table A.blocked {
+	COLOR: #e0a0a0
+}
+
+.form_button{
+	cursor: pointer;
+	border:1px;
+	background-color: #666;
+	color: #FFF;
+}
+
+.help_icon{
+	cursor: help;
+	border:1px;
+}

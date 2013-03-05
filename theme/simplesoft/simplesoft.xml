@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<theme>
+  <name>simplesoft</name>
+  <author>Renat Rafikov</author>
+  <url>http://www.cssr.ru/simpliste/</url>
+  <license>GPL, MIT</license>
+  <version>1.0.0.1</version>
+  <summary><![CDATA[This is a test summary for the .Simpliste html5 responsive template. This template has been converted for use with gnsCMS by maestro. This is a test summary for the .Simpliste html5 responsive template. This template has been converted for use with gnsCMS by maestro. This is a test summary for the .Simpliste html5 responsive template. This template has been converted for use with gnsCMS by maestro. This is a test summary for the .Simpliste html5 responsive template. This template has been converted for use with gnsCMS by maestro. This is a test summary for the .Simpliste html5 responsive template. This template has been converted for use with gnsCMS by maestro. This is a test summary for the .Simpliste html5 responsive template. This template has been converted for use with gnsCMS by maestro. This is a test summary for the .Simpliste html5 responsive template. This template has been converted for use with gnsCMS by maestro. This is a test summary for the .Simpliste html5 responsive template. This template has been converted for use with gnsCMS by maestro.]]></summary>
+  <shortcodes><![CDATA[<table class="table">
+                         <tbody>
+                           <tr>
+                             <th>Class</th>
+                             <th>Description</th>
+                           </tr>
+                           <tr>
+                             <td><code>.col_33</code></td>
+                             <td>Column with 33% width</td>
+                           </tr>
+                           <tr>
+                             <td><code>.col_50</code></td>
+                             <td>Column with 50% width</td>
+                           </tr>
+                           <tr>
+                             <td><code>.col_66</code></td>
+                             <td>Column with 66% width</td>
+                           </tr>
+                           <tr>
+                             <td><code>.col_100</code></td>
+                             <td>Full width column with proper margins</td>
+                           </tr>
+                           <tr>
+                             <td><code>.clearfix</code></td>
+                             <td>Use after or wrap a block of floated columns</td>
+                           </tr>
+                           <tr>
+                             <td><code>.left</code></td>
+                             <td>Left text alignment</td>
+                           </tr>
+                           <tr>
+                             <td><code>.right</code></td>
+                             <td>Right text alignment</td>
+                           </tr>
+                           <tr>
+                             <td><code>.center</code></td>
+                             <td>Centered text alignment</td>
+                           </tr>
+                           <tr>
+                             <td><code>.img_floatleft</code></td>
+                             <td>Left alignment for images in content</td>
+                           </tr>
+                           <tr>
+                             <td><code>.img_floatright</code></td>
+                             <td>Right alignment for images in content</td>
+                           </tr>
+                           <tr>
+                             <td><code>.img</code></td>
+                             <td>Makes image change its width when browser window width is changed</td>
+                           </tr>
+                         </tbody>
+                       </table>]]></shortcodes>
+</theme> 

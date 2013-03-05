@@ -1,0 +1,186 @@
+/* begin Page */
+#login-page-background-glare, #login-page-background-glare-image
+{
+  zoom: 1;
+}
+
+img
+{
+  filter: expression(artFixPNG(this));
+}/* end Page */
+
+/* begin Box, Sheet */
+.login-sheet-tl
+{
+  clip: rect(auto 17px 17px auto);
+}
+
+.login-sheet-tr
+{
+  clip: rect(auto auto 17px 17px);
+}
+
+.login-sheet-bl
+{
+  clip: rect(17px 17px auto auto);
+}
+
+.login-sheet-br
+{
+  clip: rect(17px auto auto 17px);
+}
+
+.login-sheet-tc
+{
+  clip: rect(auto auto 17px auto);
+}
+
+.login-sheet-bc
+{
+  clip: rect(17px auto auto auto);
+}
+
+.login-sheet-cr
+{
+  clip: rect(auto auto auto 17px);
+}
+
+.login-sheet-cl
+{
+  clip: rect(auto 17px auto auto);
+}
+
+.login-sheet-body
+{
+  zoom: 1;
+}
+/* end Box, Sheet */
+
+/* begin Menu */
+.login-nav-r
+{
+  clip: rect(auto auto auto 870px);
+}
+
+/* end Menu */
+
+/* begin MenuItem */
+.login-hmenu a .r
+{
+  clip: rect(auto auto auto 400px);
+}
+/* end MenuItem */
+
+/* begin Layout */
+.login-content-layout, .login-content-layout-row {display: block;}
+.login-content-layout, .login-content-layout-row {zoom: 1;}
+/* end Layout */
+
+/* begin Box, Block */
+.login-block-tl
+{
+  clip: rect(auto 1px 1px auto);
+}
+
+.login-block-tr
+{
+  clip: rect(auto auto 1px 1px);
+}
+
+.login-block-bl
+{
+  clip: rect(1px 1px auto auto);
+}
+
+.login-block-br
+{
+  clip: rect(1px auto auto 1px);
+}
+
+.login-block-tc
+{
+  clip: rect(auto auto 1px auto);
+}
+
+.login-block-bc
+{
+  clip: rect(1px auto auto auto);
+}
+
+.login-block-cr
+{
+  clip: rect(auto auto auto 1px);
+}
+
+.login-block-cl
+{
+  clip: rect(auto 1px auto auto);
+}
+
+.login-block-body
+{
+  zoom: 1;
+}
+/* end Box, Block */
+
+/* begin Box, BlockContent */
+
+.login-blockcontent-body
+{
+  zoom: 1;
+}
+/* end Box, BlockContent */
+
+/* begin Button */
+.login-button-wrapper .login-button-r
+{
+  clip: rect(auto auto auto 400px);
+}
+/* end Button */
+
+/* begin Box, Post */
+
+.login-post-body
+{
+  zoom: 1;
+}
+/* end Box, Post */
+
+/* begin PostContent */
+.login-postcontent
+{
+  height: 1%;
+}
+/* end PostContent */
+
+/* begin Footer */
+.login-footer-body
+{
+    padding-right: 0;
+  zoom:1;
+}
+
+.login-footer{
+  zoom:1;
+}
+
+.login-footer-r
+{
+  clip: rect(auto auto auto 4px);
+}
+
+/* end Footer */
+
+/* begin LayoutCell, content */
+.login-content {width: auto;}
+.login-content-layout .login-layout-cell, .login-content-layout .login-layout-cell .login-content-layout .login-layout-cell
+{
+  display: block;
+  position:relative;
+  float: left;
+  clear: right;
+}
+.login-content-layout .login-layout-cell, .login-content-layout .login-layout-cell .login-content-layout .login-layout-cell {  zoom:1; }
+.login-layout-cell .login-layout-cell{ float: none; clear: both;}
+/* end LayoutCell, content */
+

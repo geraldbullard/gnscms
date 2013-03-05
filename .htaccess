@@ -1,0 +1,81 @@
+########################################################################################
+# $Id: index.php, v 1.0.0 2009/01/07 datazen Exp $ :: updated 2012/06/20 maestro Exp $ #
+#                                                                                      #
+# gnsPLANET.com - The Foundation of Development & Research for the New Millenium       #
+# http://www.gnsplanet.com/                                                            #
+#                                                                                      #
+# 3G Development - The Ultimate in Design, Functionality and Service                   #
+# http://www.3g-dev.com/                                                               #
+#                                                                                      #
+# Copyright © 2010 gnsPLANET, LLC. All rights reserved.                                #
+# Copyright © 2012 3G Development. All rights reserved.                                #
+#                                                                                      #
+########################################################################################
+ 
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  RewriteEngine On
+  RewriteBase /afternooncms/
+  
+  RewriteCond %{SCRIPT_FILENAME} -d
+  RewriteCond %{SCRIPT_FILENAME} -f
+  RewriteRule "(^|/)\." - [F] 
+  
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+  RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301]
+  RewriteRule ^([^/]*)\.html$ index.php?pageName=$1 [L]
+  
+</IfModule>
+
+<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
+  Order allow,deny
+  Deny from all
+  Satisfy All
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header set X-UA-Compatible "IE=Edge,chrome=1"
+  # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
+  <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
+    Header unset X-UA-Compatible
+  </FilesMatch>
+</IfModule>
+
+<IfModule php5_module>
+  php_value session.cookie_httponly true
+</IfModule>
+
+# JavaScript
+AddType application/javascript         js
+
+# Audio
+AddType audio/ogg                      oga ogg
+AddType audio/mp4                      m4a
+
+# Video
+AddType video/ogg                      ogv
+AddType video/mp4                      mp4 m4v
+AddType video/webm                     webm
+
+# SVG
+AddType     image/svg+xml              svg svgz
+AddEncoding gzip                       svgz
+
+# Webfonts
+AddType application/vnd.ms-fontobject  eot
+AddType application/x-font-ttf         ttf ttc
+AddType font/opentype                  otf
+AddType application/x-font-woff        woff
+
+# Assorted types
+AddType image/x-icon                        ico
+AddType image/webp                          webp
+AddType text/cache-manifest                 appcache manifest
+AddType text/x-component                    htc
+AddType application/x-chrome-extension      crx
+AddType application/x-opera-extension       oex
+AddType application/x-xpinstall             xpi
+AddType application/octet-stream            safariextz
+AddType application/x-web-app-manifest+json webapp
+AddType text/x-vcard                        vcf
