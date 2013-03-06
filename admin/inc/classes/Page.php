@@ -71,19 +71,24 @@ class Page {
   * @var tinyint The menu setting of the page
   */
   public $menu = null;
+
+  /**
+  * @var string URL slug of the page
+  */
+  public $override = null;
+  
   
   /**
   * Sets the object's properties using the values in the supplied array
   *
   * @param assoc The property values
-  */
-
-  
+  */  
   public function __construct( $data=array() ) {
     
     if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
     if ( isset( $data['title'] ) ) $this->title = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['title'] );
     if ( isset( $data['slug'] ) ) $this->slug = $data['slug'];
+    if ( isset( $data['override'] ) ) $this->override = $data['override'];
     if ( isset( $data['summary'] ) ) $this->summary = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['summary'] );
     if ( isset( $data['content'] ) ) $this->content = $data['content'];
     if ( isset( $data['metaDescription'] ) ) $this->metaDescription = $data['metaDescription'];
@@ -102,8 +107,7 @@ class Page {
   * Sets the object's properties using the edit form post values in the supplied array
   *
   * @param assoc The form post values
-  */
-  
+  */   
   public function storeFormValues ( $params ) {
     
     // Store all the parameters
@@ -117,8 +121,7 @@ class Page {
   *
   * @param int The page ID
   * @return Page|false The page object, or false if the record was not found or there was a problem
-  */
-  
+  */  
   public static function getByPageId( $id ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
@@ -138,8 +141,7 @@ class Page {
   *
   * @param str The page Name
   * @return Page|false The page object, or false if the record was not found or there was a problem
-  */
-  
+  */  
   public static function getByPageSlug( $slug ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
@@ -160,8 +162,7 @@ class Page {
   * @param int Optional The number of rows to return (default=all)
   * @param string Optional column by which to order the pages (default="id ASC")
   * @return Array|false A two-element array : results => array, a list of Page objects; totalRows => Total number of pages
-  */
-   
+  */    
   public static function getPageList( $numRows=1000000, $order="sort ASC" ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
@@ -192,8 +193,7 @@ class Page {
   * @param int Optional The number of rows to return (default=all)
   * @param string Optional column by which to order the pages (default="id ASC")
   * @return Array|false A two-element array : results => array, a list of Page objects; totalRows => Total number of pages
-  */
-   
+  */   
   public static function getParentList( $numRows=1000000, $order="sort ASC" ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
@@ -224,8 +224,7 @@ class Page {
   * @param int Optional The number of rows to return (default=all)
   * @param string Optional column by which to order the pages (default="id ASC")
   * @return Array|false A two-element array : results => array, a list of Page objects; totalRows => Total number of pages
-  */
-   
+  */    
   public static function getChildList( $numRows=1000000, $order="sort ASC" ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
@@ -252,8 +251,7 @@ class Page {
 
   /**
   * Inserts the current Page object into the database, and sets it's ID property.
-  */
-  
+  */  
   public function insert() {
     
     // Does the Page object already have an ID?
@@ -261,10 +259,11 @@ class Page {
 
     // Insert the Page
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "INSERT INTO " . DB_PREFIX . "pages ( title, slug, summary, content, metaDescription, metaKeywords, sort, status, parent, siteIndex, botAction, menu ) VALUES ( :title, :slug, :summary, :content, :metaDescription, :metaKeywords, :sort, :status, :parent, :siteIndex, :botAction, :menu )";
+    $sql = "INSERT INTO " . DB_PREFIX . "pages ( title, slug, override, summary, content, metaDescription, metaKeywords, sort, status, parent, siteIndex, botAction, menu ) VALUES ( :title, :slug, :override, :summary, :content, :metaDescription, :metaKeywords, :sort, :status, :parent, :siteIndex, :botAction, :menu )";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
+    $st->bindValue( ":override", $this->override, PDO::PARAM_STR );
     $st->bindValue( ":summary", $this->summary, PDO::PARAM_STR );
     $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
     $st->bindValue( ":metaDescription", $this->metaDescription, PDO::PARAM_STR );
@@ -284,8 +283,7 @@ class Page {
 
   /**
   * Updates the current Page object in the database.
-  */
-  
+  */  
   public function update() {
 
     // Does the Page object have an ID?
@@ -293,11 +291,12 @@ class Page {
    
     // Update the Page
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "UPDATE " . DB_PREFIX . "pages SET title = :title, slug = :slug, summary = :summary, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, parent = :parent, siteIndex = :siteIndex, botAction = :botAction, menu = :menu WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "pages SET title = :title, slug = :slug, override = :override, summary = :summary, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, parent = :parent, siteIndex = :siteIndex, botAction = :botAction, menu = :menu WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
+    $st->bindValue( ":override", $this->override, PDO::PARAM_STR );
     $st->bindValue( ":summary", $this->summary, PDO::PARAM_STR );
     $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
     $st->bindValue( ":metaDescription", $this->metaDescription, PDO::PARAM_STR );
@@ -317,8 +316,7 @@ class Page {
   
   /**
   * Updates the current Page status in the database.
-  */
-  
+  */  
   public function updateStatus() {
 
     // Does the Page object have an ID?
@@ -338,8 +336,7 @@ class Page {
 
   /**
   * Updates the current Page siteIndex in the database.
-  */
-  
+  */   
   public function siteIndex() {
 
     // Does the Page object have an ID?
@@ -360,7 +357,6 @@ class Page {
   /**
   * Deletes the current Page object from the database.
   */
-
   public function delete() {
 
     // Does the Page object have an ID?

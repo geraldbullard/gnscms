@@ -24,8 +24,8 @@
         <ul>
 <?php
   foreach ($pageListResults['results'] as $pages) {
-    if ( $pages->status == 1 && $pages->menu == 1) {
-      $pagesURL = '<a href="' . gen_seo_friendly_titles($pages->slug) . '.html">' . htmlspecialchars($pages->title) . '</a>';
+    if ( $pages->status == 1 && $pages->menu == 1 ) {
+      $pagesURL = '<a href="' . (!empty($pages->override) ? $pages->override : gen_seo_friendly_titles($pages->slug) . '.html') . '">' . htmlspecialchars($pages->title) . '</a>';
 ?>
           <li><?php echo $pagesURL; ?></li>
 <?php
@@ -81,7 +81,7 @@
 <?php
   foreach ($pageListResults['results'] as $pages) {
     if ( $pages->status == 1 && $pages->title != '404') {
-      $pagesURL = '<a href="' . gen_seo_friendly_titles($pages->title) . '.html">' . htmlspecialchars($pages->title) . '</a>';
+      $pagesURL = '<a href="' . (!empty($pages->override) ? $pages->override : gen_seo_friendly_titles($pages->slug) . '.html') . '">' . htmlspecialchars($pages->title) . '</a>';
 ?>
           <li><?php echo $pagesURL; ?></li>
 <?php

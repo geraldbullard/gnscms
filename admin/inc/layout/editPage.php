@@ -33,6 +33,12 @@
                 <label>Page Slug (For Site URL)</label>
                 <input class="span12" type="text" id="slug" name="slug" style="width:100%;" maxlength="255" value="<?php echo htmlspecialchars( $results['page']->slug ); ?>" />
               </div>
+            </div>               
+            <div class="row-fluid">
+              <div class="span8">
+                <label>URL Override</label>
+                <input class="span12" type="text" id="override" name="override" style="width:100%;" maxlength="255" value="<?php echo htmlspecialchars( $results['page']->override ); ?>" />
+              </div>
             </div>              
             <div class="row-fluid">
               <div class="span8">

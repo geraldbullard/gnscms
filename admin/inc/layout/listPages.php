@@ -128,6 +128,12 @@
                   </div>
                 </div>
                 <div class="row-fluid">
+                  <div class="span4">
+                    <label>URL Override</label>
+                    <input class="span12" style="width:100%;" type="text" id="override" name="override" />
+                  </div>
+                </div>
+                <div class="row-fluid">
                   <div class="span6">
                     <label>Page Summary</label>
                     <input class="span12" style="width:100%;" type="text" id="summary" name="summary" />
