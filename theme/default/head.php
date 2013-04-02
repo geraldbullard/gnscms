@@ -31,7 +31,7 @@
   <meta name="robots" content="<?php echo (isset($results['page']->botAction) && $results['page']->botAction != '') ? $results['page']->botAction : 'index, follow'; ?>" />
   <link rel="stylesheet" type="text/css" href="theme/<?php echo siteTheme; ?>/css/style.css" />
 <?php
-  $cssPluginDir = 'inc/css/plugins/';
+  /*$cssPluginDir = 'inc/css/plugins/';
   $files = scandir($cssPluginDir);
   foreach ($files as $file) {
     if ($file != "." && $file != "..") {
@@ -39,7 +39,7 @@
         echo '  <link rel="stylesheet" type="text/css" href="' . $cssPluginDir . $file . '" />' . "\n";
       }
     }
-  }
+  }*/
 ?>
-  <script src="inc/js/modernizr-2.5.3.min.js"></script>
+  <script src="theme/<?php echo siteTheme; ?>/js/modernizr-2.5.3.min.js"></script>
 </head>

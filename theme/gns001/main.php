@@ -12,8 +12,8 @@
    * Copyright © 2012 3G Development. All rights reserved.
    * 
    */
-?>   
-<?php require('theme/' . siteTheme . '/head.php'); ?>
+?>
+<?php require('theme/' . siteTheme . '/head.php'); ?>   
 <body>
   <div id="siteWrapper" style="width:<?php echo siteWidth . ';' . ((siteWidth != '100%') ? ' margin:0 auto 0 auto;' : ''); ?>">
     <div id="headerWrapper">
@@ -21,7 +21,7 @@
         <ul>
 <?php
   foreach ($pageListResults['results'] as $pages) {
-    if ( $pages->status == 1 && $pages->menu == 1 ) {
+    if ( $pages->status == 1 && $pages->title != '404') {
       $pagesURL = '<a href="' . gen_seo_friendly_titles($pages->title) . '.html">' . htmlspecialchars($pages->title) . '</a>';
 ?>
           <li><?php echo $pagesURL; ?></li>
@@ -51,9 +51,7 @@
     </div>
     <div id="footerWrapper">
     </div>
-  </div> 
-
+  </div>
   <?php require('theme/' . siteTheme . '/bottom.php'); ?>
-  
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
   /**
-   * $Id: script.php, v 1.0.0 2009/01/07 datazen Exp $ :: updated 2012/06/20 maestro Exp $
+   * $Id: bottom.php, v 1.0.0 2009/01/07 datazen Exp $ :: updated 2012/06/20 maestro Exp $
    *
    * gnsPLANET.com - The Foundation of Development & Research for the New Millenium
    * http://www.gnsplanet.com/
@@ -13,26 +13,15 @@
    * 
    */
 ?>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="inc/js/jquery-1.8.3.min.js"><\/script>')</script>
-<?php
-  $jsScriptDir = 'theme/' . siteTheme . '/js/';
-  $files = scandir($jsScriptDir);
-  foreach ($files as $file) {
-    if ($file != "." && $file != "..") {
-      if (!is_dir($jsScriptDir . $file) === true) {
-        echo '  <script src="' . $jsScriptDir . $file . '" /></script>' . "\n";
-      }
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="<?php echo (($request_type == 'SSL') ? 'https:' : 'http:'); ?>//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+      document.write(unescape('%3Cscript src="theme/<?php echo siteTheme; ?>/js/jquery-1.8.3.min.js"%3C/script%3E'));
     }
-  }
-  if (googleAnalytics != '' && googleAnalytics != 'UA-XXXXX-X') { 
-?>
-  <script>
-    var _gaq=[['_setAccount', '<?php echo googleAnalytics; ?>'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
+    $(document).ready(function() {
+      // template specific code here
+    });
   </script>
-<?php 
-  } 
-?>

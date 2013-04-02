@@ -11,9 +11,9 @@
    * Copyright © 2010 gnsPLANET, LLC. All rights reserved.
    * Copyright © 2012 3G Development. All rights reserved.
    * 
-   */ 
-?>   
-<?php require('theme/' . siteTheme . '/head.php'); ?>
+   */
+?>
+<?php require('theme/' . siteTheme . '/head.php'); ?>   
 <body>
   <div class="container">
 
@@ -24,8 +24,8 @@
         <ul>
 <?php
   foreach ($pageListResults['results'] as $pages) {
-    if ( $pages->status == 1 && $pages->menu == 1 ) {
-      $pagesURL = '<a href="' . (!empty($pages->override) ? $pages->override : gen_seo_friendly_titles($pages->slug) . '.html') . '">' . htmlspecialchars($pages->title) . '</a>';
+    if ( $pages->status == 1 && $pages->title != '404') {
+      $pagesURL = '<a href="' . gen_seo_friendly_titles($pages->slug) . '.html">' . htmlspecialchars($pages->title) . '</a>';
 ?>
           <li><?php echo $pagesURL; ?></li>
 <?php
@@ -81,7 +81,7 @@
 <?php
   foreach ($pageListResults['results'] as $pages) {
     if ( $pages->status == 1 && $pages->title != '404') {
-      $pagesURL = '<a href="' . (!empty($pages->override) ? $pages->override : gen_seo_friendly_titles($pages->slug) . '.html') . '">' . htmlspecialchars($pages->title) . '</a>';
+      $pagesURL = '<a href="' . gen_seo_friendly_titles($pages->slug) . '.html">' . htmlspecialchars($pages->title) . '</a>';
 ?>
           <li><?php echo $pagesURL; ?></li>
 <?php
@@ -93,8 +93,6 @@
     </footer>
 
   </div>
-
   <?php require('theme/' . siteTheme . '/bottom.php'); ?>
-  
 </body>
 </html>
