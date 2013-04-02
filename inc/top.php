@@ -14,7 +14,11 @@
    */
    
   // get all the needed core code
-  require('admin/inc/config.php');  
+  if (is_file('admin/inc/config.php')) {
+    require('admin/inc/config.php');  
+  } else {
+    header('Location: admin/install.php');
+  }
   require('admin/inc/functions/general.php');  
   require('admin/inc/classes/Page.php');
   require('admin/inc/classes/Setting.php');
