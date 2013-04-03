@@ -49,15 +49,15 @@
                 }
               ?>
               <h4>Category >> <a href="index.php?action=listContent">Top</a> <?php echo (isset($_GET['categoryId']) ? ' > ' : '') . createPath($_GET['categoryId']); ?></h4><br />
-              <?php if ($results['totalCats'] > 0) { ?>
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <thead>
                   <tr>
-                    <td class="hide-below-480 table-id-head">ID</td>
-                    <td class="hide-below-480 table-id-head">Sort</td>
-                    <td class="table-title-head">Category Title</td>
-                    <td class="hide-below-480" width="auto">Status</td>
-                    <td style="text-align:right;" width="20%">Actions</td>
+                    <td class="hide-below-480 table-id-head" style="width:2.5%;">ID</td>
+                    <td class="hide-below-480 table-id-head" style="width:2.5%;">Sort</td>
+                    <td class="table-title-head">Title</td>
+                    <td class="hide-below-480 table-title-head" style="width:10%;">Index</td>
+                    <td class="hide-below-480 table-title-head" style="width:10%;">Status</td>
+                    <td class="table-title-head" style="text-align:right;" style="width:20%;">Actions</td>
                   </tr>
                 </thead>
                 <tbody id="category-list">
@@ -68,19 +68,20 @@
                     <td class="hide-below-480" title="Category ID" data-rel="tooltip">
                       <?php echo $category->id; ?>
                     </td>
-                    <td style="width:5%; text-align:center; white-space: nowrap;" class="hide-below-480">
+                    <td style="text-align:center; white-space:nowrap;" class="hide-below-480">
                       <img src="img/sortIcon.png" style="cursor:move; margin-bottom:3px;" class="categorySortHandle" title="Sort Category" data-rel="tooltip" />&nbsp;&nbsp;<span style="font-size:11px;"><?php echo $category->sort; ?></span>
                     </td>
                     <td><a href="index.php?action=listContent&amp;categoryId=<?php echo $category->id; ?>" title="Enter This Category" data-rel="tooltip" style="text-decoration:none;" /><i class="icon icon-orange icon-folder-open"></i> <?php echo $category->title; ?></a></td>
+                    <td class="hide-below-480">&nbsp;</td>
                     <td class="hide-below-480 noDecoration">
                       <?php if ($category->status == 1) { ?>
-                      <div id="status_<?php echo $category->id; ?>"><a onclick="disableCategory(<?php echo $category->id; ?>);" title="Disable this Category"><span class="label label-success">Enabled</span></a></div>
+                      <div id="catStatus_<?php echo $category->id; ?>"><a onclick="disableCategory(<?php echo $category->id; ?>);"><span class="label label-success">Enabled</span></a></div>
                       <?php } else { ?>
-                      <div id="status_<?php echo $category->id; ?>"><a onclick="enableCategory(<?php echo $category->id; ?>);" title="Enable this Category"><span class="label label-important">Disabled</span></a></div>
+                      <div id="catStatus_<?php echo $category->id; ?>"><a onclick="enableCategory(<?php echo $category->id; ?>);"><span class="label label-important">Disabled</span></a></div>
                       <?php } ?>
                     </td>
                     <td style="text-align:right; white-space:nowrap;">
-                      <a id="view_<?php echo $category->id; ?>" href="../<?php echo gen_seo_friendly_titles($category->slug); ?>.html" title="View Category in New Window" data-rel="tooltip" target="_blank" class="btn btn-success"<?php if ($category->status != 1) echo ' style="display:none;"'; ?>>
+                      <a id="catView_<?php echo $category->id; ?>" href="../<?php echo gen_seo_friendly_titles($category->slug); ?>.html" title="View Category in New Window" data-rel="tooltip" target="_blank" class="btn btn-success"<?php if ($category->status != 1) echo ' style="display:none;"'; ?>>
                         <i class="icon-zoom-in icon-white"></i>
                         <span class="hide-below-768">View</span>
                       </a>
@@ -94,31 +95,10 @@
                       </a>
                     </td>
                   </tr>
-                  <?php } ?>
+                  <?php 
+                    }
+                  ?>
                 </tbody>
-              </table>
-              <?php } else { ?>
-              <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
-                <thead>
-                  <tr>
-                    <td>No Categories</td>
-                  </tr>
-                </thead>
-              </table>
-              <?php } ?>
-              <h4>Pages</h4><br />
-              <?php if ($results['totalPages'] > 0) { ?>
-              <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
-                <thead>
-                  <tr>
-                    <td class="hide-below-480 table-id-head">ID</td>
-                    <td class="hide-below-480 table-id-head">Sort</td>
-                    <td class="table-title-head pTour3">Page Title</td>
-                    <td class="hide-below-480 pTour4" width="auto">Index</td>
-                    <td class="hide-below-480 pTour5" width="auto">Status</td>
-                    <td style="text-align:right;" width="20%" class="pTour6">Actions</td>
-                  </tr>
-                </thead>
                 <tbody id="page-list">
                   <?php
                     foreach ( $results['pages'] as $page ) {
@@ -144,13 +124,13 @@
                     </td>
                     <td class="hide-below-480 noDecoration">
                       <?php if ($page->status == 1) { ?>
-                      <div id="status_<?php echo $page->id; ?>"><a onclick="disablePage(<?php echo $page->id; ?>);" title="Disable this Page" data-rel="tooltip"><span class="label label-success">Enabled</span></a></div>
+                      <div id="pageStatus_<?php echo $page->id; ?>"><a onclick="disablePage(<?php echo $page->id; ?>);"><span class="label label-success">Enabled</span></a></div>
                       <?php } else { ?>
-                      <div id="status_<?php echo $page->id; ?>"><a onclick="enablePage(<?php echo $page->id; ?>);" title="Enable this Page" data-rel="tooltip"><span class="label label-important">Disabled</span></a></div>
+                      <div id="pageStatus_<?php echo $page->id; ?>"><a onclick="enablePage(<?php echo $page->id; ?>);"><span class="label label-important">Disabled</span></a></div>
                       <?php } ?>
                     </td>
                     <td style="text-align:right; white-space:nowrap;">
-                      <a id="view_<?php echo $page->id; ?>" href="../<?php echo gen_seo_friendly_titles($page->slug); ?>.html" title="View Page in New Window" data-rel="tooltip" target="_blank" class="btn btn-success"<?php if ($page->status != 1) echo ' style="display:none;"'; ?>>
+                      <a id="pageView_<?php echo $page->id; ?>" href="../<?php echo gen_seo_friendly_titles($page->slug); ?>.html" title="View Page in New Window" data-rel="tooltip" target="_blank" class="btn btn-success"<?php if ($page->status != 1) echo ' style="display:none;"'; ?>>
                         <i class="icon-zoom-in icon-white"></i>
                         <span class="hide-below-768">View</span>
                       </a>
@@ -167,15 +147,6 @@
                   <?php } ?>
                 </tbody>
               </table>
-              <?php } else { ?>
-              <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
-                <thead>
-                  <tr>
-                    <td>No Pages</td>
-                  </tr>
-                </thead>
-              </table>
-              <?php } ?>
               <p><strong>( <?php echo $results['totalCats']; ?> )</strong> categor<?php echo ( $results['totalCats'] != 1 ) ? 'ies' : 'y' ?> and <strong>( <?php echo $results['totalPages']?> )</strong> page<?php echo ( $results['totalPages'] != 1 ) ? 's' : '' ?> total</p>
             </div>
             <div class="tab-pane" id="newCategory">
@@ -183,13 +154,13 @@
                 <div class="row-fluid">
                   <div class="span4">
                     <label>Category Title</label>
-                    <input class="span12" style="width:100%;" type="text" id="title" name="title" autofocus required />
+                    <input class="span12" style="width:100%;" type="text" id="catTitle" name="title" autofocus required />
                   </div>
                 </div>
                 <div class="row-fluid">
                   <div class="span4">
                     <label>Category Slug (For Site URL)</label>
-                    <input class="span12" style="width:100%;" type="text" id="slug" name="slug" />
+                    <input class="span12" style="width:100%;" type="text" id="catSlug" name="slug" />
                   </div>
                 </div>
                 <div class="row-fluid">
@@ -198,7 +169,7 @@
                     <input class="span12" style="width:100%;" type="text" id="override" name="override" />
                   </div>
                 </div>
-                <div class="row-fluid">
+                <div class="row-fluid" style="margin-bottom:10px;">
                   <div class="span8">
                     <label>Category Description</label>
                     <textarea class="span12 ckeditor" name="content" id="content"></textarea>
@@ -235,6 +206,8 @@
                   <div class="span12">                           
                     <input type="hidden" name="sort" value="999" />
                     <input type="hidden" name="status" value="1" />
+                    <input type="hidden" name="siteIndex" value="0" />
+                    <input type="hidden" name="parent" value="<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" />
                     <button class="btn btn-primary" type="submit" name="saveChanges">Save</button>
                   </div>
                 </div>
@@ -245,13 +218,13 @@
                 <div class="row-fluid">
                   <div class="span4">
                     <label>Page Title</label>
-                    <input class="span12" style="width:100%;" type="text" id="title" name="title" autofocus required />
+                    <input class="span12" style="width:100%;" type="text" id="pageTitle" name="title" autofocus required />
                   </div>
                 </div>
                 <div class="row-fluid">
                   <div class="span4">
                     <label>Page Slug (For Site URL)</label>
-                    <input class="span12" style="width:100%;" type="text" id="slug" name="slug" />
+                    <input class="span12" style="width:100%;" type="text" id="pageSlug" name="slug" />
                   </div>
                 </div>
                 <div class="row-fluid">
@@ -266,7 +239,7 @@
                     <input class="span12" style="width:100%;" type="text" id="summary" name="summary" />
                   </div>
                 </div>
-                <div class="row-fluid">
+                <div class="row-fluid" style="margin-bottom:10px;">
                   <div class="span8">
                     <label>Page Content</label>
                     <textarea class="span12 ckeditor" name="content" id="content"></textarea>
@@ -307,6 +280,7 @@
                     <input type="hidden" name="sort" value="999" />
                     <input type="hidden" name="status" value="1" />
                     <input type="hidden" name="siteIndex" value="0" />
+                    <input type="hidden" name="categoryId" value="<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" />
                     <button class="btn btn-primary" type="submit" name="saveChanges">Save</button>
                   </div>
                 </div>

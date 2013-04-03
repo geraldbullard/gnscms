@@ -75,10 +75,18 @@
                                                                                     ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11;") !=0 && 
                 @mysql_query("DROP TABLE IF EXISTS " . DB_PREFIX . "categories") !=0 &&
                 @mysql_query("CREATE TABLE IF NOT EXISTS " . DB_PREFIX . "categories (id smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-                                                                                      name varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-                                                                                      description varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-                                                                                      parent smallint(5) unsigned NOT NULL,
+                                                                                      title varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                                                                                      slug varchar(255) COLLATE utf8_unicode_ci NOT NULL,
                                                                                       override varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                                                                                      description varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                                                                                      metaDescription varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                                                                                      metaKeywords varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                                                                                      sort smallint(5) unsigned NOT NULL DEFAULT '999',
+                                                                                      status tinyint(1) unsigned NOT NULL DEFAULT '1',
+                                                                                      siteIndex tinyint(1) unsigned NOT NULL DEFAULT '0',
+                                                                                      botAction varchar(22) COLLATE utf8_unicode_ci NOT NULL, 
+                                                                                      menu tinyint(1) unsigned NOT NULL DEFAULT '1',
+                                                                                      parent smallint(5) unsigned NOT NULL,
                                                                                       PRIMARY KEY (id)) 
                                                                                       ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2;") !=0 &&
                 @mysql_query("INSERT INTO " . DB_PREFIX . "pages (id, title, slug, override, summary, content, metaDescription, metaKeywords, sort, status, categoryId, siteIndex, botAction, menu) VALUES 
@@ -97,7 +105,7 @@
                                                                     (6, 'siteKeywords', 'Site Keywords', 'These are site wide keywords. They will also get used in the event that you do not enter any meta tag keywords for any of your pages.', 'these, are, my, site, keywords', 0, 1),
                                                                     (9, 'showHelp', 'Show Help Tab', 'Show or hide the help tab in the site admin upper right corner. (yes or no)', 'no', 0, 1),
                                                                     (10, 'testSetting', 'Test Setting', 'Test Summary', 'Test Value', 1, 0);") &&
-                @mysql_query("INSERT INTO " . DB_PREFIX . "categories (id, name, description, parent, override) VALUES (1, 'Info Pages', 'This is the misc information pages of your new site.', 0, '')")) 
+                @mysql_query("INSERT INTO " . DB_PREFIX . "categories (id, title, slug, override, description, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, parent) VALUES (1, 'Site Information', 'site-information', '', 'This is the misc information pages of your new site.', 'meta description', 'key,words', 0, 0, 0, 'index, follow', 1, 0)")) 
                 {
                 $completed = true;
             } else {

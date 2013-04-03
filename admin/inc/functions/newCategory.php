@@ -1,5 +1,5 @@
 <?php
-  function newPage() {
+  function newCategory() {
     if ( isset( $_POST['saveChanges'] ) ) {
       // set the bot action values for insert into db
       ($_POST['botAction1'] == 'on') ? $botAction1 = 'index' : $botAction1 = 'noindex';
@@ -9,10 +9,10 @@
       $_POST['botAction'] = implode(", ", $botActionArray);
       // continue as normal
       // User has posted the setting edit form: save the new setting
-      $page = new Page;
-      $page->storeFormValues( $_POST );
-      $page->insert();
-      header( "Location: index.php?action=listContent&success=pageCreated" );
+      $category = new Category;
+      $category->storeFormValues( $_POST );
+      $category->insert();
+      header( "Location: index.php?action=listContent&success=categoryCreated&categoryId=" . $_POST['parent'] );
     }
   }
 ?>

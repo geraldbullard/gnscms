@@ -28,9 +28,9 @@ class Category {
   public $override = null;
  
   /**
-  * @var string A short description of the category
+  * @var string the content of the category
   */
-  public $description = null;
+  public $content = null;
  
   /**
   * @var string The meta description of the category
@@ -51,6 +51,11 @@ class Category {
   * @var tinyint The status of the category
   */
   public $status = null;
+  
+  /**
+  * @var int The siteIndex setting of the category
+  */
+  public $siteIndex = null;
   
   /**
   * @var string The botAction of the category
@@ -79,11 +84,12 @@ class Category {
     if ( isset( $data['title'] ) ) $this->title = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['title'] );
     if ( isset( $data['slug'] ) ) $this->slug = $data['slug'];
     if ( isset( $data['override'] ) ) $this->override = $data['override'];
-    if ( isset( $data['description'] ) ) $this->description = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['description'] );
+    if ( isset( $data['content'] ) ) $this->content = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['content'] );
     if ( isset( $data['metaDescription'] ) ) $this->metaDescription = $data['metaDescription'];
     if ( isset( $data['metaKeywords'] ) ) $this->metaKeywords = $data['metaKeywords'];
     if ( isset( $data['sort'] ) ) $this->sort = (int) $data['sort'];
     if ( isset( $data['status'] ) ) $this->status = (int) $data['status'];
+    if ( isset( $data['siteIndex'] ) ) $this->siteIndex = (int) $data['siteIndex'];
     if ( isset( $data['botAction'] ) ) $this->botAction = $data['botAction'];
     if ( isset( $data['menu'] ) ) $this->menu = (int) $data['menu'];
     if ( isset( $data['parent'] ) ) $this->parent = (int) $data['parent'];
@@ -97,7 +103,7 @@ class Category {
   */
  
   public function storeFormValues ( $params ) {
- 
+    
     // Store all the parameters
     $this->__construct( $params );
   }
@@ -190,22 +196,23 @@ class Category {
   */
  
   public function insert() {
- 
+    
     // Does the Category object already have an ID?
     if ( !is_null( $this->id ) ) trigger_error ( "Category::insert(): Attempt to insert a Category object that already has its ID property set (to $this->id).", E_USER_ERROR );
  
     // Insert the Category
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "INSERT INTO " . DB_PREFIX . "categories ( title, slug, override, description, metaDescription, metaKeywords, sort, status, botAction, menu, parent ) VALUES ( :title, :slug, :override, :description, :metaDescription, :metaKeywords, :sort, :status, :botAction, :menu, :parent )";
+    $sql = "INSERT INTO " . DB_PREFIX . "categories ( title, slug, override, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, parent ) VALUES ( :title, :slug, :override, :content, :metaDescription, :metaKeywords, :sort, :status, :siteIndex, :botAction, :menu, :parent )";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
     $st->bindValue( ":override", $this->override, PDO::PARAM_STR );
-    $st->bindValue( ":description", $this->description, PDO::PARAM_STR );
+    $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
     $st->bindValue( ":metaDescription", $this->metaDescription, PDO::PARAM_STR );
     $st->bindValue( ":metaKeywords", $this->metaKeywords, PDO::PARAM_STR );
     $st->bindValue( ":sort", $this->sort, PDO::PARAM_INT ); 
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT ); 
+    $st->bindValue( ":siteIndex", $this->siteIndex, PDO::PARAM_INT ); 
     $st->bindValue( ":botAction", $this->botAction, PDO::PARAM_STR ); 
     $st->bindValue( ":menu", $this->menu, PDO::PARAM_INT ); 
     $st->bindValue( ":parent", $this->parent, PDO::PARAM_INT );
@@ -226,22 +233,43 @@ class Category {
     
     // Update the Category
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "UPDATE " . DB_PREFIX . "categories SET title = :title, slug = :slug, override = :override, description = :description, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, botAction = :botAction, menu = :menu, parent = :parent WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "categories SET title = :title, slug = :slug, override = :override, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, siteIndex = :siteIndex, botAction = :botAction, menu = :menu, parent = :parent WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
     $st->bindValue( ":override", $this->override, PDO::PARAM_STR );
-    $st->bindValue( ":description", $this->description, PDO::PARAM_STR );
+    $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
     $st->bindValue( ":metaDescription", $this->metaDescription, PDO::PARAM_STR );
     $st->bindValue( ":metaKeywords", $this->metaKeywords, PDO::PARAM_STR );
     $st->bindValue( ":sort", $this->sort, PDO::PARAM_INT ); 
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT ); 
+    $st->bindValue( ":siteIndex", $this->siteIndex, PDO::PARAM_INT ); 
     $st->bindValue( ":botAction", $this->botAction, PDO::PARAM_STR ); 
     $st->bindValue( ":menu", $this->menu, PDO::PARAM_INT ); 
     $st->bindValue( ":parent", $this->parent, PDO::PARAM_INT );
     $st->execute();
     $conn = null;
+  }
+  
+  
+  /**
+  * Updates the current Category status in the database.
+  */  
+  public function updateStatus() {
+
+    // Does the Category object have an ID?
+    if ( is_null( $this->id ) ) trigger_error ( "Category::update(): Attempt to update a Category object that does not have it\'s ID property set.", E_USER_ERROR );
+   
+    // Update the Page
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $sql = "UPDATE " . DB_PREFIX . "categories SET status = :status WHERE id = :id";
+    $st = $conn->prepare ( $sql );
+    $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
+    $st->bindValue( ":status", $this->status, PDO::PARAM_INT );
+    $st->execute();
+    $conn = null;
+    
   }
  
  

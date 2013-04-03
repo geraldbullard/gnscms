@@ -71,9 +71,14 @@
   <script>
     $(document).ready(function() {
     
-      // create the slug as the title is being entered
-      $("#title").keyup(function(){
-        $("#slug").val($("#title").val().toLowerCase().replace(/ /g, '-'));
+      // create the category slug as the title is being entered
+      $("#catTitle").keyup(function(){
+        $("#catSlug").val($("#catTitle").val().toLowerCase().replace(/ /g, '-'));
+      });
+      
+      // create the category slug as the title is being entered
+      $("#pageTitle").keyup(function(){
+        $("#pageSlug").val($("#pageTitle").val().toLowerCase().replace(/ /g, '-'));
       });
       
       // set the background of the theme gallery thumbnail image to match what is in the css
@@ -91,20 +96,36 @@
                       
     });
       
+    // set category status to enabled
+    function enableCategory(id) {
+      var jsonLink = '<?php echo 'rpc.php?action=enableCategory&status=1&id=ID'; ?>'
+      $.getJSON(jsonLink.replace('ID', id));
+      $("#catStatus_" + id).html('<a onclick="disableCategory(' + id + ');"><span class="label label-success">Enabled</span></a>');
+      $("#catView_" + id).show();
+    }
+    
+    // set category status to disabled
+    function disableCategory(id) {
+      var jsonLink = '<?php echo 'rpc.php?action=disableCategory&status=0&id=ID'; ?>'
+      $.getJSON(jsonLink.replace('ID', id));
+      $("#catStatus_" + id).html('<a onclick="enableCategory(' + id + ');"><span class="label label-important">Disabled</span></a>');
+      $("#catView_" + id).hide();
+    }
+    
     // set page status to enabled
     function enablePage(id) {
       var jsonLink = '<?php echo 'rpc.php?action=enablePage&status=1&id=ID'; ?>'
       $.getJSON(jsonLink.replace('ID', id));
-      $("#status_" + id).html('<a onclick="disablePage(' + id + ');"><span class="label label-success">Enabled</span></a>');
-      $("#view_" + id).show();
+      $("#pageStatus_" + id).html('<a onclick="disablePage(' + id + ');"><span class="label label-success">Enabled</span></a>');
+      $("#pageView_" + id).show();
     }
     
     // set page status to disabled
     function disablePage(id) {
       var jsonLink = '<?php echo 'rpc.php?action=disablePage&status=0&id=ID'; ?>'
       $.getJSON(jsonLink.replace('ID', id));
-      $("#status_" + id).html('<a onclick="enablePage(' + id + ');"><span class="label label-important">Disabled</span></a>');
-      $("#view_" + id).hide();
+      $("#pageStatus_" + id).html('<a onclick="enablePage(' + id + ');"><span class="label label-important">Disabled</span></a>');
+      $("#pageView_" + id).hide();
     }
     
     // delete a page

@@ -14,13 +14,13 @@
   }
 
   switch ( $action ) {
-    case 'newCategory':
-      require('inc/functions/newCategory.php');
-      newCategory();
-      break;
     case 'listContent':
       require('inc/functions/listContent.php');
       listContent();
+      break;
+    case 'newCategory':
+      require('inc/functions/newCategory.php');
+      newCategory();
       break;
     case 'editCategory':
       require('inc/functions/editCategory.php');
@@ -41,10 +41,6 @@
     case 'newPage':
       require('inc/functions/newPage.php');
       newPage();
-      break;
-    case 'listPage':
-      require('inc/functions/listPage.php');
-      listPages();
       break;
     case 'editPage':
       require('inc/functions/editPage.php');

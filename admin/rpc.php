@@ -17,6 +17,20 @@
   // set the action from the url
   $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
   
+  // set the category status to enabled
+  if ($action == 'enableCategory') {
+    $page = new Category;
+    $page->storeFormValues($_GET);
+    $page->updateStatus(); 
+  }
+  
+  // set the category status to disabled
+  if ($action == 'disableCategory') {
+    $page = new Category;
+    $page->storeFormValues($_GET);
+    $page->updateStatus(); 
+  }
+  
   // set the page status to enabled
   if ($action == 'enablePage') {
     $page = new Page;
