@@ -20,6 +20,7 @@
     header('Location: admin/install.php');
   }
   require('admin/inc/functions/general.php');  
+  require('admin/inc/classes/Category.php');
   require('admin/inc/classes/Page.php');
   require('admin/inc/classes/Setting.php');
   

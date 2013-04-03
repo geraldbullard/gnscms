@@ -3,12 +3,7 @@
     $results = array();
     $data = Page::getPageList();
     $results['pages'] = $data['results'];
-    $parentData = Page::getParentList();
-    $parentResults['pages'] = $parentData['parentResults'];
-    $childData = Page::getChildList();
-    $childResults['pages'] = $childData['childResults'];
     $results['totalRows'] = $data['totalRows'];
-    $totalResults['totalRows'] = ($parentData['totalRows'] + $childData['totalRows']);
     if ( isset( $_GET['error'] ) ) {
       if ( $_GET['error'] == "pageNotFound" ) $results['errorMessage'] = "Error: Page not found.";
       if ( $_GET['error'] == "statusNotUpdated" ) $results['errorMessage'] = "Error: The page status was not updated. Please try again.";

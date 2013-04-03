@@ -1,6 +1,7 @@
 <?php
   require('inc/config.php');
   require('inc/functions/general.php');
+  require('inc/classes/Category.php');
   require('inc/classes/Page.php');
   require('inc/classes/Setting.php');
   

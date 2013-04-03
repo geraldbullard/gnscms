@@ -14,6 +14,30 @@
   }
 
   switch ( $action ) {
+    case 'newCategory':
+      require('inc/functions/newCategory.php');
+      newCategory();
+      break;
+    case 'listCategory':
+      require('inc/functions/listCategory.php');
+      listCategories();
+      break;
+    case 'editCategory':
+      require('inc/functions/editCategory.php');
+      editCategory();
+      break;
+    case 'enableCategory':
+      require('inc/functions/enableCategory.php');
+      enableCategory();
+      break;
+    case 'disableCategory':
+      require('inc/functions/disableCategory.php');
+      disableCategory();
+      break;
+    case 'deleteCategory':
+      require('inc/functions/deleteCategory.php');
+      deleteCategory();
+      break;
     case 'newPage':
       require('inc/functions/newPage.php');
       newPage();

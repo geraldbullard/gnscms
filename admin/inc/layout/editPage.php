@@ -7,9 +7,7 @@
         <div class="box-header well">
           <h2><i class="icon-th"></i> Edit Page</h2>
           <div class="box-icon">
-            <!--<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>-->
             <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-            <!--<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>-->
           </div>
         </div>
         <div class="box-content">
@@ -66,17 +64,17 @@
             </div>                
             <div class="row-fluid">
               <div class="span8">    
-                <label>Parent Page</label>              
+                <label>Category</label>              
                 <select name="parent" class="span12">
-                  <option value="0">No Parent</option>
+                  <option value="0">Top</option>
                   <?php 
-                    foreach ( $results['pages'] as $page ) {
-                      if ($results['page']->id != $page->id) { 
+                    //foreach ( $results['pages'] as $page ) {
+                      //if ($results['page']->id != $page->id) { 
                   ?>
-                    <option value="<?php echo $page->id; ?>" <?php echo ($results['page']->parent == $page->id) ? 'selected' : ''; ?>><?php echo $page->title; ?></option>
+                    <!--<option value="<?php echo $page->id; ?>" <?php echo ($results['page']->parent == $page->id) ? 'selected' : ''; ?>><?php echo $page->title; ?></option>-->
                   <?php
-                      } 
-                    } 
+                      //} 
+                    //} 
                   ?>
                 </select> 
               </div>

@@ -47,20 +47,7 @@
                   </tr>
                 </thead>
                 <tbody id="page-list">
-                  <?php 
-                    function createPath($id) {
-                      $query = mysql_query("SELECT id, title, parent FROM " . DB_PREFIX . "pages WHERE ID = " . (int)$id);
-                      $row = mysql_fetch_array($query);
-
-                      if ($row['parent'] == 0) {
-                        $name = $row['title'];  
-                        return $name;
-                      } else {
-                        $name = ' > ' . $row['title'];
-                        return createPath($row['parent']) . " " . $name;
-                      }
-                      return createPath($row['parent']) . " " . $name;
-                    }
+                  <?php
                     foreach ( $results['pages'] as $page ) {
                   ?>
                   <tr id="listItem_<?php echo $page->id; ?>">
@@ -68,13 +55,9 @@
                       <?php echo $page->id; ?>
                     </td>
                     <td style="width:5%; text-align:center; white-space: nowrap;" class="hide-below-480">
-                      <img src="img/sortPage.png" style="cursor:move; margin-bottom:3px;" class="pageSortHandle" title="Sort Page" data-rel="tooltip" />&nbsp;&nbsp;<span style="font-size:11px;"><?php echo $page->sort; ?></span>
+                      <img src="img/sortIcon.png" style="cursor:move; margin-bottom:3px;" class="pageSortHandle" title="Sort Page" data-rel="tooltip" />&nbsp;&nbsp;<span style="font-size:11px;"><?php echo $page->sort; ?></span>
                     </td>
-                    <td>
-                      <?php
-                        echo createPath($page->id); 
-                      ?>
-                    </td>
+                    <td><?php echo $page->title; ?></td>
                     <td class="hide-below-480">
                       <?php if ($page->siteIndex == 1) { ?>
                       <i class="icon32 icon-color icon-check" title="Page is set as Site Index" data-rel="tooltip"></i>
@@ -155,17 +138,6 @@
                   <div class="span6">
                     <label>Meta Keywords</label>
                     <textarea class="span12" style="width:100%;" id="metaKeywords" name="metaKeywords"></textarea>
-                  </div>
-                </div>
-                <div class="row-fluid">
-                  <div class="span6">
-                      <label>Parent Page</label>              
-                      <select name="parent" class="small-input">
-                        <option value="0">No Parent</option>
-                        <?php foreach ( $results['pages'] as $page ) { ?>
-                          <option value="<?php echo $page->id; ?>"><?php echo $page->title; ?></option>
-                          <?php } ?>
-                      </select>
                   </div>
                 </div>
                 <div class="row-fluid">

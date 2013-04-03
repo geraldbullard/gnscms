@@ -53,9 +53,9 @@ class Page {
   public $status = null;
   
   /**
-  * @var smallint The parent id of the page
+  * @var smallint The category id of the page
   */
-  public $parent = null;
+  public $categoryId = null;
   
   /**
   * @var tinyint The siteIndex setting of the page
@@ -95,7 +95,7 @@ class Page {
     if ( isset( $data['metaKeywords'] ) ) $this->metaKeywords = $data['metaKeywords'];
     if ( isset( $data['sort'] ) ) $this->sort = (int) $data['sort'];
     if ( isset( $data['status'] ) ) $this->status = (int) $data['status'];
-    if ( isset( $data['parent'] ) ) $this->parent = (int) $data['parent'];
+    if ( isset( $data['categoryId'] ) ) $this->categoryId = (int) $data['categoryId'];
     if ( isset( $data['siteIndex'] ) ) $this->siteIndex = (int) $data['siteIndex'];
     if ( isset( $data['botAction'] ) ) $this->botAction = $data['botAction'];
     if ( isset( $data['menu'] ) ) $this->menu = (int) $data['menu'];
@@ -166,7 +166,7 @@ class Page {
   public static function getPageList( $numRows=1000000, $order="sort ASC" ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "pages ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "pages WHERE categoryId = 0 ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
 
     $st = $conn->prepare( $sql );
     $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
@@ -193,7 +193,7 @@ class Page {
   * @param int Optional The number of rows to return (default=all)
   * @param string Optional column by which to order the pages (default="id ASC")
   * @return Array|false A two-element array : results => array, a list of Page objects; totalRows => Total number of pages
-  */   
+    
   public static function getParentList( $numRows=1000000, $order="sort ASC" ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
@@ -215,7 +215,7 @@ class Page {
     $conn = null;
     return ( array ( "parentResults" => $list, "parentTotalRows" => $totalRows[0] ) );
     
-  }
+  }*/ 
 
 
   /**
@@ -224,14 +224,15 @@ class Page {
   * @param int Optional The number of rows to return (default=all)
   * @param string Optional column by which to order the pages (default="id ASC")
   * @return Array|false A two-element array : results => array, a list of Page objects; totalRows => Total number of pages
-  */    
-  public static function getChildList( $numRows=1000000, $order="sort ASC" ) {
+  */   
+  public static function getPageListByCat( $categoryId ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "pages WHERE parent != 0 ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "pages WHERE categoryId = :categoryId ORDER BY " . mysql_escape_string("sort ASC") . " LIMIT :numRows";
 
     $st = $conn->prepare( $sql );
-    $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
+    $st->bindValue( ":numRows", 1000000, PDO::PARAM_INT );
+    $st->bindValue( ":categoryId", $categoryId, PDO::PARAM_INT );
     $st->execute();
     $list = array();
 
@@ -244,7 +245,7 @@ class Page {
     $sql = "SELECT FOUND_ROWS() AS totalRows";
     $totalRows = $conn->query( $sql )->fetch();
     $conn = null;
-    return ( array ( "childResults" => $list, "childTotalRows" => $totalRows[0] ) );
+    return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );
     
   }
 
@@ -259,7 +260,7 @@ class Page {
 
     // Insert the Page
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "INSERT INTO " . DB_PREFIX . "pages ( title, slug, override, summary, content, metaDescription, metaKeywords, sort, status, parent, siteIndex, botAction, menu ) VALUES ( :title, :slug, :override, :summary, :content, :metaDescription, :metaKeywords, :sort, :status, :parent, :siteIndex, :botAction, :menu )";
+    $sql = "INSERT INTO " . DB_PREFIX . "pages ( title, slug, override, summary, content, metaDescription, metaKeywords, sort, status, categoryId, siteIndex, botAction, menu ) VALUES ( :title, :slug, :override, :summary, :content, :metaDescription, :metaKeywords, :sort, :status, :categoryId, :siteIndex, :botAction, :menu )";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
@@ -270,7 +271,7 @@ class Page {
     $st->bindValue( ":metaKeywords", $this->metaKeywords, PDO::PARAM_STR );
     $st->bindValue( ":sort", $this->sort, PDO::PARAM_INT ); 
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT ); 
-    $st->bindValue( ":parent", $this->parent, PDO::PARAM_INT ); 
+    $st->bindValue( ":categoryId", $this->categoryId, PDO::PARAM_INT ); 
     $st->bindValue( ":siteIndex", $this->siteIndex, PDO::PARAM_INT );
     $st->bindValue( ":botAction", $this->botAction, PDO::PARAM_STR ); 
     $st->bindValue( ":menu", $this->menu, PDO::PARAM_INT ); 
@@ -291,7 +292,7 @@ class Page {
    
     // Update the Page
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "UPDATE " . DB_PREFIX . "pages SET title = :title, slug = :slug, override = :override, summary = :summary, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, parent = :parent, siteIndex = :siteIndex, botAction = :botAction, menu = :menu WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "pages SET title = :title, slug = :slug, override = :override, summary = :summary, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, categoryId = :categoryId, siteIndex = :siteIndex, botAction = :botAction, menu = :menu WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
@@ -303,7 +304,7 @@ class Page {
     $st->bindValue( ":metaKeywords", $this->metaKeywords, PDO::PARAM_STR );
     $st->bindValue( ":sort", $this->sort, PDO::PARAM_INT );
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT );
-    $st->bindValue( ":parent", $this->parent, PDO::PARAM_INT );
+    $st->bindValue( ":categoryId", $this->categoryId, PDO::PARAM_INT );
     $st->bindValue( ":siteIndex", $this->siteIndex, PDO::PARAM_INT );
     $st->bindValue( ":botAction", $this->botAction, PDO::PARAM_STR );
     $st->bindValue( ":menu", $this->menu, PDO::PARAM_INT );
