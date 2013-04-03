@@ -18,9 +18,9 @@
       require('inc/functions/newCategory.php');
       newCategory();
       break;
-    case 'listCategory':
-      require('inc/functions/listCategory.php');
-      listCategories();
+    case 'listContent':
+      require('inc/functions/listContent.php');
+      listContent();
       break;
     case 'editCategory':
       require('inc/functions/editCategory.php');

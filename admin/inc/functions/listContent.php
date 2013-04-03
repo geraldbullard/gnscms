@@ -1,5 +1,5 @@
 <?php
-  function listCategories() {
+  function listContent() {
     $results = array();
     if (isset($_GET['categoryId']) && $_GET['categoryId'] != '') {
       $cData = Category::getByCategoryList($_GET['categoryId']);
@@ -22,6 +22,6 @@
       if ( $_GET['success'] == "pageDeleted" ) $results['successMessage'] = "The category was deleted successfully.";
       if ( $_GET['success'] == "statusUpdated" ) $results['successMessage'] = "The categopry status was updated successfully.";
     }
-    require( "inc/layout/listCategories.php" );
+    require( "inc/layout/listContent.php" );
   }
 ?>

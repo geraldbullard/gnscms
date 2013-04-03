@@ -28,34 +28,34 @@
           </div>
           <?php } ?>
           <ul class="nav nav-tabs" id="myTab">
-            <li class="active"><a href="#currentCategories"><i class="icon icon-color icon-book-empty"></i> <span class="hide-below-480">Current </span>Content</a></li>
+            <li class="active"><a href="#currentContent"><i class="icon icon-color icon-book-empty"></i> <span class="hide-below-480">Current </span>Content</a></li>
             <li><a href="#newCategory"><i class="icon icon-color icon-plus"></i> <span class="hide-below-480">Add New </span>Category</a></li>
             <li><a href="#newPage"><i class="icon icon-color icon-plus"></i> <span class="hide-below-480">Add New </span>Page</a></li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active" id="currentCategories">
+            <div class="tab-pane active" id="currentContent">
               <?php
                 function createPath($id) {
                   $query = mysql_query("SELECT id, title, parent FROM " . DB_PREFIX . "categories WHERE id = " . (int)$id);
                   $row = mysql_fetch_array($query);
 
                   if ($row['parent'] == 0) {
-                    $name = '<a href="index.php?action=listCategory&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';  
+                    $name = '<a href="index.php?action=listContent&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';  
                     return $name;
                   } else {
-                    $name = ' > <a href="index.php?action=listCategory&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';
+                    $name = ' > <a href="index.php?action=listContent&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';
                     return createPath($row['parent']) . " " . $name;
                   }
                 }
               ?>
-              <h4><a href="index.php?action=listCategory">Top</a> <?php echo (isset($_GET['categoryId']) ? ' > ' : '') . createPath($_GET['categoryId']); ?></h4><br />
+              <h4><a href="index.php?action=listContent">Top</a> <?php echo (isset($_GET['categoryId']) ? ' > ' : '') . createPath($_GET['categoryId']); ?></h4><br />
               <?php if ($results['totalCats'] > 0) { ?>
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <thead>
                   <tr>
                     <td class="hide-below-480 table-id-head">ID</td>
                     <td class="hide-below-480 table-id-head">Sort</td>
-                    <td class="table-title-head">Title</td>
+                    <td class="table-title-head">Category Title</td>
                     <td class="hide-below-480" width="auto">Status</td>
                     <td style="text-align:right;" width="20%">Actions</td>
                   </tr>
@@ -71,7 +71,7 @@
                     <td style="width:5%; text-align:center; white-space: nowrap;" class="hide-below-480">
                       <img src="img/sortIcon.png" style="cursor:move; margin-bottom:3px;" class="categorySortHandle" title="Sort Category" data-rel="tooltip" />&nbsp;&nbsp;<span style="font-size:11px;"><?php echo $category->sort; ?></span>
                     </td>
-                    <td><a href="index.php?action=listCategory&amp;categoryId=<?php echo $category->id; ?>" title="Enter This Category" data-rel="tooltip" style="text-decoration:none;" /><i class="icon icon-orange icon-folder-open"></i> <?php echo $category->title; ?></a></td>
+                    <td><a href="index.php?action=listContent&amp;categoryId=<?php echo $category->id; ?>" title="Enter This Category" data-rel="tooltip" style="text-decoration:none;" /><i class="icon icon-orange icon-folder-open"></i> <?php echo $category->title; ?></a></td>
                     <td class="hide-below-480 noDecoration">
                       <?php if ($category->status == 1) { ?>
                       <div id="status_<?php echo $category->id; ?>"><a onclick="disableCategory(<?php echo $category->id; ?>);" title="Disable this Category"><span class="label label-success">Enabled</span></a></div>
@@ -121,7 +121,7 @@
                   <tr>
                     <td class="hide-below-480 table-id-head">ID</td>
                     <td class="hide-below-480 table-id-head">Sort</td>
-                    <td class="table-title-head pTour3">Title</td>
+                    <td class="table-title-head pTour3">Page Title</td>
                     <td class="hide-below-480 pTour4" width="auto">Index</td>
                     <td class="hide-below-480 pTour5" width="auto">Status</td>
                     <td style="text-align:right;" width="20%" class="pTour6">Actions</td>

@@ -16,7 +16,7 @@
           <div class="top-nav nav-collapse">
             <ul class="nav">
               <li><a href="index.php?action=dashboard" title="Welcome to gnsCMS">Dashboard</a></li>
-              <li><a href="index.php?action=listCategory" title="Manage Site Pages">Content</a></li>
+              <li><a href="index.php?action=listContent" title="Manage Site Pages">Content</a></li>
               <li><a href="index.php?action=theme" title="Manage Site Themes">Themes</a></li>
               <li><a href="index.php?action=fileManager" title="Manage Files">File Manager</a></li>
               <li><a href="index.php?action=listSetting" title="Manage Site Settings">Settings</a></li>
