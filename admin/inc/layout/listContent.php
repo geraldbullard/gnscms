@@ -48,7 +48,7 @@
                   }
                 }
               ?>
-              <h4><a href="index.php?action=listContent">Top</a> <?php echo (isset($_GET['categoryId']) ? ' > ' : '') . createPath($_GET['categoryId']); ?></h4><br />
+              <h4>Category >> <a href="index.php?action=listContent">Top</a> <?php echo (isset($_GET['categoryId']) ? ' > ' : '') . createPath($_GET['categoryId']); ?></h4><br />
               <?php if ($results['totalCats'] > 0) { ?>
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <thead>
@@ -106,15 +106,7 @@
                 </thead>
               </table>
               <?php } ?>
-              <?php
-                if (isset($_GET['categoryId']) && $_GET['categoryId'] != '') {
-                  $query = mysql_query("SELECT title FROM " . DB_PREFIX . "categories WHERE id = " . (int)$_GET['categoryId']);
-                  $row = mysql_fetch_array($query);
-                  echo '<h4>Pages in "' . $row['title'] . '"</h4><br />';
-                } else {
-                  echo '<h4>Top Level Pages</h4><br />';
-                }
-              ?>
+              <h4>Pages</h4><br />
               <?php if ($results['totalPages'] > 0) { ?>
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <thead>
@@ -138,7 +130,7 @@
                     <td style="width:5%; text-align:center; white-space: nowrap;" class="hide-below-480">
                       <img src="img/sortIcon.png" style="cursor:move; margin-bottom:3px;" class="pageSortHandle" title="Sort Page" data-rel="tooltip" />&nbsp;&nbsp;<span style="font-size:11px;"><?php echo $page->sort; ?></span>
                     </td>
-                    <td><?php echo $page->title; ?></td>
+                    <td><i class="icon icon-orange icon-document"></i> <?php echo $page->title; ?></td>
                     <td class="hide-below-480">
                       <?php if ($page->siteIndex == 1) { ?>
                       <i class="icon32 icon-color icon-check" title="Page is set as Site Index" data-rel="tooltip"></i>
