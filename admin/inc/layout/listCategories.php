@@ -48,7 +48,7 @@
                   }
                 }
               ?>
-              <h4>Category >> <a href="index.php?action=listCategory">Top</a> <?php echo (isset($_GET['categoryId']) ? ' > ' : '') . createPath($_GET['categoryId']); ?></h4><br />
+              <h4><a href="index.php?action=listCategory">Top</a> <?php echo (isset($_GET['categoryId']) ? ' > ' : '') . createPath($_GET['categoryId']); ?></h4><br />
               <?php if ($results['totalCats'] > 0) { ?>
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <thead>
