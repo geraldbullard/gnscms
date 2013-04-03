@@ -28,7 +28,7 @@
           </div>
           <?php } ?>
           <ul class="nav nav-tabs" id="myTab">
-            <li class="active"><a href="#currentCategories"><i class="icon icon-color icon-book-empty"></i> <span class="hide-below-480">Current </span>Categories</a></li>
+            <li class="active"><a href="#currentCategories"><i class="icon icon-color icon-book-empty"></i> <span class="hide-below-480">Current </span>Content</a></li>
             <li><a href="#newCategory"><i class="icon icon-color icon-plus"></i> <span class="hide-below-480">Add New </span>Category</a></li>
             <li><a href="#newPage"><i class="icon icon-color icon-plus"></i> <span class="hide-below-480">Add New </span>Page</a></li>
           </ul>
@@ -106,7 +106,15 @@
                 </thead>
               </table>
               <?php } ?>
-              <h4>Pages in this Category</h4><br />
+              <?php
+                if (isset($_GET['categoryId']) && $_GET['categoryId'] != '') {
+                  $query = mysql_query("SELECT title FROM " . DB_PREFIX . "categories WHERE id = " . (int)$_GET['categoryId']);
+                  $row = mysql_fetch_array($query);
+                  echo '<h4>Pages in "' . $row['title'] . '"</h4><br />';
+                } else {
+                  echo '<h4>Top Level Pages</h4><br />';
+                }
+              ?>
               <?php if ($results['totalPages'] > 0) { ?>
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <thead>
