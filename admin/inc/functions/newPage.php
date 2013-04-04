@@ -12,7 +12,7 @@
       $page = new Page;
       $page->storeFormValues( $_POST );
       $page->insert();
-      header( "Location: index.php?action=listContent&success=pageCreated" );
+      header( "Location: index.php?action=listContent&categoryId=" . $_GET['categoryId'] . "&success=pageCreated" );
     }
   }
 ?>

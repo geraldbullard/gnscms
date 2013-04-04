@@ -123,6 +123,18 @@
       $("#catView_" + id).hide();
     }
     
+    // delete a page
+    function deleteCategory(id) {
+      if (confirm("Are you sure you wish to delete this category?")) {
+        var jsonLink = '<?php echo 'rpc.php?action=deleteCategory&id=ID'; ?>'
+        $.getJSON(jsonLink.replace('ID', id));
+        $("#listCatItem_" + id).remove();
+        return true;
+      } else {
+        return false;
+      }
+    }
+    
     // set page status to enabled
     function enablePage(id) {
       var jsonLink = '<?php echo 'rpc.php?action=enablePage&status=1&id=ID'; ?>'
@@ -144,7 +156,7 @@
       if (confirm("Are you sure you wish to delete this page?")) {
         var jsonLink = '<?php echo 'rpc.php?action=deletePage&id=ID'; ?>'
         $.getJSON(jsonLink.replace('ID', id));
-        $("#listItem_" + id).remove();
+        $("#listPageItem_" + id).remove();
         return true;
       } else {
         return false;

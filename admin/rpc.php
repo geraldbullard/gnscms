@@ -19,16 +19,23 @@
   
   // set the category status to enabled
   if ($action == 'enableCategory') {
-    $page = new Category;
-    $page->storeFormValues($_GET);
-    $page->updateStatus(); 
+    $category = new Category;
+    $category->storeFormValues($_GET);
+    $category->updateStatus(); 
   }
   
   // set the category status to disabled
   if ($action == 'disableCategory') {
-    $page = new Category;
-    $page->storeFormValues($_GET);
-    $page->updateStatus(); 
+    $category = new Category;
+    $category->storeFormValues($_GET);
+    $category->updateStatus(); 
+  }
+  
+  // delete the category
+  if ($action == 'deleteCategory') {
+    $category = new Category;
+    $category->storeFormValues($_GET);
+    $category->delete(); 
   }
   
   // set the page status to enabled

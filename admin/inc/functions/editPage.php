@@ -4,7 +4,7 @@
     if ( isset( $_POST['saveChanges'] ) ) {
       // User has posted the page edit form: save the page changes
       if ( !$page = Page::getByPageId( (int)$_POST['pageId'] ) ) {
-        header( "Location: index.php?action=listPage&error=pageNotFound" );
+        header( "Location: index.php?action=listContent&categoryId=" . $_GET['categoryId'] . "&error=pageNotFound" );
         return;
       }
       // set the bot action values for insert into db
@@ -16,10 +16,10 @@
       // continue as normal
       $page->storeFormValues( $_POST );
       $page->update();
-      header( "Location: index.php?action=listPage&success=changesSaved" );
+      header( "Location: index.php?action=listContent&categoryId=" . $_GET['categoryId'] . "&success=changesSaved" );
     } elseif ( isset( $_POST['cancel'] ) ) {
       // User has cancelled their edits: return to the page list
-      header( "Location: index.php?action=listPage" );
+      header( "Location: index.php?action=listContent&categoryId=" . $_GET['categoryId'] );
     } else {
       // User has not posted the page edit form yet: display the form
       $results['page'] = Page::getByPageId( (int)$_GET['pageId'] );

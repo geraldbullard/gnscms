@@ -12,7 +12,7 @@
       $category = new Category;
       $category->storeFormValues( $_POST );
       $category->insert();
-      header( "Location: index.php?action=listContent&success=categoryCreated&categoryId=" . $_POST['parent'] );
+      header( "Location: index.php?action=listContent&categoryId=" . $_GET['categoryId'] . "&success=categoryCreated" );
     }
   }
 ?>

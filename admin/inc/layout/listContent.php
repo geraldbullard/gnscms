@@ -85,7 +85,7 @@
                         <i class="icon-zoom-in icon-white"></i>
                         <span class="hide-below-768">View</span>
                       </a>
-                      <a href="index.php?action=editCategory&amp;categoryId=<?php echo $category->id; ?>" title="Edit this Category" data-rel="tooltip" class="btn btn-info">
+                      <a href="index.php?action=editCategory&amp;categoryId=<?php echo $category->id; ?>&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" title="Edit this Category" data-rel="tooltip" class="btn btn-info">
                         <i class="icon-edit icon-white"></i>
                         <span class="hide-below-768">Edit</span>
                       </a>
@@ -134,7 +134,7 @@
                         <i class="icon-zoom-in icon-white"></i>
                         <span class="hide-below-768">View</span>
                       </a>
-                      <a href="index.php?action=editPage&amp;pageId=<?php echo $page->id; ?>" title="Edit this Page" data-rel="tooltip" class="btn btn-info">
+                      <a href="index.php?action=editPage&amp;pageId=<?php echo $page->id; ?>&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" title="Edit this Page" data-rel="tooltip" class="btn btn-info">
                         <i class="icon-edit icon-white"></i>
                         <span class="hide-below-768">Edit</span>
                       </a>
@@ -156,7 +156,7 @@
               <p><strong>( <?php echo $results['totalCats']; ?> )</strong> categor<?php echo ( $results['totalCats'] != 1 ) ? 'ies' : 'y' ?> and <strong>( <?php echo $results['totalPages']?> )</strong> page<?php echo ( $results['totalPages'] != 1 ) ? 's' : '' ?> total</p>
             </div>
             <div class="tab-pane" id="newCategory">
-              <form action="index.php?action=newCategory" method="post" name="newCategory" id="newCategory">
+              <form action="index.php?action=newCategory&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" method="post" name="newCategory" id="newCategory">
                 <div class="row-fluid">
                   <div class="span4">
                     <label>Category Title</label>
@@ -220,7 +220,7 @@
               </form>
             </div>
             <div class="tab-pane" id="newPage">
-              <form action="index.php?action=newPage" method="post" name="newPage" id="newPage">
+              <form action="index.php?action=newPage&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" method="post" name="newPage" id="newPage">
                 <div class="row-fluid">
                   <div class="span4">
                     <label>Page Title</label>

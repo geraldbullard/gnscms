@@ -18,7 +18,7 @@
           </div>
           <?php } ?>           
           <div class="row-fluid span12" id="editPageBlock">
-            <form action="index.php?action=editPage" name="editPage" method="post">
+            <form action="index.php?action=editPage&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" name="editPage" method="post">
             <input type="hidden" name="pageId" value="<?php echo $results['page']->id; ?>"/>
             <div class="row-fluid">
               <div class="span8">
@@ -104,11 +104,6 @@
             <div class="row-fluid span8" style="margin:0 0 10px 0;">
               <div style="float:left;">
                 <input class="btn btn-primary" type="submit" name="saveChanges" value="Save Changes" /> &nbsp; <input class="btn btn-primary" type="submit" formnovalidate name="cancel" value="Cancel" /></form>
-              </div>
-              <div style="float:right; text-align:right;">
-                <form action="index.php?action=deletePage&amp;pageId=<?php echo $results['page']->id ?>" method="post">
-                  <input class="btn btn-primary" type="submit" name="deleteSetting" value="Delete" onclick="return confirm('Are You Sure?')" />
-                </form>
               </div>
             </div>
           </div>
