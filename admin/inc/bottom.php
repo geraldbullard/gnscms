@@ -85,10 +85,21 @@
       var thumbWidth = $(".thumbnail img").width();
       $(".thumbnail a").css("background-size", "150px");
       
+      // sortable categories    
+      $("#category-list").sortable({
+        handle : '.categorySortHandle',
+        update : function () {
+          $("#updateSortChanges").show();
+          var order = $('#category-list').sortable('serialize');
+          $("#info").load("updateCategorySort.php?"+order);
+        }
+      });
+      
       // sortable pages    
       $("#page-list").sortable({
         handle : '.pageSortHandle',
         update : function () {
+          $("#updateSortChanges").show();
           var order = $('#page-list').sortable('serialize');
           $("#info").load("updatePageSort.php?"+order);
         }

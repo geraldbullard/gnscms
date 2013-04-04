@@ -64,7 +64,7 @@
                   <?php
                     foreach ( $results['categories'] as $category ) {
                   ?>
-                  <tr id="listItem_<?php echo $category->id; ?>">
+                  <tr id="listCatItem_<?php echo $category->id; ?>">
                     <td class="hide-below-480" title="Category ID" data-rel="tooltip">
                       <?php echo $category->id; ?>
                     </td>
@@ -103,7 +103,7 @@
                   <?php
                     foreach ( $results['pages'] as $page ) {
                   ?>
-                  <tr id="listItem_<?php echo $page->id; ?>">
+                  <tr id="listPageItem_<?php echo $page->id; ?>">
                     <td class="hide-below-480" title="Page ID" data-rel="tooltip">
                       <?php echo $page->id; ?>
                     </td>
@@ -147,6 +147,12 @@
                   <?php } ?>
                 </tbody>
               </table>
+              <div id="updateSortChanges" style="display:none; margin-bottom:10px;">
+                <a onclick="location.reload();" title="Update Sort Changes" data-rel="tooltip" class="btn btn-success">
+                  <i class="icon icon-arrowrefresh-e icon-white"></i> 
+                  <span class="hide-below-768">Update Sort Changes</span>
+                </a>
+              </div>
               <p><strong>( <?php echo $results['totalCats']; ?> )</strong> categor<?php echo ( $results['totalCats'] != 1 ) ? 'ies' : 'y' ?> and <strong>( <?php echo $results['totalPages']?> )</strong> page<?php echo ( $results['totalPages'] != 1 ) ? 's' : '' ?> total</p>
             </div>
             <div class="tab-pane" id="newCategory">
@@ -292,7 +298,7 @@
     </div><!--/row-->
     
     <!-- needed for page sorting -->
-    <div id="info" style="display:none;"></div>
+    <div id="info"></div>
   
 <?php include('inc/layout/footer.php'); ?>
 
