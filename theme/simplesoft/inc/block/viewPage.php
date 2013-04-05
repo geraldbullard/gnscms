@@ -15,13 +15,13 @@
 ?>
       <article class="hero clearfix">
         <div class="col_100">
-          <h1><?php echo htmlspecialchars($pageResults['page']->title); ?></h1>
-          <p><?php echo htmlspecialchars($pageResults['page']->summary); ?></p>
+          <h1><?php echo htmlspecialchars($pageResults->title); ?></h1>
+          <p><?php echo htmlspecialchars($pageResults->summary); ?></p>
         </div>
       </article>
       <article class="article clearfix">
 <?php 
-  echo $pageResults['page']->content; 
+  echo $pageResults->content; 
 ?>
         <div class="clearfix"></div>
       </article>

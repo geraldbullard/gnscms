@@ -15,13 +15,13 @@
 ?>
       <article class="hero clearfix">
         <div class="col_100">
-          <h1><?php echo htmlspecialchars($categoryResults['category']->title); ?></h1>
+          <h1><?php echo htmlspecialchars($categoryResults->title); ?></h1>
         </div>
       </article>
       <article class="article clearfix">
-<?php 
-  echo $categoryResults['category']->content; 
-?>
+        <?php 
+          echo $categoryResults->content; 
+        ?>      
       </article>
       <article class="article clearfix">
         <h4>More Listings in this Category</h4>
@@ -29,11 +29,11 @@
       <article class="article clearfix">
         <ul style="list-style:none;margin:0 0 0 -20px;">
 <?php
-foreach ($subCategoryResults['categories']['results'] as $subCategory) {
-  if ( $subCategory->status == 1 && $subCategory->title != '404') { 
-    echo '<li><a href="' . gen_seo_friendly_titles($subCategory->slug) . '.html" title="' . $subCategory->title . '">' . $subCategory->title . '</a></li>';
+  foreach ($subCategoryResults['results'] as $subCategory) {
+    if ( $subCategory->status == 1 && $subCategory->title != '404') { 
+      echo '          <li><a href="' . gen_seo_friendly_titles($subCategory->slug) . '.html">' . $subCategory->title . '</a></li>';
+    }
   }
-}
 ?>
         </ul>
       </article>

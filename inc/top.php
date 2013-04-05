@@ -48,49 +48,28 @@
   $pageListResults = array();
   $pageListResults = Page::getPageList();
   
-  // always get the articles list results for the menu and infobox blocks etc
-  //$articleListResults = array();
-  //$articleListResults = Page::getarticleList(); 
-  
   // get the needed data results from the database and show the content
   if (isset($_GET['locationName']) && $_GET['locationName'] != '') {
     $categoryResults = array();
-    $categoryResults['category'] = Category::getByCategorySlug( $_GET['locationName'] );
+    $categoryResults = Category::getByCategorySlug( $_GET['locationName'] );
     $pageResults = array();
-    $pageResults['page'] = Page::getByPageSlug( $_GET['locationName'] );
-    if ($categoryResults['category']->slug == $_GET['locationName']) {
-      if ( $categoryResults['category']->status != 1 ) {
+    $pageResults = Page::getByPageSlug( $_GET['locationName'] );
+    if ($categoryResults->slug == $_GET['locationName']) {
+      if ( $categoryResults->status != 1 ) {
         header('Location: 404.html');
       }
       $view = 'viewCategory';
       $subCategoryResults = array();
-      $subCategoryResults['categories'] = Category::getByCategoryList( $categoryResults['category']->id );
-    } else if ($pageResults['page']->slug == $_GET['locationName']) {
-      if ( $pageResults['page']->status != 1 ) {
+      $subCategoryResults = Category::getByCategoryList( $categoryResults->id );
+    } else if ($pageResults->slug == $_GET['locationName']) {
+      if ( $pageResults->status != 1 ) {
         header('Location: 404.html');
       }
       $view = 'viewPage';
     }
-  }/* else if (isset($_GET['pageName']) && $_GET['pageName'] != '') {
-    $pageResults = array();
-    $pageResults['page'] = Page::getByPageSlug( $_GET['pageName'] );
-    if ( $pageResults['page']->status != 1 ) {
-      header('Location: 404.html');
-    }
-    $view = 'viewPage';
-  } else if (isset($_GET['articleName']) && $_GET['articleName'] != '') {
-    $articleResults = array();
-    $articleResults['article'] = Page::getByArticleSlug( $_GET['articleName'] );
-    $view = 'viewArticle';
-  } else if (isset($_GET['pageList']) && $_GET['pageList'] != '') {
-    $view = 'pageList';
-  } else if (isset($_GET['articleList']) && $_GET['articleList'] != '') {
-    $articleListResults = array();
-    $articleListResults['articles'] = Page::getArticleList();
-    $view = 'articleList';
   } else {
     $pageResults = array();
-    $pageResults['page'] = Page::getByPageSlug( $indexPage['slug'] );
+    $pageResults = Page::getByPageSlug( $indexPage['slug'] );
     $view = 'viewPage';
-  }*/
+  }
 ?>
