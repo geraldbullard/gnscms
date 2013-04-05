@@ -116,7 +116,7 @@ class Category {
   * @return Category|false The category object, or false if the record was not found or there was a problem
   */
  
-  public static function getById( $id ) {
+  public static function getByCategoryId( $id ) {
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
     $sql = "SELECT * FROM " . DB_PREFIX . "categories WHERE id = :id";
     $st = $conn->prepare( $sql );
@@ -125,6 +125,26 @@ class Category {
     $row = $st->fetch();
     $conn = null;
     if ( $row ) return new Category( $row );
+  }
+
+
+  /**
+  * Returns a Category object matching the given page slug
+  *
+  * @param str The page slug
+  * @return Page|false The page object, or false if the record was not found or there was a problem
+  */  
+  public static function getByCategorySlug( $slug ) {
+    
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $sql = "SELECT * FROM " . DB_PREFIX . "categories WHERE slug = :slug LIMIT 1";
+    $st = $conn->prepare( $sql );
+    $st->bindValue( ":slug", $slug, PDO::PARAM_STR );
+    $st->execute();
+    $row = $st->fetch();
+    $conn = null;
+    if ( $row ) return new Category( $row );
+    
   }
  
  

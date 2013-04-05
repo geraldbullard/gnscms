@@ -23,6 +23,16 @@
       <nav class="menu_main">
         <ul>
 <?php
+  /*foreach ($categoryListResults['results'] as $categories) {
+    if ( $categories->status == 1 && $categories->title != '404') {
+      $categoriesURL = '<a href="' . gen_seo_friendly_titles($categories->slug) . '.html">' . htmlspecialchars($categories->title) . '</a>';
+?>
+          <li><?php echo $categoriesURL; ?></li>
+<?php
+    }
+  }*/
+?>
+<?php
   foreach ($pageListResults['results'] as $pages) {
     if ( $pages->status == 1 && $pages->title != '404') {
       $pagesURL = '<a href="' . gen_seo_friendly_titles($pages->slug) . '.html">' . htmlspecialchars($pages->title) . '</a>';
@@ -39,7 +49,13 @@
     <div class="info">
 <?php
   // get the needed view type and show the content
-  if (isset($view) && $view == 'viewPage') {
+  if (isset($view) && $view == 'viewCategory') {
+    if (file_exists('theme/' . siteTheme . '/inc/block/viewCategory.php')) {
+      include('theme/' . siteTheme . '/inc/block/viewCategory.php');
+    } else {
+      include('block/viewCategory.php');
+    }
+  } else if (isset($view) && $view == 'viewPage') {
     if (file_exists('theme/' . siteTheme . '/inc/block/viewPage.php')) {
       include('theme/' . siteTheme . '/inc/block/viewPage.php');
     } else {
@@ -78,6 +94,16 @@
 
       <nav class="menu_bottom">
         <ul>
+<?php
+  /*foreach ($categoryListResults['results'] as $categories) {
+    if ( $categories->status == 1 && $categories->title != '404') {
+      $categoriesURL = '<a href="' . gen_seo_friendly_titles($categories->slug) . '.html">' . htmlspecialchars($categories->title) . '</a>';
+?>
+          <li><?php echo $categoriesURL; ?></li>
+<?php
+    }
+  }*/
+?>
 <?php
   foreach ($pageListResults['results'] as $pages) {
     if ( $pages->status == 1 && $pages->title != '404') {

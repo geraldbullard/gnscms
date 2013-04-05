@@ -137,7 +137,7 @@ class Page {
 
 
   /**
-  * Returns a Page object matching the given page name
+  * Returns a Page object matching the given page slug
   *
   * @param str The page Name
   * @return Page|false The page object, or false if the record was not found or there was a problem

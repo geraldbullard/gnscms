@@ -40,16 +40,38 @@
     define($settings['define'], $settings['value']);
   }
   
+  // always get the categories list results for the menu and infobox blocks etc
+  $categoryListResults = array();
+  $categoryListResults = Category::getCategoryList();
+  
   // always get the pages list results for the menu and infobox blocks etc
   $pageListResults = array();
   $pageListResults = Page::getPageList();
   
   // always get the articles list results for the menu and infobox blocks etc
   //$articleListResults = array();
-  //$articleListResults = Page::getarticleList();
+  //$articleListResults = Page::getarticleList(); 
   
   // get the needed data results from the database and show the content
-  if (isset($_GET['pageName']) && $_GET['pageName'] != '') {
+  if (isset($_GET['locationName']) && $_GET['locationName'] != '') {
+    $categoryResults = array();
+    $categoryResults['category'] = Category::getByCategorySlug( $_GET['locationName'] );
+    $pageResults = array();
+    $pageResults['page'] = Page::getByPageSlug( $_GET['locationName'] );
+    if ($categoryResults['category']->slug == $_GET['locationName']) {
+      if ( $categoryResults['category']->status != 1 ) {
+        header('Location: 404.html');
+      }
+      $view = 'viewCategory';
+      $subCategoryResults = array();
+      $subCategoryResults['categories'] = Category::getByCategoryList( $categoryResults['category']->id );
+    } else if ($pageResults['page']->slug == $_GET['locationName']) {
+      if ( $pageResults['page']->status != 1 ) {
+        header('Location: 404.html');
+      }
+      $view = 'viewPage';
+    }
+  }/* else if (isset($_GET['pageName']) && $_GET['pageName'] != '') {
     $pageResults = array();
     $pageResults['page'] = Page::getByPageSlug( $_GET['pageName'] );
     if ( $pageResults['page']->status != 1 ) {
@@ -70,5 +92,5 @@
     $pageResults = array();
     $pageResults['page'] = Page::getByPageSlug( $indexPage['slug'] );
     $view = 'viewPage';
-  }
+  }*/
 ?>
