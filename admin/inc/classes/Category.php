@@ -84,7 +84,7 @@ class Category {
     if ( isset( $data['title'] ) ) $this->title = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['title'] );
     if ( isset( $data['slug'] ) ) $this->slug = $data['slug'];
     if ( isset( $data['override'] ) ) $this->override = $data['override'];
-    if ( isset( $data['content'] ) ) $this->content = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['content'] );
+    if ( isset( $data['content'] ) ) $this->content = $data['content'];
     if ( isset( $data['metaDescription'] ) ) $this->metaDescription = $data['metaDescription'];
     if ( isset( $data['metaKeywords'] ) ) $this->metaKeywords = $data['metaKeywords'];
     if ( isset( $data['sort'] ) ) $this->sort = (int) $data['sort'];

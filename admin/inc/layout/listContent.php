@@ -85,7 +85,7 @@
                         <i class="icon-zoom-in icon-white"></i>
                         <span class="hide-below-768">View</span>
                       </a>
-                      <a href="index.php?action=editCategory&amp;categoryId=<?php echo $category->id; ?>&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" title="Edit this Category" data-rel="tooltip" class="btn btn-info">
+                      <a href="index.php?action=editCategory&amp;editId=<?php echo $category->id; ?>&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" title="Edit this Category" data-rel="tooltip" class="btn btn-info">
                         <i class="icon-edit icon-white"></i>
                         <span class="hide-below-768">Edit</span>
                       </a>

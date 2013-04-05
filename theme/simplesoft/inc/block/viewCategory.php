@@ -23,6 +23,9 @@
           echo $categoryResults->content; 
         ?>      
       </article>
+<?php
+  /*if (!empty($subCategoryResults['results'])) {
+?>
       <article class="article clearfix">
         <h4>More Listings in this Category</h4>
       </article>
@@ -37,3 +40,6 @@
 ?>
         </ul>
       </article>
+<?php
+  } */
+?>
