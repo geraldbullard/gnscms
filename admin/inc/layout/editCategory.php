@@ -34,6 +34,12 @@
             </div>               
             <div class="row-fluid">
               <div class="span8">
+                <label>Category Menu Title</label>
+                <input class="span12" type="text" id="menuTitle" name="menuTitle" style="width:100%;" maxlength="255" value="<?php echo htmlspecialchars( $results['category']->menuTitle ); ?>" />
+              </div>
+            </div>              
+            <div class="row-fluid">
+              <div class="span8">
                 <label>URL Override</label>
                 <input class="span12" type="text" id="override" name="override" style="width:100%;" maxlength="255" value="<?php echo htmlspecialchars( $results['category']->override ); ?>" />
               </div>

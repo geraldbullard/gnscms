@@ -23,6 +23,11 @@ class Page {
   public $slug = null;
 
   /**
+  * @var string Menu title of the page
+  */
+  public $menuTitle = null;
+
+  /**
   * @var string A short summary of the page
   */
   public $summary = null;
@@ -88,6 +93,7 @@ class Page {
     if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
     if ( isset( $data['title'] ) ) $this->title = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['title'] );
     if ( isset( $data['slug'] ) ) $this->slug = $data['slug'];
+    if ( isset( $data['menuTitle'] ) ) $this->menuTitle = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['menuTitle'] );
     if ( isset( $data['override'] ) ) $this->override = $data['override'];
     if ( isset( $data['summary'] ) ) $this->summary = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['summary'] );
     if ( isset( $data['content'] ) ) $this->content = $data['content'];
@@ -260,10 +266,11 @@ class Page {
 
     // Insert the Page
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "INSERT INTO " . DB_PREFIX . "pages ( title, slug, override, summary, content, metaDescription, metaKeywords, sort, status, categoryId, siteIndex, botAction, menu ) VALUES ( :title, :slug, :override, :summary, :content, :metaDescription, :metaKeywords, :sort, :status, :categoryId, :siteIndex, :botAction, :menu )";
+    $sql = "INSERT INTO " . DB_PREFIX . "pages ( title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, categoryId, siteIndex, botAction, menu ) VALUES ( :title, :slug, :menuTitle, :override, :summary, :content, :metaDescription, :metaKeywords, :sort, :status, :categoryId, :siteIndex, :botAction, :menu )";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
+    $st->bindValue( ":menuTitle", $this->menuTitle, PDO::PARAM_STR );
     $st->bindValue( ":override", $this->override, PDO::PARAM_STR );
     $st->bindValue( ":summary", $this->summary, PDO::PARAM_STR );
     $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
@@ -292,11 +299,12 @@ class Page {
    
     // Update the Page
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "UPDATE " . DB_PREFIX . "pages SET title = :title, slug = :slug, override = :override, summary = :summary, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, categoryId = :categoryId, siteIndex = :siteIndex, botAction = :botAction, menu = :menu WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "pages SET title = :title, slug = :slug, menuTitle = :menuTitle, override = :override, summary = :summary, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, categoryId = :categoryId, siteIndex = :siteIndex, botAction = :botAction, menu = :menu WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
+    $st->bindValue( ":menuTitle", $this->menuTitle, PDO::PARAM_STR );
     $st->bindValue( ":override", $this->override, PDO::PARAM_STR );
     $st->bindValue( ":summary", $this->summary, PDO::PARAM_STR );
     $st->bindValue( ":content", $this->content, PDO::PARAM_STR );

@@ -171,6 +171,12 @@
                 </div>
                 <div class="row-fluid">
                   <div class="span4">
+                    <label>Category Menu Title</label>
+                    <input class="span12" style="width:100%;" type="text" id="menuTitle" name="menuTitle" />
+                  </div>
+                </div>
+                <div class="row-fluid">
+                  <div class="span4">
                     <label>URL Override</label>
                     <input class="span12" style="width:100%;" type="text" id="override" name="override" />
                   </div>
@@ -231,6 +237,12 @@
                   <div class="span4">
                     <label>Page Slug (For Site URL)</label>
                     <input class="span12" style="width:100%;" type="text" id="pageSlug" name="slug" />
+                  </div>
+                </div>
+                <div class="row-fluid">
+                  <div class="span4">
+                    <label>Page Menu Title</label>
+                    <input class="span12" style="width:100%;" type="text" id="menuTitle" name="menuTitle" />
                   </div>
                 </div>
                 <div class="row-fluid">

@@ -28,6 +28,11 @@ class Category {
   public $override = null;
  
   /**
+  * @var string Menu Title of the category
+  */
+  public $menuTitle = null;
+ 
+  /**
   * @var string the content of the category
   */
   public $content = null;
@@ -83,6 +88,7 @@ class Category {
     if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
     if ( isset( $data['title'] ) ) $this->title = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['title'] );
     if ( isset( $data['slug'] ) ) $this->slug = $data['slug'];
+    if ( isset( $data['menuTitle'] ) ) $this->menuTitle = preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['menuTitle'] );
     if ( isset( $data['override'] ) ) $this->override = $data['override'];
     if ( isset( $data['content'] ) ) $this->content = $data['content'];
     if ( isset( $data['metaDescription'] ) ) $this->metaDescription = $data['metaDescription'];
@@ -222,10 +228,11 @@ class Category {
  
     // Insert the Category
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "INSERT INTO " . DB_PREFIX . "categories ( title, slug, override, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, parent ) VALUES ( :title, :slug, :override, :content, :metaDescription, :metaKeywords, :sort, :status, :siteIndex, :botAction, :menu, :parent )";
+    $sql = "INSERT INTO " . DB_PREFIX . "categories ( title, slug, menuTitle, override, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, parent ) VALUES ( :title, :slug, :menuTitle, :override, :content, :metaDescription, :metaKeywords, :sort, :status, :siteIndex, :botAction, :menu, :parent )";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
+    $st->bindValue( ":menuTitle", $this->menuTitle, PDO::PARAM_STR );
     $st->bindValue( ":override", $this->override, PDO::PARAM_STR );
     $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
     $st->bindValue( ":metaDescription", $this->metaDescription, PDO::PARAM_STR );
@@ -253,11 +260,12 @@ class Category {
     
     // Update the Category
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-    $sql = "UPDATE " . DB_PREFIX . "categories SET title = :title, slug = :slug, override = :override, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, siteIndex = :siteIndex, botAction = :botAction, menu = :menu, parent = :parent WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "categories SET title = :title, slug = :slug, menuTitle = :menuTitle, override = :override, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, siteIndex = :siteIndex, botAction = :botAction, menu = :menu, parent = :parent WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
+    $st->bindValue( ":menuTitle", $this->menuTitle, PDO::PARAM_STR );
     $st->bindValue( ":override", $this->override, PDO::PARAM_STR );
     $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
     $st->bindValue( ":metaDescription", $this->metaDescription, PDO::PARAM_STR );
