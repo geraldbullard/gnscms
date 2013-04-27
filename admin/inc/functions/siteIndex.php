@@ -1,12 +1,12 @@
 <?php
   function siteIndex() {
     if ( isset( $_POST['siteIndex'] ) ) {
-      $page = new Page;
-      $page->storeFormValues( $_POST );
-      $page->siteIndex();
-      header( "Location: index.php?action=listPage&success=siteIndexUpdated" );
+      $content = new Content;
+      $content->storeFormValues( $_POST );
+      $content->siteIndex();
+      header( "Location: index.php?action=listContent&success=siteIndexUpdated" );
     } else {
-      header( "Location: index.php?action=listPage&error=siteIndexNotUpdated" );
+      header( "Location: index.php?action=listContent&error=siteIndexNotUpdated" );
     }
   }
 ?>

@@ -1,6 +1,6 @@
 <?php
   /**
-   * $Id: viewCategory.php, v 1.0.0 2009/01/07 datazen Exp $ :: updated 2012/06/20 maestro Exp $
+   * $Id: viewContent.php, v 1.0.0 2009/01/07 datazen Exp $ :: updated 2012/06/20 maestro Exp $
    *
    * gnsPLANET.com - The Foundation of Development & Research for the New Millenium
    * http://www.gnsplanet.com/
@@ -15,12 +15,12 @@
 ?>
       <article class="hero clearfix">
         <div class="col_100">
-          <h1><?php echo htmlspecialchars($categoryResults->title); ?></h1>
+          <h1><?php echo htmlspecialchars($contentResults->title); ?></h1>
         </div>
       </article>
       <article class="article clearfix">
         <?php 
-          echo $categoryResults->content; 
+          echo $contentResults->content; 
         ?>      
       </article>
 <?php

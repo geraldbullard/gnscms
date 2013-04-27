@@ -1,17 +1,16 @@
 <?php
   require('inc/config.php');
   require('inc/functions/general.php');
-  require('inc/classes/Category.php');
-  require('inc/classes/Page.php');
+  require('inc/classes/Content.php');
   require('inc/classes/Setting.php');
   
-  /* set the type of request (secure or not) // save for later - maestro
+  // set the type of request (secure or not) // save for later - maestro
   $request_type = (getenv('HTTPS') == 'on') ? 'SSL' : 'NONSSL';
   if ($request_type == 'NONSSL') {
     define('DIR_WS_MAIN', HTTP_SERVER . DIR_WS_CONTENT);
   } else {
     define('DIR_WS_MAIN', HTTPS_SERVER . DIR_WS_CONTENT);
-  }*/
+  }
   
   // set php_self in the local scope
   $PHP_SELF = $_SERVER['SCRIPT_NAME'];

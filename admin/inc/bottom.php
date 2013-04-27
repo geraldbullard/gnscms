@@ -68,17 +68,42 @@
   <!-- ckeditor script -->
   <script src="ext/ckeditor/ckeditor.js"></script>  
 
-  <script>
+  <script>      
+    // set category status to enabled
+    function enableContent(id) {
+      var jsonLink = '<?php echo 'rpc.php?action=enableContent&status=1&id=ID'; ?>'
+      $.getJSON(jsonLink.replace('ID', id));
+      $("#status_" + id).html('<a onclick="disableContent(' + id + ');"><span class="label label-success">Enabled</span></a>');
+      $("#view_" + id).show();
+    }
+    
+    // set category status to disabled
+    function disableContent(id) {
+      var jsonLink = '<?php echo 'rpc.php?action=disableContent&status=0&id=ID'; ?>'
+      $.getJSON(jsonLink.replace('ID', id));
+      $("#status_" + id).html('<a onclick="enableContent(' + id + ');"><span class="label label-important">Disabled</span></a>');
+      $("#view_" + id).hide();
+    }
+    
+    // delete a page
+    function deleteContent(id) {
+      if (confirm("Are you sure you wish to delete this content?")) {
+        var jsonLink = '<?php echo 'rpc.php?action=deleteContent&id=ID'; ?>'
+        $.getJSON(jsonLink.replace('ID', id));
+        $("#listItem_" + id).remove();
+        return true;
+      } else {
+        return false;
+      }
+    }
+    
+    // START Document Ready Function ////////////////////////////////////////////////////////
     $(document).ready(function() {
     
       // create the category slug as the title is being entered
-      $("#catTitle").keyup(function(){
-        $("#catSlug").val($("#catTitle").val().toLowerCase().replace(/ /g, '-'));
-      });
-      
-      // create the category slug as the title is being entered
-      $("#pageTitle").keyup(function(){
-        $("#pageSlug").val($("#pageTitle").val().toLowerCase().replace(/ /g, '-'));
+      $("#contentTitle").blur(function(){
+        $("#contentSlug").val($("#contentTitle").val().toLowerCase().replace(/ /g, '-'));
+        $("#menuTitle").val($("#contentTitle").val());
       });
       
       // set the background of the theme gallery thumbnail image to match what is in the css
@@ -86,82 +111,17 @@
       $(".thumbnail a").css("background-size", "150px");
       
       // sortable categories    
-      $("#category-list").sortable({
-        handle : '.categorySortHandle',
+      $("#content-list").sortable({
+        handle : '.sortHandle',
         update : function () {
           $("#updateSortChanges").show();
-          var order = $('#category-list').sortable('serialize');
-          $("#info").load("updateCategorySort.php?"+order);
-        }
-      });
-      
-      // sortable pages    
-      $("#page-list").sortable({
-        handle : '.pageSortHandle',
-        update : function () {
-          $("#updateSortChanges").show();
-          var order = $('#page-list').sortable('serialize');
-          $("#info").load("updatePageSort.php?"+order);
+          var order = $('#content-list').sortable('serialize');
+          $("#info").load("updateSort.php?" + order);
         }
       });
                       
     });
-      
-    // set category status to enabled
-    function enableCategory(id) {
-      var jsonLink = '<?php echo 'rpc.php?action=enableCategory&status=1&id=ID'; ?>'
-      $.getJSON(jsonLink.replace('ID', id));
-      $("#catStatus_" + id).html('<a onclick="disableCategory(' + id + ');"><span class="label label-success">Enabled</span></a>');
-      $("#catView_" + id).show();
-    }
-    
-    // set category status to disabled
-    function disableCategory(id) {
-      var jsonLink = '<?php echo 'rpc.php?action=disableCategory&status=0&id=ID'; ?>'
-      $.getJSON(jsonLink.replace('ID', id));
-      $("#catStatus_" + id).html('<a onclick="enableCategory(' + id + ');"><span class="label label-important">Disabled</span></a>');
-      $("#catView_" + id).hide();
-    }
-    
-    // delete a page
-    function deleteCategory(id) {
-      if (confirm("Are you sure you wish to delete this category?")) {
-        var jsonLink = '<?php echo 'rpc.php?action=deleteCategory&id=ID'; ?>'
-        $.getJSON(jsonLink.replace('ID', id));
-        $("#listCatItem_" + id).remove();
-        return true;
-      } else {
-        return false;
-      }
-    }
-    
-    // set page status to enabled
-    function enablePage(id) {
-      var jsonLink = '<?php echo 'rpc.php?action=enablePage&status=1&id=ID'; ?>'
-      $.getJSON(jsonLink.replace('ID', id));
-      $("#pageStatus_" + id).html('<a onclick="disablePage(' + id + ');"><span class="label label-success">Enabled</span></a>');
-      $("#pageView_" + id).show();
-    }
-    
-    // set page status to disabled
-    function disablePage(id) {
-      var jsonLink = '<?php echo 'rpc.php?action=disablePage&status=0&id=ID'; ?>'
-      $.getJSON(jsonLink.replace('ID', id));
-      $("#pageStatus_" + id).html('<a onclick="enablePage(' + id + ');"><span class="label label-important">Disabled</span></a>');
-      $("#pageView_" + id).hide();
-    }
-    
-    // delete a page
-    function deletePage(id) {
-      if (confirm("Are you sure you wish to delete this page?")) {
-        var jsonLink = '<?php echo 'rpc.php?action=deletePage&id=ID'; ?>'
-        $.getJSON(jsonLink.replace('ID', id));
-        $("#listPageItem_" + id).remove();
-        return true;
-      } else {
-        return false;
-      }
-    }
+    // END Document Ready Function ////////////////////////////////////////////////////////
   </script>
  
 </body>

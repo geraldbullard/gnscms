@@ -17,45 +17,24 @@
   // set the action from the url
   $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
   
-  // set the category status to enabled
-  if ($action == 'enableCategory') {
-    $category = new Category;
-    $category->storeFormValues($_GET);
-    $category->updateStatus(); 
+  // set the content status to enabled
+  if ($action == 'enableContent') {
+    $content = new Content;
+    $content->storeFormValues($_GET);
+    $content->updateStatus(); 
   }
   
-  // set the category status to disabled
-  if ($action == 'disableCategory') {
-    $category = new Category;
-    $category->storeFormValues($_GET);
-    $category->updateStatus(); 
+  // set the content status to disabled
+  if ($action == 'disableContent') {
+    $content = new Content;
+    $content->storeFormValues($_GET);
+    $content->updateStatus(); 
   }
   
-  // delete the category
-  if ($action == 'deleteCategory') {
-    $category = new Category;
-    $category->storeFormValues($_GET);
-    $category->delete(); 
-  }
-  
-  // set the page status to enabled
-  if ($action == 'enablePage') {
-    $page = new Page;
-    $page->storeFormValues($_GET);
-    $page->updateStatus(); 
-  }
-  
-  // set the page status to disabled
-  if ($action == 'disablePage') {
-    $page = new Page;
-    $page->storeFormValues($_GET);
-    $page->updateStatus(); 
-  }
-  
-  // delete the page
-  if ($action == 'deletePage') {
-    $page = new Page;
-    $page->storeFormValues($_GET);
-    $page->delete(); 
+  // delete the content
+  if ($action == 'deleteContent') {
+    $content = new Content;
+    $content->storeFormValues($_GET);
+    $content->delete(); 
   }     
 ?>

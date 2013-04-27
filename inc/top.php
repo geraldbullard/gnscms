@@ -20,8 +20,7 @@
     header('Location: admin/install.php');
   }
   require('admin/inc/functions/general.php');  
-  require('admin/inc/classes/Category.php');
-  require('admin/inc/classes/Page.php');
+  require('admin/inc/classes/Content.php');
   require('admin/inc/classes/Setting.php');
   
   // set php_self in the local scope
@@ -34,42 +33,27 @@
   // get the settings and define them for site wide usage
   mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
   mysql_select_db(DB_NAME);
-  $indexPage = mysql_fetch_array(mysql_query("SELECT slug FROM " . DB_PREFIX . "pages WHERE siteIndex = 1"));
+  $indexPage = mysql_fetch_array(mysql_query("SELECT slug FROM " . DB_PREFIX . "content WHERE siteIndex = 1"));
   $settingsQuery = mysql_query("SELECT define, value FROM " . DB_PREFIX . "settings");
   while ($settings = mysql_fetch_array($settingsQuery)) {
     define($settings['define'], $settings['value']);
   }
   
-  // always get the categories list results for the menu and infobox blocks etc
-  $categoryListResults = array();
-  $categoryListResults = Category::getCategoryList();
-  
-  // always get the pages list results for the menu and infobox blocks etc
-  $pageListResults = array();
-  $pageListResults = Page::getPageList();
+  // always get the full content results for the menu and infobox blocks etc
+  $topResults = array();
+  $topResults = Content::getTopList();
   
   // get the needed data results from the database and show the content
   if (isset($_GET['locationName']) && $_GET['locationName'] != '') {
-    $categoryResults = array();
-    $categoryResults = Category::getByCategorySlug( $_GET['locationName'] );
-    $pageResults = array();
-    $pageResults = Page::getByPageSlug( $_GET['locationName'] );
-    if ($categoryResults->slug == $_GET['locationName']) {
-      if ( $categoryResults->status != 1 ) {
-        header('Location: 404.html');
-      }
-      $view = 'viewCategory';
-      $subCategoryResults = array();
-      $subCategoryResults = Category::getByCategoryList( $categoryResults->id );
-    } else if ($pageResults->slug == $_GET['locationName']) {
-      if ( $pageResults->status != 1 ) {
-        header('Location: 404.html');
-      }
-      $view = 'viewPage';
+    $contentResults = array();
+    $contentResults = Content::getBySlug( $_GET['locationName'] );
+    if ( $contentResults->status != 1 ) {
+      header('Location: 404.html');
     }
+    $view = 'viewContent';
   } else {
-    $pageResults = array();
-    $pageResults = Page::getByPageSlug( $indexPage['slug'] );
-    $view = 'viewPage';
+    $contentResults = array();
+    $contentResults = Content::getBySlug( $indexPage['slug'] );
+    $view = 'viewContent';
   }
 ?>

@@ -23,21 +23,11 @@
       <nav class="menu_main">
         <ul>
 <?php
-  /*foreach ($categoryListResults['results'] as $categories) {
-    if ( $categories->status == 1 && $categories->title != '404') {
-      $categoriesURL = '<a href="' . gen_seo_friendly_titles($categories->slug) . '.html">' . htmlspecialchars($categories->title) . '</a>';
+  foreach ($topResults['results'] as $content) {
+    if ( $content->status == 1 && $content->title != '404') {
+      $contentURL = '<a href="' . gen_seo_friendly_titles($content->slug) . '.html">' . htmlspecialchars($content->title) . '</a>';
 ?>
-          <li><?php echo $categoriesURL; ?></li>
-<?php
-    }
-  }*/
-?>
-<?php
-  foreach ($pageListResults['results'] as $pages) {
-    if ( $pages->status == 1 && $pages->title != '404') {
-      $pagesURL = '<a href="' . gen_seo_friendly_titles($pages->slug) . '.html">' . htmlspecialchars($pages->title) . '</a>';
-?>
-          <li><?php echo $pagesURL; ?></li>
+          <li><?php echo $contentURL; ?></li>
 <?php
     }
   }
@@ -49,35 +39,11 @@
     <div class="info">
 <?php
   // get the needed view type and show the content
-  if (isset($view) && $view == 'viewCategory') {
-    if (file_exists('theme/' . siteTheme . '/inc/block/viewCategory.php')) {
-      include('theme/' . siteTheme . '/inc/block/viewCategory.php');
+  if (isset($view) && $view == 'viewContent') {
+    if (file_exists('theme/' . siteTheme . '/inc/block/viewContent.php')) {
+      include('theme/' . siteTheme . '/inc/block/viewContent.php');
     } else {
-      include('block/viewCategory.php');
-    }
-  } else if (isset($view) && $view == 'viewPage') {
-    if (file_exists('theme/' . siteTheme . '/inc/block/viewPage.php')) {
-      include('theme/' . siteTheme . '/inc/block/viewPage.php');
-    } else {
-      include('block/viewPage.php');
-    }
-  } else if (isset($view) && $view == 'viewArticle') {
-    if (file_exists('theme/' . siteTheme . '/inc/block/viewArticle.php')) {
-      include('theme/' . siteTheme . '/inc/block/viewArticle.php');
-    } else {
-      include('block/viewArticle.php');
-    }
-  } else if (isset($view) && $view == 'listPages') {
-    if (file_exists('theme/' . siteTheme . '/inc/block/listPages.php')) {
-      include('theme/' . siteTheme . '/inc/block/listPages.php');
-    } else {
-      include('block/listPages.php');
-    }
-  } else if (isset($view) && $view == 'listArticles') {
-    if (file_exists('theme/' . siteTheme . '/inc/block/listArticles.php')) {
-      include('theme/' . siteTheme . '/inc/block/listArticles.php');
-    } else {
-      include('block/listArticles.php');
+      include('block/viewContent.php');
     }
   } else {
     if (file_exists('theme/' . siteTheme . '/inc/block/notFound.php')) {
@@ -95,21 +61,11 @@
       <nav class="menu_bottom">
         <ul>
 <?php
-  /*foreach ($categoryListResults['results'] as $categories) {
-    if ( $categories->status == 1 && $categories->title != '404') {
-      $categoriesURL = '<a href="' . gen_seo_friendly_titles($categories->slug) . '.html">' . htmlspecialchars($categories->title) . '</a>';
+  foreach ($topResults['results'] as $content) {
+    if ( $content->status == 1 && $content->title != '404') {
+      $contentURL = '<a href="' . gen_seo_friendly_titles($content->slug) . '.html">' . htmlspecialchars($content->title) . '</a>';
 ?>
-          <li><?php echo $categoriesURL; ?></li>
-<?php
-    }
-  }*/
-?>
-<?php
-  foreach ($pageListResults['results'] as $pages) {
-    if ( $pages->status == 1 && $pages->title != '404') {
-      $pagesURL = '<a href="' . gen_seo_friendly_titles($pages->slug) . '.html">' . htmlspecialchars($pages->title) . '</a>';
-?>
-          <li><?php echo $pagesURL; ?></li>
+          <li><?php echo $contentURL; ?></li>
 <?php
     }
   }

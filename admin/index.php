@@ -14,49 +14,17 @@
   }
 
   switch ( $action ) {
+    case 'newContent':
+      require('inc/functions/newContent.php');
+      newContent();
+      break;
     case 'listContent':
       require('inc/functions/listContent.php');
       listContent();
       break;
-    case 'newCategory':
-      require('inc/functions/newCategory.php');
-      newCategory();
-      break;
-    case 'editCategory':
-      require('inc/functions/editCategory.php');
-      editCategory();
-      break;
-    case 'enableCategory':
-      require('inc/functions/enableCategory.php');
-      enableCategory();
-      break;
-    case 'disableCategory':
-      require('inc/functions/disableCategory.php');
-      disableCategory();
-      break;
-    case 'deleteCategory':
-      require('inc/functions/deleteCategory.php');
-      deleteCategory();
-      break;
-    case 'newPage':
-      require('inc/functions/newPage.php');
-      newPage();
-      break;
-    case 'editPage':
-      require('inc/functions/editPage.php');
-      editPage();
-      break;
-    case 'enablePage':
-      require('inc/functions/enablePage.php');
-      enablePage();
-      break;
-    case 'disablePage':
-      require('inc/functions/disablePage.php');
-      disablePage();
-      break;
-    case 'deletePage':
-      require('inc/functions/deletePage.php');
-      deletePage();
+    case 'editContent':
+      require('inc/functions/editContent.php');
+      editContent();
       break;
     case 'siteIndex':
       require('inc/functions/siteIndex.php');
