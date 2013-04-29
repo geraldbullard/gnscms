@@ -81,7 +81,7 @@
                       <?php if ($content->siteIndex == 1) { ?>
                       <i class="icon32 icon-color icon-check" title="This <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?> is set as the Site Index" data-rel="tooltip"></i>
                       <?php } else { ?>
-                      <form action="index.php?action=siteIndex" method="post" id="siteIndex_<?php echo $content->id; ?>" name="siteIndex_<?php echo $content->id; ?>">
+                      <form action="index.php?action=siteIndex&categoryId=<?php echo $_GET['categoryId']; ?>" method="post" id="siteIndex_<?php echo $content->id; ?>" name="siteIndex_<?php echo $content->id; ?>">
                         <input type="hidden" name="siteIndex" value="1" />
                         <input type="hidden" name="id" value="<?php echo $content->id; ?>" />
                         <a onclick="$('#siteIndex_<?php echo $content->id; ?>').submit();" title="Set this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?> as the Site Index" data-rel="tooltip"><i class="icon32 icon-color icon-close" style="opacity:0.5;cursor:pointer;"></i></a>
@@ -164,12 +164,12 @@
                     <input class="span12" style="width:100%;" type="text" id="override" name="override" />
                   </div>
                 </div>
-                <div class="row-fluid">
-                  <div class="span6">
-                    <label>Summary</label>
-                    <input class="span12" style="width:100%;" type="text" id="summary" name="summary" />
-                  </div>
-                </div>
+            <div class="row-fluid">
+              <div class="span6">
+                <label>Summary</label>
+                <textarea class="span12" type="text" id="summary" name="summary" style="width:100%;" maxlength="10000"></textarea>
+              </div>
+            </div>
                 <div class="row-fluid" style="margin-bottom:10px;">
                   <div class="span8">
                     <label>Content</label>

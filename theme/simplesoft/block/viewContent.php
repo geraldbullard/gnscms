@@ -16,6 +16,7 @@
       <article class="hero clearfix">
         <div class="col_100">
           <h1><?php echo htmlspecialchars($contentResults->title); ?></h1>
+          <p><?php echo htmlspecialchars($contentResults->summary); ?></p>
         </div>
       </article>
       <article class="article clearfix">

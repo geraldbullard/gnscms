@@ -36,27 +36,33 @@
             </div>
             <div style="height:5px;"></div>
             <div class="row-fluid">
-              <div class="span8">
+              <div class="span4">
                 <label>Title</label>
                 <input class="span12" type="text" id="contentTitle" name="title" style="width:100%;" maxlength="255" value="<?php echo htmlspecialchars( $results['content']->title ); ?>" autofocus required />
               </div>
             </div>              
             <div class="row-fluid">
-              <div class="span8">
+              <div class="span4">
                 <label>Slug (For Site URL)</label>
                 <input class="span12" type="text" id="contentSlug" name="slug" style="width:100%;" maxlength="255" value="<?php echo htmlspecialchars( $results['content']->slug ); ?>" />
               </div>
             </div>               
             <div class="row-fluid">
-              <div class="span8">
+              <div class="span4">
                 <label>Menu Title</label>
                 <input class="span12" type="text" id="menuTitle" name="menuTitle" style="width:100%;" maxlength="255" value="<?php echo htmlspecialchars( $results['content']->menuTitle ); ?>" />
               </div>
             </div>              
             <div class="row-fluid">
-              <div class="span8">
+              <div class="span4">
                 <label>URL Override</label>
                 <input class="span12" type="text" id="override" name="override" style="width:100%;" maxlength="255" value="<?php echo htmlspecialchars( $results['content']->override ); ?>" />
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span6">
+                <label>Summary</label>
+                <textarea class="span12" type="text" id="summary" name="summary" style="width:100%;" maxlength="10000" value="<?php echo htmlspecialchars( $results['content']->summary ); ?>"></textarea>
               </div>
             </div>             
             <div class="row-fluid" style="margin-bottom:10px;">
@@ -66,19 +72,19 @@
               </div>
             </div>              
             <div class="row-fluid">
-              <div class="span8">
+              <div class="span6">
                 <label>Meta Description</label>
                 <textarea class="span12" id="metaDescription" style="width:100%;" name="metaDescription"><?php echo htmlspecialchars( $results['content']->metaDescription ); ?></textarea>
               </div>
             </div>                
             <div class="row-fluid">
-              <div class="span8">
+              <div class="span6">
                 <label>Meta Keywords</label>
                 <textarea class="span12" id="metaKeywords" style="width:100%;" name="metaKeywords"><?php echo htmlspecialchars( $results['content']->metaKeywords ); ?></textarea>
               </div>
             </div>
             <div class="row-fluid">
-              <div class="span8">
+              <div class="span6">
                 <label>Bot Actions</label>
                 <?php 
                   $botActions = explode(", ", $results['content']->botAction);
@@ -90,8 +96,8 @@
             <div class="row-fluid">&nbsp;</div>
             <div class="row-fluid">
               <div class="span6">
-                  <label>Show in Menu</label>
-                  <input type="checkbox" id="menu" name="menu" <?php echo (($results['content']->menu == 1) ? 'checked' : ''); ?> />Show In Menu
+                <label>Show in Menu</label>
+                <input type="checkbox" id="menu" name="menu" <?php echo (($results['content']->menu == 1) ? 'checked' : ''); ?> />Show In Menu
               </div>
             </div>
             <br />
@@ -99,7 +105,7 @@
             <input type="hidden" name="sort" value="<?php echo $results['content']->sort; ?>"/>
             <input type="hidden" name="status" value="<?php echo $results['content']->status; ?>"/>
             <input type="hidden" name="siteIndex" value="<?php echo $results['content']->siteIndex; ?>"/>
-            <div class="row-fluid span8" style="margin:0 0 10px 0;">
+            <div class="row-fluid span12" style="margin:0 0 10px 0;">
               <div style="float:left;">
                 <input class="btn btn-primary" type="submit" name="saveChanges" value="Save Changes" /> &nbsp; <input class="btn btn-primary" type="submit" formnovalidate name="cancel" value="Cancel" /></form>
               </div>
