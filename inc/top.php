@@ -40,8 +40,8 @@
   }
   
   // always get the full content results for the menu and infobox blocks etc
-  $topResults = array();
-  $topResults = Content::getTopList();
+  $fullResults = array();
+  $fullResults = Content::getFullList();
   
   // get the needed data results from the database and show the content
   if (isset($_GET['locationName']) && $_GET['locationName'] != '') {

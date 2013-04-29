@@ -59,7 +59,7 @@
                 <input class="span12" type="text" id="override" name="override" style="width:100%;" maxlength="255" value="<?php echo htmlspecialchars( $results['content']->override ); ?>" />
               </div>
             </div>             
-            <div class="row-fluid">
+            <div class="row-fluid" style="margin-bottom:10px;">
               <div class="span8">
                 <label>Content</label>
                 <textarea class="span12 ckeditor" id="content" name="content" style="min-height:250px;" maxlength="100000"><?php echo htmlspecialchars( $results['content']->content ); ?></textarea>

@@ -29,9 +29,11 @@
   <meta name="viewport" content="width=device-width">
   <meta name="application-name" content="<?php echo htmlspecialchars(siteName); ?>" />
   <meta name="robots" content="<?php echo (isset($results['content']->botAction) && $results['content']->botAction != '') ? $results['content']->botAction : 'index, follow'; ?>" />
-  <link rel="stylesheet" type="text/css" href="theme/<?php echo siteTheme; ?>/css/style.css" />
-  <script src="theme/<?php echo siteTheme; ?>/js/modernizr-2.5.3.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="theme/simplesoft/css/style.css" />
+  <script src="theme/simplesoft/js/modernizr-2.5.3.min.js"></script>
   <script src="<?php echo (($request_type == 'SSL') ? 'https:' : 'http:'); ?>//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="theme/simplesoft/css/menu.css" />
+  <script src="theme/simplesoft/js/menu.js"></script>
   <script>
     if (typeof jQuery == 'undefined') {
       document.write(unescape('%3Cscript src="theme/<?php echo siteTheme; ?>/js/jquery-1.8.3.min.js"%3C/script%3E'));
