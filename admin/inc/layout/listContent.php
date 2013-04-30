@@ -78,35 +78,45 @@
                     <td><i class="icon icon-orange icon-document"></i> <?php echo $content->title; ?></td>
                     <?php } ?>
                     <td class="hide-below-480">
-                      <?php if ($content->siteIndex == 1) { ?>
+                      <?php if ($content->title != '404') { ?>
+                      <?php   if ($content->siteIndex == 1) { ?>
                       <i class="icon32 icon-color icon-check" title="This <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?> is set as the Site Index" data-rel="tooltip"></i>
-                      <?php } else { ?>
+                      <?php   } else { ?>
                       <form action="index.php?action=siteIndex&categoryId=<?php echo $_GET['categoryId']; ?>" method="post" id="siteIndex_<?php echo $content->id; ?>" name="siteIndex_<?php echo $content->id; ?>">
                         <input type="hidden" name="siteIndex" value="1" />
                         <input type="hidden" name="id" value="<?php echo $content->id; ?>" />
                         <a onclick="$('#siteIndex_<?php echo $content->id; ?>').submit();" title="Set this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?> as the Site Index" data-rel="tooltip"><i class="icon32 icon-color icon-close" style="opacity:0.5;cursor:pointer;"></i></a>
                       </form>
+                      <?php   } ?>
                       <?php } ?>
                     </td>
                     <td class="hide-below-480 noDecoration">
-                      <?php if ($content->status == 1) { ?>
+                      <?php if ($content->title != '404') { ?>
+                      <?php   if ($content->status == 1) { ?>
                       <div id="status_<?php echo $content->id; ?>"><a onclick="disableContent(<?php echo $content->id; ?>);"><span class="label label-success">Enabled</span></a></div>
-                      <?php } else { ?>
+                      <?php   } else { ?>
                       <div id="status_<?php echo $content->id; ?>"><a onclick="enableContent(<?php echo $content->id; ?>);"><span class="label label-important">Disabled</span></a></div>
+                      <?php   } ?>
                       <?php } ?>
                     </td>
                     <td style="text-align:right; white-space:nowrap;">
-                      <a id="view_<?php echo $content->id; ?>" href="../<?php echo gen_seo_friendly_titles($content->slug); ?>.html" title="View this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?> in New Window" data-rel="tooltip" target="_blank" class="btn btn-success"<?php if ($content->status != 1) echo ' style="display:none;"'; ?>>
-                        <i class="icon-zoom-in icon-white"></i>
-                        <span class="hide-below-768">View</span>
-                      </a>
                       <a href="index.php?action=editContent&amp;editId=<?php echo $content->id; ?>&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" title="Edit this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-info">
                         <i class="icon-edit icon-white"></i>
                         <span class="hide-below-768">Edit</span>
                       </a>
+                      <?php if ($content->title != '404') { ?>
+                      <a onclick="moveContent(<?php echo $content->id; ?>);" title="Move this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-warning">
+                        <i class="icon-share-alt icon-white"></i>
+                      </a>
+                      <a onclick="copyContent(<?php echo $content->id; ?>);" title="Copy this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-primary">
+                        <i class="icon-asterisk icon-white"></i>
+                      </a>
                       <a onclick="deleteContent(<?php echo $content->id; ?>);" title="Delete this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-danger">
-                        <i class="icon-trash icon-white"></i> 
-                        <span class="hide-below-768">Delete</span>
+                        <i class="icon-trash icon-white"></i>
+                      </a>
+                      <?php } ?>
+                      <a id="view_<?php echo $content->id; ?>" href="../<?php echo gen_seo_friendly_titles($content->slug); ?>.html" title="View this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?> in New Window" data-rel="tooltip" target="_blank" class="btn btn-success"<?php if ($content->status != 1) echo ' style="display:none;"'; ?>>
+                        <i class="icon-zoom-in icon-white"></i>
                       </a>
                     </td>
                   </tr>
