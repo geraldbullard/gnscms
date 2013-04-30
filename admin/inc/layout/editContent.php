@@ -5,7 +5,7 @@
     <div class="row-fluid">
       <div class="box span12">
         <div class="box-header well">
-          <h2><i class="icon-th"></i> Edit <?php echo ($results['content']->type == 0) ? 'Category' : 'Page'; ?></h2>
+          <h2><i class="icon-th"></i> Edit <?php echo ($results['content']->type == 0) ? 'Category' : 'Page'; ?> : : <?php echo $results['content']->title; ?></h2>
           <div class="box-icon">
             <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
           </div>
