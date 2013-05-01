@@ -222,12 +222,13 @@
             <div class="modal-body" id="copy_modal_body">
               <p>Select the location where you wish to move the content from the dropdwon below... </p>
               <select id="copyId" name="copyId">
-                <?php echo listCategory(0, 0); ?>
+                <option value="0">Top</option>
+                <?php echo listCategories(0, 1); ?>
               </select>
             </div>
             <div class="modal-footer">
               <a href="#" class="btn" data-dismiss="modal">Close</a>
-              <a href="#" class="btn btn-primary" onclick="$('#copyContent').submit();">Save Changes</a>
+              <button class="btn btn-primary" type="submit" name="saveChanges">Save Changes</button>
             </div>
           </form>
         </div>
@@ -241,12 +242,13 @@
             <div class="modal-body" id="move_modal_body">
               <p>Select the location where you wish to move the content from the dropdwon below... </p>
               <select id="moveId" name="moveId">
-                <?php echo listCategory(0, 0); ?>
+                <option value="0">Top</option>
+                <?php echo listCategories(0, 1); ?>
               </select>
             </div>
             <div class="modal-footer">
               <a href="#" class="btn" data-dismiss="modal">Close</a>
-              <a href="#" class="btn btn-primary" onclick="$('#moveContent').submit();">Save Changes</a>
+              <button class="btn btn-primary" type="submit" name="saveChanges">Save Changes</button>
             </div>
           </form>
         </div>

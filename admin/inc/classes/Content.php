@@ -420,6 +420,26 @@ class Content {
 
 
   /**
+  * Updates the current Content categoryId in the database.
+  */   
+  public function move() {
+
+    // Does the Content object have an ID?
+    if ( is_null( $this->id ) ) trigger_error ( "Content::move(): Attempt to update a Content object that does not have its ID property set.", E_USER_ERROR );
+   
+    // Update the Content
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $sql = "UPDATE " . DB_PREFIX . "content SET categoryId = :categoryId WHERE id = :id";
+    $st = $conn->prepare ( $sql );
+    $st->bindValue( ":categoryId", $this->categoryId, PDO::PARAM_INT );
+    $st->bindValue( ":id", $this->id, PDO::PARAM_INT ); 
+    $st->execute();
+    $conn = null;
+    
+  }
+
+
+  /**
   * Gets the higest sort value in the database for the current category.
   */   
   public function getSort( $id = 0 ) {

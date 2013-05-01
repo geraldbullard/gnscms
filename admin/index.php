@@ -26,6 +26,14 @@
       require('inc/functions/editContent.php');
       editContent();
       break;
+    case 'copyContent':
+      require('inc/functions/copyContent.php');
+      copyContent();
+      break;
+    case 'moveContent':
+      require('inc/functions/moveContent.php');
+      moveContent();
+      break;
     case 'siteIndex':
       require('inc/functions/siteIndex.php');
       siteIndex();

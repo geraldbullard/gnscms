@@ -25,6 +25,7 @@
       if ( $_GET['success'] == "categoryStatusUpdated" ) $results['successMessage'] = "The category status was updated successfully.";
       if ( $_GET['success'] == "pageStatusUpdated" ) $results['successMessage'] = "The page status was updated successfully.";
       if ( $_GET['success'] == "siteIndexUpdated" ) $results['successMessage'] = "The site index was updated successfully.";
+      if ( $_GET['success'] == "contentMoved" ) $results['successMessage'] = "The content was moved successfully.";
     }
     require( "inc/layout/listContent.php" );
   }
@@ -44,7 +45,7 @@
   }
   
   // create the category listing dropdown data
-  function listCategory($parent_id, $level = 0) {
+  function listCategories($parent_id, $level = 0) {
     $query = "SELECT id, title FROM " . DB_PREFIX . "content WHERE categoryId = " . $parent_id . " AND type = 0 ORDER BY sort ASC";
     $res = mysql_query($query) or die($query);
     if (mysql_num_rows($res) == 0) return;
@@ -54,8 +55,8 @@
       } else {
         $add = str_repeat("&nbsp;&nbsp;", $level);
       }
-      echo '<option id="' . $id . '">' . $add . $title . '</option>';
-      listCategory($id, $level+1);
+      echo '<option value="' . $id . '">' . $add . $title . '</option>';
+      listCategories($id, $level+1);
     }
   }
 ?>
