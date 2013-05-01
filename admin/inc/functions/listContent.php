@@ -1,4 +1,5 @@
 <?php
+  // get and list the needed content data
   function listContent() {
     $results = array();
     if (isset($_GET['categoryId']) && $_GET['categoryId'] != '' && $_GET['categoryId'] != 0) {
@@ -26,5 +27,35 @@
       if ( $_GET['success'] == "siteIndexUpdated" ) $results['successMessage'] = "The site index was updated successfully.";
     }
     require( "inc/layout/listContent.php" );
+  }
+  
+  // reate the breadcrumb path for content listing navigation
+  function createPath($id) {
+    $query = mysql_query("SELECT id, title, categoryId FROM " . DB_PREFIX . "content WHERE id = " . (int)$id);
+    $row = mysql_fetch_array($query);
+
+    if ($row['categoryId'] == 0) {
+      $name = '<a href="index.php?action=listContent&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';  
+      return $name;
+    } else {
+      $name = ' > <a href="index.php?action=listContent&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';
+      return createPath($row['categoryId']) . " " . $name;
+    }
+  }
+  
+  // create the category listing dropdown data
+  function listCategory($parent_id, $level = 0) {
+    $query = "SELECT id, title FROM " . DB_PREFIX . "content WHERE categoryId = " . $parent_id . " AND type = 0 ORDER BY sort ASC";
+    $res = mysql_query($query) or die($query);
+    if (mysql_num_rows($res) == 0) return;
+    while (list($id, $title) = mysql_fetch_row($res)) {
+      if ($level == 0) {
+        $add = '';
+      } else {
+        $add = str_repeat("&nbsp;&nbsp;", $level);
+      }
+      echo '<option id="' . $id . '">' . $add . $title . '</option>';
+      listCategory($id, $level+1);
+    }
   }
 ?>

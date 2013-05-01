@@ -33,20 +33,6 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="currentContent">
-              <?php
-                function createPath($id) {
-                  $query = mysql_query("SELECT id, title, categoryId FROM " . DB_PREFIX . "content WHERE id = " . (int)$id);
-                  $row = mysql_fetch_array($query);
-
-                  if ($row['categoryId'] == 0) {
-                    $name = '<a href="index.php?action=listContent&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';  
-                    return $name;
-                  } else {
-                    $name = ' > <a href="index.php?action=listContent&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';
-                    return createPath($row['categoryId']) . " " . $name;
-                  }
-                }
-              ?>
               <h4>Content >> <a href="index.php?action=listContent">Top</a> <?php echo (isset($_GET['categoryId']) ? ' > ' : '') . createPath($_GET['categoryId']); ?></h4><br />
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <thead>
@@ -234,12 +220,9 @@
               <h3>Copy Content</h3>
             </div>
             <div class="modal-body" id="copy_modal_body">
+              <p>Select the location where you wish to move the content from the dropdwon below... </p>
               <select id="copyId" name="copyId">
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-                <option>Option 5</option>
+                <?php echo listCategory(0, 0); ?>
               </select>
             </div>
             <div class="modal-footer">
@@ -256,12 +239,9 @@
               <h3>Move Content</h3>
             </div>
             <div class="modal-body" id="move_modal_body">
+              <p>Select the location where you wish to move the content from the dropdwon below... </p>
               <select id="moveId" name="moveId">
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-                <option>Option 5</option>
+                <?php echo listCategory(0, 0); ?>
               </select>
             </div>
             <div class="modal-footer">

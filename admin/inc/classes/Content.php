@@ -252,7 +252,7 @@ class Content {
     $conn = null;
     if ( $row ) return new Content( $row );
     
-  }
+  } 
 
 
   /**
@@ -271,6 +271,25 @@ class Content {
     $row = $st->fetch();
     $conn = null;
     if ( $row ) return new Content( $row );
+    
+  }
+
+
+  /**
+  * Returns true/fales if content is category and is parent
+  * 
+  */  
+  public static function isParent( $id = 0 ) {
+    
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $sql = "SELECT id FROM " . DB_PREFIX . "content WHERE categoryId = :categoryId LIMIT 1";
+    $st = $conn->prepare( $sql );
+    $st->bindValue( ":categoryId", $id, PDO::PARAM_INT );
+    $st->execute();
+    $row = $st->fetch();
+    $conn = null;
+    
+    if ( $row ) return true;
     
   }
  
