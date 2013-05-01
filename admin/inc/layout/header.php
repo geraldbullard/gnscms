@@ -11,7 +11,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.php"> <span>gnsCMS</span></a>
+          <a class="brand" href="index.php"><img src="img/logo-85.png" /></a>
           
           <div class="top-nav nav-collapse">
             <ul class="nav">

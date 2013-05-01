@@ -403,11 +403,9 @@ div.center, p.center, img.center {
   width:80px;
 }
 
-.brand img {
-  float:left;
-  height:20px;
-  width:20px;
-  margin-right:5px;
+.brand img {    
+  float: left;
+  width: 85px;
 }
 
 .brand span {

@@ -35,7 +35,7 @@
 
     <div class="row-fluid" style="background:none;">
     
-      <br /><h1 align="center">gnsCMS</h1><br />
+      <center><img src="img/logo-400.png" align="center" vspace="10" /></center>
     
       <div class="well span4 center login-box">
 <?php 
