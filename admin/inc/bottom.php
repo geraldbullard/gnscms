@@ -69,7 +69,7 @@
   <script src="ext/ckeditor/ckeditor.js"></script>  
 
   <script>      
-    // set category status to enabled
+    // set content status to enabled
     function enableContent(id) {
       var jsonLink = '<?php echo 'rpc.php?action=enableContent&status=1&id=ID'; ?>'
       $.getJSON(jsonLink.replace('ID', id));
@@ -77,7 +77,7 @@
       $("#view_" + id).show();
     }
     
-    // set category status to disabled
+    // set content status to disabled
     function disableContent(id) {
       var jsonLink = '<?php echo 'rpc.php?action=disableContent&status=0&id=ID'; ?>'
       $.getJSON(jsonLink.replace('ID', id));
@@ -85,7 +85,7 @@
       $("#view_" + id).hide();
     }
     
-    // delete a page
+    // delete content
     function deleteContent(id) {
       if (confirm("Are you sure you wish to delete this content?")) {
         var jsonLink = '<?php echo 'rpc.php?action=deleteContent&id=ID'; ?>'
@@ -96,6 +96,22 @@
         return false;
       }
     }
+    
+    // copy content modal
+    $('.btn-copy').click(function() {
+      var id = this.id.split('_');
+      $("#copyModal").modal("show");
+      $('[name="contentId"]').remove();
+      $("#copy_modal_body").append('<input type="hidden" name="contentId" value="' + id[2] + '" />');
+    });
+  
+    // move content modal
+    $('.btn-move').click(function() {
+      var id = this.id.split('_');
+      $('#moveModal').modal('show');
+      $('[name="contentId"]').remove();
+      $('#move_modal_body').append('<input type="hidden" name="contentId" value="' + id[2] + '" />');
+    }); 
     
     // START Document Ready Function ////////////////////////////////////////////////////////
     $(document).ready(function() {

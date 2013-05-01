@@ -105,11 +105,11 @@
                         <span class="hide-below-768">Edit</span>
                       </a>
                       <?php if ($content->title != '404') { ?>
-                      <a onclick="moveContent(<?php echo $content->id; ?>);" title="Move this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-warning">
-                        <i class="icon-share-alt icon-white"></i>
-                      </a>
-                      <a onclick="copyContent(<?php echo $content->id; ?>);" title="Copy this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-primary">
+                      <a title="Copy this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-primary btn-copy" id="btn_copy_<?php echo $content->id; ?>">
                         <i class="icon-asterisk icon-white"></i>
+                      </a>
+                      <a title="Move this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-warning btn-move" id="btn_move_<?php echo $content->id; ?>">
+                        <i class="icon-share-alt icon-white"></i>
                       </a>
                       <a onclick="deleteContent(<?php echo $content->id; ?>);" title="Delete this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-danger">
                         <i class="icon-trash icon-white"></i>
@@ -174,12 +174,12 @@
                     <input class="span12" style="width:100%;" type="text" id="override" name="override" />
                   </div>
                 </div>
-            <div class="row-fluid">
-              <div class="span6">
-                <label>Summary</label>
-                <textarea class="span12" type="text" id="summary" name="summary" style="width:100%;" maxlength="10000"></textarea>
-              </div>
-            </div>
+                <div class="row-fluid">
+                  <div class="span6">
+                    <label>Summary</label>
+                    <textarea class="span12" type="text" id="summary" name="summary" style="width:100%;" maxlength="10000"></textarea>
+                  </div>
+                </div>
                 <div class="row-fluid" style="margin-bottom:10px;">
                   <div class="span8">
                     <label>Content</label>
@@ -226,6 +226,51 @@
             </div>
           </div>
         </div>
+        <!-- Copy Modal -->
+        <div class="modal hide fade" id="copyModal">
+          <form action="index.php?action=copyContent&categoryId=<?php echo $_GET['categoryId']; ?>" method="post" id="copyContent" name="copyContent">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">X</button>
+              <h3>Copy Content</h3>
+            </div>
+            <div class="modal-body" id="copy_modal_body">
+              <select id="copyId" name="copyId">
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+                <option>Option 5</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn" data-dismiss="modal">Close</a>
+              <a href="#" class="btn btn-primary" onclick="$('#copyContent').submit();">Save Changes</a>
+            </div>
+          </form>
+        </div>
+        <!-- Move Modal -->
+        <div class="modal hide fade" id="moveModal">
+          <form action="index.php?action=moveContent&categoryId=<?php echo $_GET['categoryId']; ?>" method="post" id="moveContent" name="moveContent">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">X</button>
+              <h3>Move Content</h3>
+            </div>
+            <div class="modal-body" id="move_modal_body">
+              <select id="moveId" name="moveId">
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+                <option>Option 5</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn" data-dismiss="modal">Close</a>
+              <a href="#" class="btn btn-primary" onclick="$('#moveContent').submit();">Save Changes</a>
+            </div>
+          </form>
+        </div>
+      
       </div><!--/span-->
     </div><!--/row-->
     
