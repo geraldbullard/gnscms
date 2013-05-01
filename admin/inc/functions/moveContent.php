@@ -5,7 +5,7 @@
       $_POST['id'] = $_POST['contentId'];
       $content = new Content;
       $content->storeFormValues( $_POST );
-      $content->move();
+      $content->moveContent();
       header( "Location: index.php?action=listContent&categoryId=" . $_POST['categoryId'] . "&success=contentMoved" );        
     }
   }
