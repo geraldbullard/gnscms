@@ -86,6 +86,9 @@
                       <?php } ?>
                     </td>
                     <td style="text-align:right; white-space:nowrap;">
+                      <a id="view_<?php echo $content->id; ?>" href="../<?php echo gen_seo_friendly_titles($content->slug); ?>.html" title="View this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?> in New Window" data-rel="tooltip" target="_blank" class="btn btn-success"<?php if ($content->status != 1) echo ' style="display:none;"'; ?>>
+                        <i class="icon-zoom-in icon-white"></i>
+                      </a>
                       <a href="index.php?action=editContent&amp;editId=<?php echo $content->id; ?>&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" title="Edit this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?>" data-rel="tooltip" class="btn btn-info">
                         <i class="icon-edit icon-white"></i>
                         <span class="hide-below-768">Edit</span>
@@ -101,9 +104,6 @@
                         <i class="icon-trash icon-white"></i>
                       </a>
                       <?php } ?>
-                      <a id="view_<?php echo $content->id; ?>" href="../<?php echo gen_seo_friendly_titles($content->slug); ?>.html" title="View this <?php echo ($content->type == 0) ? 'Category' : 'Page'; ?> in New Window" data-rel="tooltip" target="_blank" class="btn btn-success"<?php if ($content->status != 1) echo ' style="display:none;"'; ?>>
-                        <i class="icon-zoom-in icon-white"></i>
-                      </a>
                     </td>
                   </tr>
                   <?php 
