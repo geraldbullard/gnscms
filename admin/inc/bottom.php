@@ -111,10 +111,30 @@
       $('#moveModal').modal('show');
       $('[name="contentId"]').remove();
       $('#move_modal_body').append('<input type="hidden" name="contentId" value="' + id[2] + '" />');
-    }); 
+    });
+    
+    // ajax search results
+    function search_ajax(){
+      $("#search_results").show();
+      var search_this = $("#search_query").val();
+      $.post("search.php", {searchit : search_this}, function(data){
+        $("#display_results").html(data);
+      })
+    } 
     
     // START Document Ready Function ////////////////////////////////////////////////////////
     $(document).ready(function() {
+      
+      // ajax search input field
+      $("#search_query").keyup(function(event){
+        event.preventDefault();
+        if ($(this).val()) {
+          $("#display_results").show();
+          search_ajax();
+        } else {
+          $("#display_results").hide();
+        }
+      });        
     
       // create the category slug as the title is being entered
       $("#contentTitle").blur(function(){

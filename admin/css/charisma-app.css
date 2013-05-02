@@ -586,3 +586,38 @@ ul.ajax-loaders {
 }
 
 .help-icon-fix { margin-left:-13px !important; margin-top:-9px !important; }
+
+#display_results {    
+  background-color: white;
+  border: 1px solid #DDDDDD;
+  margin: 35px 0 0 22px;
+  min-width: 174px;
+  position: fixed;
+  z-index: 0;
+}
+
+#display_results p {
+  margin: 5px 0 5px 10px;
+  color: #666666;
+  font-weight: bold;
+}
+    
+#display_results ul {
+  color: #666666;
+  list-style: none;
+  margin: 0;  
+}
+    
+#display_results ul li {
+  padding: 5px 0 5px 10px;  
+}
+
+#display_results ul li:hover {
+  background-color: #eeeeee;
+}
+    
+#display_results ul li a:link {
+  color: #666666;
+  padding: 3px 0; 
+  text-decoration: none; 
+}

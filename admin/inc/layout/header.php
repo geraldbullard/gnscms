@@ -23,9 +23,10 @@
               <li class="hide-above-767"><a href="../" title="View Site in New Window">View Site</a></li>
               <li class="hide-above-767"><a href="login.php?action=logout" title="Logout">Logout</a></li>
               <li>
-                <form class="navbar-search pull-left">
-                  <input placeholder="Search" class="search-query span2" name="query" type="text" title="Search for content">
+                <form class="navbar-search pull-left" id="searchform" method="post">
+                  <input name="search_query" id="search_query" placeholder="Seacrh Content" autocomplete="off" class="search-query span2" type="text">
                 </form>
+                <div id="display_results" style="display:none;"></div>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
