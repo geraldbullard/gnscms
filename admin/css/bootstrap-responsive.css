@@ -752,6 +752,9 @@
     width: 70% !important; 
   }
   div.wysiwyg { width: 94% !important; }
+  #login-logo {
+    width: 300px;
+  }
 }
 
 @media (max-width: 479px) {
@@ -812,6 +815,9 @@
     width: 100%;
     margin-left: 0;
   }
+  #login-logo {
+    width: 200px;
+  }
 }
 
 @media (max-width: 319px) {
@@ -819,4 +825,7 @@
     display: none !important;
   }
   div.wysiwyg { width: 88% !important; }
+  #login-logo {
+    width: 150px;
+  }
 }

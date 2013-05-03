@@ -35,7 +35,7 @@
 
     <div class="row-fluid" style="background:none;">
     
-      <center><img src="img/logo-400.png" align="center" vspace="10" /></center>
+      <center><img src="img/logo-400.png" id="login-logo" align="center" vspace="10" /></center>
     
       <div class="well span4 center login-box">
 <?php 
@@ -112,12 +112,12 @@
         <form class="form-horizontal" action="login.php" method="post">
           <br />
           <fieldset>
-            <div class="input-prepend" title="Username" data-rel="tooltip">
+            <div class="input-prepend" title="Username">
               <span class="add-on"><i class="icon-user"></i></span><input type="text" autofocus class="input-large span10" name="username" id="username" value="" />
             </div>
             <div class="clearfix"></div>
 
-            <div class="input-prepend" title="Password" data-rel="tooltip">
+            <div class="input-prepend" title="Password">
               <span class="add-on"><i class="icon-lock"></i></span><input type="password" class="input-large span10" name="password" id="password" value="" />
             </div>
             <div class="clearfix"></div>
