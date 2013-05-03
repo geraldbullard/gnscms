@@ -4,7 +4,7 @@
   $terms = strip_tags(substr($_POST['searchit'], 0, 100));
   $term = mysql_escape_string($terms); // Attack Prevention
   if ($term != "") {
-    $query = mysql_query("SELECT id, title, categoryId, type FROM " . DB_PREFIX . "content WHERE title LIKE '" . $term . "%' ORDER BY title ASC");
+    $query = mysql_query("SELECT id, title, categoryId, type FROM " . DB_PREFIX . "content WHERE title LIKE '%" . $term . "%' ORDER BY title ASC");
     $string = '';
     if (mysql_num_rows($query)) {
       $string .= "<ul>";

@@ -11,7 +11,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.php"><img src="img/logo-85.png" /></a>
+          <div>
+            <a class="brand" href="index.php"><img src="img/logo-85.png" /></a>
+          </div>
+          <div style="float:left;" class="hide-below-480">
+            <form class="navbar-search pull-left" id="searchform" method="post">
+              <input name="search_query" id="search_query" placeholder="Seacrh Content" spellcheck="false" autocomplete="off" class="search-query span2" type="text">
+            </form>
+            <div id="display_results" style="display:none;"></div>
+          </div>
           
           <div class="top-nav nav-collapse">
             <ul class="nav">
@@ -22,11 +30,10 @@
               <li><a href="index.php?action=listSetting" title="Manage Site Settings">Settings</a></li>
               <li class="hide-above-767"><a href="../" title="View Site in New Window">View Site</a></li>
               <li class="hide-above-767"><a href="login.php?action=logout" title="Logout">Logout</a></li>
-              <li>
-                <form class="navbar-search pull-left" id="searchform" method="post">
-                  <input name="search_query" id="search_query" placeholder="Seacrh Content" autocomplete="off" class="search-query span2" type="text">
+              <li class="show-below-480" style="display:none;">
+                <form class="navbar-search pull-left" id="searchform320" method="post">
+                  <input name="search_query_320" id="search_query_320" placeholder="Seacrh Content" spellcheck="false" autocomplete="off" class="search-query span2" type="text">
                 </form>
-                <div id="display_results" style="display:none;"></div>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -37,3 +44,5 @@
       </div>
     </div>
     <!-- topbar ends -->
+    
+    <div id="display_results_320" style="display:none;"></div>

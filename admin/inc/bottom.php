@@ -45,8 +45,10 @@
   <script src="js/jquery.chosen.min.js"></script>
   <!-- checkbox, radio, and file input styler -->
   <script src="js/jquery.uniform.min.js"></script>
-  <!-- plugin for gallery image view
-  <script src="js/jquery.colorbox.min.js"></script> -->
+  <?php if ($_GET['action'] == 'theme') { ?>
+  <!-- plugin for gallery image view -->
+  <script src="js/jquery.colorbox.min.js"></script>
+  <?php } ?>
   <!-- rich text editor library
   <script src="js/jquery.cleditor.min.js"></script> -->
   <!-- notification plugin -->
@@ -113,19 +115,33 @@
       $('#move_modal_body').append('<input type="hidden" name="contentId" value="' + id[2] + '" />');
     });
     
-    // ajax search results
+    // ajax search results above 479px
     function search_ajax(){
       $("#search_results").show();
       var search_this = $("#search_query").val();
       $.post("search.php", {searchit : search_this}, function(data){
         $("#display_results").html(data);
       })
+    }
+    
+    // ajax search results below 480px
+    function search_ajax_320(){
+      $("#search_results_320").show();
+      var search_this = $("#search_query_320").val();
+      $.post("search.php", {searchit : search_this}, function(data){
+        $("#display_results_320").html(data);
+      })
     } 
     
     // START Document Ready Function ////////////////////////////////////////////////////////
     $(document).ready(function() {
       
-      // ajax search input field
+      <?php if ($_GET['action'] == 'theme') { ?> 
+      //gallery colorbox
+      $('.thumbnail a').colorbox({rel:'thumbnail a', transition:"elastic", maxWidth:"95%", maxHeight:"95%"});
+      <?php } ?>
+      
+      // ajax search input field above 479px
       $("#search_query").keyup(function(event){
         event.preventDefault();
         if ($(this).val()) {
@@ -133,6 +149,17 @@
           search_ajax();
         } else {
           $("#display_results").hide();
+        }
+      });
+      
+      // ajax search input field below 480px
+      $("#search_query_320").keyup(function(event){
+        event.preventDefault();
+        if ($(this).val()) {
+          $("#display_results_320").show();
+          search_ajax_320();
+        } else {
+          $("#display_results_320").hide();
         }
       });        
     

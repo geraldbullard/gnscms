@@ -83,7 +83,7 @@
             <div class="row-fluid">&nbsp;</div>
             <div class="row-fluid">
               <div class="span6">
-                <button class="btn btn-primary" type="submit" name="saveChanges">Save Changes</button>
+                <button class="btn btn-primary" type="submit" name="saveChanges">Save Changes</button> &nbsp; <input class="btn btn-primary" type="submit" formnovalidate name="cancel" value="Cancel" />
               </div>
             </div>
           </form>

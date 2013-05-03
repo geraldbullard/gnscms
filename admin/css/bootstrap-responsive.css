@@ -745,8 +745,20 @@
     padding-right: 10px;
     padding-left: 10px;
   }
+  .modal {
+    position: absolute;
+    top: 30%;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    margin: 0;
+  }
   .modal.fade.in {
     top: 30%;
+  }
+  .modal-header .close {
+    padding: 10px;
+    margin: -10px;
   }
   .hide-below-768 {
     display: none !important;
@@ -788,14 +800,29 @@
     padding-right: 10px;
     padding-left: 10px;
   }
+  .modal {
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    margin: 0;
+  }
   .modal.fade.in {
-    top: 260px;
+    top: 40%;
+  }
+  .modal-header .close {
+    padding: 10px;
+    margin: -10px;
   }
   .carousel-caption {
     position: static;
   }
   .hide-below-480 {
     display: none !important;
+  }
+  .show-below-480 {
+    display: block !important;
   }
   div.wysiwyg { width: 92% !important; } 
   

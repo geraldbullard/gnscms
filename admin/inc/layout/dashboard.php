@@ -68,7 +68,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=listContent">Draggable&nbsp;Sorting</a></h3></td>
+                    <td><h3><a href="index.php?action=listContent">Draggable Sorting</a></h3></td>
                     <td>
                       <p>In each <strong>Content Listing</strong> row you will see the <img src="img/sortIcon.png" /> icon for draggable sorting of the content per the category location you currently reside in on the page. This is another very noteworthy feature and greatly speeds the deployment of any web site.</p>
                     </td>

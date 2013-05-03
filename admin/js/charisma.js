@@ -175,9 +175,6 @@ function docReady(){
 		//get image id
 		//alert($(this).parents('.thumbnail').attr('id'));
 	});*/
-
-	//gallery colorbox
-	$('.thumbnail a').colorbox({rel:'thumbnail a', transition:"elastic", maxWidth:"95%", maxHeight:"95%"});
   
   //gallery fullscreen
 	/*$('#toggle-fullscreen').button().click(function () {
