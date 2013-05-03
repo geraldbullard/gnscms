@@ -745,6 +745,21 @@
     padding-right: 10px;
     padding-left: 10px;
   }
+  .modal {
+    position: absolute;
+    top: 50% !important;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    margin: 0;
+  }
+  .modal.fade.in {
+    top: 30%;
+  }
+  .modal-header .close {
+    padding: 10px;
+    margin: -10px;
+  }
   .hide-below-768 {
     display: none !important;
   }
@@ -787,14 +802,14 @@
   }
   .modal {
     position: absolute;
-    top: 10px;
+    top: 40% !important;
     right: 10px;
     left: 10px;
     width: auto;
     margin: 0;
   }
   .modal.fade.in {
-    top: auto;
+    top: 260px;
   }
   .modal-header .close {
     padding: 10px;

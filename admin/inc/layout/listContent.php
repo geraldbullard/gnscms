@@ -233,7 +233,7 @@
           </form>
         </div>
         <!-- Move Modal -->
-        <div class="modal hide fade" id="moveModal">
+        <div class="modal hide" id="moveModal">
           <form action="index.php?action=moveContent&categoryId=<?php echo $_GET['categoryId']; ?>" method="post" id="moveContent" name="moveContent">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">X</button>

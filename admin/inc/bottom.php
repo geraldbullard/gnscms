@@ -45,8 +45,8 @@
   <script src="js/jquery.chosen.min.js"></script>
   <!-- checkbox, radio, and file input styler -->
   <script src="js/jquery.uniform.min.js"></script>
-  <!-- plugin for gallery image view -->
-  <script src="js/jquery.colorbox.min.js"></script>
+  <!-- plugin for gallery image view
+  <script src="js/jquery.colorbox.min.js"></script> -->
   <!-- rich text editor library
   <script src="js/jquery.cleditor.min.js"></script> -->
   <!-- notification plugin -->
