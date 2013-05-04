@@ -129,24 +129,22 @@
                 <div class="row-fluid">
                   <div class="span8">
                     <div>
-                      <form action="" method="post">
-                        <label>Layout Template</label>
-                        <select id="layout" name="layout" onchange="getLayout(this.value);" style="min-width:275px;">
-                          <option value="custom">Select a Layout</option>
-                          <?php
-                            // added for stock layouts provided by theme designer if present
-                            foreach ($files as $file) {
-                              if ($file != "." && $file != ".." && $file != ".htaccess") {
-                                $file_parts = explode(".", $file);
-                                if ($file_parts[1] == 'tpl') {
-                                  $layout_name = str_replace("-", " ", $file_parts[0]);
-                                  echo '  <option value="' . $file_parts[0] . '">' . ucwords($layout_name) . '</option>' . "\n";
-                                }
+                      <label>Layout Template</label>
+                      <select id="layout" name="layout" onchange="getLayout(this.value);" style="min-width:275px;">
+                        <option value="custom">Select a Layout</option>
+                        <?php
+                          // added for stock layouts provided by theme designer if present
+                          foreach ($files as $file) {
+                            if ($file != "." && $file != ".." && $file != ".htaccess") {
+                              $file_parts = explode(".", $file);
+                              if ($file_parts[1] == 'tpl') {
+                                $layout_name = str_replace("-", " ", $file_parts[0]);
+                                echo '  <option value="' . $file_parts[0] . '">' . ucwords($layout_name) . '</option>' . "\n";
                               }
                             }
-                          ?>
-                        </select>
-                      </form>
+                          }
+                        ?>
+                      </select>
                     </div>
                     <div style="display:none; margin-top:10px;" id="layout_preview">
                       <p>Layout Preview</p>

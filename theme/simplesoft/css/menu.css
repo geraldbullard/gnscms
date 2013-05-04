@@ -1,36 +1,41 @@
-.ddsmoothmenu{
+.ddsmoothmenu {
   font: bold 12px Verdana;
   width: 100%;
+  color: white;
 }
 
-.ddsmoothmenu ul{
+.ddsmoothmenu ul {
   z-index:100;
   margin: 0;
   padding: 0;
   list-style-type: none;
+  color: white;
 }
 
 /*Top level list items*/
-.ddsmoothmenu ul li{
+.ddsmoothmenu ul li {
   position: relative;
   display: inline;
   float: left;
+  color: white;
+  cursor: pointer;
 }
 
 /*Top level menu link items style*/
-.ddsmoothmenu ul li a{
+.ddsmoothmenu ul li a {
   display: block;
   color: white;
   padding: 8px 10px;
-  color: #2d2b2b;
+  color: white;
   text-decoration: none;
 }
 
-* html .ddsmoothmenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+* html .ddsmoothmenu ul li a { /*IE6 hack to get sub menu links to behave correctly*/
   display: inline-block;
+  color: white;
 }
 
-.ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited{
+.ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited {
   color: white;
 }
 
@@ -45,7 +50,7 @@
 }
 
 /* sub menus */
-.ddsmoothmenu ul li ul{
+.ddsmoothmenu ul li ul {
   position: absolute;
   left: -3000px;
   display: none; /*collapse all sub menus to begin with*/
@@ -54,18 +59,18 @@
 }
 
 /*Sub level menu list items (alters style from Top level List Items)*/
-.ddsmoothmenu ul li ul li{
+.ddsmoothmenu ul li ul li {
   display: list-item;
   float: none;
 }
 
 /*All subsequent sub menu levels vertical offset after 1st level sub menu */
-.ddsmoothmenu ul li ul li ul{
+.ddsmoothmenu ul li ul li ul {
   top: 0;
 }
 
 /* Sub level menu links style */
-.ddsmoothmenu ul li ul li a{
+.ddsmoothmenu ul li ul li a {
   font: normal 13px Verdana;
   width: 160px; /*width of sub menus*/
   padding: 5px;
@@ -79,14 +84,13 @@
 
 
 /* ######### CSS classes applied to down and right arrow images  ######### */
-
-.downarrowclass{
+.downarrowclass {
   position: absolute;
   top: 12px;
   right: 7px;
 }
 
-.rightarrowclass{
+.rightarrowclass {
   position: absolute;
   top: 6px;
   right: 5px;
