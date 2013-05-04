@@ -118,13 +118,13 @@
                 <div class="row-fluid">
                   <div class="span4">
                     <label>Password</label>
-                    <input class="text-input span12" type="text" id="password" name="password" required />
+                    <input class="text-input span12" type="password" id="password" name="password" autocomplete="off" required />
                   </div>
                 </div>
                 <div class="row-fluid">
                   <div class="span4">
                     <label>Confirm Password</label>
-                    <input class="text-input span12" type="text" id="passconfirm" name="passconfirm" required />
+                    <input class="text-input span12" type="password" id="passconfirm" name="passconfirm" autocomplete="off" required />
                   </div>
                 </div>
                 <div class="row-fluid">

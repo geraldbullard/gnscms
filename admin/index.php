@@ -75,6 +75,10 @@
       require('inc/functions/newUser.php');
       newUser();
       break;
+    case 'editUser':
+      require('inc/functions/editUser.php');
+      editUser();
+      break;
     default:
       require('inc/functions/dashboard.php');
       dashboard();

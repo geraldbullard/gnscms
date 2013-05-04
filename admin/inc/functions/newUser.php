@@ -7,7 +7,7 @@
       $user = new User;
       $user->storeFormValues( $_POST );
       $user->insert();
-      header( "Location: index.php?action=listUser&success=userCrated" );
+      header( "Location: index.php?action=listUser&success=userCreated" );
     } else {
       // the new user form was not submitted, return to the user listing page
       header( "Location: index.php?action=listUser" );

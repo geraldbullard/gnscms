@@ -137,7 +137,7 @@ class User {
       $st->bindValue( "lastname", $this->lastname, PDO::PARAM_STR );
       $st->bindValue( "email", $this->email, PDO::PARAM_STR );
       $st->bindValue( "username", $this->username, PDO::PARAM_STR );
-      $st->bindValue( "password", hash( "sha256", $this->password . $this->salt ), PDO::PARAM_STR );
+      $st->bindValue( "password", md5( $this->password ), PDO::PARAM_STR );
       $st->bindValue( "gender", $this->gender, PDO::PARAM_STR );
       $st->bindValue( "status", $this->status, PDO::PARAM_INT );
       $st->bindValue( "level", $this->level, PDO::PARAM_INT );
@@ -205,7 +205,7 @@ class User {
     $row = $st->fetch();
     $conn = null;
     
-    if ( $row ) return new Setting( $row );
+    if ( $row ) return new User( $row );
     
   }
 
@@ -222,13 +222,14 @@ class User {
     // Update the User
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "UPDATE " . DB_PREFIX . "users SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, status = :status, level = :level WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "users SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, gender = :gender, status = :status, level = :level WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":firstname", $this->firstname, PDO::PARAM_STR );
     $st->bindValue( ":lastname", $this->lastname, PDO::PARAM_STR );
     $st->bindValue( ":email", $this->email, PDO::PARAM_STR );
     $st->bindValue( ":username", $this->username, PDO::PARAM_STR );
     $st->bindValue( ":password", $this->password, PDO::PARAM_INT );
+    $st->bindValue( ":gender", $this->gender, PDO::PARAM_STR );
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT );
     $st->bindValue( ":level", $this->level, PDO::PARAM_INT );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
