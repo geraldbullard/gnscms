@@ -88,6 +88,7 @@
                                                                                  email varchar(255) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  username varchar(48) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  password varbinary(250) NOT NULL,
+                                                                                 gender varchar(1) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  level smallint(5) unsigned NOT NULL,
                                                                                  status tinyint(1) unsigned NOT NULL DEFAULT '1',
                                                                                  PRIMARY KEY (id, username)) 
