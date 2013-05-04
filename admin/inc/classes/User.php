@@ -130,7 +130,7 @@ class User {
       
       $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
       $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-      $sql = "INSERT INTO " . DB_PREFIX . "users ( firstname, lastname, email, username, password, status, level ) VALUES ( :firstname, :lastname, :email, :username, :password, :status, :level )";
+      $sql = "INSERT INTO " . DB_PREFIX . "users ( firstname, lastname, email, username, password, gender, status, level ) VALUES ( :firstname, :lastname, :email, :username, :password, :gender, :status, :level )";
 
       $st = $conn->prepare( $sql );
       $st->bindValue( "firstname", $this->firstname, PDO::PARAM_STR );
@@ -138,6 +138,7 @@ class User {
       $st->bindValue( "email", $this->email, PDO::PARAM_STR );
       $st->bindValue( "username", $this->username, PDO::PARAM_STR );
       $st->bindValue( "password", hash( "sha256", $this->password . $this->salt ), PDO::PARAM_STR );
+      $st->bindValue( "gender", $this->gender, PDO::PARAM_STR );
       $st->bindValue( "status", $this->status, PDO::PARAM_INT );
       $st->bindValue( "level", $this->level, PDO::PARAM_INT );
       $st->execute();
@@ -240,9 +241,9 @@ class User {
   */
   
   public function status() {
-
+    
     // Does the User object have an ID?
-    if ( is_null( $this->value ) ) trigger_error ( "User::status(): Attempt to update a User object that does not have it\'s value property set.", E_USER_ERROR );
+    if ( is_null( $this->id ) ) trigger_error ( "User::status(): Attempt to update a User object that does not have it\'s value property set.", E_USER_ERROR );
    
     // Update the User status
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 

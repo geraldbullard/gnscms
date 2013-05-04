@@ -71,6 +71,10 @@
       require('inc/functions/listUser.php');
       listUser();
       break;
+    case 'newUser':
+      require('inc/functions/newUser.php');
+      newUser();
+      break;
     default:
       require('inc/functions/dashboard.php');
       dashboard();

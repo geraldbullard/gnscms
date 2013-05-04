@@ -13,8 +13,7 @@
         header( "Location: index.php?action=listContent&categoryId=" . $_GET['categoryId'] . "&success=categoryCreated" );
       } else {
         header( "Location: index.php?action=listContent&categoryId=" . $_GET['categoryId'] . "&success=pageCreated" );
-      }
-        
+      }        
     }
   }
 ?>

@@ -58,7 +58,7 @@
                     <?php echo $user->id; ?>
                   </td>
                   <td>
-                    <span class="icon icon-user<?php echo ($user->gender == 'm') ? ' icon-blue' : ' icon-red'; ?>"></span> <?php echo $user->firstname . ' ' . $user->lastname; ?>
+                    <span title="<?php echo ($user->gender == 'm') ? 'Male' : 'Female'; ?>" data-rel="tooltip" class="icon icon-user<?php echo ($user->gender == 'm') ? ' icon-blue' : ' icon-red'; ?>"></span> <?php echo $user->firstname . ' ' . $user->lastname; ?>
                   </td>
                   <td class="hide-below-768">
                     <span class="icon icon-orange icon-envelope-closed"></span> <?php echo $user->email; ?>
@@ -66,8 +66,14 @@
                   <td class="hide-below-768">
                     <?php echo $user->level; ?>
                   </td>
-                  <td class="hide-below-480">
-                    <?php echo $user->status; ?>
+                  <td class="hide-below-480 noDecoration">
+                    <?php if ($user->title != '404') { ?>
+                    <?php   if ($user->status == 1) { ?>
+                    <div id="status_<?php echo $user->id; ?>"><a onclick="disableUser(<?php echo $user->id; ?>);"><span class="label label-success">Enabled</span></a></div>
+                    <?php   } else { ?>
+                    <div id="status_<?php echo $user->id; ?>"><a onclick="enableUser(<?php echo $user->id; ?>);"><span class="label label-important">Disabled</span></a></div>
+                    <?php   } ?>
+                    <?php } ?>
                   </td>
                   <td style="text-align:right; white-space:nowrap;">
                     <a href="index.php?action=editUser&amp;userId=<?php echo $user->id; ?>" title="Edit User Profile" class="btn btn-info" data-rel="tooltip">
@@ -86,55 +92,68 @@
             <div class="tab-pane" id="newUser">
               <form action="index.php?action=newUser" method="post" name="newUser" id="newUser">
                 <div class="row-fluid">
-                  <div class="span6">
-                    <label>Setting Title</label>
-                    <input class="text-input span12" type="text" id="title" name="title" required autofocus />
+                  <div class="span4">
+                    <label>First Name</label>
+                    <input class="text-input span12" type="text" id="firstname" name="firstname" required autofocus />
                   </div>
                 </div>
                 <div class="row-fluid">
-                  <div class="span6">
-                    <label>Setting Define</label>
-                    <input class="text-input span12" type="text" id="define" name="define" required />
+                  <div class="span4">
+                    <label>Last Name</label>
+                    <input class="text-input span12" type="text" id="lastname" name="lastname" required />
                   </div>
                 </div>
                 <div class="row-fluid">
-                  <div class="span8">
-                    <label>Setting Summary</label>
-                    <input class="text-input span12" type="text" id="summary" name="summary" required />
+                  <div class="span4">
+                    <label>Email</label>
+                    <input class="text-input span12" type="text" id="email" name="email" required />
                   </div>
                 </div>
                 <div class="row-fluid">
-                  <div class="span8">
-                    <label>Setting Value</label>
-                    <input class="text-input span12" type="text" id="value" name="value" required />
+                  <div class="span4">
+                    <label>Username</label>
+                    <input class="text-input span12" type="text" id="username" name="username" required />
                   </div>
                 </div>
                 <div class="row-fluid">
-                  <div class="span6">
-                    <label>Setting Define Edit Mode</label>
+                  <div class="span4">
+                    <label>Password</label>
+                    <input class="text-input span12" type="text" id="password" name="password" required />
+                  </div>
+                </div>
+                <div class="row-fluid">
+                  <div class="span4">
+                    <label>Confirm Password</label>
+                    <input class="text-input span12" type="text" id="passconfirm" name="passconfirm" required />
+                  </div>
+                </div>
+                <div class="row-fluid">
+                  <div class="span4">
+                    <label>Gender</label>
                     <label class="radio">
                       <div class="radio" style="padding-left:10px;">
                         <span>
-                          <input type="radio" value="1" name="edit">
+                          <input type="radio" name="gender" value="m">
                         </span>
                       </div>
-                      Yes make it editable
+                      Male
                     </label>
                     <div style="clear:both"></div>
                     <label class="radio">
                       <div class="radio" style="padding-left:10px;">
                         <span>
-                          <input type="radio" value="0" name="edit">
+                          <input type="radio" name="gender" value="f">
                         </span>
                       </div>
-                      No make it permanent
+                      Female
                     </label>
                   </div>
                 </div>
                 <div class="row-fluid">&nbsp;</div>
                 <div class="row-fluid">
-                  <div class="span6">                           
-                    <input type="hidden" name="system" value="0" />
+                  <div class="span4">                           
+                    <input type="hidden" id="level" name="level" value="99" />
+                    <input type="hidden" id="status" name="status" value="1" />
                     <button class="btn btn-primary" type="submit" name="saveChanges">Save</button>
                   </div>
                 </div>

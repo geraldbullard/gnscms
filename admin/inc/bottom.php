@@ -98,6 +98,20 @@
         return false;
       }
     }
+          
+    // set user status to enabled
+    function enableUser(id) {
+      var jsonLink = '<?php echo 'rpc.php?action=enableUser&status=1&id=ID'; ?>'
+      $.getJSON(jsonLink.replace('ID', id));
+      $("#status_" + id).html('<a onclick="disableUser(' + id + ');"><span class="label label-success">Enabled</span></a>');
+    }
+    
+    // set user status to disabled
+    function disableUser(id) {
+      var jsonLink = '<?php echo 'rpc.php?action=disableUser&status=0&id=ID'; ?>'
+      $.getJSON(jsonLink.replace('ID', id));
+      $("#status_" + id).html('<a onclick="enableUser(' + id + ');"><span class="label label-important">Disabled</span></a>');
+    }
     
     // delete user
     function deleteUser(id) {
