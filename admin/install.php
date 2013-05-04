@@ -1,13 +1,17 @@
 <?php
+  // makes a random alpha numeric string of a given lenth
   function makePin($lenth = 24) {
-    // makes a random alpha numeric string of a given lenth
     $aZ09 = array_merge(range('A', 'Z'), range('a', 'z'), range(0, 9));
     $out = '';
-    for($c = 0; $c < $lenth; $c++) {
-       $out .= $aZ09[mt_rand(0, count($aZ09)-1)];
+    for ($c = 0; $c < $lenth; $c++) {
+      $out .= $aZ09[mt_rand(0, count($aZ09)-1)];
     }
     return $out;
-  }  
+  }
+  // ensures the avlue is an email address
+  function isEmail($email) {
+    return preg_match('|^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]{2,})+$|i', $email);
+  };  
   $completed = false;
   if ($_POST['submit'] == "Install Now!") {
     define('DB_ENCRYPT_KEY', makePin());
@@ -17,8 +21,11 @@
     $database_name = isset($_POST['database_name']) ? $_POST['database_name'] : "";
     $database_username = isset($_POST['database_username']) ? $_POST['database_username'] : "";
     $database_password = isset($_POST['database_password']) ? $_POST['database_password'] : "";
-    $username = isset($_POST['username']) ? $_POST['username'] : "";
-    $password = isset($_POST['password']) ? $_POST['password'] : "";
+    $firstname = isset($_POST['firstname']) ? preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $_POST['firstname'] ) : "";
+    $lastname = isset($_POST['lastname']) ? preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $_POST['lastname'] ) : "";
+    $email = (isset($_POST['email']) && isEmail($_POST['email'])) ? preg_replace ( "/[^\,\'\"\?\!\:\$ a-zA-Z0-9()]/", "", strip_tags( $_POST['email'] ) ) : "";
+    $username = isset($_POST['username']) ? preg_replace ( "/[^\,\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $_POST['username'] ) : "";
+    $password = isset($_POST['password']) ? htmlspecialchars ( strip_tags ( $_POST['password'] ) ) : "";
     $inputError = false;
     if (empty($username) || empty($password) || empty($database_host) || empty($database_username) || empty($database_password) || empty($database_name)) {
       $inputError = true;
@@ -74,6 +81,17 @@
                                                                                     system tinyint(1) unsigned NOT NULL DEFAULT '0',
                                                                                     PRIMARY KEY (id)) 
                                                                                     ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11;") != 0 &&
+                @mysql_query("DROP TABLE IF EXISTS " . DB_PREFIX . "users") != 0 &&
+                @mysql_query("CREATE TABLE IF NOT EXISTS " . DB_PREFIX . "users (id smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+                                                                                 firstname varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+                                                                                 lastname varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+                                                                                 email varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                                                                                 username varchar(48) COLLATE utf8_unicode_ci NOT NULL,
+                                                                                 password varbinary(250) NOT NULL,
+                                                                                 level smallint(5) unsigned NOT NULL,
+                                                                                 status tinyint(1) unsigned NOT NULL DEFAULT '1',
+                                                                                 PRIMARY KEY (id, username)) 
+                                                                                 ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3;") != 0 &&
                 @mysql_query("INSERT INTO " . DB_PREFIX . "content (id, title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, categoryId, type) VALUES
                                                                    (28, 'Contact Us', 'contact-us', 'Contact Us', '', 'Contact us for more information.', '<h2>Lorem Ipsum</h2><p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>', 'This is the Contact Us page meta description', 'these, are, key, words', 3, 1, 0, 'noindex, follow', 1, 0, 1),
                                                                    (27, 'About Us', 'about-us', 'About Us', '', 'Information about who we are and what we do', '<h2>Lorem Ipsum</h2>\r\n\r\n<p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>\r\n', 'This is the About Us page meta description', 'these, are, key, words', 2, 1, 0, 'index, follow', 1, 0, 1),

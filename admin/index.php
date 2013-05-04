@@ -67,6 +67,10 @@
       require('inc/functions/fileManager.php');
       fileManager();
       break;
+    case 'listUser':
+      require('inc/functions/listUser.php');
+      listUser();
+      break;
     default:
       require('inc/functions/dashboard.php');
       dashboard();

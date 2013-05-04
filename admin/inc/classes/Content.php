@@ -134,7 +134,8 @@ class Content {
   */
  
   public static function getTopList( $numRows = 1000000, $order = "sort ASC" ) {
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "content WHERE categoryId = 0 ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
  
     $st = $conn->prepare( $sql );
@@ -164,7 +165,8 @@ class Content {
   */
  
   public static function getFullList( $numRows = 1000000, $order = "sort ASC" ) {
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "content ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
  
     $st = $conn->prepare( $sql );
@@ -194,7 +196,8 @@ class Content {
   */
  
   public static function getByCategoryList( $categoryId ) {
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "content WHERE categoryId = :categoryId ORDER BY " . mysql_escape_string("sort ASC") . " LIMIT :numRows";
     
     $st = $conn->prepare( $sql );
@@ -224,7 +227,8 @@ class Content {
   */
  
   public static function getById( $id ) {
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT * FROM " . DB_PREFIX . "content WHERE id = :id";
     $st = $conn->prepare( $sql );
     $st->bindValue( ":id", $id, PDO::PARAM_INT );
@@ -243,7 +247,8 @@ class Content {
   */  
   public static function getBySlug( $slug ) {
     
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT * FROM " . DB_PREFIX . "content WHERE slug = :slug LIMIT 1";
     $st = $conn->prepare( $sql );
     $st->bindValue( ":slug", $slug, PDO::PARAM_STR );
@@ -263,7 +268,8 @@ class Content {
   */  
   public static function getByTitle( $title ) {
     
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT * FROM " . DB_PREFIX . "content WHERE title = :title LIMIT 1";
     $st = $conn->prepare( $sql );
     $st->bindValue( ":title", $title, PDO::PARAM_STR );
@@ -281,7 +287,8 @@ class Content {
   */  
   public static function isParent( $id = 0 ) {
     
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT id FROM " . DB_PREFIX . "content WHERE categoryId = :categoryId LIMIT 1";
     $st = $conn->prepare( $sql );
     $st->bindValue( ":categoryId", $id, PDO::PARAM_INT );
@@ -304,7 +311,8 @@ class Content {
     if ( !is_null( $this->id ) ) trigger_error ( "Content::insert(): Attempt to insert a Content object that already has its ID property set (to $this->id).", E_USER_ERROR );
  
     // Insert the Content
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "INSERT INTO " . DB_PREFIX . "content ( title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, categoryId, type ) VALUES ( :title, :slug, :menuTitle, :override, :summary, :content, :metaDescription, :metaKeywords, :sort, :status, :siteIndex, :botAction, :menu, :categoryId, :type )";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
@@ -338,7 +346,8 @@ class Content {
     if ( is_null( $this->id ) ) trigger_error ( "Content::update(): Attempt to update a Content object that does not have its ID property set.", E_USER_ERROR );
     
     // Update the Content
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "UPDATE " . DB_PREFIX . "content SET title = :title, slug = :slug, menuTitle = :menuTitle, override = :override, summary = :summary, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, siteIndex = :siteIndex, botAction = :botAction, menu = :menu, categoryId = :categoryId, type = :type WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
@@ -368,10 +377,11 @@ class Content {
   public function updateStatus() {
 
     // Does the Content object have an ID?
-    if ( is_null( $this->id ) ) trigger_error ( "Content::update(): Attempt to update a Content object that does not have its ID property set.", E_USER_ERROR );
+    if ( is_null( $this->id ) ) trigger_error ( "Content::updateStatus(): Attempt to update the status of a Content object that does not have its ID property set.", E_USER_ERROR );
    
     // Update the Content
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "UPDATE " . DB_PREFIX . "content SET status = :status WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
@@ -392,7 +402,8 @@ class Content {
     if ( is_null( $this->id ) ) trigger_error ( "Content::delete(): Attempt to delete a Content object that does not have its ID property set.", E_USER_ERROR );
  
     // Delete the Content
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $st = $conn->prepare ( "DELETE FROM " . DB_PREFIX . "content WHERE id = :id LIMIT 1" );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->execute();
@@ -406,10 +417,11 @@ class Content {
   public function siteIndex() {
 
     // Does the Content object have an ID?
-    if ( is_null( $this->id ) ) trigger_error ( "Content::update(): Attempt to update a Content object that does not have its ID property set.", E_USER_ERROR );
+    if ( is_null( $this->id ) ) trigger_error ( "Content::update(): Attempt to update the siteIndex of a Content object that does not have its ID property set.", E_USER_ERROR );
    
-    // Update the Content
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    // Update the siteIndex
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "UPDATE " . DB_PREFIX . "content SET siteIndex = 0; UPDATE " . DB_PREFIX . "content SET siteIndex = 1 WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
@@ -428,7 +440,8 @@ class Content {
     if ( is_null( $this->id ) ) trigger_error ( "Content::copyContent(): Attempt to copy a Content object that does not have its ID property set.", E_USER_ERROR );
    
     // Update the Content
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "INSERT INTO " . DB_PREFIX . "content (title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, categoryId, type) SELECT title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, :categoryId, type FROM " . DB_PREFIX . "content WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":categoryId", $this->categoryId, PDO::PARAM_INT );
@@ -448,7 +461,8 @@ class Content {
     if ( is_null( $this->id ) ) trigger_error ( "Content::moveContent(): Attempt to move a Content object that does not have its ID property set.", E_USER_ERROR );
    
     // Update the Content
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "UPDATE " . DB_PREFIX . "content SET categoryId = :categoryId WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":categoryId", $this->categoryId, PDO::PARAM_INT );
@@ -465,7 +479,8 @@ class Content {
   public function getSort( $id = 0 ) {
    
     // Get the highest sort value
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT sort FROM " . DB_PREFIX . "content WHERE categoryId = :categoryId ORDER BY sort DESC LIMIT 1";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":categoryId", $id, PDO::PARAM_INT );
