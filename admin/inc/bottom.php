@@ -131,6 +131,21 @@
       $.post("search.php", {searchit : search_this}, function(data){
         $("#display_results_320").html(data);
       })
+    }
+    
+    // get the selected layout template and show a preview
+    function getLayout(sel) {
+      if (sel == 'custom') {
+        $('#layout_preview').hide();
+        CKEDITOR.instances.content.setData('');
+      } else {
+        $('#layout_preview').show();
+        $('#layout_preview img').attr('src', '../theme/<?php echo siteTheme; ?>/layout/' + sel + '.jpg');
+        CKEDITOR.instances.content.setData('');
+        $.get('../theme/<?php echo siteTheme; ?>/layout/' + sel + '.tpl', function(data) {
+          CKEDITOR.instances.content.insertHtml(data);
+        });
+      }
     } 
     
     // START Document Ready Function ////////////////////////////////////////////////////////
@@ -181,7 +196,7 @@
           var order = $('#content-list').sortable('serialize');
           $("#info").load("updateSort.php?" + order);
         }
-      });
+      }); 
                       
     });
     // END Document Ready Function ////////////////////////////////////////////////////////

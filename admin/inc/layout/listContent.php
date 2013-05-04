@@ -121,6 +121,41 @@
             </div>
             <div class="tab-pane" id="newContent">
               <form action="index.php?action=newContent&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" method="post" name="newContent" id="newContent">
+                <?php
+                  $layoutDir = '../theme/' . siteTheme . '/layout/';
+                  if (is_dir('../theme/' . siteTheme . '/layout/')) {
+                    $files = scandir($layoutDir);
+                ?>
+                <div class="row-fluid">
+                  <div class="span8">
+                    <div>
+                      <form action="" method="post">
+                        <label>Layout Template</label>
+                        <select id="layout" name="layout" onchange="getLayout(this.value);" style="min-width:275px;">
+                          <option value="custom">Select a Layout</option>
+                          <?php
+                            // added for stock layouts provided by theme designer if present
+                            foreach ($files as $file) {
+                              if ($file != "." && $file != ".." && $file != ".htaccess") {
+                                $file_parts = explode(".", $file);
+                                if ($file_parts[1] == 'tpl') {
+                                  $layout_name = str_replace("-", " ", $file_parts[0]);
+                                  echo '  <option value="' . $file_parts[0] . '">' . ucwords($layout_name) . '</option>' . "\n";
+                                }
+                              }
+                            }
+                          ?>
+                        </select>
+                      </form>
+                    </div>
+                    <div style="display:none; margin-top:10px;" id="layout_preview">
+                      <p>Layout Preview</p>
+                      <img src="" style="border:1px solid #ccc; padding:10px; width:255px;" />
+                    </div>
+                  </div>
+                </div>
+                <?php } ?>
+                <div style="height:10px;"></div>
                 <div class="row-fluid">
                   <label>Content Type</label>
                   <div class="controls" style="margin-left:10px;">

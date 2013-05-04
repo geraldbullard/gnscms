@@ -20,9 +20,11 @@
         </div>
       </article>
       <article class="article clearfix">
+        <!-- START editable content -->
         <?php 
           echo $contentResults->content; 
-        ?>      
+        ?>
+        <!-- END editable content -->      
       </article>
 <?php
   /*if (!empty($subCategoryResults['results'])) {
