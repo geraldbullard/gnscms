@@ -53,7 +53,7 @@
                 <?php 
                   foreach ( $results['users'] as $user ) { 
                 ?>
-                <tr>
+                <tr id="listUser_<?php echo $user->id; ?>">
                   <td class="hide-below-480">
                     <?php echo $user->id; ?>
                   </td>
@@ -74,7 +74,7 @@
                       <i class="icon-edit icon-white"></i>
                       <span class="hide-below-768">Edit</span>
                     </a>
-                    <a href="index.php?action=deleteUser&amp;userId=<?php echo $user->id; ?>" onclick="return confirm('Are You Sure?')" title="Delete User Profile" class="btn btn-danger">
+                    <a onclick="deleteUser(<?php echo $user->id; ?>);" title="Delete User Profile" class="btn btn-danger">
                       <i class="icon-trash icon-white"></i>
                     </a>
                   </td>

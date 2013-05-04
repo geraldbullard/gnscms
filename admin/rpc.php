@@ -36,5 +36,26 @@
     $content = new Content;
     $content->storeFormValues($_GET);
     $content->delete(); 
+  }
+  
+  // enable the user profile
+  if ($action == 'enableUser') {
+    $user = new User;
+    $user->storeFormValues($_GET);
+    $user->status(); 
+  }
+  
+  // disable the user profile
+  if ($action == 'disableUser') {
+    $user = new User;
+    $user->storeFormValues($_GET);
+    $user->status(); 
+  }
+  
+  // delete the user profile
+  if ($action == 'deleteUser') {
+    $user = new User;
+    $user->storeFormValues($_GET);
+    $user->delete(); 
   }     
 ?>

@@ -99,6 +99,18 @@
       }
     }
     
+    // delete user
+    function deleteUser(id) {
+      if (confirm("Are you sure you wish to delete this users profile?")) {
+        var jsonLink = '<?php echo 'rpc.php?action=deleteUser&id=ID'; ?>'
+        $.getJSON(jsonLink.replace('ID', id));
+        $("#listUser_" + id).remove();
+        return true;
+      } else {
+        return false;
+      }
+    }
+    
     // copy content modal
     $('.btn-copy').click(function() {
       var id = this.id.split('_');
