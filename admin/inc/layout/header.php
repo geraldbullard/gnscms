@@ -28,6 +28,7 @@
               <li><a href="index.php?action=theme" title="Manage Site Themes">Themes</a></li>
               <li><a href="index.php?action=fileManager" title="Manage Files">File Manager</a></li>
               <li><a href="index.php?action=listSetting" title="Manage Site Settings">Settings</a></li>
+              <li><a href="index.php?action=listUser" title="Manage Site Users">Users</a></li>
               <li class="hide-above-767"><a href="../" title="View Site in New Window">View Site</a></li>
               <li class="hide-above-767"><a href="login.php?action=logout" title="Logout">Logout</a></li>
               <li class="show-below-480" style="display:none;">
@@ -37,7 +38,7 @@
               </li>
             </ul>
           </div><!--/.nav-collapse -->
-          <div style="float:right; padding-top:3px;" class="hide-below-768">
+          <div style="float:right; padding-top:3px;" class="hide-below-768 navbar-actions">
             <a href="../" title="View Site in New Window" target="_blank"><i class="icon32 icon-white icon-extlink"></i></a> <a href="login.php?action=logout" title="Logout"><i class="icon32 icon-white icon-cross"></i></a> 
           </div>
         </div>

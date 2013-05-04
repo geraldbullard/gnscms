@@ -672,3 +672,7 @@ ul.ajax-loaders {
   text-decoration: none;
   background-color: #eeeeee;   
 }
+
+.navbar-actions {
+  margin-right: -18px;
+}

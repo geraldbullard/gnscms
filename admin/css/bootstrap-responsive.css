@@ -308,10 +308,16 @@
     display: none !important ;
   }
   .navbar .nav > li > a {
-    padding: 9px 7px 11px !important;
+    padding: 9px 9px 11px !important;
   }
   .navbar-search{
     margin-left:10px !important;
+  }
+  .navbar .brand {
+    padding: 8px 2px 12px 15px !important;
+  }
+  .navbar-search {
+    margin-right: 8px !important;
   }
   div.wysiwyg { width: 96% !important; }
 }
