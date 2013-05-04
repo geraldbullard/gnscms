@@ -73,6 +73,18 @@
                       <p>In each <strong>Content Listing</strong> row you will see the <img src="img/sortIcon.png" /> icon for draggable sorting of the content per the category location you currently reside in on the page. This is another very noteworthy feature and greatly speeds the deployment of any web site.</p>
                     </td>
                   </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=listUser">Admin User Profiles</a></h3></td>
+                    <td>
+                      <p>The ability to add, edit, enable, disable and delete <a href="index.php?action=listUser"><strong>Admin User Profiles</strong></a> has been added. A new login security process will be integrated to work in conjunction with this new User capability.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=listContent">Layout Templates</a></h3></td>
+                    <td>
+                      <p>When adding a new page, you can now select from stock page layouts if the Theme provider has supplied them in the correct location in the theme folder structure. This feature will greatly speed the implementation of standard page layouts for the active site theme and save a vast amount of html work for the end user.</p>
+                    </td>
+                  </tr>
                 </tbody>
               </table>                
                 

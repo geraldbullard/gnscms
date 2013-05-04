@@ -121,12 +121,27 @@
             </div>
             <div class="tab-pane" id="newContent">
               <form action="index.php?action=newContent&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" method="post" name="newContent" id="newContent">
+                <div class="row-fluid">
+                  <label>Content Type</label>
+                  <div class="controls" style="margin-left:10px;">
+                    <label class="radio">
+                      <div class="radio"><span class=""><input type="radio" value="0" id="typeRadio0" name="type" style="opacity: 0;"></span></div>
+                      Category
+                    </label>
+                    <div style="clear:both"></div>
+                    <label class="radio">
+                      <div class="radio"><span class=""><input type="radio" value="1" id="typeRadio1" name="type" style="opacity: 0;"></span></div>
+                      Page
+                    </label>
+                  </div>
+                </div>
+                <div style="height:10px;"></div>
                 <?php
                   $layoutDir = '../theme/' . siteTheme . '/layout/';
                   if (is_dir('../theme/' . siteTheme . '/layout/')) {
                     $files = scandir($layoutDir);
                 ?>
-                <div class="row-fluid">
+                <div class="row-fluid" id="layout_template" style="display:none;">
                   <div class="span8">
                     <div>
                       <label>Layout Template</label>
@@ -155,21 +170,6 @@
                 <?php } ?>
                 <div style="height:10px;"></div>
                 <div class="row-fluid">
-                  <label>Content Type</label>
-                  <div class="controls" style="margin-left:10px;">
-                    <label class="radio">
-                      <div class="radio"><span class=""><input type="radio" value="0" id="typeRadio1" name="type" style="opacity: 0;"></span></div>
-                      Category
-                    </label>
-                    <div style="clear:both"></div>
-                    <label class="radio">
-                      <div class="radio"><span class=""><input type="radio" value="1" id="typeRadio2" name="type" style="opacity: 0;"></span></div>
-                      Page
-                    </label>
-                  </div>
-                </div>
-                <div style="height:5px;"></div>
-                <div class="row-fluid">
                   <div class="span4">
                     <label>Title</label>
                     <input class="span12" style="width:100%;" type="text" id="contentTitle" name="title" autofocus required />
@@ -193,13 +193,13 @@
                     <input class="span12" style="width:100%;" type="text" id="override" name="override" />
                   </div>
                 </div>
-                <div class="row-fluid">
+                <div class="row-fluid" id="summaryDiv" style="display:none;">
                   <div class="span6">
                     <label>Summary</label>
                     <textarea class="span12" type="text" id="summary" name="summary" style="width:100%;" maxlength="10000"></textarea>
                   </div>
                 </div>
-                <div class="row-fluid" style="margin-bottom:10px;">
+                <div class="row-fluid" id="contentDiv" style="margin-bottom:10px; display:none;">
                   <div class="span8">
                     <label>Content</label>
                     <textarea class="span12 ckeditor" id="content" name="content"></textarea>

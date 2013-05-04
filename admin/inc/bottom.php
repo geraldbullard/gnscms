@@ -222,6 +222,19 @@
           var order = $('#content-list').sortable('serialize');
           $("#info").load("updateSort.php?" + order);
         }
+      });
+      
+      $('input:radio[name=type]').click(function(){
+        if ($('input:radio[name=type]:checked').val() == 1) {
+          $("#layout_template").show();
+          $("#summaryDiv").show();
+          $("#contentDiv").show();
+        } else {
+          $("#layout_template").hide();
+          CKEDITOR.instances.content.setData('');
+          $("#summaryDiv").hide();
+          $("#contentDiv").hide();
+        }
       }); 
                       
     });
