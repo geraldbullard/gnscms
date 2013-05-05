@@ -76,7 +76,7 @@
                   <tr>
                     <td><h3><a href="index.php?action=listUser">Admin User Profiles</a></h3></td>
                     <td>
-                      <p>The ability to add, edit, enable, disable and delete <a href="index.php?action=listUser"><strong>Admin User Profiles</strong></a> has been added. A new login security process will be integrated to work in conjunction with this new User capability.</p>
+                      <p>The ability to add, edit, enable, disable and delete <strong>Admin User Profiles</strong> has been added. A new login security process will be integrated to work in conjunction with this new User capability.</p>
                     </td>
                   </tr>
                   <tr>

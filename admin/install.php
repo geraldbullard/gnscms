@@ -16,26 +16,27 @@
   if ($_POST['submit'] == "Install Now!") {
     define('DB_ENCRYPT_KEY', makePin());
     define('DB_PREFIX', $_POST['database_prefix']);
-    $database_host = isset($_POST['database_host']) ? $_POST['database_host'] : "";
-    $database_prefix = isset($_POST['database_prefix']) ? $_POST['database_prefix'] : "";
-    $database_name = isset($_POST['database_name']) ? $_POST['database_name'] : "";
-    $database_username = isset($_POST['database_username']) ? $_POST['database_username'] : "";
-    $database_password = isset($_POST['database_password']) ? $_POST['database_password'] : "";
-    $firstname = isset($_POST['firstname']) ? preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $_POST['firstname'] ) : "";
-    $lastname = isset($_POST['lastname']) ? preg_replace ( "/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $_POST['lastname'] ) : "";
-    $email = (isset($_POST['email']) && isEmail($_POST['email'])) ? preg_replace ( "/[^\,\'\"\?\!\:\$ a-zA-Z0-9()]/", "", strip_tags( $_POST['email'] ) ) : "";
-    $username = isset($_POST['username']) ? preg_replace ( "/[^\,\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $_POST['username'] ) : "";
-    $password = isset($_POST['password']) ? htmlspecialchars ( strip_tags ( $_POST['password'] ) ) : "";
+    $database_host = $_POST['database_host'];
+    $database_prefix = $_POST['database_prefix'];
+    $database_name = $_POST['database_name'];
+    $database_username = $_POST['database_username'];
+    $database_password = $_POST['database_password'];
+    $firstname = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $_POST['firstname']);
+    $lastname = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $_POST['lastname']);
+    if (isEmail($_POST['email'])) $email = preg_replace("/[^\.\@ a-zA-Z0-9()]/", "", strip_tags($_POST['email']));
+    $username = preg_replace( "/[^\,\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $_POST['username']);
+    $password = md5($_POST['password']);
+    $gender = $_POST['gender'];
     $inputError = false;
     if (empty($username) || empty($password) || empty($database_host) || empty($database_username) || empty($database_password) || empty($database_name)) {
       $inputError = true;
-      $inputMessage = 'All fields are required on the installation tab. Please click "Start Instalaation" and try again.';
+      $inputMessage = 'All fields are required on the installation tab. Please click "Start Instalation" and try again.';
     } else {
       $f = @fopen("inc/config.php", "w+");
       $database_inf = "<?php
   // DATABASE CONNECTION INFORMATION ///////////////////////////////////////////////////////////
   ini_set('display_errors', true);
-  define('DB_DSN', 'mysql:host=" . $database_host . ";dbname=" . $database_name . "' );
+  define('DB_DSN', 'mysql:host=" . $database_host . ";dbname=" . $database_name . "');
   date_default_timezone_set('US/Eastern');                     // http://www.php.net/manual/en/timezones.php later add to install as dropdown option
   define('DB_HOST', '" . $database_host . "');                 // Database host
   define('DB_NAME', '" . $database_name . "');                 // Database name
@@ -43,8 +44,6 @@
   define('DB_PASSWORD', '" . $database_password . "');         // Password for access to database
   define('DB_ENCRYPT_KEY', '" . DB_ENCRYPT_KEY . "');          // Database encryption key
   define('DB_PREFIX', '" . $database_prefix . "');             // Unique prefix of table names
-  define('ADMIN_USERNAME', '" . $username . "');               // Admin username until moved to database
-  define('ADMIN_PASSWORD', '" . $password . "');               // Admin password until moved to database
 ?>"; 
       $error = false;
       if (@fwrite($f, $database_inf) > 0) {
@@ -87,7 +86,7 @@
                                                                                  lastname varchar(128) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  email varchar(255) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  username varchar(48) COLLATE utf8_unicode_ci NOT NULL,
-                                                                                 password varbinary(250) NOT NULL,
+                                                                                 password varchar(40) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  gender varchar(1) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  level smallint(5) unsigned NOT NULL,
                                                                                  status tinyint(1) unsigned NOT NULL DEFAULT '1',
@@ -113,7 +112,9 @@
                                                                     (5, 'siteDescription', 'Site Description', 'This is a site wide description. It will also get used in the event that you do not enter any meta tag description for any of your pages.', 'This is my site description.', 0, 1),
                                                                     (6, 'siteKeywords', 'Site Keywords', 'These are site wide keywords. They will also get used in the event that you do not enter any meta tag keywords for any of your pages.', 'these, are, my, site, keywords', 0, 1),
                                                                     (9, 'showHelp', 'Show Help Tab', 'Show or hide the help tab in the site admin upper right corner. (yes or no)', 'no', 0, 1),
-                                                                    (10, 'testSetting', 'Test Setting', 'Test Summary', 'Test Value', 1, 0);") != 0) 
+                                                                    (10, 'testSetting', 'Test Setting', 'Test Summary', 'Test Value', 1, 0);") != 0 &&
+                @mysql_query("INSERT INTO " . DB_PREFIX . "users (id, firstname, lastname, email, username, password, gender, level, status) VALUES 
+                                                                 (1, '" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $username . "', '" . $password . "', '" . $gender . "', 99, 1);")) 
                 {
                 $completed = true;
             } else {
@@ -255,63 +256,84 @@
               <legend>Please fill out the following information completely<br /><div style="font-weight:bolder; font-size:10px; color:red; margin-top:-10px;">* All Fields Are Required!</div></legend>
               
                 <div class="control-group">
-                  <label for="" class="control-label">Database Host</label>
+                  <label for="database_host" class="control-label">Database Host</label>
                   <div class="controls">
                     <input class="text-input small-input" type="text" id="database_host" name="database_host" value="<?php echo (isset($database_host)) ? $database_host : 'localhost'; ?>" required />
                   </div>
                 </div>
                 
                 <div class="control-group">
-                  <label for="" class="control-label">Database Tables Prefix</label>
+                  <label for="database_prefix" class="control-label">Database Tables Prefix</label>
                   <div class="controls">
                     <input class="text-input small-input" type="text" id="database_prefix" name="database_prefix" value="<?php echo (isset($database_prefix)) ? $database_prefix : 'gnsCMS_'; ?>" />
                   </div>
                 </div>
                 
                 <div class="control-group">
-                  <label for="" class="control-label">Database Name</label>
+                  <label for="database_name" class="control-label">Database Name</label>
                   <div class="controls">
                     <input class="text-input small-input" type="text" id="database_name" name="database_name" value="<?php echo $database_name; ?>" required />
                   </div>
                 </div>
                 
                 <div class="control-group">
-                  <label for="" class="control-label">Database Username</label>
+                  <label for="database_username" class="control-label">Database Username</label>
                   <div class="controls">
                     <input class="text-input small-input" type="text" id="database_username" name="database_username" value="<?php echo $database_username; ?>" required />
                   </div>
                 </div>
                 
                 <div class="control-group">
-                  <label for="" class="control-label">Database Password</label>
+                  <label for="database_password" class="control-label">Database Password</label>
                   <div class="controls">
                     <input class="text-input small-input" type="password" id="database_password" name="database_password" value="<?php echo $database_password; ?>" required />
                   </div>
                 </div>
                 
                 <div class="control-group">
-                  <label for="" class="control-label">Admin Username</label>
+                  <label for="firstname" class="control-label">Admin First Name</label>
+                  <div class="controls">
+                    <input class="text-input small-input" type="text" id="firstname" name="firstname" value="<?php echo $firstname; ?>" required />
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <label for="" class="control-label">Admin Last Name</label>
+                  <div class="controls">
+                    <input class="text-input small-input" type="text" id="lastname" name="lastname" value="<?php echo $lastname; ?>" required />
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <label for="email" class="control-label">Admin Email</label>
+                  <div class="controls">
+                    <input class="text-input small-input" type="text" id="email" name="email" value="<?php echo $email; ?>" required />
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <label for="username" class="control-label">Admin Username</label>
                   <div class="controls">
                     <input class="text-input small-input" type="text" id="username" name="username" value="<?php echo $username; ?>" required />
                   </div>
                 </div>
                 
                 <div class="control-group">
-                  <label for="" class="control-label">Admin Password</label>
+                  <label for="password" class="control-label">Admin Password</label>
                   <div class="controls">
-                    <input class="text-input small-input" type="password" id="password" name="password" value="" required autocomplete="off" onkeyup="passwordStrength(this.value)"/>
+                    <input class="text-input small-input" type="password" id="password" name="password" value="" required autocomplete="off" onkeyup="passwordStrength(this.value)" />
                   </div>
                 </div>
                 
                 <div class="control-group">
-                  <label for="" class="control-label">Confirm Password</label>
+                  <label for="confirm_password" class="control-label">Confirm Password</label>
                   <div class="controls">
                     <input class="text-input small-input" type="password" id="confirm_password" name="confirm_password" value="" required autocomplete="off" onkeyup="checkPass(); return false;" />&nbsp;<span id="passwordMessage" class="passwordMessage"></span>
                   </div>
                 </div>
                 
                 <div class="control-group">
-                  <label for="" class="control-label" for="passwordStrength">Password strength</label>
+                  <label for="passwordStrength" class="control-label">Password strength</label>
                   <div class="controls">
                     <div id="passwordDescription">Password not entered</div>
                     <div id="passwordStrength" class="strength0"></div>
@@ -319,7 +341,24 @@
                 </div>
                 
                 <div class="control-group">
-                  <label for="" class="control-label" for="passwordStrength">Password strength</label>
+                  <label for="gender" class="control-label">Gender</label>
+                  <div class="controls">
+                    <label class="radio">
+                      <div class="radio"><span><input type="radio" value="m" name="gender" style="opacity: 0;"></span></div>
+                      Male
+                    </label>
+                    <div style="clear:both"></div>
+                    <label class="radio">
+                      <div class="radio"><span><input type="radio" value="f" name="gender" style="opacity: 0;"></span></div>
+                      Female
+                    </label>
+                  </div>
+                </div>
+                
+                <input type="hidden" id="level" name="level" value="99" />
+                <input type="hidden" id="status" name="status" value="1" />
+                
+                <div class="control-group">
                   <div class="controls">
                     <input class="btn btn-large btn-primary" type="submit" name="submit" value="Install Now!" />
                   </div>

@@ -1,5 +1,4 @@
 <?php
-
   require_once('inc/config.php');
   
   session_start();
@@ -14,10 +13,11 @@
   $sessionExpireTime = mysql_fetch_array(mysql_query("SELECT value FROM " . DB_PREFIX . "settings WHERE define = 'sessionExpire'"));
   
   if (isset($_POST['login'])) {
-    if (($_POST['username'] != ADMIN_USERNAME) || ($_POST['password'] != ADMIN_PASSWORD)) {
+    $adminDetails = mysql_fetch_array(mysql_query("SELECT username, password, status FROM " . DB_PREFIX . "users WHERE username = '" . $_POST['username'] . "'"));
+    if (($_POST['username'] != $adminDetails['username']) || (md5($_POST['password']) != $adminDetails['password']) || ($adminDetails['status'] != 1)) {
       $error = true;
     } else {
-      $_SESSION['authuser'] = ADMIN_USERNAME;
+      $_SESSION['authuser'] = $adminDetails['username'];
       $_SESSION['sessionStart'] = time();
       $_SESSION['sessionExpire'] = $_SESSION['sessionStart'] + ($sessionExpireTime['value'] * 60);
       if (isset($_SESSION['oldURL'])) {
@@ -52,7 +52,7 @@
 ?>
         <div id="wrongInformation" class="warning alert alert-info center">
           <p>
-            Wrong Username or Password.
+            Wrong Username, Password or Status.<br />Please contact the site administrator.
           </p>
         </div>
 <?php

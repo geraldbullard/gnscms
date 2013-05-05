@@ -9,10 +9,6 @@
   
   require('inc/top.php');
   
-  if ($_SESSION['authuser'] != ADMIN_USERNAME) {
-    header("Location: login.php?action=notLogged");
-  }
-
   switch ( $action ) {
     case 'newContent':
       require('inc/functions/newContent.php');
