@@ -1,7 +1,3 @@
-<?php include('inc/head.php'); ?>
-
-<?php include('inc/layout/header.php'); ?>
-
     <div class="row-fluid">
       <div class="box span12">
         <div class="box-header well">
@@ -28,7 +24,73 @@
            
           <div class="tab-content pad-10">
             <div class="tab-pane active" id="gettingStarted">
-              <p>Coming soon...</p>
+              <p>Below are some of the highlights of the <strong>gnsCMS &copy; Content Management System</strong>. Please take a few moments to look over the area notes before you begin.</p>
+              <br /><table class="table table-bordered table-striped">
+                <tbody>
+                  <tr>
+                    <td><h3><a href="index.php?action=dashboard">Dashboard</a></h3></td>
+                    <td>
+                      <p>You are on the Dashboard page now. This page will later be given more use for stats, members, messaging and more as the <strong>gnsCMS &copy;</strong> system grows in scope.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=listContent">Content</a></h3></td>
+                    <td>
+                      <p>The Content area is where you will be spending most of your time while in the admin creating and editing content (Categories and Pages). This area is where the bulk of the <strong>gnsCMS &copy;</strong> development has been focused up to this point. We hope you enjoy its power and simplicity!</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=theme">Themes</a></h3></td>
+                    <td>
+                      <p>An area to control your site <strong>Theme</strong> (or template) and any related settings has been added. The main focus of this area is to encourage development of third party Themes and greatly increase the design choices at your disposal when creating or updating your web site.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=fileManager">File Manager</a></h3></td>
+                    <td>
+                      <p>A <strong>File Manager</strong> is an obvious need for any true cms system. We have kept pace with the choice made by the developer(s) of the <strong>Charisma Responsive Admin Template</strong> called <strong>elFinder</strong>. Its simplicity and power are one of the noted features of <strong>gnsCMS &copy;</strong></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=listSetting">Settings</a></h3></td>
+                    <td>
+                      <p>The <strong>Settings</strong> area has been added to assist in the area of repeated use data and settings across the site front end. This area will help Developers and Theme creators with a database table available to hold configuration settings, site-wide data (names, contact info, addresses, titles etc) and any "switchable" settings needed in that creation process.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="#">Search</a></h3></td>
+                    <td>
+                      <p>An <strong>Ajax Content Search</strong> has been added to speed the locating of a desired Category or Page for editing or creation. Enjoy!</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=listContent">Draggable Sorting</a></h3></td>
+                    <td>
+                      <p>In each <strong>Content Listing</strong> row you will see the <img src="img/sortIcon.png" /> icon for draggable sorting of the content per the category location you currently reside in on the page. This is another very noteworthy feature and greatly speeds the deployment of any web site.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=listUser">Admin User Profiles</a></h3></td>
+                    <td>
+                      <p>The ability to add, edit, enable, disable and delete <strong>Admin User Profiles</strong> has been added. A new login security process will be integrated to work in conjunction with this new User capability.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=listContent">Layout Templates</a></h3></td>
+                    <td>
+                      <p>When adding a new page, you can now select from stock page layouts if the Theme provider has supplied them in the correct location in the theme folder structure. This feature will greatly speed the implementation of standard page layouts for the active site theme and save a vast amount of html work for the end user.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=dashboard">Multi Language</a></h3></td>
+                    <td>
+                      <p>The ability to add multiple languages and select the language of your choice from a dropdown in the footer has been added. Later improvments will include admin user specific language settings, giving each admin the ability to save his or her prefernce for which current admin language is in use during the user session. There is already a cookie session that is set upon the first login for each user, saving the language preference for 30 days.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>                
+                
+                
             </div>
             <div class="tab-pane" id="gettingHelp">
               <p>Coming soon...</p>
@@ -45,9 +107,3 @@
         </div>
       </div><!--/span-->
     </div><!--/row-->
-  
-<?php include('inc/layout/footer.php'); ?>
-
-<?php // add js array here ?>
-
-<?php include('inc/bottom.php'); ?>

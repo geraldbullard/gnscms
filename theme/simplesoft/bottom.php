@@ -14,14 +14,12 @@
    */
 ?>
   <!-- JavaScript at the bottom for fast page loading -->
-
-  <!-- Scripts -->
-  <script type="text/javascript" src="<?php echo (($request_type == 'SSL') ? 'https:' : 'http:'); ?>//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script type="text/javascript">
-    if (typeof jQuery == 'undefined') {
-      document.write(unescape('%3Cscript src="theme/<?php echo siteTheme; ?>/js/jquery-1.8.3.min.js"%3C/script%3E'));
-    }
-    $(document).ready(function() {
-      // template specific code here
-    });
+  <script>
+    ddsmoothmenu.init({
+      mainmenuid: "smoothmenu", //menu DIV id
+      orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+      classname: 'ddsmoothmenu', //class added to menu's outer DIV
+      //customtheme: ["#1c5a80", "#18374a"],
+      contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+    })
   </script>

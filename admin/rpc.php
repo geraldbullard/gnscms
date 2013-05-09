@@ -17,24 +17,45 @@
   // set the action from the url
   $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
   
-  // set the page status to enabled
-  if ($action == 'enablePage') {
-    $page = new Page;
-    $page->storeFormValues($_GET);
-    $page->updateStatus(); 
+  // set the content status to enabled
+  if ($action == 'enableContent') {
+    $content = new Content;
+    $content->storeFormValues($_GET);
+    $content->updateStatus(); 
   }
   
-  // set the page status to disabled
-  if ($action == 'disablePage') {
-    $page = new Page;
-    $page->storeFormValues($_GET);
-    $page->updateStatus(); 
+  // set the content status to disabled
+  if ($action == 'disableContent') {
+    $content = new Content;
+    $content->storeFormValues($_GET);
+    $content->updateStatus(); 
   }
   
-  // delete the page
-  if ($action == 'deletePage') {
-    $page = new Page;
-    $page->storeFormValues($_GET);
-    $page->delete(); 
+  // delete the content
+  if ($action == 'deleteContent') {
+    $content = new Content;
+    $content->storeFormValues($_GET);
+    $content->delete(); 
+  }
+  
+  // enable the user profile
+  if ($action == 'enableUser') {
+    $user = new User;
+    $user->storeFormValues($_GET);
+    $user->status(); 
+  }
+  
+  // disable the user profile
+  if ($action == 'disableUser') {
+    $user = new User;
+    $user->storeFormValues($_GET);
+    $user->status(); 
+  }
+  
+  // delete the user profile
+  if ($action == 'deleteUser') {
+    $user = new User;
+    $user->storeFormValues($_GET);
+    $user->delete(); 
   }     
 ?>

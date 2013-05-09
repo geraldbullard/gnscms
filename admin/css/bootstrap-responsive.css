@@ -59,7 +59,7 @@
 
 .table-id-head { width: 10px; }
 
-.table-title-head { width: 50%; }
+.table-title-head { width: 50%; } 
 
 @media (min-width: 768px) and (max-width: 979px) {
   .row {
@@ -308,12 +308,28 @@
     display: none !important ;
   }
   .navbar .nav > li > a {
-    padding: 9px 7px 11px !important;
+    padding: 9px 9px 11px !important;
   }
   .navbar-search{
     margin-left:10px !important;
   }
+  .navbar .brand {
+    padding: 8px 2px 12px 15px !important;
+  }
+  .navbar-search {
+    margin-right: 8px !important;
+  }
   div.wysiwyg { width: 96% !important; }
+  /* display results above 479px */
+  #display_results {
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    margin: 35px 0 0 12px !important;
+    min-width: 175px;
+    max-width: 175px;
+    position: absolute;
+    z-index: 1;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -745,6 +761,21 @@
     padding-right: 10px;
     padding-left: 10px;
   }
+  .modal {
+    position: absolute;
+    top: 30%;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    margin: 0;
+  }
+  .modal.fade.in {
+    top: 30%;
+  }
+  .modal-header .close {
+    padding: 10px;
+    margin: -10px;
+  }
   .hide-below-768 {
     display: none !important;
   }
@@ -752,6 +783,9 @@
     width: 70% !important; 
   }
   div.wysiwyg { width: 94% !important; }
+  #login-logo {
+    width: 300px;
+  }
 }
 
 @media (max-width: 479px) {
@@ -784,14 +818,14 @@
   }
   .modal {
     position: absolute;
-    top: 10px;
+    top: 40%;
     right: 10px;
     left: 10px;
     width: auto;
     margin: 0;
   }
   .modal.fade.in {
-    top: auto;
+    top: 40%;
   }
   .modal-header .close {
     padding: 10px;
@@ -803,6 +837,9 @@
   .hide-below-480 {
     display: none !important;
   }
+  .show-below-480 {
+    display: block !important;
+  }
   div.wysiwyg { width: 92% !important; } 
   
   [class*="span"],
@@ -812,6 +849,9 @@
     width: 100%;
     margin-left: 0;
   }
+  #login-logo {
+    width: 200px;
+  }
 }
 
 @media (max-width: 319px) {
@@ -819,4 +859,7 @@
     display: none !important;
   }
   div.wysiwyg { width: 88% !important; }
+  #login-logo {
+    width: 150px;
+  }
 }

@@ -15,7 +15,7 @@
 <IfModule mod_rewrite.c>
   Options +FollowSymLinks
   RewriteEngine On
-  RewriteBase /
+  RewriteBase /afternooncms/
   
   RewriteCond %{SCRIPT_FILENAME} -d
   RewriteCond %{SCRIPT_FILENAME} -f
@@ -24,7 +24,7 @@
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301]
-  RewriteRule ^([^/]*)\.html$ index.php?pageName=$1 [L]
+  RewriteRule ^([^/]*)\.html$ index.php?locationName=$1 [L]
   
 </IfModule>
 

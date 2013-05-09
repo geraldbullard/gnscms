@@ -1,22 +1,54 @@
 <?php
   require('inc/config.php');
   require('inc/functions/general.php');
-  require('inc/classes/Page.php');
+  require('inc/classes/Content.php');
   require('inc/classes/Setting.php');
+  require('inc/classes/User.php');
   
-  /* set the type of request (secure or not) // save for later - maestro
+  // set the type of request (secure or not) // save for later - maestro
   $request_type = (getenv('HTTPS') == 'on') ? 'SSL' : 'NONSSL';
   if ($request_type == 'NONSSL') {
     define('DIR_WS_MAIN', HTTP_SERVER . DIR_WS_CONTENT);
   } else {
     define('DIR_WS_MAIN', HTTPS_SERVER . DIR_WS_CONTENT);
-  }*/
+  }
   
   // set php_self in the local scope
   $PHP_SELF = $_SERVER['SCRIPT_NAME'];
   
   session_start();
   set_exception_handler('handleException');
+  ob_start();
+  
+  // set the language
+  if (isset($_GET['lang'])) {
+    $lang = $_GET['lang'];
+    $_SESSION['lang'] = $lang;
+    setcookie('lang', $lang, time() + (3600 * 24 * 30));
+  } else if (isset($_SESSION['lang'])) {
+    $lang = $_SESSION['lang'];
+  } else if (isset($_COOKIE['lang'])) {
+    $lang = $_COOKIE['lang'];
+    $_SESSION['lang'] = $lang;
+  } else {
+    $lang = 'en';
+    $_SESSION['lang'] = $lang;
+  }
+  $lang_files = scandir('inc/lang');
+  foreach ($lang_files as $file) {
+    if ($file != '.' && $file != '..' && $file != 'langs.php') {
+      $parts = explode(".", $file); 
+      $file_lang = $parts[1];
+      $langs_array[] = $parts[1];
+      if ($lang == $file_lang) {
+        $lang_file = $file;
+      }
+    }
+  }
+  include_once 'inc/lang/' . $lang_file;
+  $_SESSION['langs_array'] = $langs_array;
+  include_once 'inc/lang/langs.php';
+  $_SESSION['all_langs'] = $all_langs; 
   
   // get the settings and define them for site wide usage
   mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);

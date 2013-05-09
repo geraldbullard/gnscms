@@ -1,7 +1,3 @@
-<?php include('inc/head.php'); ?>
-
-<?php include('inc/layout/header.php'); ?>
-
     <div class="row-fluid">
       <div class="box span12">
         <div class="box-header well">
@@ -13,14 +9,12 @@
           </div>
         </div>
         <div class="box-content">
-
           <?php if ( isset( $results['errorMessage'] ) ) { ?>
           <div class="alert alert-error" id="errorMessage">
             <button class="close" data-dismiss="alert" type="button">x</button>
             <?php echo $results['errorMessage'] ?>
           </div>
-          <?php } ?>
-        
+          <?php } ?>        
           <form action="index.php?action=editSetting" method="post" name="editSetting" id="editSetting">
             <input type="hidden" name="settingId" value="<?php echo $results['setting']->id ?>"/>
             <div class="row-fluid">
@@ -72,29 +66,19 @@
             </div>
             <?php } else { ?>
             <input type="hidden" name="edit" value="0" />
-            <?php } ?>
-              
+            <?php } ?>              
             <?php if ($results['setting']->system == 1) { ?>
             <input type="hidden" name="system" value="1"/>
             <?php } else { ?>
             <input type="hidden" name="system" value="0"/>
-            <?php } ?>
-            
+            <?php } ?>            
             <div class="row-fluid">&nbsp;</div>
             <div class="row-fluid">
               <div class="span6">
-                <button class="btn btn-primary" type="submit" name="saveChanges">Save Changes</button>
+                <button class="btn btn-primary" type="submit" name="saveChanges">Save Changes</button> &nbsp; <input class="btn btn-primary" type="submit" formnovalidate name="cancel" value="Cancel" />
               </div>
             </div>
           </form>
-        
-        
         </div>
       </div><!--/span-->
     </div><!--/row-->
-  
-<?php include('inc/layout/footer.php'); ?>
-
-<?php // add js array here ?>
-
-<?php include('inc/bottom.php'); ?>
