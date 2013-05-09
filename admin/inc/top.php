@@ -84,5 +84,5 @@
     }
   }
   
-  $action = isset($_GET['action']) ? $_GET['action'] : header("Location: index.php?action=dashboard");;
+  $action = isset($_GET['action']) ? $_GET['action'] : '';
 ?>

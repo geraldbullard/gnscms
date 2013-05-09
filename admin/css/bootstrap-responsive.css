@@ -59,7 +59,7 @@
 
 .table-id-head { width: 10px; }
 
-.table-title-head { width: 50%; }
+.table-title-head { width: 50%; } 
 
 @media (min-width: 768px) and (max-width: 979px) {
   .row {
@@ -320,6 +320,16 @@
     margin-right: 8px !important;
   }
   div.wysiwyg { width: 96% !important; }
+  /* display results above 479px */
+  #display_results {
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    margin: 35px 0 0 12px !important;
+    min-width: 175px;
+    max-width: 175px;
+    position: absolute;
+    z-index: 1;
+  }
 }
 
 @media (min-width: 1200px) {
