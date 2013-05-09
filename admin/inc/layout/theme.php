@@ -1,7 +1,3 @@
-<?php include('inc/head.php'); ?>
-
-<?php include('inc/layout/header.php'); ?>
-
     <div class="row-fluid">
       <div class="box span12">
         <div class="box-header well">
@@ -36,8 +32,7 @@
           <h3>Current Theme Preview: "<?php echo siteTheme; ?>"</h3>
           <div class="pad-10" align="center">
             <img src="../theme/<?php echo siteTheme . '/' . $curThemeImg; ?>" border="0" />
-          </div>
-          
+          </div>          
           <ul class="nav nav-tabs" id="myTab">
             <li class="active"><a href="#themeInfo"><i class="icon-picture"></i> Theme Details</a></li>
             <li><a href="#shortCodes"><i class="icon-cog"></i> Short Codes</a></li>
@@ -72,21 +67,19 @@
           ?>
         </div>
       </div><!--/span-->
-    </div><!--/row-->
-    
-    <div style="clear:both;">&nbsp;</div>
-    
+    </div><!--/row-->    
+    <div style="clear:both;">&nbsp;</div>    
     <div class="row-fluid">
       <div class="box span12">
         <div class="box-header well">
           <h2><i class="icon-th"></i> Available Themes</h2>
           <div class="box-icon">
             <!--<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>-->
-            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-down"></i></a>
+            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
             <!--<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>-->
           </div>
         </div>
-        <div class="box-content hide">
+        <div class="box-content">
           <ul class="thumbnails gallery">
           <?php
             $themeDir = opendir('../theme/'); 
@@ -96,19 +89,15 @@
               }
             }
             closedir($themeDir);
-            sort($themeNames); 
-            
-            foreach ($themeNames as $theme) {
-              
+            sort($themeNames);            
+            foreach ($themeNames as $theme) {              
               $directory = '../theme/' . $theme . '/';
-              $wtlf = 'preview';
-              
+              $wtlf = 'preview';              
               for ($i = 0; count($ext) > $i; $i++) {
                 if (file_exists($directory . $wtlf . $ext[$i])) {
                   $name = $wtlf . $ext[$i];
                 }
-              }
-              
+              }              
               echo '<li id="theme-' . $theme . '" class="thumbnail theme-listing">' . "\n" . 
                    '  <div title="Preview This Theme">' . "\n" . 
                    '    <a class="cboxElement" style="background:url(' . $directory . $name . ') no-repeat;" href="' . $directory . $name . '">' . "\n" . 
@@ -120,17 +109,10 @@
                    '      ' . ($theme == siteTheme ? '<button class="btn btn-mini btn-success" disabled><i class="icon-off"></i> Current</button>' : '<button class="btn btn-mini btn-primary"><i class="icon-off"></i> Activate</button>') . "\n" . 
                    '    </div>' . "\n" . 
                    '  </div>' . "\n" . 
-                   '</li>'; 
-              
+                   '</li>';               
             }
           ?>
           </ul>
         </div>
       </div><!--/span-->
     </div><!--/row-->
-  
-<?php include('inc/layout/footer.php'); ?>
-
-<?php // add js array here ?>
-
-<?php include('inc/bottom.php'); ?>

@@ -1,4 +1,5 @@
 <?php
+  include('inc/top.php');
   // makes a random alpha numeric string of a given lenth
   function makePin($lenth = 24) {
     $aZ09 = array_merge(range('A', 'Z'), range('a', 'z'), range(0, 9));

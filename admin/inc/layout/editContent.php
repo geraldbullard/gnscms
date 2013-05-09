@@ -1,7 +1,3 @@
-<?php include('inc/head.php'); ?>
-
-<?php include('inc/layout/header.php'); ?>
-
     <div class="row-fluid">
       <div class="box span12">
         <div class="box-header well">
@@ -114,10 +110,4 @@
           </div>
         </div>
       </div><!--/span-->
-    </div><!--/row--> 
-  
-<?php include('inc/layout/footer.php'); ?>
-
-<?php // add js array here ?>
-
-<?php include('inc/bottom.php'); ?>
+    </div><!--/row-->
