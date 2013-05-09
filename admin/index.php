@@ -418,7 +418,8 @@
       // bind change event to language select
       $('#lang_select').bind('change', function () {
         var location = window.location.href;
-        var lang = $(this).val();
+        var lang = $(this).val();         
+        $("#lang_select").css("background-image", "url('../images/icons/flags/" + lang + ".png')");
         var index = window.location.href.indexOf("lang");
         var result;
         if (index < 0) {
