@@ -182,33 +182,15 @@
         </div>
         <div class="span6">
           <p class="pull-right">
-            <select id="lang_select" style="width:auto;">
+            <select id="lang_select" style="width:auto; padding-left:22px; background:url('../images/icons/flags/<?php echo $_SESSION['lang']; ?>.png') no-repeat 4px 8px;">
             <?php
               foreach ($_SESSION['langs_array'] as $language) {
                 if (array_key_exists($language, $_SESSION['all_langs'])) {
-                  echo '<option value="' . $language . '"' . (($_SESSION['lang'] == $language) ? ' selected' : '') . '>' . $_SESSION['all_langs'][$language] . '</option>';
+                  echo '<option value="' . $language . '" style="padding:2px; background-repeat:no-repeat; background-position:bottom left; padding-left:25px; background:url(../images/icons/flags/' . $language . '.png) no-repeat 3px 6px;"' . (($_SESSION['lang'] == $language) ? ' selected' : '') . '>' . $_SESSION['all_langs'][$language] . '</option>';
                 }
               }
             ?>
             </select>
-            <script>
-              $(function(){
-                // bind change event to select
-                $('#lang_select').bind('change', function () {
-                  var location = window.location.href;
-                  var lang = $(this).val();
-                  var index = window.location.href.indexOf("lang");
-                  var result;
-                  if (index < 0) {
-                    result = location + '&lang=' + lang;
-                  } else {
-                    result = location.substr(0, index) + 'lang=' + lang;
-                  }
-                  window.location = result;
-                  return false;
-                });
-              });
-            </script>
             <a class="arrow-top scrollToTop" href="#">
               <img src="img/arrow-top.png" style="margin:-10px 0 0 20px;">
             </a>
@@ -432,6 +414,20 @@
           $("#summaryDiv").hide();
           $("#contentDiv").hide();
         }
+      });
+      // bind change event to language select
+      $('#lang_select').bind('change', function () {
+        var location = window.location.href;
+        var lang = $(this).val();
+        var index = window.location.href.indexOf("lang");
+        var result;
+        if (index < 0) {
+          result = location + '&lang=' + lang;
+        } else {
+          result = location.substr(0, index) + 'lang=' + lang;
+        }
+        window.location = result;
+        return false;
       });            
     });
     // END Document Ready Function ////////////////////////////////////////////////////////
