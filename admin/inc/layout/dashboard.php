@@ -81,6 +81,12 @@
                       <p>When adding a new page, you can now select from stock page layouts if the Theme provider has supplied them in the correct location in the theme folder structure. This feature will greatly speed the implementation of standard page layouts for the active site theme and save a vast amount of html work for the end user.</p>
                     </td>
                   </tr>
+                  <tr>
+                    <td><h3><a href="index.php?action=dashboard">Multi Language</a></h3></td>
+                    <td>
+                      <p>The ability to add multiple languages and select the language of your choice from a dropdown in the footer has been added. Later improvments will include admin user specific language settings, giving each admin the ability to save his or her prefernce for which current admin language is in use during the user session. There is already a cookie session that is set upon the first login for each user, saving the language preference for 30 days.</p>
+                    </td>
+                  </tr>
                 </tbody>
               </table>                
                 
