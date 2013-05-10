@@ -108,7 +108,7 @@
                                                                     (2, 'siteRoot', 'Site URL', 'The root url for your web site.', 'www.mywebsite.com', 0, 1),
                                                                     (7, 'sessionExpire', 'Admin Session Timeout', 'The time in minutes that your admin session will last before timing out and forcing you to login again.', '30', 0, 1),
                                                                     (3, 'siteTheme', 'Site Theme', 'This is the name of your site theme', 'simplesoft', 0, 1),
-                                                                    (8, 'googleAnalytics', 'Google Analytics', 'The ID of your Google Anayltics account', 'UA-XXXXX-X', 0, 1),
+                                                                    (8, 'googleAnalytics', 'Google Analytics', 'The ID of your Google Anayltics account', 'UA-', 0, 1),
                                                                     (4, 'siteWidth', 'Site Width', 'The width of your site', '980px', 0, 1),
                                                                     (5, 'siteDescription', 'Site Description', 'This is a site wide description. It will also get used in the event that you do not enter any meta tag description for any of your pages.', 'This is my site description.', 0, 1),
                                                                     (6, 'siteKeywords', 'Site Keywords', 'These are site wide keywords. They will also get used in the event that you do not enter any meta tag keywords for any of your pages.', 'these, are, my, site, keywords', 0, 1),
