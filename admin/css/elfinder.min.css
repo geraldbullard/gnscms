@@ -907,6 +907,7 @@
     padding: 3px 5px;
     position: relative;
     width: 230px;
+    height:100%;
 }
 .elfinder-ltr .elfinder-navbar {
     border-left: 0 solid;
