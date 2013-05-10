@@ -268,68 +268,6 @@
   <script src="ext/ckeditor/ckeditor.js"></script>
   <script>
     // START All Pages Functions ////////////////////////////////////////////////////////     
-    // set content status to enabled
-    function enableContent(id) {
-      var jsonLink = '<?php echo 'rpc.php?action=enableContent&status=1&id=ID'; ?>'
-      $.getJSON(jsonLink.replace('ID', id));
-      $("#status_" + id).html('<a onclick="disableContent(' + id + ');"><span class="label label-success">Enabled</span></a>');
-      $("#view_" + id).show();
-    }    
-    // set content status to disabled
-    function disableContent(id) {
-      var jsonLink = '<?php echo 'rpc.php?action=disableContent&status=0&id=ID'; ?>'
-      $.getJSON(jsonLink.replace('ID', id));
-      $("#status_" + id).html('<a onclick="enableContent(' + id + ');"><span class="label label-important">Disabled</span></a>');
-      $("#view_" + id).hide();
-    }    
-    // delete content
-    function deleteContent(id) {
-      if (confirm("Are you sure you wish to delete this content?")) {
-        var jsonLink = '<?php echo 'rpc.php?action=deleteContent&id=ID'; ?>'
-        $.getJSON(jsonLink.replace('ID', id));
-        $("#listItem_" + id).remove();
-        return true;
-      } else {
-        return false;
-      }
-    }          
-    // set user status to enabled
-    function enableUser(id) {
-      var jsonLink = '<?php echo 'rpc.php?action=enableUser&status=1&id=ID'; ?>'
-      $.getJSON(jsonLink.replace('ID', id));
-      $("#status_" + id).html('<a onclick="disableUser(' + id + ');"><span class="label label-success">Enabled</span></a>');
-    }    
-    // set user status to disabled
-    function disableUser(id) {
-      var jsonLink = '<?php echo 'rpc.php?action=disableUser&status=0&id=ID'; ?>'
-      $.getJSON(jsonLink.replace('ID', id));
-      $("#status_" + id).html('<a onclick="enableUser(' + id + ');"><span class="label label-important">Disabled</span></a>');
-    }    
-    // delete user
-    function deleteUser(id) {
-      if (confirm("Are you sure you wish to delete this users profile?")) {
-        var jsonLink = '<?php echo 'rpc.php?action=deleteUser&id=ID'; ?>'
-        $.getJSON(jsonLink.replace('ID', id));
-        $("#listUser_" + id).remove();
-        return true;
-      } else {
-        return false;
-      }
-    }    
-    // copy content modal
-    $('.btn-copy').click(function() {
-      var id = this.id.split('_');
-      $("#copyModal").modal("show");
-      $('[name="contentId"]').remove();
-      $("#copy_modal_body").append('<input type="hidden" name="contentId" value="' + id[2] + '" />');
-    });  
-    // move content modal
-    $('.btn-move').click(function() {
-      var id = this.id.split('_');
-      $('#moveModal').modal('show');
-      $('[name="contentId"]').remove();
-      $('#move_modal_body').append('<input type="hidden" name="contentId" value="' + id[2] + '" />');
-    });    
     // ajax search results above 479px
     function search_ajax(){
       $("#search_results").show();
@@ -345,28 +283,10 @@
       $.post("search.php", {searchit : search_this}, function(data){
         $("#display_results_320").html(data);
       })
-    }    
-    // get the selected layout template and show a preview
-    function getLayout(sel) {
-      if (sel == 'custom') {
-        $('#layout_preview').hide();
-        CKEDITOR.instances.content.setData('');
-      } else {
-        $('#layout_preview').show();
-        $('#layout_preview img').attr('src', '../theme/<?php echo siteTheme; ?>/layout/' + sel + '.jpg');
-        CKEDITOR.instances.content.setData('');
-        $.get('../theme/<?php echo siteTheme; ?>/layout/' + sel + '.tpl', function(data) {
-          CKEDITOR.instances.content.insertHtml(data);
-        });
-      }
     }
     // END All Pages Functions ////////////////////////////////////////////////////////    
     // START All Pages Document Ready Function ////////////////////////////////////////////////////////
     $(document).ready(function() {
-      <?php if ($_GET['action'] == 'theme') { ?> 
-      //gallery colorbox
-      $('.thumbnail a').colorbox({rel:'thumbnail a', transition:"elastic", maxWidth:"95%", maxHeight:"95%"});
-      <?php } ?>
       // ajax search input field above 479px
       $("#search_query").keyup(function(event){
         event.preventDefault();
@@ -385,36 +305,6 @@
           search_ajax_320();
         } else {
           $("#display_results_320").hide();
-        }
-      });
-      // create the category slug as the title is being entered
-      $("#contentTitle").blur(function(){
-        $("#contentSlug").val($("#contentTitle").val().toLowerCase().replace(/ /g, '-'));
-        $("#menuTitle").val($("#contentTitle").val());
-      });
-      // set the background of the theme gallery thumbnail image to match what is in the css
-      var thumbWidth = $(".thumbnail img").width();
-      $(".thumbnail a").css("background-size", "150px");
-      // sortable categories    
-      $("#content-list").sortable({
-        handle : '.sortHandle',
-        update : function () {
-          $("#updateSortChanges").show();
-          var order = $('#content-list').sortable('serialize');
-          $("#info").load("updateSort.php?" + order);
-        }
-      });
-      // page template addition
-      $('input:radio[name=type]').click(function(){
-        if ($('input:radio[name=type]:checked').val() == 1) {
-          $("#layout_template").show();
-          $("#summaryDiv").show();
-          $("#contentDiv").show();
-        } else {
-          $("#layout_template").hide();
-          CKEDITOR.instances.content.setData('');
-          $("#summaryDiv").hide();
-          $("#contentDiv").hide();
         }
       });
       // bind change event to language select
@@ -437,8 +327,8 @@
   </script>
   <?php
     // Include any page specific js files
-    if (is_file('js/' . $_GET['action'] . '.js')) {
-      echo '<script src="js/' . $_GET['action'] . '.js"></script>' . "\n";
+    if (is_file('js/' . $_GET['action'] . '.js.php')) {
+      include('js/' . $_GET['action'] . '.js.php');
     }
   ?>
 </body>
