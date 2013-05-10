@@ -113,7 +113,8 @@
                                                                     (5, 'siteDescription', 'Site Description', 'This is a site wide description. It will also get used in the event that you do not enter any meta tag description for any of your pages.', 'This is my site description.', 0, 1),
                                                                     (6, 'siteKeywords', 'Site Keywords', 'These are site wide keywords. They will also get used in the event that you do not enter any meta tag keywords for any of your pages.', 'these, are, my, site, keywords', 0, 1),
                                                                     (9, 'showHelp', 'Show Help Tab', 'Show or hide the help tab in the site admin upper right corner. (yes or no)', 'no', 0, 1),
-                                                                    (10, 'testSetting', 'Test Setting', 'Test Summary', 'Test Value', 1, 0);") != 0 &&
+                                                                    (10, 'defaultLang', 'Default Admin Language', 'The default language code of the site admin', 'en', 0, 1),
+                                                                    (11, 'testSetting', 'Test Setting', 'Test Summary', 'Test Value', 1, 0);") != 0 &&
                 @mysql_query("INSERT INTO " . DB_PREFIX . "users (id, firstname, lastname, email, username, password, gender, group, status) VALUES 
                                                                  (1, '" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $username . "', '" . $password . "', '" . $gender . "', 99, 1);")) 
                 {
