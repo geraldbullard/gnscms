@@ -266,7 +266,8 @@
   <script src="js/charisma.js"></script>
   <!-- ckeditor script -->
   <script src="ext/ckeditor/ckeditor.js"></script>
-  <script>      
+  <script>
+    // START All Pages Functions ////////////////////////////////////////////////////////     
     // set content status to enabled
     function enableContent(id) {
       var jsonLink = '<?php echo 'rpc.php?action=enableContent&status=1&id=ID'; ?>'
@@ -358,8 +359,9 @@
           CKEDITOR.instances.content.insertHtml(data);
         });
       }
-    }    
-    // START Document Ready Function ////////////////////////////////////////////////////////
+    }
+    // END All Pages Functions ////////////////////////////////////////////////////////    
+    // START All Pages Document Ready Function ////////////////////////////////////////////////////////
     $(document).ready(function() {
       <?php if ($_GET['action'] == 'theme') { ?> 
       //gallery colorbox
@@ -431,7 +433,13 @@
         return false;
       });            
     });
-    // END Document Ready Function ////////////////////////////////////////////////////////
+    // END All Pages Document Ready Function ////////////////////////////////////////////////////////
   </script>
+  <?php
+    // Include any page specific js files
+    if (is_file('js/' . $_GET['action'] . '.js')) {
+      echo '<script src="js/' . $_GET['action'] . '.js"></script>' . "\n";
+    }
+  ?>
 </body>
 </html>

@@ -33,7 +33,7 @@
           <div class="pad-10" align="center">
             <img src="../theme/<?php echo siteTheme . '/' . $curThemeImg; ?>" border="0" />
           </div>          
-          <ul class="nav nav-tabs" id="myTab">
+          <ul class="nav nav-tabs" id="currentThemeTab">
             <li class="active"><a href="#themeInfo"><i class="icon-picture"></i> Theme Details</a></li>
             <li><a href="#shortCodes"><i class="icon-cog"></i> Short Codes</a></li>
           </ul> 

@@ -89,7 +89,7 @@
                                                                                  username varchar(48) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  password varchar(40) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  gender varchar(1) COLLATE utf8_unicode_ci NOT NULL,
-                                                                                 level smallint(5) unsigned NOT NULL,
+                                                                                 group smallint(5) unsigned NOT NULL,
                                                                                  status tinyint(1) unsigned NOT NULL DEFAULT '1',
                                                                                  PRIMARY KEY (id, username)) 
                                                                                  ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3;") != 0 &&
@@ -114,7 +114,7 @@
                                                                     (6, 'siteKeywords', 'Site Keywords', 'These are site wide keywords. They will also get used in the event that you do not enter any meta tag keywords for any of your pages.', 'these, are, my, site, keywords', 0, 1),
                                                                     (9, 'showHelp', 'Show Help Tab', 'Show or hide the help tab in the site admin upper right corner. (yes or no)', 'no', 0, 1),
                                                                     (10, 'testSetting', 'Test Setting', 'Test Summary', 'Test Value', 1, 0);") != 0 &&
-                @mysql_query("INSERT INTO " . DB_PREFIX . "users (id, firstname, lastname, email, username, password, gender, level, status) VALUES 
+                @mysql_query("INSERT INTO " . DB_PREFIX . "users (id, firstname, lastname, email, username, password, gender, group, status) VALUES 
                                                                  (1, '" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $username . "', '" . $password . "', '" . $gender . "', 99, 1);")) 
                 {
                 $completed = true;

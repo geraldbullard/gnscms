@@ -17,7 +17,7 @@
             </p>
           </div>
           <div class="clear"></div>
-          <ul class="nav nav-tabs" id="myTab">
+          <ul class="nav nav-tabs" id="dashboardTab">
             <li class="active"><a href="#gettingStarted"><i class="icon-home"></i> Getting Started</a></li>
             <li><a href="#gettingHelp"><i class="icon-question-sign"></i> Getting Help</a></li>
           </ul>

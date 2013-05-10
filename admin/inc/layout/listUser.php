@@ -1,3 +1,4 @@
+    <!-- List Users -->
     <div class="row-fluid">
       <div class="box span12">
         <div class="box-header well">
@@ -31,7 +32,7 @@
             <?php } ?>
           </div>
           <?php } ?>
-          <ul class="nav nav-tabs" id="myTab">
+          <ul class="nav nav-tabs" id="listUsersTab">
             <li class="active"><a href="#currentUsers"><i class="icon-cog"></i> Admin Users</a></li>
             <li><a href="#newUser"><i class="icon icon-color icon-plus"></i> New User</a></li>
           </ul>
@@ -42,7 +43,7 @@
                   <td class="hide-below-480 table-id-head">ID</td>
                   <td width="auto">Name</td>
                   <td class="hide-below-768" width="auto">Email</td>
-                  <td class="hide-below-768" width="auto">Level</td>
+                  <td class="hide-below-768" width="auto">Group</td>
                   <td class="hide-below-480" width="auto">Status</td>
                   <td style="text-align:right;" width="15%">Actions</td>
                 </tr>
@@ -60,7 +61,7 @@
                     <span class="icon icon-orange icon-envelope-closed"></span> <?php echo $user->email; ?>
                   </td>
                   <td class="hide-below-768">
-                    <?php echo $user->level; ?>
+                    <?php echo $user->group; ?>
                   </td>
                   <td class="hide-below-480 noDecoration">
                     <?php if ($user->title != '404') { ?>
@@ -153,6 +154,34 @@
                     <button class="btn btn-primary" type="submit" name="saveChanges">Save</button>
                   </div>
                 </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div><!--/span-->
+    </div><!--/row-->
+    <div><br /></div>
+    <!-- List User Groups -->
+    <div class="row-fluid">
+      <div class="box span12">
+        <div class="box-header well">
+          <h2><i class="icon-th"></i> Manage Admin User Groups</h2>
+          <div class="box-icon">
+            <!--<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>-->
+            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+            <!--<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>-->
+          </div>
+        </div>
+        <div class="box-content">
+          <ul class="nav nav-tabs" id="listGroupsTab">
+            <li class="active"><a href="#currentGroups"><i class="icon-cog"></i> Admin Groups</a></li>
+            <li><a href="#newGroup"><i class="icon icon-color icon-plus"></i> New Group</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="currentGroups">
+            </div>
+            <div class="tab-pane" id="newGroup">
+              <form action="index.php?action=newGroup" method="post" name="newGroup" id="newGroup">
               </form>
             </div>
           </div>

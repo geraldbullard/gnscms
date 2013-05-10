@@ -31,7 +31,7 @@
             <?php } ?>
           </div>
           <?php } ?>
-          <ul class="nav nav-tabs" id="myTab">
+          <ul class="nav nav-tabs" id="listSettingsTab">
             <li class="active"><a href="#currentSettings"><i class="icon-cog"></i> Site Settings</a></li>
             <li><a href="#newSetting"><i class="icon icon-color icon-plus"></i> New Setting</a></li>
           </ul>

@@ -23,7 +23,7 @@
             <?php } ?>
           </div>
           <?php } ?>
-          <ul class="nav nav-tabs" id="myTab">
+          <ul class="nav nav-tabs" id="listContentTab">
             <li class="active"><a href="#currentContent"><i class="icon icon-color icon-book-empty"></i> Current Content</a></li>
             <li><a href="#newContent"><i class="icon icon-color icon-plus"></i> Add New Content</a></li>
           </ul>
