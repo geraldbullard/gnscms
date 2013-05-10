@@ -34,13 +34,13 @@
 			  'URL'           => dirname($_SERVER['PHP_SELF']) . '/../../../images/', // URL to files (REQUIRED)
 			  'accessControl' => 'access',             // disable and hide dot starting files (OPTIONAL)
 			  'attributes' => array(
-			  array(
-				  'pattern' => '/./', //You can also set permissions for file types by adding, for example, .jpg inside pattern.
-				  'read'    => true,
-				  'write'   => true,
-				  'locked'  => false
-			  )
-		  )
+          array(
+            'pattern' => '/./', //You can also set permissions for file types by adding, for example, .jpg inside pattern.
+            'read'    => true,
+            'write'   => true,
+            'locked'  => false
+          )
+		    )
 		  )
 	  )
   );
