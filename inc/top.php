@@ -27,8 +27,9 @@
   $PHP_SELF = $_SERVER['SCRIPT_NAME'];
   
   // do the session stuff
-  set_exception_handler('handleException');
   session_start();
+  set_exception_handler('handleException');
+  ob_start();
   
   // get the settings and define them for site wide usage
   mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);

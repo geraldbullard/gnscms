@@ -26,6 +26,8 @@
   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301]
   RewriteRule ^([^/]*)\.html$ index.php?locationName=$1 [L]
   
+  RewriteRule (.*)\.xml(.*) $1.php$2 [nocase]
+  
 </IfModule>
 
 <FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">

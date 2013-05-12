@@ -83,7 +83,17 @@ class Content {
   /**
   * @var tinyint The content type of the item
   */
-  public $type = null; 
+  public $type = null;
+
+  /**
+  * @var int When the content was first created
+  */
+  public $publicationDate = null;
+
+  /**
+  * @var int When the content was last modified
+  */
+  public $lastModified = null; 
   
   
   /**
@@ -109,6 +119,8 @@ class Content {
     if ( isset( $data['menu'] ) ) $this->menu = (int) $data['menu'];
     if ( isset( $data['categoryId'] ) ) $this->categoryId = (int) $data['categoryId'];
     if ( isset( $data['type'] ) ) $this->type = (int) $data['type'];
+    if ( isset( $data['publicationDate'] ) ) $this->publicationDate = (int) $data['publicationDate'];
+    if ( isset( $data['lastModified'] ) ) $this->lastModified = (int) $data['lastModified'];
   }
  
  
@@ -122,6 +134,24 @@ class Content {
     
     // Store all the parameters
     $this->__construct( $params );
+
+    // Parse and store the publication date
+    if ( isset($params['publicationDate']) ) {
+      $publicationDate = explode ( '-', $params['publicationDate'] );
+      if ( count($publicationDate) == 3 ) {
+        list ( $y, $m, $d ) = $publicationDate;
+        $this->publicationDate = mktime ( 0, 0, 0, $m, $d, $y );
+      }
+    }
+
+    // Parse and store the publication date
+    if ( isset($params['lastModified']) ) {
+      $lastModified = explode ( '-', $params['lastModified'] );
+      if ( count($lastModified) == 3 ) {
+        list ( $y, $m, $d ) = $lastModified;
+        $this->lastModified = mktime ( 0, 0, 0, $m, $d, $y );
+      }
+    }
   }
  
  
@@ -136,7 +166,7 @@ class Content {
   public static function getTopList( $numRows = 1000000, $order = "sort ASC" ) {
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "content WHERE categoryId = 0 ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(publicationDate) AS publicationDate, UNIX_TIMESTAMP(lastModified) AS lastModified FROM " . DB_PREFIX . "content WHERE categoryId = 0 ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
  
     $st = $conn->prepare( $sql );
     $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
@@ -167,7 +197,7 @@ class Content {
   public static function getFullList( $numRows = 1000000, $order = "sort ASC" ) {
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "content ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(publicationDate) AS publicationDate, UNIX_TIMESTAMP(lastModified) AS lastModified FROM " . DB_PREFIX . "content ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
  
     $st = $conn->prepare( $sql );
     $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
@@ -198,7 +228,7 @@ class Content {
   public static function getByCategoryList( $categoryId ) {
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . DB_PREFIX . "content WHERE categoryId = :categoryId ORDER BY " . mysql_escape_string("sort ASC") . " LIMIT :numRows";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(publicationDate) AS publicationDate, UNIX_TIMESTAMP(lastModified) AS lastModified FROM " . DB_PREFIX . "content WHERE categoryId = :categoryId ORDER BY " . mysql_escape_string("sort ASC") . " LIMIT :numRows";
     
     $st = $conn->prepare( $sql );
     $st->bindValue( ":numRows", 1000000, PDO::PARAM_INT );
@@ -229,7 +259,7 @@ class Content {
   public static function getById( $id ) {
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT * FROM " . DB_PREFIX . "content WHERE id = :id";
+    $sql = "SELECT *, UNIX_TIMESTAMP(publicationDate) AS publicationDate, UNIX_TIMESTAMP(lastModified) AS lastModified FROM " . DB_PREFIX . "content WHERE id = :id";
     $st = $conn->prepare( $sql );
     $st->bindValue( ":id", $id, PDO::PARAM_INT );
     $st->execute();
@@ -249,7 +279,7 @@ class Content {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT * FROM " . DB_PREFIX . "content WHERE slug = :slug LIMIT 1";
+    $sql = "SELECT *, UNIX_TIMESTAMP(publicationDate) AS publicationDate, UNIX_TIMESTAMP(lastModified) AS lastModified FROM " . DB_PREFIX . "content WHERE slug = :slug LIMIT 1";
     $st = $conn->prepare( $sql );
     $st->bindValue( ":slug", $slug, PDO::PARAM_STR );
     $st->execute();
@@ -270,7 +300,7 @@ class Content {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT * FROM " . DB_PREFIX . "content WHERE title = :title LIMIT 1";
+    $sql = "SELECT *, UNIX_TIMESTAMP(publicationDate) AS publicationDate, UNIX_TIMESTAMP(lastModified) AS lastModified FROM " . DB_PREFIX . "content WHERE title = :title LIMIT 1";
     $st = $conn->prepare( $sql );
     $st->bindValue( ":title", $title, PDO::PARAM_STR );
     $st->execute();
@@ -313,7 +343,7 @@ class Content {
     // Insert the Content
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "INSERT INTO " . DB_PREFIX . "content ( title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, categoryId, type ) VALUES ( :title, :slug, :menuTitle, :override, :summary, :content, :metaDescription, :metaKeywords, :sort, :status, :siteIndex, :botAction, :menu, :categoryId, :type )";
+    $sql = "INSERT INTO " . DB_PREFIX . "content ( title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, categoryId, type, publicationDate, lastModified ) VALUES ( :title, :slug, :menuTitle, :override, :summary, :content, :metaDescription, :metaKeywords, :sort, :status, :siteIndex, :botAction, :menu, :categoryId, :type, FROM_UNIXTIME(:publicationDate), FROM_UNIXTIME(:lastModified) )";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":slug", $this->slug, PDO::PARAM_STR );
@@ -330,6 +360,8 @@ class Content {
     $st->bindValue( ":menu", $this->menu, PDO::PARAM_INT ); 
     $st->bindValue( ":categoryId", $this->categoryId, PDO::PARAM_INT ); 
     $st->bindValue( ":type", $this->type, PDO::PARAM_INT );
+    $st->bindValue( ":publicationDate", $this->publicationDate, PDO::PARAM_INT );
+    $st->bindValue( ":lastModified", $this->lastModified, PDO::PARAM_INT );
     $st->execute();
     $this->id = $conn->lastInsertId();
     $conn = null;
@@ -348,7 +380,7 @@ class Content {
     // Update the Content
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "UPDATE " . DB_PREFIX . "content SET title = :title, slug = :slug, menuTitle = :menuTitle, override = :override, summary = :summary, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, siteIndex = :siteIndex, botAction = :botAction, menu = :menu, categoryId = :categoryId, type = :type WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "content SET title = :title, slug = :slug, menuTitle = :menuTitle, override = :override, summary = :summary, content = :content, metaDescription = :metaDescription, metaKeywords = :metaKeywords, sort = :sort, status = :status, siteIndex = :siteIndex, botAction = :botAction, menu = :menu, categoryId = :categoryId, type = :type, publicationDate = FROM_UNIXTIME(:publicationDate), lastModified = FROM_UNIXTIME(:lastModified) WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
@@ -366,6 +398,8 @@ class Content {
     $st->bindValue( ":menu", $this->menu, PDO::PARAM_INT ); 
     $st->bindValue( ":categoryId", $this->categoryId, PDO::PARAM_INT ); 
     $st->bindValue( ":type", $this->type, PDO::PARAM_INT );
+    $st->bindValue( ":publicationDate", $this->publicationDate, PDO::PARAM_INT );
+    $st->bindValue( ":lastModified", $this->lastModified, PDO::PARAM_INT );
     $st->execute();
     $conn = null;
   }
@@ -442,7 +476,7 @@ class Content {
     // Update the Content
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "INSERT INTO " . DB_PREFIX . "content (title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, categoryId, type) SELECT title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, :categoryId, type FROM " . DB_PREFIX . "content WHERE id = :id";
+    $sql = "INSERT INTO " . DB_PREFIX . "content (title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, categoryId, type, publicationDate, lastModified) SELECT title, slug, menuTitle, override, summary, content, metaDescription, metaKeywords, sort, status, siteIndex, botAction, menu, :categoryId, type, publicationDate, lastModified FROM " . DB_PREFIX . "content WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":categoryId", $this->categoryId, PDO::PARAM_INT );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT ); 

@@ -6,6 +6,8 @@
       ($_POST['menu'] == 'on') ? $_POST['menu'] = 1 : $_POST['menu'] = 0;
       $botActionArray = array($botAction1, $botAction2);
       $_POST['botAction'] = implode(", ", $botActionArray);
+      $_POST['publicationDate'] = date('Y-m-d');
+      $_POST['lastModified'] = date('Y-m-d');
       $content = new Content;
       $content->storeFormValues( $_POST );
       $content->insert();

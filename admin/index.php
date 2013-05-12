@@ -26,7 +26,7 @@
   <link rel="shortcut icon" href="favicon.ico">
   <!-- Styles -->
   <link href="css/bootstrap-cerulean.css" rel="stylesheet">
-  <link href="css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+  <link href="css/jquery-ui-1.10.3.css" rel="stylesheet">
   <link href="css/fullcalendar.css" rel='stylesheet'>
   <link href="css/fullcalendar.print.css" rel="stylesheet"  media='print'>
   <link href="css/chosen.css" rel="stylesheet">
@@ -200,7 +200,7 @@
     </footer>
   </div><!--/.fluid-container-->
   <!-- jQuery UI -->
-  <script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+  <script src="js/jquery-ui-1.10.3.min.js"></script>
   <!-- transition / effect library -->
   <script src="js/bootstrap-transition.js"></script>
   <!-- alert enhancer library -->
