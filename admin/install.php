@@ -117,7 +117,7 @@
                                                                     (9, 'showHelp', 'Show Help Tab', 'Show or hide the help tab in the site admin upper right corner. (yes or no)', 'no', 0, 1),
                                                                     (10, 'defaultLang', 'Default Admin Language', 'The default language code of the site admin', 'en', 0, 1),
                                                                     (11, 'sitemapPriority', 'Sitemap Priority', 'The Content Priority for the Sitemap Generation (0.0 - 1.0)', '0.7', 0, 0),
-                                                                    (12, 'sitemapChangeFrequency', 'Sitemap Change Frequency', 'The Content Change Frequency for the Sitemap Generation', 'daily', 0, 0);") != 0 &&
+                                                                    (12, 'sitemapChangeFrequency', 'Sitemap Change Frequency', 'The Content Change Frequency for the Sitemap Generation (always, hourly, daily, weekly, monthly, yearly, never)', 'daily', 0, 0);") != 0 &&
                 @mysql_query("INSERT INTO " . DB_PREFIX . "users (id, firstname, lastname, email, username, password, gender, admingroup, status) VALUES 
                                                                  (1, '" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $username . "', '" . $password . "', '" . $gender . "', 99, 1);")) 
                 {

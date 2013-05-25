@@ -2,8 +2,10 @@
   function editContent() {
     $results = array();
     if ( isset( $_POST['saveChanges'] ) ) {
+      $_POST['id'] = $_POST['editId'];
+      unset($_POST['editId']);
       // User has posted the content edit form: save the content changes
-      if ( !$content = Content::getById( (int)$_POST['editId'] ) ) {
+      if ( !$content = Content::getById( (int)$_POST['id'] ) ) {
         header( "Location: index.php?action=listContent&categoryId=" . $_GET['categoryId'] . "&error=" . ($_POST['type'] == 0) ? "category" : "page" . "NotFound" );
         return;
       }
@@ -12,6 +14,10 @@
       ($_POST['menu'] == 'on') ? $_POST['menu'] = 1 : $_POST['menu'] = 0;
       $botActionArray = array($botAction1, $botAction2);
       $_POST['botAction'] = implode(", ", $botActionArray);
+      unset($_POST['botAction1']);
+      unset($_POST['botAction2']);
+      $_POST['lastModified'] = date('Y-m-d');
+      $content = new Content;
       $content->storeFormValues( $_POST );
       $content->update();
       header( "Location: index.php?action=listContent&categoryId=" . $_GET['categoryId'] . "&success=changesSaved" );

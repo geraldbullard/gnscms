@@ -87,6 +87,12 @@
                       <p>The ability to add multiple languages and select the language of your choice from a dropdown in the footer has been added. Later improvments will include admin user specific language settings, giving each admin the ability to save his or her prefernce for which current admin language is in use during the user session. There is already a cookie session that is set upon the first login for each user, saving the language preference for 30 days.</p>
                     </td>
                   </tr>
+                  <tr>
+                    <td><h3><a href="../sitemap.xml" target="_blank">Auto Generating Sitemap</a></h3></td>
+                    <td>
+                      <p>An auto generating sitemap.xml feature has been added to provide search engine crawl bots with up to date xml sitemap on demand with no interaction from the site administrator. This also brings with it the reintroduction of the database column "publicationDate" and an added one for "lastModified". The Change Frequency and Priority have also been added to the Settings for easy modification to your desired value.</p>
+                    </td>
+                  </tr>
                 </tbody>
               </table>                
                 

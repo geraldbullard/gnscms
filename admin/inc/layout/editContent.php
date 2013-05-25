@@ -101,6 +101,8 @@
               <input type="hidden" name="sort" value="<?php echo $results['content']->sort; ?>"/>
               <input type="hidden" name="status" value="<?php echo $results['content']->status; ?>"/>
               <input type="hidden" name="siteIndex" value="<?php echo $results['content']->siteIndex; ?>"/>
+              <input type="hidden" name="publicationDate" value="<?php echo date('Y-m-d', $results['content']->publicationDate ); ?>"/>
+              <input type="hidden" name="categoryId" value="<?php echo $results['content']->categoryId; ?>"/>
               <div class="row-fluid span12" style="margin:0 0 10px 0;">
                 <div style="float:left;">
                   <input class="btn btn-primary" type="submit" name="saveChanges" value="Save Changes" /> &nbsp; <input class="btn btn-primary" type="submit" formnovalidate name="cancel" value="Cancel" />
