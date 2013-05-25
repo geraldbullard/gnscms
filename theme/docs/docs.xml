@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<theme>
+  <name>docs</name>
+  <author>Gerald Bullard Jr (maestro)</author>
+  <url>http://www.gnscms.com/</url>
+  <license>GPL, MIT</license>
+  <version>1.0.0.1</version>
+  <summary><![CDATA[This is a test summary for the docs template. This template has been converted for use with gnsCMS by maestro.]]></summary>
+  <shortcodes><![CDATA[]]></shortcodes>
+</theme> 

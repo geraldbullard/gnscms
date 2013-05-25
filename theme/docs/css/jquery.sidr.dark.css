@@ -1,0 +1,11 @@
+.sidr {
+  background: none repeat scroll 0 0 #333333;
+  box-shadow: 0 0 5px 5px #222222 inset;
+  display: none;
+  height: 100%;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 260px;
+  z-index: 999999;
+}
