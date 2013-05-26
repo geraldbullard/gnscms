@@ -15,5 +15,5 @@ p { padding:10px;}
 .dd-wrapper .dd-menu a {display: block;}
 
 #menu-trigger { position: absolute; top: 0; left: 0; z-index: 99; padding: 5px;}
-#main-content { margin: 20px 0 0 20px; }
-h1 { font-size: 40px; padding: 10px 0 0 7px; }
+#main-content { margin: 20px 0 0 0; }
+h1 { font-size: 40px; padding: 10px 0 0 30px; margin-bottom: -20px; }

@@ -22,7 +22,7 @@
   <title><?php echo (isset($results['content']->title) && $results['content']->title != '') ? htmlspecialchars($results['content']->title) : siteName; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!--[if lt IE 9]><script src="<?php echo (($request_type == 'SSL') ? 'https:' : 'http:'); ?>//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link href="favicon.ico" rel="shortcut icon">
   <meta name="description" content="<?php echo (isset($results['content']->metaDescription) && $results['content']->metaDescription != '') ? htmlspecialchars($results['content']->metaDescription) : siteDescription; ?>">
   <meta name="keywords" content="<?php echo (isset($results['content']->metaKeywords) && $results['content']->metaKeywords != '') ? htmlspecialchars($results['content']->metaKeywords) : siteKeywords; ?>">

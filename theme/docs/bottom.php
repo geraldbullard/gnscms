@@ -35,5 +35,14 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-    <?php } ?> 
+    <?php } ?>
+    // replace < and > with &lt; and &gt; for prettyprint 
+    // to handle correctly if not done so beforehand
+    for (var i=1; i<50; i++) {
+      var i = "pre" + i;
+      var str = document.getElementById(i).innerHTML; 
+      var n = str.replace(/</g, "&lt;");
+      document.getElementById(i).innerHTML = n;
+    } 
   </script>
+  <script src="<?php echo (($request_type == 'SSL') ? 'https:' : 'http:'); ?>//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css"></script>
