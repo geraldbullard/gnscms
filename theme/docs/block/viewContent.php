@@ -14,8 +14,9 @@
    */
 ?>
         <h1><?php echo htmlspecialchars($contentResults->title); ?></h1>
-        <p><?php echo htmlspecialchars($contentResults->summary); ?></p>
-
+        <?php if (!empty($contentResults->summary)) { ?>
+        <p class="contentSummary"><?php echo htmlspecialchars($contentResults->summary); ?></p>
+        <?php } ?>
         <?php 
           echo $contentResults->content; 
         ?>      

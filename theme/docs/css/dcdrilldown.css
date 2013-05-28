@@ -1,19 +1,5 @@
-/* Page */
-body,html,div,blockquote,img,label,p,h1,h2,h3,h4,h5,h6,pre,ul,ol,li,dl,dt,dd,form,a,fieldset,input,th,td{border:0;outline:none;margin:0;padding:0;}
-ul{list-style:none;}
-
-body {font: normal 13px Arial, sans-serif; background:#cccccc;}
-p { padding:10px;}
-.wrap {width: 960px; margin: 0;}
-.demo-container {width: 260px; float: left; margin: 0;}
-.clear {clear: both;}
-
 /* Drill Down Menu Styles */
 .dd-wrapper ul, .dd-wrapper ul li, .dd-wrapper li, .dd-wrapper li ul, .dd-wrapper li ul li {margin: 0; padding: 0; list-style: none;}
 .dd-wrapper .dd-menu {overflow: hidden; position: relative;}
 .dd-wrapper  .dd-menu ul {margin: 0; position: absolute; top: 0; right: 0;}
 .dd-wrapper .dd-menu a {display: block;}
-
-#menu-trigger { position: absolute; top: 0; left: 0; z-index: 99; padding: 5px;}
-#main-content { margin: 20px 0 0 0; }
-h1 { font-size: 40px; padding: 10px 0 0 30px; margin-bottom: -20px; }

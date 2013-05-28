@@ -18,77 +18,8 @@
 ?>
 <body style="position: absolute; left: 260px;">    
   <div id="sidr" style="display: block; left: 0px;">
-    <div class="graphite demo-container">
-      <ul id="drilldown">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a>
-          <ul>
-            <li><a href="#">Mobile Phones &#038; Accessories</a>
-              <ul>
-                <li><a href="#">Product 1</a>
-                  <ul>
-                    <li><a href="#">Part A</a>
-                      <ul>
-                        <li><a href="#">Sale</a>
-                          <ul>
-                            <li><a href="#">Special Offers</a>
-                              <ul>
-                                <li><a href="index.html">Offer 1</a></li>
-                                <li><a href="index2.html">Offer 2</a></li>
-                                <li><a href="index3.html">Offer 3</a></li>
-                              </ul>
-                            </li>
-                            <li><a href="#">Reduced Price</a>
-                              <ul>
-                                <li><a href="#">Offer 4</a></li>
-                                <li><a href="#">Offer 5</a></li>
-                                <li><a href="#">Offer 6</a></li>
-                                <li><a href="#">Offer 7</a></li>
-                              </ul>
-                            </li>
-                            <li><a href="#">Clearance Items</a>
-                              <ul>
-                                <li><a href="#">Offer 9</a></li>
-                              </ul>
-                            </li>
-                            <li class="menu-item-129"><a href="#">Ex-Stock</a>
-                              <ul>
-                                <li><a href="#">Offer 10</a></li>
-                                <li><a href="#">Offer 11</a></li>
-                                <li><a href="#">Offer 12</a></li>
-                                <li><a href="#">Offer 13</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Part B</a></li>
-                    <li><a href="#">Part C</a></li>
-                    <li><a href="#">Part D</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Product 2</a>
-                  <ul>
-                    <li><a href="#">Part A</a></li>
-                    <li><a href="#">Part B</a></li>
-                    <li><a href="#">Part C</a></li>
-                    <li><a href="#">Part D</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Product 3</a>
-                  <ul>
-                    <li><a href="#">Part A</a></li>
-                    <li><a href="#">Part B</a></li>
-                    <li><a href="#">Part C</a></li>
-                    <li><a href="#">Part D</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
+    <div class="graphite">
+      <?php echo getMenu(); ?>
     </div>
     <div class="clear"></div>
   </div>

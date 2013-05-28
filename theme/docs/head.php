@@ -30,6 +30,7 @@
   <meta name="application-name" content="<?php echo htmlspecialchars(siteName); ?>" />
   <meta name="robots" content="<?php echo (isset($results['content']->botAction) && $results['content']->botAction != '') ? $results['content']->botAction : 'index, follow'; ?>" />
   <link href="theme/docs/css/reset.css" rel="stylesheet" />
+  <link href="theme/docs/css/style.css" rel="stylesheet" />
   <link href="theme/docs/css/dcdrilldown.css" rel="stylesheet" />
   <link href="theme/docs/css/graphite.css" rel="stylesheet" />
   <link href="theme/docs/css/jquery.sidr.dark.css" rel="stylesheet">
