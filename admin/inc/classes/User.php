@@ -155,14 +155,14 @@ class User {
 
 
   /**
-  * Returns all (or a range of) User objects in the DB
+  * Returns all User objects in the DB
   *
   * @param int Optional The number of rows to return (default=all)
   * @param string Optional column by which to order the user (default="id ASC")
   * @return Array|false A two-element array : results => array, a list of User objects; totalRows => Total number of users
   */
 
-  public static function getUser( $numRows=1000000, $order="id ASC" ) {
+  public static function getAll( $numRows=1000000, $order="id ASC" ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
