@@ -43,33 +43,28 @@
                   <td class="hide-below-480 table-id-head">ID</td>
                   <td width="auto">Name</td>
                   <td class="hide-below-768" width="auto">Email</td>
-                  <td class="hide-below-768" width="auto">Group</td>
                   <td class="hide-below-480" width="auto">Status</td>
                   <td style="text-align:right;" width="15%">Actions</td>
                 </tr>
                 <?php 
-                  foreach ( $results['users'] as $user ) { 
+                  foreach ( $results['users'] as $user ) {
+                    $aInfo = Access::getByLevel($user->level);
                 ?>
                 <tr id="listUser_<?php echo $user->id; ?>">
                   <td class="hide-below-480">
                     <?php echo $user->id; ?>
                   </td>
                   <td>
-                    <span title="<?php echo ($user->gender == 'm') ? 'Male' : 'Female'; ?>" data-rel="tooltip" class="icon icon-user<?php echo ($user->gender == 'm') ? ' icon-blue' : ' icon-red'; ?>"></span> <?php echo $user->firstname . ' ' . $user->lastname; ?>
+                    <span title="<?php echo ($user->gender == 'm') ? 'Male' : 'Female'; ?>" data-rel="tooltip" class="icon icon-user<?php echo ($user->gender == 'm') ? ' icon-blue' : ' icon-red'; ?>"></span> <?php echo $user->firstname . ' ' . $user->lastname; ?><br /><small class="level"><?php echo $aInfo->name; ?></small>
                   </td>
                   <td class="hide-below-768">
                     <span class="icon icon-orange icon-envelope-closed"></span> <?php echo $user->email; ?>
                   </td>
-                  <td class="hide-below-768">
-                    <?php echo $user->group; ?>
-                  </td>
                   <td class="hide-below-480 noDecoration">
-                    <?php if ($user->title != '404') { ?>
-                    <?php   if ($user->status == 1) { ?>
+                    <?php if ($user->status == 1) { ?>
                     <div id="status_<?php echo $user->id; ?>"><a onclick="disableUser(<?php echo $user->id; ?>);"><span class="label label-success">Enabled</span></a></div>
-                    <?php   } else { ?>
+                    <?php } else { ?>
                     <div id="status_<?php echo $user->id; ?>"><a onclick="enableUser(<?php echo $user->id; ?>);"><span class="label label-important">Disabled</span></a></div>
-                    <?php   } ?>
                     <?php } ?>
                   </td>
                   <td style="text-align:right; white-space:nowrap;">
@@ -77,7 +72,7 @@
                       <i class="icon-edit icon-white"></i>
                       <span class="hide-below-768">Edit</span>
                     </a>
-                    <a onclick="deleteUser(<?php echo $user->id; ?>);" title="Delete User Profile" class="btn btn-danger">
+                    <a<?php echo (($user->level != 99) ? ' onclick="deleteUser(' . $user->id . ');"' : ''); ?> title="<?php echo (($user->level == 99) ? 'This Profile can not be deleted!' : 'Delete User Profile'); ?>" class="btn btn-danger<?php echo (($user->level == 99) ? ' disabled' : ''); ?>" data-rel="tooltip">
                       <i class="icon-trash icon-white"></i>
                     </a>
                   </td>
@@ -179,7 +174,47 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="currentAccess">
-              Current Access Levels
+              <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
+                <tr>
+                  <td class="hide-below-480 table-id-head">ID</td>
+                  <td width="auto">Name</td>
+                  <td class="hide-below-768" width="auto">Level</td>
+                  <td class="hide-below-480" width="auto">Status</td>
+                  <td style="text-align:right;" width="15%">Actions</td>
+                </tr>
+                <?php 
+                  foreach ( $aResults['access'] as $access ) { 
+                ?>
+                <tr id="listAccess_<?php echo $access->id; ?>">
+                  <td class="hide-below-480">
+                    <?php echo $access->id; ?>
+                  </td>
+                  <td>
+                    <?php echo $access->name; ?>
+                  </td>
+                  <td class="hide-below-768">
+                    <?php echo $access->level; ?>
+                  </td>
+                  <td class="hide-below-480 noDecoration">
+                    <?php if ($access->status == 1) { ?>
+                    <div id="status_<?php echo $access->id; ?>"><a onclick="disableAccess(<?php echo $access->id; ?>);"><span class="label label-success">Enabled</span></a></div>
+                    <?php } else { ?>
+                    <div id="status_<?php echo $access->id; ?>"><a onclick="enableAccess(<?php echo $access->id; ?>);"><span class="label label-important">Disabled</span></a></div>
+                    <?php } ?>
+                  </td>
+                  <td style="text-align:right; white-space:nowrap;">
+                    <a href="index.php?action=editAccess&amp;accessId=<?php echo $access->id; ?>" title="Edit Access Level" class="btn btn-info" data-rel="tooltip">
+                      <i class="icon-edit icon-white"></i>
+                      <span class="hide-below-768">Edit</span>
+                    </a>
+                    <a onclick="deleteAccess(<?php echo $access->id; ?>);" title="Delete Access Level" class="btn btn-danger" data-rel="tooltip">
+                      <i class="icon-trash icon-white"></i>
+                    </a>
+                  </td>
+                </tr>
+                <?php } ?>
+              </table>
+              <p><strong>( <?php echo $aResults['totalRows']?> )</strong> user<?php echo ( $aResults['totalRows'] != 1 ) ? 's' : '' ?> total</p>
             </div>
             <div class="tab-pane" id="newAccess">
               <form action="index.php?action=newAccess" method="post" name="newAccess" id="newAccess">

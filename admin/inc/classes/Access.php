@@ -115,6 +115,29 @@ class Access {
 
 
   /**
+  * Returns a User's Access Level information object matching the given ID
+  *
+  * @param int The user ID
+  * @return Setting|false The user object, or false if the record was not found or there was a problem
+  */
+
+  public static function getByLevel( $level ) {
+    
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $sql = "SELECT *, id AS id FROM " . DB_PREFIX . "access WHERE level = :level";
+    $st = $conn->prepare( $sql );
+    $st->bindValue( ":level", $level, PDO::PARAM_INT );
+    $st->execute();
+    $row = $st->fetch();
+    $conn = null;
+    
+    if ( $row ) return new Access( $row );
+    
+  }
+
+
+  /**
   * Updates the current Access object in the database.
   */
 
