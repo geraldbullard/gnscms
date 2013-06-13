@@ -68,9 +68,9 @@ class Access {
 
   public static function getAll( $numRows=1000000, $order="id ASC" ) {
     
-    /*$conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT SQL_CALC_FOUND_ROWS *, id AS id FROM " . DB_PREFIX . "users ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
+    $sql = "SELECT SQL_CALC_FOUND_ROWS *, id AS id FROM " . DB_PREFIX . "access ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
 
     $st = $conn->prepare( $sql );
     $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
@@ -78,16 +78,16 @@ class Access {
     $list = array();
 
     while ( $row = $st->fetch() ) {
-      $user = new User( $row );
-      $list[] = $user;
+      $access = new Access( $row );
+      $list[] = $access;
     }
 
-    // Now get the total number of settings that matched the criteria
+    // Now get the total number of access levels that matched the criteria
     $sql = "SELECT FOUND_ROWS() AS totalRows";
     $totalRows = $conn->query( $sql )->fetch();
     $conn = null;
     
-    return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );*/
+    return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );
   }
 
 

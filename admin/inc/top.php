@@ -1,6 +1,7 @@
 <?php
   require('inc/config.php');
   require('inc/functions/general.php');
+  require('inc/classes/Access.php');
   require('inc/classes/Content.php');
   require('inc/classes/Setting.php');
   require('inc/classes/User.php');
