@@ -91,7 +91,7 @@
                                                                                  username varchar(48) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  password varchar(40) COLLATE utf8_unicode_ci NOT NULL,
                                                                                  gender varchar(1) COLLATE utf8_unicode_ci NOT NULL,
-                                                                                 admingroup smallint(5) unsigned NOT NULL DEFAULT '0',
+                                                                                 level smallint(5) unsigned NOT NULL DEFAULT '0',
                                                                                  status tinyint(1) unsigned NOT NULL DEFAULT '1',
                                                                                  PRIMARY KEY (id, username)) 
                                                                                  ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2;") != 0 &&
@@ -125,7 +125,7 @@
                                                                     (10, 'defaultLang', 'Default Admin Language', 'The default language code of the site admin', 'en', 0, 1),
                                                                     (11, 'sitemapPriority', 'Sitemap Priority', 'The Content Priority for the Sitemap Generation (0.0 - 1.0)', '0.7', 0, 0),
                                                                     (12, 'sitemapChangeFrequency', 'Sitemap Change Frequency', 'The Content Change Frequency for the Sitemap Generation (always, hourly, daily, weekly, monthly, yearly, never)', 'daily', 0, 0);") != 0 &&
-                @mysql_query("INSERT INTO " . DB_PREFIX . "users (id, firstname, lastname, email, username, password, gender, admingroup, status) VALUES 
+                @mysql_query("INSERT INTO " . DB_PREFIX . "users (id, firstname, lastname, email, username, password, gender, level, status) VALUES 
                                                                  (1, '" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $username . "', '" . $password . "', '" . $gender . "', 99, 1);") != 0 &&
                 @mysql_query("INSERT INTO " . DB_PREFIX . "access (id, name, level, status) VALUES 
                                                                   (1, 'Top Administrator', 99, 1), 
