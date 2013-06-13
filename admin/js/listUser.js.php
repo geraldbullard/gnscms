@@ -29,8 +29,8 @@
       e.preventDefault();
       $(this).tab('show');
     });
-    $('#listGroupsTab a:first').tab('show');
-    $('#listGroupsTab a').click(function (e) {
+    $('#listAccessTab a:first').tab('show');
+    $('#listAccessTab a').click(function (e) {
       e.preventDefault();
       $(this).tab('show');
     });
