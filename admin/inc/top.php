@@ -1,10 +1,11 @@
 <?php
   require('inc/config.php');
   require('inc/functions/general.php');
-  require('inc/classes/Access.php');
-  require('inc/classes/Content.php');
-  require('inc/classes/Setting.php');
-  require('inc/classes/User.php');
+  require('inc/classes/Access.class.php');
+  require('inc/classes/Content.class.php');
+  require('inc/classes/Group.class.php');
+  require('inc/classes/Setting.class.php');
+  require('inc/classes/User.class.php');
   
   // set the type of request (secure or not) // save for later - maestro
   $request_type = (getenv('HTTPS') == 'on') ? 'SSL' : 'NONSSL';

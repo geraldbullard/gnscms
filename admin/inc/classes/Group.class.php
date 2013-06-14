@@ -3,7 +3,7 @@
  * Class to handle profile Access
  */
 
-class Access {
+class Group {
 
   /**
   * @var int The Access id from the database
@@ -13,12 +13,7 @@ class Access {
   /**
   * @var string The Access name from the database
   */    
-  public $name = null;
-
-  /**
-  * @var int The Access level from the database
-  */    
-  public $level = null;
+  public $name = null; 
 
   /**
   * @var int The Access status from the database
@@ -35,7 +30,6 @@ class Access {
   public function __construct( $data = array() ) {
     if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
     if ( isset( $data['name'] ) ) $this->name = $data['name'];
-    if ( isset( $data['level'] ) ) $this->level = (int) $data['level'];
     if ( isset( $data['status'] ) ) $this->status = (int) $data['status'];
   }
 
@@ -68,7 +62,7 @@ class Access {
 
   public static function getAll( $numRows=1000000, $order="id ASC" ) {
     
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    /*$conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT SQL_CALC_FOUND_ROWS *, id AS id FROM " . DB_PREFIX . "access ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
 
@@ -87,52 +81,29 @@ class Access {
     $totalRows = $conn->query( $sql )->fetch();
     $conn = null;
     
-    return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );
+    return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );*/
   }
 
 
   /**
-  * Returns an Access object matching the given id
+  * Returns a User's Group Access Level information object matching the given ID
   *
-  * @param int The Access id
-  * @return Setting|false The Access object, or false if the record was not found or there was a problem
+  * @param int The user ID
+  * @return Array of information from the groups table
   */
 
   public static function getById( $id ) {
     
     /*$conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT *, id AS id FROM " . DB_PREFIX . "users WHERE id = :id";
+    $sql = "SELECT *, id AS id FROM " . DB_PREFIX . "access WHERE id = :id";
     $st = $conn->prepare( $sql );
     $st->bindValue( ":id", $id, PDO::PARAM_INT );
     $st->execute();
     $row = $st->fetch();
     $conn = null;
     
-    if ( $row ) return new User( $row );*/
-    
-  }
-
-
-  /**
-  * Returns a User's Access Level information object matching the given ID
-  *
-  * @param int The user ID
-  * @return Setting|false The user object, or false if the record was not found or there was a problem
-  */
-
-  public static function getByLevel( $level ) {
-    
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
-    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT *, id AS id FROM " . DB_PREFIX . "access WHERE level = :level";
-    $st = $conn->prepare( $sql );
-    $st->bindValue( ":level", $level, PDO::PARAM_INT );
-    $st->execute();
-    $row = $st->fetch();
-    $conn = null;
-    
-    if ( $row ) return new Access( $row );
+    if ( $row ) return new Access( $row );*/
     
   }
 
@@ -202,6 +173,36 @@ class Access {
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->execute();
     $conn = null;*/
+  }
+
+
+  /**
+  * Returns a User's Access resource array object matching the given ID
+  *
+  * @param int The user ID
+  * @return Access resource array values
+  */
+
+  public static function getAccessResourceLevel( $id ) {
+    
+    /*$conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $sql = "SELECT resource, id AS id FROM " . DB_PREFIX . "access WHERE id = :id";
+    $st = $conn->prepare( $sql );
+    $st->bindValue( ":id", $id, PDO::PARAM_INT );
+    $st->execute();
+    
+    while ( $row = $st->fetch() ) {
+      $resource = new Access( $row );
+      $list[] = $resource->resource;
+    }
+    
+    $resource = explode(",", $list[0]);
+    
+    $conn = null; 
+    
+    return $resource; */
+    
   }
 
 } 

@@ -48,7 +48,7 @@
                 </tr>
                 <?php 
                   foreach ( $results['users'] as $user ) {
-                    $aInfo = Access::getByLevel($user->level);
+                    //$aInfo = Group::getById($user->group);
                 ?>
                 <tr id="listUser_<?php echo $user->id; ?>">
                   <td class="hide-below-480">
@@ -61,10 +61,12 @@
                     <span class="icon icon-orange icon-envelope-closed"></span> <?php echo $user->email; ?>
                   </td>
                   <td class="hide-below-480 noDecoration">
-                    <?php if ($user->status == 1) { ?>
+                    <?php if ($aInfo->level == 99) { ?>
+                    <?php   if ($user->status == 1) { ?>
                     <div id="status_<?php echo $user->id; ?>"><a onclick="disableUser(<?php echo $user->id; ?>);"><span class="label label-success">Enabled</span></a></div>
-                    <?php } else { ?>
+                    <?php   } else { ?>
                     <div id="status_<?php echo $user->id; ?>"><a onclick="enableUser(<?php echo $user->id; ?>);"><span class="label label-important">Disabled</span></a></div>
+                    <?php   } ?>
                     <?php } ?>
                   </td>
                   <td style="text-align:right; white-space:nowrap;">
@@ -183,7 +185,7 @@
                   <td style="text-align:right;" width="15%">Actions</td>
                 </tr>
                 <?php 
-                  foreach ( $aResults['access'] as $access ) { 
+                  //foreach ( $aResults['access'] as $access ) {                     
                 ?>
                 <tr id="listAccess_<?php echo $access->id; ?>">
                   <td class="hide-below-480">
@@ -196,11 +198,17 @@
                     <?php echo $access->level; ?>
                   </td>
                   <td class="hide-below-480 noDecoration">
-                    <?php if ($access->status == 1) { ?>
-                    <div id="status_<?php echo $access->id; ?>"><a onclick="disableAccess(<?php echo $access->id; ?>);"><span class="label label-success">Enabled</span></a></div>
-                    <?php } else { ?>
+                    <?php   if ($access->status == 1) { ?>
+                    <div id="status_<?php echo $access->id; ?>">
+                      <?php if ($access->id != 1) { ?>
+                      <a onclick="disableAccess(<?php echo $access->id; ?>);"><span class="label label-success">Enabled</span></a>
+                      <?php } else { ?>
+                      <span class="label label-success" title="Top Administrator can not be disabled!" data-rel="tooltip">Enabled</span>
+                      <?php } ?>
+                    </div>
+                    <?php   } else { ?>
                     <div id="status_<?php echo $access->id; ?>"><a onclick="enableAccess(<?php echo $access->id; ?>);"><span class="label label-important">Disabled</span></a></div>
-                    <?php } ?>
+                    <?php   } ?>
                   </td>
                   <td style="text-align:right; white-space:nowrap;">
                     <a href="index.php?action=editAccess&amp;accessId=<?php echo $access->id; ?>" title="Edit Access Level" class="btn btn-info" data-rel="tooltip">
@@ -212,9 +220,9 @@
                     </a>
                   </td>
                 </tr>
-                <?php } ?>
+                <?php //} ?>
               </table>
-              <p><strong>( <?php echo $aResults['totalRows']?> )</strong> user<?php echo ( $aResults['totalRows'] != 1 ) ? 's' : '' ?> total</p>
+              <p><strong>( <?php //echo $aResults['totalRows']?> )</strong> level<?php //echo ( $aResults['totalRows'] != 1 ) ? 's' : '' ?> total</p>
             </div>
             <div class="tab-pane" id="newAccess">
               <form action="index.php?action=newAccess" method="post" name="newAccess" id="newAccess">
