@@ -63,9 +63,9 @@
                   <td class="hide-below-480 noDecoration">
                     <?php if ($aInfo->level == 99) { ?>
                     <?php   if ($user->status == 1) { ?>
-                    <div id="status_<?php echo $user->id; ?>"><a onclick="disableUser(<?php echo $user->id; ?>);"><span class="label label-success">Enabled</span></a></div>
+                    <div id="status_user_<?php echo $user->id; ?>"><a onclick="disableUser(<?php echo $user->id; ?>);"><span class="label label-success">Enabled</span></a></div>
                     <?php   } else { ?>
-                    <div id="status_<?php echo $user->id; ?>"><a onclick="enableUser(<?php echo $user->id; ?>);"><span class="label label-important">Disabled</span></a></div>
+                    <div id="status_user_<?php echo $user->id; ?>"><a onclick="enableUser(<?php echo $user->id; ?>);"><span class="label label-important">Disabled</span></a></div>
                     <?php   } ?>
                     <?php } ?>
                   </td>
@@ -158,7 +158,79 @@
       </div><!--/span-->
     </div><!--/row-->
     <div><br /></div>
-    <!-- List User Groups -->
+    <!-- List Groups -->
+    <div class="row-fluid">
+      <div class="box span12">
+        <div class="box-header well">
+          <h2><i class="icon-th"></i> Manage Admin Groups</h2>
+          <div class="box-icon">
+            <!--<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>-->
+            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+            <!--<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>-->
+          </div>
+        </div>
+        <div class="box-content">
+          <ul class="nav nav-tabs" id="listGroupsTab">
+            <li class="active"><a href="#currentGroups"><i class="icon-cog"></i> Admin Groups</a></li>
+            <li><a href="#newGroup"><i class="icon icon-color icon-plus"></i> New Group</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="currentGroups">
+              <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
+                <tr>
+                  <td class="hide-below-480 table-id-head">ID</td>
+                  <td width="auto">Name</td>
+                  <td class="hide-below-480" width="auto">Status</td>
+                  <td style="text-align:right;" width="15%">Actions</td>
+                </tr>
+                <?php 
+                  //foreach ( $gResults['groups'] as $group ) {                     
+                ?>
+                <tr id="listAccess_<?php echo $group->id; ?>">
+                  <td class="hide-below-480">
+                    <?php echo $group->id; ?>
+                  </td>
+                  <td>
+                    <?php echo $group->name; ?>
+                  </td>
+                  <td class="hide-below-480 noDecoration">
+                    <?php   if ($group->status == 1) { ?>
+                    <div id="status_group_<?php echo $group->id; ?>">
+                      <?php if ($group->id != 1) { ?>
+                      <a onclick="disableGroup(<?php echo $group->id; ?>);"><span class="label label-success">Enabled</span></a>
+                      <?php } else { ?>
+                      <span class="label label-success" title="Top Administrator Group can not be disabled!" data-rel="tooltip">Enabled</span>
+                      <?php } ?>
+                    </div>
+                    <?php   } else { ?>
+                    <div id="status_group_<?php echo $group->id; ?>"><a onclick="enableGroup(<?php echo $group->id; ?>);"><span class="label label-important">Disabled</span></a></div>
+                    <?php   } ?>
+                  </td>
+                  <td style="text-align:right; white-space:nowrap;">
+                    <a href="index.php?action=editGroup&amp;groupId=<?php echo $group->id; ?>" title="Edit Admin Group" class="btn btn-info" data-rel="tooltip">
+                      <i class="icon-edit icon-white"></i>
+                      <span class="hide-below-768">Edit</span>
+                    </a>
+                    <a onclick="deleteGroup(<?php echo $group->id; ?>);" title="Delete Admin Group" class="btn btn-danger" data-rel="tooltip">
+                      <i class="icon-trash icon-white"></i>
+                    </a>
+                  </td>
+                </tr>
+                <?php //} ?>
+              </table>
+              <p><strong>( <?php //echo $gResults['totalRows']?> )</strong> group<?php //echo ( $gResults['totalRows'] != 1 ) ? 's' : '' ?> total</p>
+            </div>
+            <div class="tab-pane" id="newGroup">
+              <form action="index.php?action=newGroup" method="post" name="newGroup" id="newGroup">
+                New User Group
+              </form>
+            </div>
+          </div>
+        </div>
+      </div><!--/span-->
+    </div><!--/row-->
+    <div><br /></div>
+    <!-- List Access Levels -->
     <div class="row-fluid">
       <div class="box span12">
         <div class="box-header well">
@@ -199,7 +271,7 @@
                   </td>
                   <td class="hide-below-480 noDecoration">
                     <?php   if ($access->status == 1) { ?>
-                    <div id="status_<?php echo $access->id; ?>">
+                    <div id="status_access_<?php echo $access->id; ?>">
                       <?php if ($access->id != 1) { ?>
                       <a onclick="disableAccess(<?php echo $access->id; ?>);"><span class="label label-success">Enabled</span></a>
                       <?php } else { ?>
@@ -207,7 +279,7 @@
                       <?php } ?>
                     </div>
                     <?php   } else { ?>
-                    <div id="status_<?php echo $access->id; ?>"><a onclick="enableAccess(<?php echo $access->id; ?>);"><span class="label label-important">Disabled</span></a></div>
+                    <div id="status_access_<?php echo $access->id; ?>"><a onclick="enableAccess(<?php echo $access->id; ?>);"><span class="label label-important">Disabled</span></a></div>
                     <?php   } ?>
                   </td>
                   <td style="text-align:right; white-space:nowrap;">
