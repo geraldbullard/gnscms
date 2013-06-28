@@ -33,7 +33,7 @@
           </div>
           <?php } ?>
           <ul class="nav nav-tabs" id="listUsersTab">
-            <li class="active"><a href="#currentUsers"><i class="icon-cog"></i> Admin Users</a></li>
+            <li class="active"><a href="#currentUsers"><i class="icon-cog"></i> Users</a></li>
             <li><a href="#newUser"><i class="icon icon-color icon-plus"></i> New User</a></li>
           </ul>
           <div class="tab-content">
@@ -165,13 +165,13 @@
           <h2><i class="icon-th"></i> Manage Admin Groups</h2>
           <div class="box-icon">
             <!--<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>-->
-            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-down"></i></a>
             <!--<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>-->
           </div>
         </div>
-        <div class="box-content">
+        <div class="box-content" style="display:none;">
           <ul class="nav nav-tabs" id="listGroupsTab">
-            <li class="active"><a href="#currentGroups"><i class="icon-cog"></i> Admin Groups</a></li>
+            <li class="active"><a href="#currentGroups"><i class="icon-cog"></i> Groups</a></li>
             <li><a href="#newGroup"><i class="icon icon-color icon-plus"></i> New Group</a></li>
           </ul>
           <div class="tab-content">
@@ -237,13 +237,13 @@
           <h2><i class="icon-th"></i> Manage Admin Access Levels</h2>
           <div class="box-icon">
             <!--<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>-->
-            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-down"></i></a>
             <!--<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>-->
           </div>
         </div>
-        <div class="box-content">
+        <div class="box-content" style="display:none;">
           <ul class="nav nav-tabs" id="listAccessTab">
-            <li class="active"><a href="#currentAccess"><i class="icon-cog"></i> Admin Access Levels</a></li>
+            <li class="active"><a href="#currentAccess"><i class="icon-cog"></i> Access Levels</a></li>
             <li><a href="#newAccess"><i class="icon icon-color icon-plus"></i> New Access Level</a></li>
           </ul>
           <div class="tab-content">
