@@ -114,7 +114,7 @@ function docReady(){
 	});
 
 	//slider
-	$('.slider').slider({range:true,values:[10,65]});
+	$('.slider').slider({range:true,values:[0,100]});
 
 	//tooltip
 	$('[rel="tooltip"],[data-rel="tooltip"]').tooltip({"placement":"bottom",delay: { show: 400, hide: 200 }});

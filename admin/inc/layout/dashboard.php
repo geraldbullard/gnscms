@@ -93,6 +93,21 @@
                       <p>An auto generating sitemap.xml feature has been added to provide search engine crawl bots with up to date xml sitemap on demand with no interaction from the site administrator. This also brings with it the reintroduction of the database column "publicationDate" and an added one for "lastModified". The Change Frequency and Priority have also been added to the Settings for easy modification to your desired value.</p>
                     </td>
                   </tr>
+                  <tr>
+                    <td><h3>Slider</h3></td>
+                    <td>
+                      <div style="width:50%;height:25px;">
+                        <div style="width:20%;float:right;text-align:right;margin-right:-5px;">5</div>
+                        <div style="width:20%;float:right;text-align:right;">4</div>
+                        <div style="width:20%;float:right;text-align:right;">3</div>
+                        <div style="width:20%;float:right;text-align:right;">2</div>
+                        <div style="width:20%;float:right;text-align:right;">1</div>
+                        <div style="width:0;float:right;position:relative;left:-7px;">0</div>
+                      </div>
+                      <div class="accessSlider" style="width:50%;clear:both;"></div>
+                      <input type="hidden" value="" name="accessSliderValue" id="accessSliderValue" />
+                    </td>
+                  </tr>
                 </tbody>
               </table>                
                 
