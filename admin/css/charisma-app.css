@@ -679,3 +679,13 @@ ul.ajax-loaders {
 }
 
 .level { font-size: 10px; padding-left:20px; margin-top: -4px; position: absolute; }
+
+.access-slider {
+  padding: 5px 35px 15px 25px;
+  width: 50%;
+  border: 1px solid #cccccc;
+  background-color: #f9f9f9;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}

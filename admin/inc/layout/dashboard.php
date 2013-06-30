@@ -96,16 +96,17 @@
                   <tr>
                     <td><h3>Slider</h3></td>
                     <td>
-                      <div style="width:50%;height:25px;">
-                        <div style="width:20%;float:right;text-align:right;margin-right:-5px;">5</div>
-                        <div style="width:20%;float:right;text-align:right;">4</div>
-                        <div style="width:20%;float:right;text-align:right;">3</div>
-                        <div style="width:20%;float:right;text-align:right;">2</div>
-                        <div style="width:20%;float:right;text-align:right;">1</div>
-                        <div style="width:0;float:right;position:relative;left:-7px;">0</div>
+                      <div class="access-slider">
+                        <div style="height:25px;">
+                          <div style="width:25%;float:right;text-align:right;margin-right:-21px;">Delete</div>
+                          <div style="width:25%;float:right;text-align:right;margin-right:3px;">Insert</div>
+                          <div style="width:25%;float:right;text-align:right;margin-right:5px;">Edit</div>
+                          <div style="width:25%;float:right;text-align:right;margin-right:-3px;">View</div>
+                          <div style="width:0;float:right;position:relative;left:-28px;">None</div>
+                        </div>
+                        <div class="accessSlider" style="clear:both;"></div>
+                        <input type="hidden" value="" name="accessSliderValue" id="accessSliderValue" />
                       </div>
-                      <div class="accessSlider" style="width:50%;clear:both;"></div>
-                      <input type="hidden" value="" name="accessSliderValue" id="accessSliderValue" />
                     </td>
                   </tr>
                 </tbody>
