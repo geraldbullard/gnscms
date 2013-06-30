@@ -137,16 +137,16 @@
                                                                   (1, 'Top Administrator', 1), 
                                                                   (2, 'Webmaster', 1);") != 0 && 
                 @mysql_query("INSERT INTO " . DB_PREFIX . "access (id, name, level, group_id) VALUES 
-                                                                  (1, 'dashboard', 5, 1), 
-                                                                  (2, 'content', 5, 1), 
-                                                                  (3, 'theme', 5, 1), 
-                                                                  (4, 'file', 5, 1), 
-                                                                  (5, 'setting', 5, 1), 
-                                                                  (6, 'user', 5, 1), 
+                                                                  (1, 'dashboard', 4, 1), 
+                                                                  (2, 'content', 4, 1), 
+                                                                  (3, 'theme', 4, 1), 
+                                                                  (4, 'file', 4, 1), 
+                                                                  (5, 'setting', 4, 1), 
+                                                                  (6, 'user', 4, 1), 
                                                                   (7, 'dashboard', 1, 2), 
                                                                   (8, 'content', 4, 2), 
-                                                                  (9, 'theme', 3, 2), 
-                                                                  (10, 'file', 3, 2), 
+                                                                  (9, 'theme', 4, 2), 
+                                                                  (10, 'file', 4, 2), 
                                                                   (11, 'setting', 3, 2), 
                                                                   (12, 'user', 0, 2);")) 
                 {
