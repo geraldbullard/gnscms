@@ -48,14 +48,14 @@
                 </tr>
                 <?php 
                   foreach ( $results['users'] as $user ) {
-                    //$aInfo = Group::getById($user->group);
+                    $gInfo = Group::getById($user->group);
                 ?>
                 <tr id="listUser_<?php echo $user->id; ?>">
                   <td class="hide-below-480">
                     <?php echo $user->id; ?>
                   </td>
                   <td>
-                    <span title="<?php echo ($user->gender == 'm') ? 'Male' : 'Female'; ?>" data-rel="tooltip" class="icon icon-user<?php echo ($user->gender == 'm') ? ' icon-blue' : ' icon-red'; ?>"></span> <?php echo $user->firstname . ' ' . $user->lastname; ?><br /><small class="level"><?php //echo $aInfo->name; ?></small>
+                    <span title="<?php echo ($user->gender == 'm') ? 'Male' : 'Female'; ?>" data-rel="tooltip" class="icon icon-user<?php echo ($user->gender == 'm') ? ' icon-blue' : ' icon-red'; ?>"></span> <?php echo $user->firstname . ' ' . $user->lastname; ?><br /><small class="level"><?php echo $gInfo->name; ?></small>
                   </td>
                   <td class="hide-below-768">
                     <span class="icon icon-orange icon-envelope-closed"></span> <?php echo $user->email; ?>
