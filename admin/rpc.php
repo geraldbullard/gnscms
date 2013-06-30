@@ -57,5 +57,26 @@
     $user = new User;
     $user->storeFormValues($_GET);
     $user->delete(); 
+  }
+  
+  // enable the group
+  if ($action == 'enableGroup') {
+    $user = new Group;
+    $user->storeFormValues($_GET);
+    $user->status(); 
+  }
+  
+  // disable the group
+  if ($action == 'disableGroup') {
+    $user = new Group;
+    $user->storeFormValues($_GET);
+    $user->status(); 
+  }
+  
+  // delete the group
+  if ($action == 'deleteGroup') {
+    $user = new Group;
+    $user->storeFormValues($_GET);
+    $user->delete(); 
   }     
 ?>

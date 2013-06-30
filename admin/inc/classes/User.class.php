@@ -46,9 +46,9 @@ class User {
   public $status = null;
 
   /**
-  * @var int The users access level from the database
+  * @var int The users access group from the database
   */    
-  public $level = null;
+  public $group = null;
 
   /**
   * @var string The salt 
@@ -70,8 +70,8 @@ class User {
     if ( isset( $data['username'] ) ) $this->username = $data['username'];
     if ( isset( $data['password'] ) ) $this->password = $data['password'];
     if ( isset( $data['gender'] ) ) $this->gender = $data['gender'];
+    if ( isset( $data['group'] ) ) $this->group = (int) $data['group'];
     if ( isset( $data['status'] ) ) $this->status = (int) $data['status'];
-    if ( isset( $data['level'] ) ) $this->level = (int) $data['level'];
   }
 
   /**
@@ -130,7 +130,7 @@ class User {
       
       $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
       $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-      $sql = "INSERT INTO " . DB_PREFIX . "users ( firstname, lastname, email, username, password, gender, status, level ) VALUES ( :firstname, :lastname, :email, :username, :password, :gender, :status, :level )";
+      $sql = "INSERT INTO " . DB_PREFIX . "users ( firstname, lastname, email, username, password, gender, group, status ) VALUES ( :firstname, :lastname, :email, :username, :password, :gender, :group, :status )";
 
       $st = $conn->prepare( $sql );
       $st->bindValue( "firstname", $this->firstname, PDO::PARAM_STR );
@@ -139,8 +139,8 @@ class User {
       $st->bindValue( "username", $this->username, PDO::PARAM_STR );
       $st->bindValue( "password", md5( $this->password ), PDO::PARAM_STR );
       $st->bindValue( "gender", $this->gender, PDO::PARAM_STR );
+      $st->bindValue( "group", $this->group, PDO::PARAM_INT );
       $st->bindValue( "status", $this->status, PDO::PARAM_INT );
-      $st->bindValue( "level", $this->level, PDO::PARAM_INT );
       $st->execute();
       $conn = null;
       
@@ -222,7 +222,7 @@ class User {
     // Update the User
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "UPDATE " . DB_PREFIX . "users SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, gender = :gender, status = :status, level = :level WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "users SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, gender = :gender, group = :group, status = :status WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":firstname", $this->firstname, PDO::PARAM_STR );
     $st->bindValue( ":lastname", $this->lastname, PDO::PARAM_STR );
@@ -230,8 +230,8 @@ class User {
     $st->bindValue( ":username", $this->username, PDO::PARAM_STR );
     $st->bindValue( ":password", $this->password, PDO::PARAM_INT );
     $st->bindValue( ":gender", $this->gender, PDO::PARAM_STR );
+    $st->bindValue( ":group", $this->group, PDO::PARAM_INT );
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT );
-    $st->bindValue( ":level", $this->level, PDO::PARAM_INT );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->execute();
     $conn = null;
