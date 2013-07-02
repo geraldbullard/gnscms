@@ -62,7 +62,7 @@
   $(document).ready(function(){
     // create the category slug as the title is being entered
     $("#contentTitle").blur(function(){
-      $("#contentSlug").val($("#contentTitle").val().toLowerCase().replace(/ /g, '-'));
+      $("#contentSlug").val($("#contentTitle").val().toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, ''));
       $("#menuTitle").val($("#contentTitle").val());
     });
     $('#listContentTab a:first').tab('show');
