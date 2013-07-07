@@ -2,13 +2,19 @@
 body,html,div,blockquote,img,label,p,h1,h2,h3,h4,h5,h6,pre,ul,ol,li,dl,dt,dd,form,a,fieldset,input,th,td{border:0;outline:none;margin:0;padding:0;}
 ul{list-style:none;}
 
-body {font: normal 13px Arial, sans-serif; background:#cccccc;}
+body {font: normal 13px Arial, sans-serif; background:#fff;}
 p { padding: 10px;}
 .wrap {width: 960px; margin: 0;}
 .demo-container {width: 260px; float: left; margin: 0;}
 .clear {clear: both;}
 
+.top-menu {
+  background-color: #F4F4F4;
+  border-bottom: 1px solid #DDDDDD;
+  height: 37px;
+  width: 100%;
+}
 #menu-trigger { position: absolute; top: 0; left: 0; z-index: 99; padding: 5px;}
 #main-content { margin: 5px 0 0 10px; }
-h1 { font-size: 40px; padding: 25px 0 0 10px; }
-h2 { font-size: 24px; padding-left: 13px; }
+h1 { font-size: 40px; }
+h2 { font-size: 24px; padding-left: 3px; color: #777; }

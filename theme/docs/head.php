@@ -34,9 +34,13 @@
   <link href="theme/docs/css/dcdrilldown.css" rel="stylesheet" />
   <link href="theme/docs/css/graphite.css" rel="stylesheet" />
   <link href="theme/docs/css/jquery.sidr.dark.css" rel="stylesheet">
+  <link href="theme/docs/css/shThemeDefault.css" rel="stylesheet" />
   <script src="theme/docs/js/modernizr-2.5.3.min.js"></script>
   <script src="<?php echo (($request_type == 'SSL') ? 'https:' : 'http:'); ?>//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="theme/docs/js/jquery.sidr.min.js"></script>
   <script src="theme/docs/js/jquery.cookie.js"></script>
-  <script src="theme/docs/js/jquery.dcdrilldown.1.2.js"></script>
+  <script src="theme/docs/js/jquery.dcdrilldown.1.2.js"></script>  
+  <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+  <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js"></script>  
+  <script src="theme/docs/js/shBrushPhp.js"></script>
 </head>

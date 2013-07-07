@@ -23,7 +23,9 @@
     </div>
     <div class="clear"></div>
   </div>
-  <a id="menu-trigger" href="#sidr" title="Open Menu"><img src="theme/docs/img/left-arrow.png" /></a>
+  <div class="top-menu">
+    <a id="menu-trigger" href="#sidr" title="Open Menu"><img src="theme/docs/img/left-arrow.png" /></a>
+  </div>
   <div id="main-content">
 <?php
   // get the needed view type and show the content

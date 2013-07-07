@@ -43,6 +43,7 @@
       var str = document.getElementById(i).innerHTML; 
       var n = str.replace(/</g, "&lt;");
       document.getElementById(i).innerHTML = n;
-    } 
+    }
+    SyntaxHighlighter.all(); 
   </script>
   <script src="<?php echo (($request_type == 'SSL') ? 'https:' : 'http:'); ?>//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css"></script>
