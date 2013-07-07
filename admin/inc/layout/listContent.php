@@ -121,12 +121,12 @@
                   <label>Content Type</label>
                   <div class="controls" style="margin-left:10px;">
                     <label class="radio">
-                      <div class="radio"><span class=""><input type="radio" value="0" id="typeRadio0" name="type" style="opacity: 0;"></span></div>
+                      <div class="radio"><span><input type="radio" value="0" id="typeRadio0" name="type" style="opacity: 0;" checked></span></div>
                       Category
                     </label>
                     <div style="clear:both"></div>
                     <label class="radio">
-                      <div class="radio"><span class=""><input type="radio" value="1" id="typeRadio1" name="type" style="opacity: 0;"></span></div>
+                      <div class="radio"><span><input type="radio" value="1" id="typeRadio1" name="type" style="opacity: 0;"></span></div>
                       Page
                     </label>
                   </div>

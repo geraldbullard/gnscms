@@ -18,16 +18,19 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'insert' },
 		//{ name: 'forms' },
 		{ name: 'tools' },
-		{ name: 'others' },
 		'/',
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', /*'blocks', */'align' ] },
 		{ name: 'styles' },
 		{ name: 'colors' },
-		{ name: 'about' }
+    { name: 'about' },
+    '/',
+    { name: 'others' }
 	];
 
 	// Remove some buttons, provided by the standard plugins, which we don't
 	// need to have in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript,Font';
+  config.basicEntities = false;
+  //config.extraPlugins = 'htmlbuttons'; 
 };
