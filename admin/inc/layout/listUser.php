@@ -48,7 +48,7 @@
                 </tr>
                 <?php 
                   foreach ( $results['users'] as $user ) {
-                    $gInfo = Group::getById($user->group);
+                    $gInfo = Group::getById($user->usergroup);
                 ?>
                 <tr id="listUser_<?php echo $user->id; ?>">
                   <td class="hide-below-480">
@@ -72,7 +72,7 @@
                       <i class="icon-edit icon-white"></i>
                       <span class="hide-below-768">Edit</span>
                     </a>
-                    <a<?php echo (($user->group != 1) ? ' onclick="deleteUser(' . $user->id . ');"' : ''); ?> title="<?php echo (($user->group == 1) ? 'This Profile can not be deleted!' : 'Delete User Profile'); ?>" class="btn btn-danger<?php echo (($user->group == 1) ? ' disabled' : ''); ?>" data-rel="tooltip">
+                    <a<?php echo (($user->usergroup != 1) ? ' onclick="deleteUser(' . $user->id . ');"' : ''); ?> title="<?php echo (($user->usergroup == 1) ? 'This Profile can not be deleted!' : 'Delete User Profile'); ?>" class="btn btn-danger<?php echo (($user->usergroup == 1) ? ' disabled' : ''); ?>" data-rel="tooltip">
                       <i class="icon-trash icon-white"></i>
                     </a>
                   </td>
@@ -121,6 +121,22 @@
                 </div>
                 <div class="row-fluid">
                   <div class="span4">
+                    <label>User Group</label>
+                    <div class="controls">
+                      <select id="usergroup" name="usergroup">
+                        <option>Select Group</option>
+                        <?php
+                          $groups = Group::getAll();
+                          foreach ($groups['results'] as $group) {
+                            echo '<option value="' . $group->id . '">' . $group->name . '</option>';
+                          }
+                        ?>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-fluid">
+                  <div class="span4">
                     <label>Gender</label>
                     <label class="radio">
                       <div class="radio" style="padding-left:10px;">
@@ -143,8 +159,7 @@
                 </div>
                 <div class="row-fluid">&nbsp;</div>
                 <div class="row-fluid">
-                  <div class="span4">                           
-                    <input type="hidden" id="level" name="level" value="99" />
+                  <div class="span4">
                     <input type="hidden" id="status" name="status" value="1" />
                     <button class="btn btn-primary" type="submit" name="saveChanges">Save</button>
                   </div>

@@ -55,6 +55,22 @@
               </div>
               <div class="row-fluid">
                 <div class="span4">
+                  <label>User Group</label>
+                  <div class="controls">
+                    <select id="usergroup" name="usergroup">
+                      <option>Select Group</option>
+                      <?php
+                        $groups = Group::getAll();
+                        foreach ($groups['results'] as $group) {
+                          echo '<option value="' . $group->id . '"' . (($group->id == $results['user']->usergroup) ? ' selected' : '') . '>' . $group->name . '</option>';
+                        }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span4">
                   <label>Gender</label>
                   <label class="radio">
                     <div class="radio" style="padding-left:10px;">

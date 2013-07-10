@@ -36,6 +36,11 @@ class User {
   public $password = null;
 
   /**
+  * @var int The users usergroup from the database
+  */    
+  public $usergroup = null;
+
+  /**
   * @var string The users gender from the database
   */    
   public $gender = null;
@@ -44,16 +49,6 @@ class User {
   * @var int The users status from the database
   */    
   public $status = null;
-
-  /**
-  * @var int The users access group from the database
-  */    
-  public $group = null;
-
-  /**
-  * @var string The salt 
-  */
-  public $salt = "rU5Yy56hDDKJAASY0PT6fdSEUg7BBYdlEhP23EsxZaNLuxAwU8lqp23fTYR5w";
   
   
   /**
@@ -69,8 +64,8 @@ class User {
     if ( isset( $data['email'] ) ) $this->email = preg_replace ( "/[^\.\@ a-zA-Z0-9()]/", "", $data['email'] );
     if ( isset( $data['username'] ) ) $this->username = $data['username'];
     if ( isset( $data['password'] ) ) $this->password = $data['password'];
+    if ( isset( $data['usergroup'] ) ) $this->usergroup = (int) $data['usergroup'];
     if ( isset( $data['gender'] ) ) $this->gender = $data['gender'];
-    if ( isset( $data['group'] ) ) $this->group = (int) $data['group'];
     if ( isset( $data['status'] ) ) $this->status = (int) $data['status'];
   }
 
@@ -87,70 +82,30 @@ class User {
      
   }
 
-  // log the user in
-  public function userLogin() {
-    
-    $success = false;
-    
-    try {
-      
-      $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
-      $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-      $sql = "SELECT * FROM " . DB_PREFIX . "users WHERE username = :username AND password = :password LIMIT 1";
-
-      $st = $conn->prepare( $sql );
-      $st->bindValue( ":username", $this->username, PDO::PARAM_STR );
-      $st->bindValue( ":password", hash( "sha256", $this->password . $this->salt ), PDO::PARAM_STR );
-      $st->execute(); 
-
-      $valid = $st->fetchColumn();
-      if ( $valid ) {
-        $success = true;
-      }
-
-      $conn = null;
-      
-      return $success;
-      
-    } catch (PDOException $e) {
-      
-      echo $e->getMessage();
-      return $success;
-      
-    }
-    
-  }
-
   // insert a new user
   public function insert() {
-    
-    $correct = false;
-    
-    try {
       
-      $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-      $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-      $sql = "INSERT INTO " . DB_PREFIX . "users ( firstname, lastname, email, username, password, gender, group, status ) VALUES ( :firstname, :lastname, :email, :username, :password, :gender, :group, :status )";
+    // Does the User object already have an ID?
+    if ( !is_null( $this->id ) ) trigger_error ( "User::insert(): Attempt to insert a User object that already has its ID property set (to $this->id).", E_USER_ERROR );
+ 
+    // Insert the Content
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $sql = "INSERT INTO " . DB_PREFIX . "users ( firstname, lastname, email, username, password, usergroup, gender, status ) VALUES ( :firstname, :lastname, :email, :username, :password, :usergroup, :gender, :status )";
 
-      $st = $conn->prepare( $sql );
-      $st->bindValue( "firstname", $this->firstname, PDO::PARAM_STR );
-      $st->bindValue( "lastname", $this->lastname, PDO::PARAM_STR );
-      $st->bindValue( "email", $this->email, PDO::PARAM_STR );
-      $st->bindValue( "username", $this->username, PDO::PARAM_STR );
-      $st->bindValue( "password", md5( $this->password ), PDO::PARAM_STR );
-      $st->bindValue( "gender", $this->gender, PDO::PARAM_STR );
-      $st->bindValue( "group", $this->group, PDO::PARAM_INT );
-      $st->bindValue( "status", $this->status, PDO::PARAM_INT );
-      $st->execute();
-      $conn = null;
+    $st = $conn->prepare( $sql );
+    $st->bindValue( "firstname", $this->firstname, PDO::PARAM_STR );
+    $st->bindValue( "lastname", $this->lastname, PDO::PARAM_STR );
+    $st->bindValue( "email", $this->email, PDO::PARAM_STR );
+    $st->bindValue( "username", $this->username, PDO::PARAM_STR );
+    $st->bindValue( "password", md5( $this->password ), PDO::PARAM_STR );
+    $st->bindValue( "usergroup", $this->usergroup, PDO::PARAM_INT );
+    $st->bindValue( "gender", $this->gender, PDO::PARAM_STR );
+    $st->bindValue( "status", $this->status, PDO::PARAM_INT );
+    $st->execute();
+    $this->id = $conn->lastInsertId();
+    $conn = null;
       
-      return 'Registration Successful<br/><a href="login.php">Login Now</a>';
-      
-    } catch( PDOException $e ) {
-      
-      return $e->getMessage();
-      
-    }
   }
 
 
@@ -222,15 +177,15 @@ class User {
     // Update the User
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "UPDATE " . DB_PREFIX . "users SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, gender = :gender, group = :group, status = :status WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "users SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, usergroup = :usergroup, gender = :gender, status = :status WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":firstname", $this->firstname, PDO::PARAM_STR );
     $st->bindValue( ":lastname", $this->lastname, PDO::PARAM_STR );
     $st->bindValue( ":email", $this->email, PDO::PARAM_STR );
     $st->bindValue( ":username", $this->username, PDO::PARAM_STR );
     $st->bindValue( ":password", $this->password, PDO::PARAM_INT );
+    $st->bindValue( ":usergroup", $this->usergroup, PDO::PARAM_INT );
     $st->bindValue( ":gender", $this->gender, PDO::PARAM_STR );
-    $st->bindValue( ":group", $this->group, PDO::PARAM_INT );
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->execute();
@@ -277,6 +232,5 @@ class User {
     $conn = null;
   }
 
-} 
-
+}
 ?>
