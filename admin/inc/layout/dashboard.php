@@ -70,9 +70,9 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=listUser">Admin User Profiles</a></h3></td>
+                    <td><h3><a href="index.php?action=listUser">Users/Groups</a></h3></td>
                     <td>
-                      <p>The ability to add, edit, enable, disable and delete <strong>Admin User Profiles</strong> has been added. A new login security process will be integrated to work in conjunction with this new User capability.</p>
+                      <p>The ability to add, edit, enable, disable and delete <strong>Users</strong> has been added. Also <strong>Groups (Access Levels)</strong> has been added as well to support page/action specific access throughout the admin per user group. Each User can now be assigned to a specific group that allows the desired access.</p>
                     </td>
                   </tr>
                   <tr>
