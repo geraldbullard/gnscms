@@ -57,5 +57,73 @@
       e.preventDefault();
       $(this).tab('show');
     });
+    // access sliders
+    var allowedAccessValues = {
+      0: true,
+      1: true,
+      2: true,
+      3: true,
+      4: true
+    };
+    $("#accessSliderContent").slider({
+      range: true,
+      values: [0],
+      max: 4,
+      slide: function(event, ui) {
+        if (!allowedAccessValues[ui.value]) return false;
+      },
+      change: function(event, ui){
+        $("#content").val(ui.value);
+      }
+    });    
+    $("#accessSliderContent a:first").remove();
+    $("#accessSliderThemes").slider({
+      range: true,
+      values: [0],
+      max: 4,
+      slide: function(event, ui) {
+        if (!allowedAccessValues[ui.value]) return false;
+      },
+      change: function(event, ui){
+        $("#themes").val(ui.value);
+      }
+    });    
+    $("#accessSliderThemes a:first").remove();
+    $("#accessSliderFileManager").slider({
+      range: true,
+      values: [0],
+      max: 4,
+      slide: function(event, ui) {
+        if (!allowedAccessValues[ui.value]) return false;
+      },
+      change: function(event, ui){
+        $("#files").val(ui.value);
+      }
+    });    
+    $("#accessSliderFileManager a:first").remove();
+    $("#accessSliderSettings").slider({
+      range: true,
+      values: [0],
+      max: 4,
+      slide: function(event, ui) {
+        if (!allowedAccessValues[ui.value]) return false;
+      },
+      change: function(event, ui){
+        $("#settings").val(ui.value);
+      }
+    });    
+    $("#accessSliderSettings a:first").remove();
+    $("#accessSliderUsers").slider({
+      range: true,
+      values: [0],
+      max: 4,
+      slide: function(event, ui) {
+        if (!allowedAccessValues[ui.value]) return false;
+      },
+      change: function(event, ui){
+        $("#users").val(ui.value);
+      }
+    });    
+    $("#accessSliderUsers a:first").remove();
   });
 </script>

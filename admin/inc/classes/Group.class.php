@@ -6,17 +6,47 @@
 class Group {
 
   /**
-  * @var int The Group id from the database
+  * @var int The Group id
   */    
   public $id = null;
 
   /**
-  * @var string The Group name from the database
+  * @var string The Group name
   */    
   public $name = null; 
 
   /**
-  * @var int The Group status from the database
+  * @var int The Group Dashboard access level
+  */    
+  public $dashboard = null; 
+
+  /**
+  * @var int The Group Content access level
+  */    
+  public $content = null; 
+
+  /**
+  * @var int The Group Themes access level
+  */    
+  public $themes = null; 
+
+  /**
+  * @var int The Group File Manager access level
+  */    
+  public $files = null; 
+
+  /**
+  * @var int The Group Settings access level
+  */    
+  public $settings = null; 
+
+  /**
+  * @var int The Group Users access level
+  */    
+  public $users = null; 
+
+  /**
+  * @var int The Group status
   */    
   public $status = null;
   
@@ -30,6 +60,12 @@ class Group {
   public function __construct( $data = array() ) {
     if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
     if ( isset( $data['name'] ) ) $this->name = $data['name'];
+    if ( isset( $data['dashboard'] ) ) $this->dashboard = (int) $data['dashboard'];
+    if ( isset( $data['content'] ) ) $this->content = (int) $data['content'];
+    if ( isset( $data['themes'] ) ) $this->themes = (int) $data['themes'];
+    if ( isset( $data['files'] ) ) $this->files = (int) $data['files'];
+    if ( isset( $data['settings'] ) ) $this->settings = (int) $data['settings'];
+    if ( isset( $data['users'] ) ) $this->users = (int) $data['users'];
     if ( isset( $data['status'] ) ) $this->status = (int) $data['status'];
   }
 
@@ -55,10 +91,16 @@ class Group {
       // Insert the Group
       $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
       $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-      $sql = "INSERT INTO " . DB_PREFIX . "groups ( name, status ) VALUES ( :name, :status )";
+      $sql = "INSERT INTO " . DB_PREFIX . "groups ( name, dashboard, content, themes, files, settings, users, status ) VALUES ( :name, :dashboard, :content, :themes, :files, :settings, :users, :status )";
 
       $st = $conn->prepare( $sql );
       $st->bindValue( "name", $this->name, PDO::PARAM_STR );
+      $st->bindValue( "dashboard", $this->dashboard, PDO::PARAM_INT );
+      $st->bindValue( "content", $this->content, PDO::PARAM_INT );
+      $st->bindValue( "themes", $this->themes, PDO::PARAM_INT );
+      $st->bindValue( "files", $this->files, PDO::PARAM_INT );
+      $st->bindValue( "settings", $this->settings, PDO::PARAM_INT );
+      $st->bindValue( "users", $this->users, PDO::PARAM_INT );
       $st->bindValue( "status", $this->status, PDO::PARAM_INT );
       $st->execute();
       $this->id = $conn->lastInsertId();
@@ -135,9 +177,15 @@ class Group {
     // Update the Group
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "UPDATE " . DB_PREFIX . "groups SET name = :name, status = :status WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "groups SET name = :name, dashboard = :dashboard, content = :content, themes = :themes, files = :files, settings = :settings, users = :users, status = :status WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
+    $st->bindValue( ":dashboard", $this->dashboard, PDO::PARAM_INT );
+    $st->bindValue( ":content", $this->content, PDO::PARAM_INT );
+    $st->bindValue( ":themes", $this->themes, PDO::PARAM_INT );
+    $st->bindValue( ":files", $this->files, PDO::PARAM_INT );
+    $st->bindValue( ":settings", $this->settings, PDO::PARAM_INT );
+    $st->bindValue( ":users", $this->users, PDO::PARAM_INT );
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->execute();

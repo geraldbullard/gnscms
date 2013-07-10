@@ -162,6 +162,14 @@
       require('inc/functions/editUser.php');
       editUser();
       break;
+    case 'newGroup':
+      require('inc/functions/newGroup.php');
+      newGroup();
+      break;
+    case 'editGroup':
+      require('inc/functions/editGroup.php');
+      editGroup();
+      break;
     case 'dashboard':
       require('inc/functions/dashboard.php');
       dashboard();
