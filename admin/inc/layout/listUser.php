@@ -55,7 +55,7 @@
                     <?php echo $user->id; ?>
                   </td>
                   <td>
-                    <span title="<?php echo ($user->gender == 'm') ? 'Male' : 'Female'; ?>" data-rel="tooltip" class="icon icon-user<?php echo ($user->gender == 'm') ? ' icon-blue' : ' icon-red'; ?>"></span> <?php echo $user->firstname . ' ' . $user->lastname; ?><br /><small class="level"><?php echo $gInfo->name; ?></small>
+                    <span title="<?php echo ($user->gender == 'm') ? 'Male' : 'Female'; ?>" data-rel="tooltip" class="icon icon-user<?php echo ($user->gender == 'm') ? ' icon-blue' : ' icon-red'; ?>"></span> <?php echo $user->firstname . ' ' . $user->lastname; ?><br /><small class="level"><?php echo $gInfo->title; ?></small>
                   </td>
                   <td class="hide-below-768">
                     <span class="icon icon-orange icon-envelope-closed"></span> <?php echo $user->email; ?>
@@ -128,7 +128,7 @@
                         <?php
                           $groups = Group::getAll();
                           foreach ($groups['results'] as $group) {
-                            echo '<option value="' . $group->id . '">' . $group->name . '</option>';
+                            echo '<option value="' . $group->id . '">' . $group->title . '</option>';
                           }
                         ?>
                       </select>
@@ -204,7 +204,7 @@
                     <?php echo $group->id; ?>
                   </td>
                   <td>
-                    <?php echo $group->name; ?>
+                    <?php echo $group->title; ?>
                   </td>
                   <td class="hide-below-480 noDecoration">
                     <?php if ($group->status == 1) { ?>
@@ -238,7 +238,7 @@
                 <div class="row-fluid">
                   <div class="span4">
                     <label>Group Name</label>
-                    <input class="text-input span12" type="text" id="name" name="name" required autofocus />
+                    <input class="text-input span12" type="text" id="title" name="title" required autofocus />
                   </div>
                 </div>
                 <div class="row-fluid">&nbsp;</div>

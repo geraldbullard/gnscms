@@ -62,7 +62,7 @@
                       <?php
                         $groups = Group::getAll();
                         foreach ($groups['results'] as $group) {
-                          echo '<option value="' . $group->id . '"' . (($group->id == $results['user']->usergroup) ? ' selected' : '') . '>' . $group->name . '</option>';
+                          echo '<option value="' . $group->id . '"' . (($group->id == $results['user']->usergroup) ? ' selected' : '') . '>' . $group->title . '</option>';
                         }
                       ?>
                     </select>

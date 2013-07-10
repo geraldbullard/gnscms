@@ -11,9 +11,9 @@ class Group {
   public $id = null;
 
   /**
-  * @var string The Group name
+  * @var string The Group title
   */    
-  public $name = null; 
+  public $title = null; 
 
   /**
   * @var int The Group Dashboard access level
@@ -59,7 +59,7 @@ class Group {
 
   public function __construct( $data = array() ) {
     if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
-    if ( isset( $data['name'] ) ) $this->name = $data['name'];
+    if ( isset( $data['title'] ) ) $this->title = $data['title'];
     if ( isset( $data['dashboard'] ) ) $this->dashboard = (int) $data['dashboard'];
     if ( isset( $data['content'] ) ) $this->content = (int) $data['content'];
     if ( isset( $data['themes'] ) ) $this->themes = (int) $data['themes'];
@@ -91,10 +91,10 @@ class Group {
       // Insert the Group
       $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
       $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-      $sql = "INSERT INTO " . DB_PREFIX . "groups ( name, dashboard, content, themes, files, settings, users, status ) VALUES ( :name, :dashboard, :content, :themes, :files, :settings, :users, :status )";
+      $sql = "INSERT INTO " . DB_PREFIX . "groups ( title, dashboard, content, themes, files, settings, users, status ) VALUES ( :title, :dashboard, :content, :themes, :files, :settings, :users, :status )";
 
       $st = $conn->prepare( $sql );
-      $st->bindValue( "name", $this->name, PDO::PARAM_STR );
+      $st->bindValue( "title", $this->title, PDO::PARAM_STR );
       $st->bindValue( "dashboard", $this->dashboard, PDO::PARAM_INT );
       $st->bindValue( "content", $this->content, PDO::PARAM_INT );
       $st->bindValue( "themes", $this->themes, PDO::PARAM_INT );
@@ -177,9 +177,9 @@ class Group {
     // Update the Group
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "UPDATE " . DB_PREFIX . "groups SET name = :name, dashboard = :dashboard, content = :content, themes = :themes, files = :files, settings = :settings, users = :users, status = :status WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "groups SET title = :title, dashboard = :dashboard, content = :content, themes = :themes, files = :files, settings = :settings, users = :users, status = :status WHERE id = :id";
     $st = $conn->prepare ( $sql );
-    $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
+    $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":dashboard", $this->dashboard, PDO::PARAM_INT );
     $st->bindValue( ":content", $this->content, PDO::PARAM_INT );
     $st->bindValue( ":themes", $this->themes, PDO::PARAM_INT );
