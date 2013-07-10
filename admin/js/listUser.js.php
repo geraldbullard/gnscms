@@ -67,7 +67,6 @@
     };
     $("#accessSliderContent").slider({
       range: true,
-      values: [0],
       max: 4,
       slide: function(event, ui) {
         if (!allowedAccessValues[ui.value]) return false;
@@ -79,7 +78,6 @@
     $("#accessSliderContent a:first").remove();
     $("#accessSliderThemes").slider({
       range: true,
-      values: [0],
       max: 4,
       slide: function(event, ui) {
         if (!allowedAccessValues[ui.value]) return false;
@@ -91,7 +89,6 @@
     $("#accessSliderThemes a:first").remove();
     $("#accessSliderFileManager").slider({
       range: true,
-      values: [0],
       max: 4,
       slide: function(event, ui) {
         if (!allowedAccessValues[ui.value]) return false;
@@ -103,7 +100,6 @@
     $("#accessSliderFileManager a:first").remove();
     $("#accessSliderSettings").slider({
       range: true,
-      values: [0],
       max: 4,
       slide: function(event, ui) {
         if (!allowedAccessValues[ui.value]) return false;
@@ -115,7 +111,6 @@
     $("#accessSliderSettings a:first").remove();
     $("#accessSliderUsers").slider({
       range: true,
-      values: [0],
       max: 4,
       slide: function(event, ui) {
         if (!allowedAccessValues[ui.value]) return false;

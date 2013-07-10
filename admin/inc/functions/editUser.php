@@ -13,14 +13,15 @@
       }
       unset($_POST['newPassword']);
       unset($_POST['newPassConfirm']);
+      $user = new User;
       $user->storeFormValues( $_POST );
       $user->update();
-      header( "Location: index.php?action=listUser&success=changesSaved" );
+      header( "Location: index.php?action=listUser&success=userChangesSaved" );
     } elseif ( isset( $_POST['cancel'] ) ) {
       // User has cancelled their edits: return to the user list
       header( "Location: index.php?action=listUser" );
     } else {
-      // User has not submitted the user edit form: display the user listing
+      // User has not submitted the user edit form: display the user edit form
       $results['user'] = User::getById( (int)$_GET['userId'] );
       require( "inc/layout/editUser.php" );
     }
