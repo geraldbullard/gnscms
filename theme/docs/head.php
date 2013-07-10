@@ -35,6 +35,10 @@
   <link href="theme/docs/css/graphite.css" rel="stylesheet" />
   <link href="theme/docs/css/jquery.sidr.dark.css" rel="stylesheet">
   <link href="theme/docs/css/shThemeDefault.css" rel="stylesheet" />
+  <link href="theme/docs/css/font-awesome.css" rel="stylesheet">
+  <!--[if IE 7]>
+  <link href="theme/docs/css/font-awesome-ie7.css" rel="stylesheet">
+  <![endif]-->
   <script src="theme/docs/js/modernizr-2.5.3.min.js"></script>
   <script src="<?php echo (($request_type == 'SSL') ? 'https:' : 'http:'); ?>//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="theme/docs/js/jquery.sidr.min.js"></script>

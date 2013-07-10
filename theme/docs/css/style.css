@@ -18,3 +18,5 @@ p { padding: 10px;}
 #main-content { margin: 5px 0 0 10px; }
 h1 { font-size: 40px; }
 h2 { font-size: 24px; padding-left: 3px; color: #777; }
+a { text-decoration: none; color: #000; }
+i { color: #000; }
