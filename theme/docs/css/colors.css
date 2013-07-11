@@ -1,0 +1,223 @@
+.silver {
+  color: #cccccc !important;
+}
+.silver-bg {
+  background: #e3e5ea;
+  color: #666666;
+  border-color: #cccccc;
+}
+.silver-gradient {
+  color: #666666;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#efeff4), to(#d6dadf));
+  background: -webkit-linear-gradient(top, #efeff4, #d6dadf);
+  background: -moz-linear-gradient(top, #efeff4, #d6dadf);
+  background: -ms-linear-gradient(top, #efeff4, #d6dadf);
+  background: -o-linear-gradient(top, #efeff4, #d6dadf);
+  background: linear-gradient(top, #efeff4, #d6dadf);
+  border-color: #cccccc;
+}
+.black {
+  color: black !important;
+}
+.black-bg {
+  background: #101010;
+  color: white;
+  border-color: black;
+}
+.black-gradient {
+  color: white;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#000000));
+  background: -webkit-linear-gradient(top, #333333, #000000);
+  background: -moz-linear-gradient(top, #333333, #000000);
+  background: -ms-linear-gradient(top, #333333, #000000);
+  background: -o-linear-gradient(top, #333333, #000000);
+  background: linear-gradient(top, #333333, #000000);
+  border-color: black;
+}
+.anthracite {
+  color: #4c4c4c !important;
+}
+.anthracite-bg {
+  background: #4c4c4c;
+  color: white;
+  border-color: #282e36;
+}
+.anthracite-gradient {
+  color: white;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#565656), to(#404040));
+  background: -webkit-linear-gradient(top, #565656, #404040);
+  background: -moz-linear-gradient(top, #565656, #404040);
+  background: -ms-linear-gradient(top, #565656, #404040);
+  background: -o-linear-gradient(top, #565656, #404040);
+  background: linear-gradient(top, #565656, #404040);
+  border-color: #282e36;
+}
+.icon-anthracite:before {
+  color: #4c4c4c;
+}
+.grey {
+  color: #a5a5a5 !important;
+}
+.grey-bg {
+  background: #a5a5a5;
+  color: white;
+  border-color: #666666;
+}
+.grey-gradient {
+  color: white;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#b3b3b3), to(#939393));
+  background: -webkit-linear-gradient(top, #b3b3b3, #939393);
+  background: -moz-linear-gradient(top, #b3b3b3, #939393);
+  background: -ms-linear-gradient(top, #b3b3b3, #939393);
+  background: -o-linear-gradient(top, #b3b3b3, #939393);
+  background: linear-gradient(top, #b3b3b3, #939393);
+  border-color: #666666;
+}
+.white {
+  color: white !important;
+}
+.white-bg {
+  background: #f1f3f4;
+  color: #666666;
+  border-color: #cccccc;
+}
+.white-gradient {
+  color: #666666;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f7f7fa), to(#e4e7eb));
+  background: -webkit-linear-gradient(top, #f7f7fa, #e4e7eb);
+  background: -moz-linear-gradient(top, #f7f7fa, #e4e7eb);
+  background: -ms-linear-gradient(top, #f7f7fa, #e4e7eb);
+  background: -o-linear-gradient(top, #f7f7fa, #e4e7eb);
+  background: linear-gradient(top, #f7f7fa, #e4e7eb);
+  border-color: #cccccc;
+}
+.red {
+  color: #dd380d !important;
+}
+.red-bg {
+  background: #dd380d;
+  color: white;
+  border-color: #931a03;
+}
+.red-gradient {
+  color: white;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e24913), to(#d52607));
+  background: -webkit-linear-gradient(top, #e24913, #d52607);
+  background: -moz-linear-gradient(top, #e24913, #d52607);
+  background: -ms-linear-gradient(top, #e24913, #d52607);
+  background: -o-linear-gradient(top, #e24913, #d52607);
+  background: linear-gradient(top, #e24913, #d52607);
+  border-color: #931a03;
+}
+.orange {
+  color: #ffae00 !important;
+}
+.orange-bg {
+  background: #ffae00;
+  color: white;
+  border-color: #cc9707;
+}
+.orange-gradient {
+  color: white;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffb900), to(#ff9e00));
+  background: -webkit-linear-gradient(top, #ffb900, #ff9e00);
+  background: -moz-linear-gradient(top, #ffb900, #ff9e00);
+  background: -ms-linear-gradient(top, #ffb900, #ff9e00);
+  background: -o-linear-gradient(top, #ffb900, #ff9e00);
+  background: linear-gradient(top, #ffb900, #ff9e00);
+  border-color: #cc9707;
+}
+.green {
+  color: #99c624 !important;
+}
+.green-bg {
+  background: #99c624;
+  color: white;
+  border-color: #6d960c;
+}
+.green-gradient {
+  color: white;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#a7cf34), to(#87ba17));
+  background: -webkit-linear-gradient(top, #a7cf34, #87ba17);
+  background: -moz-linear-gradient(top, #a7cf34, #87ba17);
+  background: -ms-linear-gradient(top, #a7cf34, #87ba17);
+  background: -o-linear-gradient(top, #a7cf34, #87ba17);
+  background: linear-gradient(top, #a7cf34, #87ba17);
+  border-color: #6d960c;
+}
+.purple {
+  color: #9e0082 !important;
+}
+.purple-bg {
+  background: #9a01a0;
+  color: white;
+  border-color: #6b0093;
+} 
+.purple-gradient {
+  color: white;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#8300a9), to(#79008b));
+  background: -webkit-linear-gradient(top, #8300a9, #79008b);
+  background: -moz-linear-gradient(top, #8300a9, #79008b);
+  background: -ms-linear-gradient(top, #8300a9, #79008b);
+  background: -o-linear-gradient(top, #8300a9, #79008b);
+  background: linear-gradient(top, #8300a9, #79008b);
+  border-color: #6b0093;
+}
+.blue {
+  color: #0059a0 !important;
+}
+.blue-bg {
+  background: #0059a0;
+  color: white;
+  border-color: #004795;
+}
+.blue-gradient {
+  color: white;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#006aac), to(#00438d));
+  background: -webkit-linear-gradient(top, #006aac, #00438d);
+  background: -moz-linear-gradient(top, #006aac, #00438d);
+  background: -ms-linear-gradient(top, #006aac, #00438d);
+  background: -o-linear-gradient(top, #006aac, #00438d);
+  background: linear-gradient(top, #006aac, #00438d);
+  border-color: #004795;
+}
