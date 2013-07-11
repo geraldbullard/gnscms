@@ -1,5 +1,5 @@
 .graphite .dd-wrapper {
-  background:#343434;
+  /*background:#343434;*/
   color:#fff;
   font:bold 12px Arial, sans-serif;
   border-right:1px solid #111;
@@ -13,7 +13,7 @@
   border-bottom:1px solid #222;
   border-top:1px solid #555;
   position:relative;
-  padding:10px;
+  padding:15px;
 }
 
 .graphite .dd-menu a:hover {
@@ -32,7 +32,7 @@
 }
 
 .graphite .dd-menu li.dd-parent a.dd-parent-a {
-  background:#0C0C0C url(../img/bg_black.png) repeat-x center center;
+  /*background:#0C0C0C url(../img/bg_black.png) repeat-x center center;*/
 }
 
 .graphite .dd-menu li.dd-parent a:hover {
@@ -83,7 +83,7 @@
   display:block;
   background:url(../img/arrow_white_left.png) no-repeat 5px center;
   color:#fff;
-  padding:10px 10px 10px 20px;
+  padding:15px 10px 15px 20px;
 }
 
 .graphite .dd-header h3 {
