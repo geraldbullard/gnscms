@@ -232,5 +232,28 @@ class User {
     $conn = null;
   }
 
+
+  /**
+  * Returns a Users usergroup id matching the given username
+  *
+  * @param string The users username
+  * @return Setting|false The user object, or false if the record was not found or there was a problem
+  */
+
+  public static function getGroupID( $username ) {
+    
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $sql = "SELECT usergroup FROM " . DB_PREFIX . "users WHERE username = :username";
+    $st = $conn->prepare( $sql );
+    $st->bindValue( ":username", $username, PDO::PARAM_STR );
+    $st->execute();
+    $row = $st->fetch();
+    $conn = null;
+    
+    if ( $row ) return $row['usergroup'];
+    
+  }
+
 }
 ?>

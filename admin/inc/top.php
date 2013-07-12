@@ -85,5 +85,9 @@
     }
   }
   
+  // get user group access and set it into session
+  $_SESSION['access'] = Group::getById(User::getGroupID($_SESSION['authuser']));
+  
+  // get action 
   $action = isset($_GET['action']) ? $_GET['action'] : '';
 ?>
