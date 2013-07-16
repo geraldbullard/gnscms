@@ -52,12 +52,19 @@
   $_SESSION['all_langs'] = $all_langs; 
   
   // get the settings and define them for site wide usage
-  mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
-  mysql_select_db(DB_NAME);
-  
-  $settingsQuery = mysql_query("SELECT define, value FROM " . DB_PREFIX . "settings");
-  while ($settings = mysql_fetch_array($settingsQuery)) {
-    define($settings['define'], $settings['value']);
+  try {
+    $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD); 
+    $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $st = $pdo->prepare("SELECT define, value FROM " . DB_PREFIX . "settings");
+    $st->execute();
+   
+    while ($settings = $st->fetch()) {
+      define($settings['define'], $settings['value']);
+    }
+    
+    $pdo = null;    
+  } catch(PDOException $e) {
+    echo "ERROR: " . $e->getMessage();
   }
   
   if (($_SERVER['REQUEST_URI'] != 'login.php') && ($_SERVER['REQUEST_URI'] != $_SESSION['oldURL'])) {

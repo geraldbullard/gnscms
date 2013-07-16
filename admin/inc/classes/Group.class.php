@@ -1,63 +1,70 @@
 <?php
 /**
  * Class to handle Admin Groups
- */
-
+ */ 
 class Group {
 
   /**
   * @var int The Group id
   */    
   public $id = null;
+  
 
   /**
   * @var string The Group title
   */    
-  public $title = null; 
+  public $title = null;
+   
 
   /**
   * @var int The Group Dashboard access level
   */    
-  public $dashboard = null; 
+  public $dashboard = null;
+   
 
   /**
   * @var int The Group Content access level
   */    
-  public $content = null; 
+  public $content = null;
+   
 
   /**
   * @var int The Group Themes access level
   */    
-  public $themes = null; 
+  public $themes = null;
+   
 
   /**
   * @var int The Group File Manager access level
   */    
-  public $files = null; 
+  public $files = null;
+  
 
   /**
   * @var int The Group Settings access level
   */    
-  public $settings = null; 
+  public $settings = null;
+   
 
   /**
   * @var int The Group Users access level
   */    
-  public $users = null; 
+  public $users = null;
+   
 
   /**
   * @var int The Group status
   */    
   public $status = null;
-  
+    
   
   /**
   * Sets the object's properties using the values in the supplied array
   *
   * @param assoc The property values
   */
-
   public function __construct( $data = array() ) {
+    
     if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
     if ( isset( $data['title'] ) ) $this->title = $data['title'];
     if ( isset( $data['dashboard'] ) ) $this->dashboard = (int) $data['dashboard'];
@@ -67,14 +74,15 @@ class Group {
     if ( isset( $data['settings'] ) ) $this->settings = (int) $data['settings'];
     if ( isset( $data['users'] ) ) $this->users = (int) $data['users'];
     if ( isset( $data['status'] ) ) $this->status = (int) $data['status'];
+    
   }
+  
 
   /**
   * Sets the object's properties using the form post values in the supplied array
   *
   * @param assoc The form post values
   */
-
   public function storeFormValues( $params ) {
     
     // store the parameters
@@ -82,7 +90,11 @@ class Group {
      
   }
 
-  // insert a new Group
+  /**
+  * Insert a new group from the stored form values
+  * 
+  * @param assoc The stored form values
+  */
   public function insert() {
       
       // Does the Group object already have an ID?
@@ -103,7 +115,9 @@ class Group {
       $st->bindValue( "users", $this->users, PDO::PARAM_INT );
       $st->bindValue( "status", $this->status, PDO::PARAM_INT );
       $st->execute();
+      
       $this->id = $conn->lastInsertId();
+      
       $conn = null;
     
   }
@@ -115,8 +129,7 @@ class Group {
   * @param int Optional The number of rows to return (default=all)
   * @param string Optional column by which to order the results (default="id ASC")
   * @return Array|false A two-element array : results => array, a list of Group objects; totalRows => Total number of results
-  */
-
+  */ 
   public static function getAll( $numRows=1000000, $order="id ASC" ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
@@ -148,16 +161,18 @@ class Group {
   * @param int The Group ID
   * @return Array of information from the groups table
   */
-
   public static function getById( $id ) {
     
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT *, id AS id FROM " . DB_PREFIX . "groups WHERE id = :id";
+    
     $st = $conn->prepare( $sql );
     $st->bindValue( ":id", $id, PDO::PARAM_INT );
     $st->execute();
+    
     $row = $st->fetch();
+    
     $conn = null;
     
     if ( $row ) return new Group( $row );
@@ -167,8 +182,7 @@ class Group {
 
   /**
   * Updates the current Group object in the database.
-  */
-
+  */ 
   public function update() {
 
     // Does the Group object have an id?
@@ -178,6 +192,7 @@ class Group {
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "UPDATE " . DB_PREFIX . "groups SET title = :title, dashboard = :dashboard, content = :content, themes = :themes, files = :files, settings = :settings, users = :users, status = :status WHERE id = :id";
+    
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":dashboard", $this->dashboard, PDO::PARAM_INT );
@@ -189,14 +204,14 @@ class Group {
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->execute();
+    
     $conn = null;
     
   }
   
   /**
   * Updates the current Group staus in the database.
-  */
-  
+  */   
   public function status() {
     
     // Does the Group object have an ID?
@@ -206,10 +221,12 @@ class Group {
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql = "UPDATE " . DB_PREFIX . "groups SET status = :status WHERE id = :id;";
+    
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT );
     $st->execute();
+    
     $conn = null;
     
   }
@@ -218,7 +235,6 @@ class Group {
   /**
   * Deletes the current Group object from the database.
   */
-
   public function delete() {
 
     // Does the Group object have an ID?
@@ -228,11 +244,11 @@ class Group {
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $st = $conn->prepare ( "DELETE FROM " . DB_PREFIX . "groups WHERE id = :id LIMIT 1" );
+    
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->execute();
+    
     $conn = null;
   }
-
-} 
-
+}
 ?>
