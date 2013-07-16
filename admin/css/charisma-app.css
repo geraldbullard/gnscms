@@ -688,3 +688,7 @@ ul.ajax-loaders {
   -moz-border-radius: 7px;
   border-radius: 7px;
 }
+
+.no-bg {
+  background: none;
+}

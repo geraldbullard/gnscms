@@ -181,7 +181,7 @@
 ?>
     <hr>    
     <footer>
-      <div class="row-fluid">
+      <div class="row-fluid no-bg">
         <div class="span6">
           <p class="pull-left">
             <?php echo $lang['copyright']; ?> &copy; <?php echo date('Y') ?> <a href="http://www.gnscms.com/" title="<?php echo $lang['copyright_title']; ?>" target="_blank"><?php echo $lang['gnscms']; ?></a><br />
