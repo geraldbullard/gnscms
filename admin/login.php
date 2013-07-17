@@ -8,13 +8,36 @@
     session_write_close();
     header("Location: login.php?action=loggedOut");
   }
-    
-  mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
-  mysql_select_db(DB_NAME);
-  $sessionExpireTime = mysql_fetch_array(mysql_query("SELECT value FROM " . DB_PREFIX . "settings WHERE define = 'sessionExpire'"));
   
+  try {
+    $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD); 
+    $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $st = $pdo->prepare("SELECT value FROM " . DB_PREFIX . "settings WHERE define = 'sessionExpire'");
+    $st->execute();
+   
+    while ($settings = $st->fetch()) {
+      $sessionExpireTime = $settings['value'];
+    }
+    
+    $pdo = null;    
+  } catch(PDOException $e) {
+    echo "ERROR: " . $e->getMessage();
+  }
+    
   if (isset($_POST['login'])) {
-    $adminDetails = mysql_fetch_array(mysql_query("SELECT username, password, status FROM " . DB_PREFIX . "users WHERE username = '" . $_POST['username'] . "'"));
+    try {
+      $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD); 
+      $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+      $st = $pdo->prepare("SELECT username, password, status FROM " . DB_PREFIX . "users WHERE username = '" . $_POST['username'] . "'");
+      $st->execute();
+     
+      $adminDetails = $st->fetch();
+      
+      $pdo = null;    
+    } catch(PDOException $e) {
+      echo "ERROR: " . $e->getMessage();
+    }
+    
     if (($_POST['username'] != $adminDetails['username']) || (md5($_POST['password']) != $adminDetails['password']) || ($adminDetails['status'] != 1)) {
       $error = true;
     } else {
