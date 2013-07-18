@@ -12,46 +12,36 @@
    * Copyright © 2012 3G Development. All rights reserved.
    * 
    */
+   require('theme/default/func.php');
 ?>
-<?php require('theme/' . siteTheme . '/head.php'); ?>   
+<?php require('theme/default/head.php'); ?>   
 <body>
-  <div id="siteWrapper" style="width:<?php echo siteWidth . ';' . ((siteWidth != '100%') ? ' margin:0 auto 0 auto;' : ''); ?>">
+  <div id="siteWrapper" <?php echo 'style="width:' .  siteWidth . ';' . ((siteWidth != '100%') ? ' margin:0 auto 0 auto;' : ''); ?>">
     <div id="headerWrapper">
       <div id="navMenu">  
-        <ul>
-<?php
-  foreach ($pageListResults['results'] as $pages) {
-    if ( $pages->status == 1 && $pages->title != '404' ) {
-      $pagesURL = '<a href="' . gen_seo_friendly_titles($pages->title) . '.html">' . htmlspecialchars($pages->title) . '</a>';
-?>
-          <li><?php echo $pagesURL; ?></li>
-<?php
-    }
-  }
-?>
-        </ul>
-        <div style="clear: both;"></div>
+        <?php echo getMenu(); ?>
+        <div style="clear:both;"></div>
       </div>
     </div>
     <div id="contentWrapper">
 <?php
   // get the needed view type and show the content
-  if (isset($view) && $view == 'viewPage') {
-    require('block/viewPage.php');
+  if (isset($view) && $view == 'viewContent') {
+    require('theme/default/block/viewContent.php');
   } else if (isset($view) && $view == 'viewArticle') {
-    require('block/viewArticle.php');
+    require('theme/default/block/viewArticle.php');
   } else if (isset($view) && $view == 'listPages') {
-    require('block/listPages.php');
+    require('theme/default/block/listPages.php');
   } else if (isset($view) && $view == 'listArticles') {
-    require('block/listArticles.php');
+    require('theme/default/block/listArticles.php');
   } else {
-    require('block/notFound.php');
+    require('theme/default/block/notFound.php');
   }
 ?>
     </div>
     <div id="footerWrapper">
     </div>
   </div>
-  <?php require('theme/' . siteTheme . '/bottom.php'); ?>
+  <?php require('theme/default/bottom.php'); ?>
 </body>
 </html>
