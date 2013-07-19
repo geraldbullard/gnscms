@@ -51,6 +51,9 @@
   include_once 'inc/lang/langs.php';
   $_SESSION['all_langs'] = $all_langs; 
   
+  mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
+  mysql_select_db(DB_NAME);
+  
   // get the settings and define them for site wide usage
   try {
     $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD); 

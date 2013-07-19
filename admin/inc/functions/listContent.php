@@ -36,15 +36,26 @@
   
   // reate the breadcrumb path for content listing navigation
   function createPath($id) {
-    $query = mysql_query("SELECT id, title, categoryId FROM " . DB_PREFIX . "content WHERE id = " . (int)$id);
-    $row = mysql_fetch_array($query);
-
-    if ($row['categoryId'] == 0) {
-      $name = '<a href="index.php?action=listContent&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';  
+    try {
+      $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD); 
+      $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+      $st = $pdo->prepare("SELECT id, title, categoryId FROM " . DB_PREFIX . "content WHERE id = :id");
+      $st->bindValue( ":id", $id, PDO::PARAM_INT );
+      $st->execute();
+      
+      $result = $st->fetch();
+      
+      $pdo = null;    
+    } catch(PDOException $e) {
+      echo "ERROR: " . $e->getMessage();
+    }
+    
+    if ($result['categoryId'] == 0) {
+      $name = '<a href="index.php?action=listContent&categoryId=' . $result['id'] . '">' . $result['title'] . '</a>';  
       return $name;
     } else {
-      $name = ' > <a href="index.php?action=listContent&categoryId=' . $row['id'] . '">' . $row['title'] . '</a>';
-      return createPath($row['categoryId']) . " " . $name;
+      $name = ' > <a href="index.php?action=listContent&categoryId=' . $result['id'] . '">' . $result['title'] . '</a>';
+      return createPath($result['categoryId']) . " " . $name;
     }
   }
   
@@ -62,5 +73,30 @@
       echo '<option value="' . $id . '">' . $add . $title . '</option>';
       listCategories($id, $level+1);
     }
+    
+    /*try {
+      $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD); 
+      $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+      $st = $pdo->prepare("SELECT id, title FROM " . DB_PREFIX . "content WHERE categoryId = :categoryId AND type = 0 ORDER BY sort ASC");
+      $st->bindValue( ":categoryId", $parent_id, PDO::PARAM_INT );
+      $st->execute(); 
+      $pdo = null;    
+    } catch(PDOException $e) {
+      echo "ERROR: " . $e->getMessage();
+    }
+    
+    while (list($id, $title) = $st->fetchAll()) {
+      print_r($id[0]['id']);
+      echo '|';
+      print_r($title[0]['title']);
+      if ($level == 0) {
+        $add = '';
+      } else {
+        $add = str_repeat("&nbsp;&nbsp;" . $level, $level);
+        $level = ($level+1);
+      }
+      echo '<option value="' . $id['id'] . '">' . $add . $title['title'] . '</option>';
+      listCategories($id['id'], $level);
+    }*/
   }
 ?>
