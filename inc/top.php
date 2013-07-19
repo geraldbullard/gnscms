@@ -57,4 +57,29 @@
     $contentResults = Content::getBySlug( $indexPage['slug'] );
     $view = 'viewContent';
   }
+  
+  // get the side blocks for the page
+  try {
+    $leftBlocks = array();
+    $rightBlocks = array();
+    
+    $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD); 
+    $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    
+    $stl = $pdo->prepare("SELECT title, filename, sort FROM " . DB_PREFIX . "blocks where contentId = :contentId and side = 'l'");
+    $stl->bindValue(":contentId", $contentResults->id, PDO::PARAM_INT);
+    $stl->execute();
+    
+    $leftBlocks = $stl->fetchAll();                                 
+    
+    $str = $pdo->prepare("SELECT title, filename, sort FROM " . DB_PREFIX . "blocks where contentId = :contentId and side = 'r'");
+    $str->bindValue(":contentId", $contentResults->id, PDO::PARAM_INT);
+    $str->execute();
+    
+    $rightBlocks = $str->fetchAll();
+    
+    $pdo = null;    
+  } catch(PDOException $e) {
+    echo "ERROR: " . $e->getMessage();
+  }
 ?>

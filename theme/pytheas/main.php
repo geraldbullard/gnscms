@@ -35,9 +35,17 @@
           <?php echo getMenu(); ?>
         </div>            
       </nav><!-- #site-navigation -->            
-    </div><!-- #navbar -->                         
+    </div><!-- #navbar -->
+    <div id="main" class="site-main row clr fitvids">
+      <div id="home-wrap" class="clr">
+        <header class="page-header clr">
+          <h1><?php echo htmlspecialchars($contentResults->title); ?></h1>
+        </header>                         
 <?php
-  
+  // get the left col if needed
+  if (count($leftBlocks) > 0) {
+    require('theme/pytheas/left.php');
+  }  
   // get the needed view type and show the content
   if (isset($view) && $view == 'viewContent') {
     require('theme/pytheas/block/viewContent.php');
@@ -49,8 +57,14 @@
     require('theme/pytheas/block/listArticles.php');
   } else {
     require('theme/pytheas/block/notFound.php');
+  }  
+  // get the right col if needed
+  if (count($rightBlocks) > 0) {
+    require('theme/pytheas/right.php');
   }
 ?>
+      </div>
+    </div>
     <footer id="footer" class="site-footer">
       <div id="footer-widgets" class="row clr">
         <div class="footer-box span_6 col clr-margin">
