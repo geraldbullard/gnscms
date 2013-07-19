@@ -176,13 +176,13 @@ a:focus { outline: 0 }
 /* Headings
 ----------------------------------------------------------- */
 /*page heading*/
-.page-header { position: relative; margin-bottom: 25px; padding: 20px 0; border-bottom: 1px solid #eee; }
+.page-header { position: relative; margin-bottom: 25px; padding: 10px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
 .page-header h1, .page-header h2 { font-size: 24px; line-height: 1.2em; color: #000; margin: 0px; max-width: 85%; }
 .archive-meta { margin-top: 20px }
 .archive-meta p:last-child { margin: 0 }
 /*heading class*/
 .heading { color: #333; height: 35px; line-height: 35px; margin: 15px 0; font-size: 14px; background: url('./images/dot.png') center center repeat-x; }
-.heading span { background: #fff; padding-right: 20px; }
+.heading span { background: none repeat scroll 0 0 #FFFFFF; padding-right: 20px; }
 /* Header
 ----------------------------------------------------------- */
 #masthead { position: relative; padding: 40px 25px; }

@@ -15,11 +15,11 @@
 ?>
     <div id="main" class="site-main row clr fitvids">
       <div id="home-wrap" class="clr">
-        <div id="home-tagline" class="clr">
-          <?php echo htmlspecialchars($contentResults->title); ?>        
-        </div><!-- /home-tagline -->
+        <header class="page-header clr">
+          <h1><?php echo htmlspecialchars($contentResults->title); ?></h1>
+        </header>
         <?php 
           echo $contentResults->content; 
         ?>
-      </div><!-- /home-wrap -->
-    </div><!-- /main-content -->      
+      </div>
+    </div>   
