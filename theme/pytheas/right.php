@@ -13,4 +13,4 @@
    * 
    */
 ?>
-        <div id="rightColumn" class="side-column">RIGHT</div>
+        <div id="rightColumn" class="side-column" style="float:left;width:20%;">RIGHT</div>

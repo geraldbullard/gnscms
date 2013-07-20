@@ -13,5 +13,4 @@
    *  foreach ($leftBlocks as $leftBlock) {
    */
 ?>
-        <div id="leftColumn" class="side-column">LEFT</div>
-      
+        <div id="leftColumn" class="side-column" style="float:left;width:20%;">LEFT</div>

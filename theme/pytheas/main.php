@@ -21,48 +21,56 @@
       <div class="logo">
         <h1><a href="./" rel="home"><?php echo siteName; ?></a></h1>
         <p class="site-description"><?php echo siteSlogan; ?></p>                                
-      </div><!-- .logo -->
+      </div>
       <div class="masthead-right">
         <div class="masthead-right-content">
           <i class="icon-phone"></i>Call us: 999-999-9999                  
-        </div><!-- .masterhead-right-content -->
-      </div><!-- .masthead-right -->
-    </header><!-- .header -->
+        </div>
+      </div>
+    </header>
     <div id="navbar" class="navbar clr">
       <nav role="navigation" class="navigation main-navigation clr" id="site-navigation">
         <span class="nav-toggle">Menu<i class="toggle-icon icon-arrow-down"></i></span>
         <div class="menu-main-container">
           <?php echo getMenu(); ?>
         </div>            
-      </nav><!-- #site-navigation -->            
-    </div><!-- #navbar -->
+      </nav>          
+    </div>
     <div id="main" class="site-main row clr fitvids">
       <div id="home-wrap" class="clr">
         <header class="page-header clr">
           <h1><?php echo htmlspecialchars($contentResults->title); ?></h1>
         </header>                         
-<?php
-  // get the left col if needed
-  if (count($leftBlocks) > 0) {
-    require('theme/pytheas/left.php');
-  }  
-  // get the needed view type and show the content
-  if (isset($view) && $view == 'viewContent') {
-    require('theme/pytheas/block/viewContent.php');
-  } else if (isset($view) && $view == 'viewArticle') {
-    require('theme/pytheas/block/viewArticle.php');
-  } else if (isset($view) && $view == 'listPages') {
-    require('theme/pytheas/block/listPages.php');
-  } else if (isset($view) && $view == 'listArticles') {
-    require('theme/pytheas/block/listArticles.php');
-  } else {
-    require('theme/pytheas/block/notFound.php');
-  }  
-  // get the right col if needed
-  if (count($rightBlocks) > 0) {
-    require('theme/pytheas/right.php');
-  }
-?>
+        <?php
+          // get the left col if needed
+          if ($hasLeft) {
+            require('theme/pytheas/left.php');
+          }
+        ?>
+        <div id="mainColumn" class="main-column" style="float:left; <?php echo 'width:' . $mainColWidth . '%;'; ?>">  
+          <div style="padding:0 15px;">
+          <?php  
+            // get the needed view type and show the content
+            if (isset($view) && $view == 'viewContent') {
+              require('theme/pytheas/block/viewContent.php');
+            } else if (isset($view) && $view == 'viewArticle') {
+              require('theme/pytheas/block/viewArticle.php');
+            } else if (isset($view) && $view == 'listPages') {
+              require('theme/pytheas/block/listPages.php');
+            } else if (isset($view) && $view == 'listArticles') {
+              require('theme/pytheas/block/listArticles.php');
+            } else {
+              require('theme/pytheas/block/notFound.php');
+            }
+          ?>
+          </div>
+        </div>
+        <?php  
+          // get the right col if needed
+          if ($hasRight) {
+            require('theme/pytheas/right.php');
+          }
+        ?>
       </div>
     </div>
     <footer id="footer" class="site-footer">
@@ -74,7 +82,7 @@
               Nam sit amet odio eu mauris ornare dapibus. Morbi pellentesque vehicula nisi id viverra.
             </div>
           </div>                  
-        </div><!-- .footer-box -->
+        </div>
         <div class="footer-box span_6 col">
           <div class="footer-widget widget_wpex_port_posts_thumb_widget clr">
             <h6 class="widget-title">Marketing Projects</h6>
@@ -88,7 +96,7 @@
               </li>
             </ul>
           </div>
-        </div><!-- .footer-box -->
+        </div>
         <div class="footer-box span_6 col">
           <div class="footer-widget widget_wpex_posts_thumb_widget clr">
             <h6 class="widget-title">Featured Posts</h6>
@@ -102,7 +110,7 @@
               </li>
             </ul>
           </div>                            
-        </div><!-- .footer-box -->
+        </div>
         <div class="footer-box span_6 col">
           <div class="footer-widget widget_tag_cloud clr">
             <h6 class="widget-title">Tags</h6>
@@ -116,13 +124,13 @@
               <a href='http://wpexplorer-demos.com/pytheas/tag/wordpress/' class='tag-link-12' title='3 topics' style='font-size: 8pt;'>wordpress</a>
             </div>
           </div>                    
-        </div><!-- .footer-box -->
-      </div><!-- #footer-widgets -->
-    </footer><!-- #footer -->
+        </div>
+      </div>
+    </footer>
     <div id="footer-bottom" class="row clr">
       <div id="copyright" class="span_12 col clr-margin" role="contentinfo">
         <a href="http://gnscms.com/" title="gnsCMS - A Truly Simple yet Powerful Content Management System!">gnsCMS</a> Theme originally by: <a href="http://www.wpexplorer.com/pytheas-free-wordpress-theme/" title="Pytheas Free Responsive Corporate/Portfolio WordPress Theme">WPExplorer</a>
-      </div><!-- /copyright -->
+      </div>
       <div id="footer-menu" class="span_12 col">
         <div class="menu-footer-container">
           <ul id="social" class="clr">
@@ -131,16 +139,16 @@
             <li><a href="http://www.pinterest.com/wpexplorer" title="pinterest" target="_blank"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/themes/Pytheas/images/social/pinterest.png" alt="pinterest" /></a></li>
             <li><a href="http://themeforest.net/user/WPExplorer?ref=wpexplorer" title="envato" target="_blank"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/themes/Pytheas/images/social/envato.png" alt="envato" /></a></li>
             <li><a href="http://www.wpexplorer.me/pytheas/feed/" title="rss" target="_blank"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/themes/Pytheas/images/social/rss.png" alt="rss" /></a></li>
-          </ul><!-- #social -->
+          </ul>
           <ul id="menu-footer-1" class="menu">
             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3822"><a href="http://www.wpexplorer-demos.com/pytheas/">Home</a></li>
             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3824"><a href="http://wpexplorer-demos.com/pytheas/contact/">Contact</a></li>
             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3823"><a href="#top">Top</a></li>
           </ul>
         </div>
-      </div><!-- /footer-menu -->
-    </div><!-- /footer-bottom -->
-  </div><!-- /wrap -->    
+      </div>
+    </div>
+  </div>  
   <?php require('theme/pytheas/bottom.php'); ?>
 </body>
 </html>

@@ -14,5 +14,5 @@
    */
 ?>
   <!-- JavaScript at the bottom for fast page loading -->
-  <script src="theme/pytheas/js/global.js"></script> 
+  <script src="theme/pytheas/js/global.js"></script>
   
