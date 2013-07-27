@@ -2,7 +2,7 @@
   <div id="content" class="site-content" role="main">
     <article class="post type-post status-publish format-standard hentry category-dubai blog-entry clr">
       <a href="#" title="Events On The Horizon" rel="bookmark" class="blog-entry-img-link">
-        <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2013/04/photodune-3906712-desert-m-normal-700x350.jpg" alt="Events On The Horizon">
+        <img src="theme/pytheas/img/photodune-3906712-desert-m-normal-700x350.jpg" alt="Events On The Horizon">
       </a>
       <div class="blog-entry-details">
         <header><h2><a href="#" title="Events On The Horizon" rel="bookmark">Events On The Horizon</a></h2></header>
@@ -19,7 +19,7 @@
     </article>
     <article class="post type-post status-publish format-standard hentry category-dubai category-london blog-entry clr">
       <a href="#" title="Out Of This World" rel="bookmark" class="blog-entry-img-link">
-        <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2013/04/astronaut-11080-hf-700x350.jpg" alt="Out Of This World">
+        <img src="theme/pytheas/img/astronaut-11080-hf-700x350.jpg" alt="Out Of This World">
       </a>
       <div class="blog-entry-details">
         <header><h2><a href="#" title="Out Of This World" rel="bookmark">Out Of This World</a></h2></header>
@@ -48,35 +48,35 @@
         <h4 class="heading widget-title"><span>Featured Posts</span></h4>
         <ul class="wpex-widget-recent-posts">
           <li class="clr">                                     
-            <a href="#" title="Out Of This World" class="title"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2013/04/astronaut-11080-hf-50x50.jpg" alt="Out Of This World"></a>
+            <a href="#" title="Out Of This World" class="title"><img src="theme/pytheas/img/astronaut-11080-hf-50x50.jpg" alt="Out Of This World"></a>
             <div class="wpex-recent-posts-content clr">
               <a href="#" title="Out Of This World">Out Of This World</a>
               <div class="wpex-widget-recent-posts-date"><i class="icon-time"></i>April 25, 2013</div>
             </div>
           </li>
           <li class="clr">                                     
-            <a href="#" title="Try Something New" class="title"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/07/kite-surfing-50x50.jpg" alt="Try Something New"></a>
+            <a href="#" title="Try Something New" class="title"><img src="theme/pytheas/img/kite-surfing-50x50.jpg" alt="Try Something New"></a>
             <div class="wpex-recent-posts-content clr">
               <a href="#" title="Try Something New">Try Something New</a>
               <div class="wpex-widget-recent-posts-date"><i class="icon-time"></i>July 10, 2012</div>
             </div>
           </li>
           <li class="clr">                                     
-            <a href="#" title="City Chic" class="title"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/06/new-york-city-manhattan-50x50.jpg" alt="City Chic"></a>
+            <a href="#" title="City Chic" class="title"><img src="theme/pytheas/img/new-york-city-manhattan-50x50.jpg" alt="City Chic"></a>
             <div class="wpex-recent-posts-content clr">
               <a href="#" title="City Chic">City Chic</a>
               <div class="wpex-widget-recent-posts-date"><i class="icon-time"></i>June 29, 2012</div>
             </div>
           </li>
           <li class="clr">                                     
-            <a href="http://wpexplorer-demos.com/pytheas/great-for-business/" title="Great For Business" class="title"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/06/photodune-1118414-pacific-coast-m-50x50.jpg" alt="Great For Business"></a>
+            <a href="#" title="Great For Business" class="title"><img src="theme/pytheas/img/photodune-1118414-pacific-coast-m-50x50.jpg" alt="Great For Business"></a>
             <div class="wpex-recent-posts-content clr">
-              <a href="http://wpexplorer-demos.com/pytheas/great-for-business/" title="Great For Business">Great For Business</a>
+              <a href="#" title="Great For Business">Great For Business</a>
               <div class="wpex-widget-recent-posts-date"><i class="icon-time"></i>June 28, 2012</div>
             </div>
           </li>
           <li class="clr">                                     
-            <a href="#" title="Cashing In" class="title"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/06/photodune-1860673-dollar-bills-from-japan-m-50x50.jpg" alt="Cashing In"></a>
+            <a href="#" title="Cashing In" class="title"><img src="theme/pytheas/img/photodune-1860673-dollar-bills-from-japan-m-50x50.jpg" alt="Cashing In"></a>
             <div class="wpex-recent-posts-content clr">
               <a href="#" title="Cashing In">Cashing In</a>
               <div class="wpex-widget-recent-posts-date"><i class="icon-time"></i>June 27, 2012</div>

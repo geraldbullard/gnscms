@@ -29,38 +29,38 @@
   <h2 class="heading"><span>Recent Work</span></h2>
   <div class="row clr">
     <article class="post-1672 portfolio type-portfolio status-publish hentry portfolio-entry col span_6 clr-margin">
-      <a class="portfolio-entry-img-link" href="http://wpexplorer-demos.com/pytheas/portfolio/designs-slider/" rel="bookmark" title="Designs Slider">
-        <img alt="Designs Slider" class="portfolio-entry-img" src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/03/Braun-razor-650x400.png" />
+      <a class="portfolio-entry-img-link" href="#" rel="bookmark" title="Designs Slider">
+        <img alt="Designs Slider" class="portfolio-entry-img" src="theme/pytheas/img/Braun-razor-650x400.png" />
       </a>
       <div class="portfolio-entry-description">
-        <h2><a href="http://wpexplorer-demos.com/pytheas/portfolio/designs-slider/" rel="bookmark" title="Designs Slider">Designs Slider</a></h2>
+        <h2><a href="#" rel="bookmark" title="Designs Slider">Designs Slider</a></h2>
         <div class="portfolio-entry-excerpt">This portfolio entry has a custom excerpt using the built-in WP excerpt field.</div>
       </div>
     </article>
     <article class="post-1670 portfolio type-portfolio status-publish hentry portfolio-entry col span_6">
-      <a class="portfolio-entry-img-link" href="http://wpexplorer-demos.com/pytheas/portfolio/mustache/" rel="bookmark" title="Mustache">
-        <img alt="Mustache" class="portfolio-entry-img" src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/03/mustache-wallpaper-650x400.png" />
+      <a class="portfolio-entry-img-link" href="#" rel="bookmark" title="Mustache">
+        <img alt="Mustache" class="portfolio-entry-img" src="theme/pytheas/img/mustache-wallpaper-650x400.png" />
       </a>
       <div class="portfolio-entry-description">
-        <h2><a href="http://wpexplorer-demos.com/pytheas/portfolio/mustache/" rel="bookmark" title="Mustache">Mustache</a></h2>
+        <h2><a href="#" rel="bookmark" title="Mustache">Mustache</a></h2>
         <div class="portfolio-entry-excerpt">Easily add custom excerpts to your portfolio posts via the WordPress excerpt field.</div>
       </div>
     </article>
     <article class="post-1568 portfolio type-portfolio status-publish hentry portfolio-entry col span_6">
-      <a class="portfolio-entry-img-link" href="http://wpexplorer-demos.com/pytheas/portfolio/stamps/" rel="bookmark" title="Stamps">
-        <img alt="Stamps" class="portfolio-entry-img" src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/02/SocialStamps-650x400.png" />
+      <a class="portfolio-entry-img-link" href="#" rel="bookmark" title="Stamps">
+        <img alt="Stamps" class="portfolio-entry-img" src="theme/pytheas/img/SocialStamps-650x400.png" />
       </a>
       <div class="portfolio-entry-description">
-        <h2><a href="http://wpexplorer-demos.com/pytheas/portfolio/stamps/" rel="bookmark" title="Stamps">Stamps</a></h2>
+        <h2><a href="#" rel="bookmark" title="Stamps">Stamps</a></h2>
         <div class="portfolio-entry-excerpt">Easily add custom excerpts to your portfolio posts via the WordPress excerpt field.</div>
       </div>
     </article>
     <article class="post-1566 portfolio type-portfolio status-publish hentry portfolio-entry col span_6">
-      <a class="portfolio-entry-img-link" href="http://wpexplorer-demos.com/pytheas/portfolio/phone-display/" rel="bookmark" title="Phone Display">
-        <img alt="Phone Display" class="portfolio-entry-img" src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/02/iPhone5-wood-650x400.png" />
+      <a class="portfolio-entry-img-link" href="#" rel="bookmark" title="Phone Display">
+        <img alt="Phone Display" class="portfolio-entry-img" src="theme/pytheas/img/iPhone5-wood-650x400.png" />
       </a>
       <div class="portfolio-entry-description">
-        <h2><a href="http://wpexplorer-demos.com/pytheas/portfolio/phone-display/" rel="bookmark" title="Phone Display">Phone Display</a></h2>
+        <h2><a href="#" rel="bookmark" title="Phone Display">Phone Display</a></h2>
         <div class="portfolio-entry-excerpt">Easily add custom excerpts to your portfolio posts via the WordPress excerpt field.</div>
       </div>
     </article>

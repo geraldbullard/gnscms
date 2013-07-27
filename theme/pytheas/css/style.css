@@ -185,9 +185,9 @@ a:focus { outline: 0 }
 .heading span { background: none repeat scroll 0 0 #FFFFFF; padding-right: 20px; }
 /* Header
 ----------------------------------------------------------- */
-#masthead { position: relative; padding: 40px 25px; }
+#masthead { position: relative; padding: 15px 25px; }
 #masthead-image { display: block; border-top: 5px solid #eee; }
-.logo { float: left }
+.logo { float: left; margin-top: 0; }
 .logo a { font-weight: 700; padding: 0px; margin: 0px; text-decoration: none; display: inline-block; }
 .logo h1 a, #logo h2 a { color: #000 }
 .logo h1 a:hover, .logo h2 a:hover { color: #f15a23; text-decoration: none; }
@@ -196,7 +196,7 @@ a:focus { outline: 0 }
 p.site-description { font-style: italic; font-family: Georgia, "Times New Roman", Times, serif; margin: 0; }
 /*header custom content + search */
 .masthead-right { float: right }
-.masthead-right-content { text-align: right; margin-bottom: 5px; }
+.masthead-right-content { text-align: right; margin-top: 15px; }
 .masthead-right-content i { margin-right: 5px }
 /*masthead search*/
 .masthead-search input[type=search] { float: left; border: 1px solid #ccc !important; border-right: none !important; font-size: 11px; padding: 0 10px; width: 150px; height: 30px; line-height: 30px; border: none; box-shadow: 0 0 3px rgba(0, 0, 0, 0.08); -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.08); -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.08); border-radius: 0 !important; }
