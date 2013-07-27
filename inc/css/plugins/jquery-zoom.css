@@ -1,21 +1,21 @@
-.zoomIcon { 
-  width:33px; 
-  height:33px; 
-  position:absolute; 
-  top:0;
-  right:0;
-  background:url(jquery-zoom/icon.png);
-}
-
-.zoom {
-  display:inline-block; 
-}
-
-.zoom img {
-  display: block;
-}
-
-.zoom img::selection { background-color: transparent; }
-
-#zoomImage2 img:hover { cursor: url(jquery-zoom/grab.cur), default; }
+.zoomIcon { 
+  width:33px; 
+  height:33px; 
+  position:absolute; 
+  top:0;
+  right:0;
+  background:url(jquery-zoom/icon.png);
+}
+
+.zoom {
+  display:inline-block; 
+}
+
+.zoom img {
+  display: block;
+}
+
+.zoom img::selection { background-color: transparent; }
+
+#zoomImage2 img:hover { cursor: url(jquery-zoom/grab.cur), default; }
 #zoomImage3 img:active { cursor: url(jquery-zoom/grabbed.cur), default; }

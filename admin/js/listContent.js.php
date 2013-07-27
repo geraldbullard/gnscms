@@ -32,7 +32,11 @@
     $('#moveModal').modal('show');
     $('[name="contentId"]').remove();
     $('#move_modal_body').append('<input type="hidden" name="contentId" value="' + id[2] + '" />');
-  });    
+  });
+  function scrollGo() {
+    var x = $(this).offset().top - 100; // 100 provides buffer in viewport
+    $('html,body').animate({scrollTop: x}, 500);
+  }
   function getLayout(sel) {
     if (sel == 'custom') {
       $('#layout_preview').hide();
@@ -43,6 +47,9 @@
       CKEDITOR.instances.content.setData('');
       $.get('../theme/<?php echo siteTheme; ?>/layout/' + sel + '.tpl', function(data) {
         CKEDITOR.instances.content.insertHtml(data);
+      }).done(function() {
+        $('#contentTitle').show(scrollGo);
+        $('#contentTitle').focus();
       });
     }
   }

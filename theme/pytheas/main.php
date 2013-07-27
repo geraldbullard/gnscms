@@ -16,7 +16,7 @@
 ?>
 <?php require('theme/pytheas/head.php'); ?>   
 <body>
-  <div id="wrap" class="container clr">
+  <div id="wrap" class="container clr" style="<?php echo 'width:' . siteWidth; ?>">
     <header id="masthead" class="site-header clr" role="banner">
       <div class="logo">
         <h1><a href="./" rel="home"><?php echo siteName; ?></a></h1>
@@ -47,22 +47,24 @@
             require('theme/pytheas/left.php');
           }
         ?>
-        <div id="mainColumn" class="main-column" style="float:left; <?php echo 'width:' . $mainColWidth . '%;'; ?>">  
-          <div style="padding:0 15px;">
-          <?php  
-            // get the needed view type and show the content
-            if (isset($view) && $view == 'viewContent') {
-              require('theme/pytheas/block/viewContent.php');
-            } else if (isset($view) && $view == 'viewArticle') {
-              require('theme/pytheas/block/viewArticle.php');
-            } else if (isset($view) && $view == 'listPages') {
-              require('theme/pytheas/block/listPages.php');
-            } else if (isset($view) && $view == 'listArticles') {
-              require('theme/pytheas/block/listArticles.php');
-            } else {
-              require('theme/pytheas/block/notFound.php');
-            }
-          ?>
+        <div id="main" class="site-main row clr fitvids" style="float:left; <?php echo 'width:' . $mainColWidth . '%;'; ?>">
+          <div id="primary" class="content-area span_24 row clr">
+            <div id="content" class="site-content" role="main"> 
+              <?php  
+                // get the needed view type and show the content
+                if (isset($view) && $view == 'viewContent') {
+                  require('theme/pytheas/block/viewContent.php');
+                } else if (isset($view) && $view == 'viewArticle') {
+                  require('theme/pytheas/block/viewArticle.php');
+                } else if (isset($view) && $view == 'listPages') {
+                  require('theme/pytheas/block/listPages.php');
+                } else if (isset($view) && $view == 'listArticles') {
+                  require('theme/pytheas/block/listArticles.php');
+                } else {
+                  require('theme/pytheas/block/notFound.php');
+                }
+              ?>
+            </div>
           </div>
         </div>
         <?php  
