@@ -125,6 +125,7 @@ select {
   border-radius:3px;
   -webkit-border-radius:3px;
   -moz-border-radius:3px;
+  background-color: #FFFFFF;
   /*margin-top: 10px; 
   margin-bottom: 10px ;
   box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
