@@ -1,7 +1,19 @@
     <div class="row-fluid">
-      <div class="box span12">
+      <div id="leftNav" class="box span3" style="margin-bottom:15px;">
         <div class="box-header well">
-          <h2><i class="icon-th"></i> Theme Management</h2>
+          <h2><i class="icon-th"></i> Navigation</h2>
+          <div class="box-icon">
+            <i class="icon-chevron-left" onclick="toggleLeftNav();" style="margin:6px 20px 0px -35px; cursor:pointer;" title="Hide Navigation"></i>
+            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+          </div>
+        </div>
+        <div class="box-content">
+          <?php include('inc/menu.php'); ?>  
+        </div>
+      </div>
+      <div id="rightContent" class="box span9">
+        <div class="box-header well">
+          <h2><i class="icon-chevron-right" onclick="toggleLeftNav();" style="display:none; cursor:pointer;" title="Show Navigation"></i><i class="icon-th"></i> Theme Management</h2>
           <div class="box-icon">
             <!--<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>-->
             <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
@@ -32,7 +44,8 @@
           <h3>Current Theme Preview: "<?php echo siteTheme; ?>"</h3>
           <div class="pad-10" align="center">
             <img src="../theme/<?php echo siteTheme . '/' . $curThemeImg; ?>" border="0" />
-          </div>          
+          </div>
+          <br />          
           <ul class="nav nav-tabs" id="currentThemeTab">
             <li class="active"><a href="#themeInfo"><i class="icon-picture"></i> Theme Details</a></li>
             <li><a href="#shortCodes"><i class="icon-cog"></i> Short Codes</a></li>
@@ -66,11 +79,7 @@
             }
           ?>
         </div>
-      </div><!--/span-->
-    </div><!--/row-->    
-    <div style="clear:both;">&nbsp;</div>    
-    <div class="row-fluid">
-      <div class="box span12">
+        <div style="clear:both;">&nbsp;</div>
         <div class="box-header well">
           <h2><i class="icon-th"></i> Available Themes</h2>
           <div class="box-icon">

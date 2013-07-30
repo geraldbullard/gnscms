@@ -92,7 +92,7 @@
               <li class="clr">                                      
                 <a href="#" title="Stamps" class="title"><img src="theme/pytheas/img/SocialStamps-50x50.png" alt="Stamps" /></a>
                 <div class="wpex-recent-posts-content clr">
-                  <a href="http://wpexplorer-demos.com/pytheas/portfolio/stamps/" title="Stamps">Stamps</a>
+                  <a href="#" title="Stamps">Stamps</a>
                   <div class="wpex-widget-recent-posts-date"><i class="icon-time"></i>February 29, 2012</div>
                 </div>
               </li>
