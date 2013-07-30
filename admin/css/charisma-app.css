@@ -162,6 +162,7 @@ select {
   clear:none;
   float:left;
   line-height:25px;
+  margin-left:-5px;
 }
 
 .box-header h3 {
