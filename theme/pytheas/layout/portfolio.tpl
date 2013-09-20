@@ -3,7 +3,7 @@
     <div class="portfolio-content row clr">
       <article class="portfolio type-portfolio status-publish hentry portfolio-entry col span_6 clr-margin">
         <a href="#" title="Designs Slider" rel="bookmark" class="portfolio-entry-img-link">
-          <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/03/Braun-razor-650x400.png" alt="Designs Slider" class="portfolio-entry-img">
+          <img src="theme/pytheas/img/Braun-razor-650x400.png" alt="Designs Slider" class="portfolio-entry-img">
         </a>
         <div class="portfolio-entry-description">
           <h2><a href="#" title="Designs Slider" rel="bookmark">Designs Slider</a></h2>
@@ -12,7 +12,7 @@
       </article>
       <article class="portfolio type-portfolio status-publish hentry portfolio-entry col span_6">
         <a href="#" title="Mustache" rel="bookmark" class="portfolio-entry-img-link">
-          <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/03/mustache-wallpaper-650x400.png" alt="Mustache" class="portfolio-entry-img">
+          <img src="theme/pytheas/img/mustache-wallpaper-650x400.png" alt="Mustache" class="portfolio-entry-img">
         </a>
         <div class="portfolio-entry-description">
           <h2><a href="#" title="Mustache" rel="bookmark">Mustache</a></h2>
@@ -21,7 +21,7 @@
       </article>
       <article class="portfolio type-portfolio status-publish hentry portfolio-entry col span_6">
         <a href="#" title="Stamps" rel="bookmark" class="portfolio-entry-img-link">
-          <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/02/SocialStamps-650x400.png" alt="Stamps" class="portfolio-entry-img">
+          <img src="theme/pytheas/img/SocialStamps-650x400.png" alt="Stamps" class="portfolio-entry-img">
         </a>
         <div class="portfolio-entry-description">
           <h2><a href="#" title="Stamps" rel="bookmark">Stamps</a></h2>
@@ -30,7 +30,7 @@
       </article>
       <article class="portfolio type-portfolio status-publish hentry portfolio-entry col span_6">
         <a href="#" title="Phone Display" rel="bookmark" class="portfolio-entry-img-link">
-          <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/02/iPhone5-wood-650x400.png" alt="Phone Display" class="portfolio-entry-img">
+          <img src="theme/pytheas/img/iPhone5-wood-650x400.png" alt="Phone Display" class="portfolio-entry-img">
         </a>
         <div class="portfolio-entry-description">
           <h2><a href="#" title="Phone Display" rel="bookmark">Phone Display</a></h2>
@@ -40,7 +40,7 @@
       <div class="clr"></div>
       <article class="portfolio type-portfolio status-publish hentry portfolio-entry col span_6 clr-margin">
         <a href="#" title="Hamburger" rel="bookmark" class="portfolio-entry-img-link">
-          <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/02/hamburger-650x400.png" alt="Hamburger" class="portfolio-entry-img">
+          <img src="theme/pytheas/img/hamburger-650x400.png" alt="Hamburger" class="portfolio-entry-img">
         </a>
         <div class="portfolio-entry-description">
           <h2><a href="#" title="Hamburger" rel="bookmark">Hamburger</a></h2>
@@ -49,7 +49,7 @@
       </article>
       <article class="portfolio type-portfolio status-publish hentry portfolio-entry col span_6">
         <a href="#" title="Audio Controls" rel="bookmark" class="portfolio-entry-img-link">
-          <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/02/Flat-audio-Buttons-650x400.png" alt="Audio Controls" class="portfolio-entry-img">
+          <img src="theme/pytheas/img/Flat-audio-Buttons-650x400.png" alt="Audio Controls" class="portfolio-entry-img">
         </a>
         <div class="portfolio-entry-description">
           <h2><a href="#" title="Audio Controls" rel="bookmark">Audio Controls</a></h2>
@@ -58,7 +58,7 @@
       </article>
       <article class="portfolio type-portfolio status-publish hentry portfolio-entry col span_6">
         <a href="#" title="Business Cards" rel="bookmark" class="portfolio-entry-img-link">
-          <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2013/04/smithy-clean-business-card-650x400.png" alt="Business Cards" class="portfolio-entry-img">
+          <img src="theme/pytheas/img/smithy-clean-business-card-650x400.png" alt="Business Cards" class="portfolio-entry-img">
         </a>
         <div class="portfolio-entry-description">
           <h2><a href="#" title="Business Cards" rel="bookmark">Business Cards</a></h2>
@@ -67,7 +67,7 @@
       </article>
       <article class="portfolio type-portfolio status-publish hentry portfolio-entry col span_6">
         <a href="#" title="Many Maps" rel="bookmark" class="portfolio-entry-img-link">
-          <img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2013/04/maps-650x400.png" alt="Many Maps" class="portfolio-entry-img">
+          <img src="theme/pytheas/img/maps-650x400.png" alt="Many Maps" class="portfolio-entry-img">
         </a>
         <div class="portfolio-entry-description">
           <h2><a href="#" title="Many Maps" rel="bookmark">Many Maps</a></h2>

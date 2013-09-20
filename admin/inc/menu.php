@@ -1,3 +1,4 @@
+<<<<<<< HEAD
           <ul class="nav nav-tabs nav-stacked side-menu">
             <li class="nav-header" id="side_content_trigger" onclick="sideContentToggle();">
               <?php
@@ -52,4 +53,15 @@
                 <li><a href="index.php?action=listSetting"<?php echo ($_GET['action'] == 'listSetting') ? ' style="background-color:#222;border:1px solid #222;"' : ''; ?>>Settings</a></li>
               </ul>
             </li>
+=======
+          <ul class="nav nav-tabs nav-stacked main-menu">
+            <li class="nav-header"><i class="icon-th-list"></i> Coming Soon</li>
+            <li><a class="ajax-link" href="#">Link</a></li>
+            <li class="nav-header"><i class="icon-th-list"></i> Coming Soon</li>
+            <li><a class="ajax-link" href="#">Link</a></li>
+            <li><a class="ajax-link" href="#">Link</a></li>
+            <li><a class="ajax-link" href="#">Link</a></li>
+            <li class="nav-header"><i class="icon-th-list"></i> Coming Soon</li>
+            <li><a class="ajax-link" href="#">Link</a></li>
+>>>>>>> 36d67b06a7322f5dd0859e816718a33cca9bd57c
           </ul>

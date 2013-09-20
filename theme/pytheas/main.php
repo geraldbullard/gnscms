@@ -90,9 +90,9 @@
             <h6 class="widget-title">Marketing Projects</h6>
             <ul class="wpex-widget-recent-posts">
               <li class="clr">                                      
-                <a href="http://wpexplorer-demos.com/pytheas/portfolio/stamps/" title="Stamps" class="title"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2012/02/SocialStamps-50x50.png" alt="Stamps" /></a>
+                <a href="#" title="Stamps" class="title"><img src="theme/pytheas/img/SocialStamps-50x50.png" alt="Stamps" /></a>
                 <div class="wpex-recent-posts-content clr">
-                  <a href="http://wpexplorer-demos.com/pytheas/portfolio/stamps/" title="Stamps">Stamps</a>
+                  <a href="#" title="Stamps">Stamps</a>
                   <div class="wpex-widget-recent-posts-date"><i class="icon-time"></i>February 29, 2012</div>
                 </div>
               </li>
@@ -104,9 +104,9 @@
             <h6 class="widget-title">Featured Posts</h6>
             <ul class="wpex-widget-recent-posts">
               <li class="clr">                                     
-                <a href="http://wpexplorer-demos.com/pytheas/events-on-the-horizon/" title="Events On The Horizon" class="title"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/uploads/sites/41/2013/04/photodune-3906712-desert-m-normal-50x50.jpg" alt="Events On The Horizon" /></a>
+                <a href="#" title="Events On The Horizon" class="title"><img src="theme/pytheas/img/photodune-3906712-desert-m-normal-50x50.jpg" alt="Events On The Horizon" /></a>
                 <div class="wpex-recent-posts-content clr">
-                  <a href="http://wpexplorer-demos.com/pytheas/events-on-the-horizon/" title="Events On The Horizon">Events On The Horizon</a>
+                  <a href="#" title="Events On The Horizon">Events On The Horizon</a>
                   <div class="wpex-widget-recent-posts-date"><i class="icon-time"></i>April 25, 2013</div>
                 </div>
               </li>
@@ -117,13 +117,13 @@
           <div class="footer-widget widget_tag_cloud clr">
             <h6 class="widget-title">Tags</h6>
             <div class="tagcloud">
-              <a href='http://wpexplorer-demos.com/pytheas/tag/beautiful/' class='tag-link-5' title='3 topics' style='font-size: 8pt;'>beautiful</a>
-              <a href='http://wpexplorer-demos.com/pytheas/tag/business/' class='tag-link-6' title='3 topics' style='font-size: 8pt;'>business</a>
-              <a href='http://wpexplorer-demos.com/pytheas/tag/free/' class='tag-link-7' title='3 topics' style='font-size: 8pt;'>free</a>
-              <a href='http://wpexplorer-demos.com/pytheas/tag/minimal/' class='tag-link-8' title='3 topics' style='font-size: 8pt;'>minimal</a>
-              <a href='http://wpexplorer-demos.com/pytheas/tag/portfolio/' class='tag-link-9' title='3 topics' style='font-size: 8pt;'>portfolio</a>
-              <a href='http://wpexplorer-demos.com/pytheas/tag/theme/' class='tag-link-11' title='3 topics' style='font-size: 8pt;'>theme</a>
-              <a href='http://wpexplorer-demos.com/pytheas/tag/wordpress/' class='tag-link-12' title='3 topics' style='font-size: 8pt;'>wordpress</a>
+              <a href="#" class="tag-link-5" title="3 topics" style='font-size: 8pt;'>beautiful</a>
+              <a href="#" class="tag-link-6" title='3 topics' style="font-size: 8pt;">business</a>
+              <a href="#" class="tag-link-7" title="3 topics" style="font-size: 8pt;">free</a>
+              <a href="#" class="tag-link-8" title="3 topics" style="font-size: 8pt;">minimal</a>
+              <a href="#" class="tag-link-9" title="3 topics" style="font-size: 8pt;">portfolio</a>
+              <a href="#" class="tag-link-11" title="3 topics" style="font-size: 8pt;">theme</a>
+              <a href="#" class="tag-link-12" title="3 topics" style="font-size: 8pt;">wordpress</a>
             </div>
           </div>                    
         </div>
@@ -136,15 +136,15 @@
       <div id="footer-menu" class="span_12 col">
         <div class="menu-footer-container">
           <ul id="social" class="clr">
-            <li><a href="http://www.twitter.com/wpexplorer" title="twitter" target="_blank"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/themes/Pytheas/images/social/twitter.png" alt="twitter" /></a></li>
-            <li><a href="https://www.facebook.com/WPExplorerThemes" title="facebook" target="_blank"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/themes/Pytheas/images/social/facebook.png" alt="facebook" /></a></li>
-            <li><a href="http://www.pinterest.com/wpexplorer" title="pinterest" target="_blank"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/themes/Pytheas/images/social/pinterest.png" alt="pinterest" /></a></li>
-            <li><a href="http://themeforest.net/user/WPExplorer?ref=wpexplorer" title="envato" target="_blank"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/themes/Pytheas/images/social/envato.png" alt="envato" /></a></li>
-            <li><a href="http://www.wpexplorer.me/pytheas/feed/" title="rss" target="_blank"><img src="http://demoswpex.wpengine.netdna-cdn.com/pytheas/wp-content/themes/Pytheas/images/social/rss.png" alt="rss" /></a></li>
+            <li><a href="#" title="twitter" target="_blank"><img src="theme/pytheas/img/twitter.png" alt="twitter" /></a></li>
+            <li><a href="#" title="facebook" target="_blank"><img src="theme/pytheas/img/facebook.png" alt="facebook" /></a></li>
+            <li><a href="#" title="pinterest" target="_blank"><img src="theme/pytheas/img/pinterest.png" alt="pinterest" /></a></li>
+            <li><a href="#" title="envato" target="_blank"><img src="theme/pytheas/img/envato.png" alt="envato" /></a></li>
+            <li><a href="#" title="rss" target="_blank"><img src="theme/pytheas/img/rss.png" alt="rss" /></a></li>
           </ul>
           <ul id="menu-footer-1" class="menu">
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3822"><a href="http://www.wpexplorer-demos.com/pytheas/">Home</a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3824"><a href="http://wpexplorer-demos.com/pytheas/contact/">Contact</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3822"><a href="#">Home</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3824"><a href="#">Contact</a></li>
             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3823"><a href="#top">Top</a></li>
           </ul>
         </div>
