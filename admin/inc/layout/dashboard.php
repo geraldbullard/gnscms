@@ -118,7 +118,7 @@
                 Core Code Based on: <a href="http://www.elated.com/articles/cms-in-an-afternoon-php-mysql/" title="Core code based on &quot;Build a CMS in an Afternoon with PHP and MySQL&quot; by Matt Doyle" target="_blank">Afternoon CMS</a><br />
                 Admin Powered by: <a href="http://www.usman.it/free-responsive-admin-template" title="Open Source, Mutiple Skin, Fully Responsive Admin Template" target="_blank">Charisma</a><br />
                 File Manager by: <a href="http://www.elfinder.org/" title="File Manager for the Web" target="_blank">elFinder</a><br />
-                Content Editor: <a href="http://akzhan.github.com/jwysiwyg/" title="A new kind of WYSIWYG editor built as a jQuery plugin" target="_blank">jWysiwyg</a>
+                Content Editor: <a href="http://ckeditor.com/" title="CKEditor is a free, Open Source HTML text editor designed to simplify website content creation." target="_blank">CKEditor</a>
               </p>
             </div>
           </div>
