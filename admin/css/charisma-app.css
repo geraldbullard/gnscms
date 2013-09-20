@@ -125,6 +125,7 @@ select {
   border-radius:3px;
   -webkit-border-radius:3px;
   -moz-border-radius:3px;
+  background-color: #FFFFFF;
   /*margin-top: 10px; 
   margin-bottom: 10px ;
   box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
@@ -141,8 +142,8 @@ select {
   -moz-border-radius:3px 3px 0 0;
   height:12px;
   min-height:12px;
-  margin-bottom: 0;
-  cursor:move;
+  margin-bottom: 15px;
+  /*cursor:move;*/
   font-weight:bold;
   font-size:16px;
   background-color: #ffffff !important;
@@ -162,6 +163,7 @@ select {
   clear:none;
   float:left;
   line-height:25px;
+  margin-left:-5px;
 }
 
 .box-header h3 {
@@ -183,10 +185,9 @@ select {
 .box-icon a {
   clear:none;
   float:left;
-  margin:0 2px;
+  margin: -1px -15px 0 0;
   height: 18px;
   width:5px;
-  margin-top: -1px;
 }
 
 .box-icon a i {
@@ -489,8 +490,7 @@ ul.ajax-loaders {
 }
 
 .box-content .nav-tabs {
-  margin-right:-10px;
-  margin-left:-10px;
+  margin:-10px 13px 10px -7px;
 }
 
 #inputIcon {

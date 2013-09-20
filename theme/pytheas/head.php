@@ -28,8 +28,13 @@
   <meta name="viewport" content="width=device-width">
   <meta name="application-name" content="<?php echo htmlspecialchars(siteName); ?>" />
   <meta name="robots" content="<?php echo (isset($results['page']->botAction) && $results['page']->botAction != '') ? $results['page']->botAction : 'index, follow'; ?>" />
-  <link rel='stylesheet' href='theme/pytheas/css/style.css' media='all' />
-  <link rel='stylesheet' href='theme/pytheas/css/font-awesome.min.css' media='all' />
+  <link rel="stylesheet" href="theme/pytheas/css/contact.css" media="all" />
+  <link rel="stylesheet" href="theme/pytheas/css/symple.css" media="all" />
+  <link rel="stylesheet" href="theme/pytheas/css/style.css" media="all" />
+  <link rel="stylesheet" href="theme/pytheas/css/prettyphoto.css" media="all" />
+  <link rel="stylesheet" href="theme/pytheas/css/font-awesome.min.css" media="all" />  
+  <link rel="stylesheet" href="inc/css/fpgallery.css" media="all" />
+  <link rel="stylesheet" href="inc/css/colorbox.css" media="all" />
   <script src="theme/pytheas/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
   <script src='theme/pytheas/js/jquery-1.9.1.min.js'></script>
   <script src='theme/pytheas/js/jquery-migrate-1.2.1.min.js'></script>

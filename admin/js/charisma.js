@@ -578,3 +578,53 @@ function docReady(){
     return false;    
   });
 }
+
+
+function toggleLeftNav() { 
+  var norm = $("#leftNav").is(":visible");
+  if (norm) {
+    $("#leftNav").hide();
+    $("#rightContent").removeClass("span9").addClass("span12").css("margin-left", "0");
+    $("#rightContent .box-header h2 .icon-th:first").hide();
+    $("#rightContent .box-header h2 .icon-chevron-right").show();
+  } else {
+    $("#rightContent .box-header h2 .icon-th:first").show();
+    $("#rightContent .box-header h2 .icon-chevron-right").hide();
+    $("#leftNav").show();
+    $("#rightContent").removeClass("span12").addClass("span9").removeAttr("style");
+  }        
+}
+
+function checkChevronUpDown(el) {
+  var down = $(el).hasClass('icon-chevron-down');
+  if (down) {
+    $(el).removeClass('icon-chevron-down').addClass('icon-chevron-up');   
+  } else {
+    $(el).removeClass('icon-chevron-up').addClass('icon-chevron-down');
+  }  
+}
+
+function sideContentToggle() {
+  checkChevronUpDown($("#contentChevron"));
+  $('#side_content_menu').toggle(300);
+}
+
+function sideAppearanceToggle() {
+  checkChevronUpDown($("#appearanceChevron"));
+  $('#side_appearance_menu').toggle(300);
+}
+
+function sideUsersToggle() {
+  checkChevronUpDown($("#usersChevron"));
+  $('#side_users_menu').toggle(300);
+}
+
+function sideToolsToggle() {
+  checkChevronUpDown($("#toolsChevron"));
+  $('#side_tools_menu').toggle(300);
+}
+
+function sideSettingsToggle() {
+  checkChevronUpDown($("#settingsChevron"));
+  $('#side_settings_menu').toggle(300);
+}

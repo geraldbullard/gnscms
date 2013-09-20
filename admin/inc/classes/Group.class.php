@@ -35,6 +35,12 @@ class Group {
    
 
   /**
+  * @var int The Group Gallery access level
+  */    
+  public $gallery = null;
+   
+
+  /**
   * @var int The Group File Manager access level
   */    
   public $files = null;
@@ -70,6 +76,7 @@ class Group {
     if ( isset( $data['dashboard'] ) ) $this->dashboard = (int) $data['dashboard'];
     if ( isset( $data['content'] ) ) $this->content = (int) $data['content'];
     if ( isset( $data['themes'] ) ) $this->themes = (int) $data['themes'];
+    if ( isset( $data['gallery'] ) ) $this->gallery = (int) $data['gallery'];
     if ( isset( $data['files'] ) ) $this->files = (int) $data['files'];
     if ( isset( $data['settings'] ) ) $this->settings = (int) $data['settings'];
     if ( isset( $data['users'] ) ) $this->users = (int) $data['users'];
@@ -103,13 +110,14 @@ class Group {
       // Insert the Group
       $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
       $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-      $sql = "INSERT INTO " . DB_PREFIX . "groups ( title, dashboard, content, themes, files, settings, users, status ) VALUES ( :title, :dashboard, :content, :themes, :files, :settings, :users, :status )";
+      $sql = "INSERT INTO " . DB_PREFIX . "groups ( title, dashboard, content, themes, gallery, files, settings, users, status ) VALUES ( :title, :dashboard, :content, :themes, :gallery, :files, :settings, :users, :status )";
 
       $st = $conn->prepare( $sql );
       $st->bindValue( "title", $this->title, PDO::PARAM_STR );
       $st->bindValue( "dashboard", $this->dashboard, PDO::PARAM_INT );
       $st->bindValue( "content", $this->content, PDO::PARAM_INT );
       $st->bindValue( "themes", $this->themes, PDO::PARAM_INT );
+      $st->bindValue( "gallery", $this->gallery, PDO::PARAM_INT );
       $st->bindValue( "files", $this->files, PDO::PARAM_INT );
       $st->bindValue( "settings", $this->settings, PDO::PARAM_INT );
       $st->bindValue( "users", $this->users, PDO::PARAM_INT );
@@ -191,13 +199,14 @@ class Group {
     // Update the Group
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $sql = "UPDATE " . DB_PREFIX . "groups SET title = :title, dashboard = :dashboard, content = :content, themes = :themes, files = :files, settings = :settings, users = :users, status = :status WHERE id = :id";
+    $sql = "UPDATE " . DB_PREFIX . "groups SET title = :title, dashboard = :dashboard, content = :content, themes = :themes, gallery = :gallery, files = :files, settings = :settings, users = :users, status = :status WHERE id = :id";
     
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
     $st->bindValue( ":dashboard", $this->dashboard, PDO::PARAM_INT );
     $st->bindValue( ":content", $this->content, PDO::PARAM_INT );
     $st->bindValue( ":themes", $this->themes, PDO::PARAM_INT );
+    $st->bindValue( ":gallery", $this->gallery, PDO::PARAM_INT );
     $st->bindValue( ":files", $this->files, PDO::PARAM_INT );
     $st->bindValue( ":settings", $this->settings, PDO::PARAM_INT );
     $st->bindValue( ":users", $this->users, PDO::PARAM_INT );

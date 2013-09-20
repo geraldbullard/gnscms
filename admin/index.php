@@ -170,6 +170,10 @@
       require('inc/functions/editGroup.php');
       editGroup();
       break;
+    case 'listGallery':
+      require('inc/functions/listGallery.php');
+      listGallery();
+      break;
     case 'dashboard':
       require('inc/functions/dashboard.php');
       dashboard();

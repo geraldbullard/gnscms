@@ -83,8 +83,8 @@
   } else {
     $now = time(); // checking the time now when home page starts 
     if ($now > $_SESSION['sessionExpire']) {
-      $_SESSION['oldURL'] = isset($_GET['action']) ? 'index.php?action=' . $_GET['action'] : '';
       session_destroy();
+      $_SESSION['oldURL'] = isset($_GET['action']) ? 'index.php?action=' . $_GET['action'] : '';
       if (($_SERVER['REQUEST_URI'] != 'login.php') && ($_SERVER['REQUEST_URI'] != $_SESSION['oldURL'])) {
         $_SESSION['oldURL'] = $_SERVER['REQUEST_URI'];    
       }

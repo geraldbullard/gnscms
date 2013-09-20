@@ -1,8 +1,19 @@
-    <!-- List Users -->
     <div class="row-fluid">
-      <div class="box span12">
+      <div id="leftNav" class="box span3" style="margin-bottom:15px;">
         <div class="box-header well">
-          <h2><i class="icon-th"></i> Manage Admin Users</h2>
+          <h2><i class="icon-th"></i> Navigation</h2>
+          <div class="box-icon">
+            <i class="icon-chevron-left" onclick="toggleLeftNav();" style="margin:6px 20px 0px -35px; cursor:pointer;" title="Hide Navigation"></i>
+            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+          </div>
+        </div>
+        <div class="box-content">
+          <?php include('inc/menu.php'); ?>  
+        </div>
+      </div>
+      <div id="rightContent" class="box span9">
+        <div class="box-header well">
+          <h2><i class="icon-chevron-right" onclick="toggleLeftNav();" style="display:none; cursor:pointer;" title="Show Navigation"></i><i class="icon-th"></i> Manage Admin Users</h2>
           <div class="box-icon">
             <!--<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>-->
             <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
@@ -33,11 +44,11 @@
           </div>
           <?php } ?>
           <ul class="nav nav-tabs" id="listUsersTab">
-            <li class="active"><a href="#currentUsers"><i class="icon-cog"></i> Users</a></li>
-            <li><a href="#newUser"><i class="icon icon-color icon-plus"></i> New User</a></li>
+            <li class="active"><a href="#currentUsersTab"><i class="icon-cog"></i> Users</a></li>
+            <li><a href="#newUserTab"><i class="icon icon-color icon-plus"></i> New User</a></li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active" id="currentUsers">
+            <div class="tab-pane active" id="currentUsersTab">
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <tr>
                   <td class="hide-below-480 table-id-head">ID</td>
@@ -81,7 +92,7 @@
               </table>
               <p><strong>( <?php echo $results['totalRows']?> )</strong> user<?php echo ( $results['totalRows'] != 1 ) ? 's' : '' ?> total</p>
             </div>
-            <div class="tab-pane" id="newUser">
+            <div class="tab-pane" id="newUserTab">
               <form action="index.php?action=newUser" method="post" name="newUser" id="newUser">
                 <div class="row-fluid">
                   <div class="span4">
@@ -167,13 +178,8 @@
               </form>
             </div>
           </div>
-        </div>
-      </div><!--/span-->
-    </div><!--/row-->
-    <div><br /></div>
-    <!-- List Groups -->
-    <div class="row-fluid">
-      <div class="box span12">
+        </div> 
+        <div style="clear:both;">&nbsp;</div>
         <div class="box-header well">
           <h2><i class="icon-th"></i> Manage Admin Groups</h2>
           <div class="box-icon">

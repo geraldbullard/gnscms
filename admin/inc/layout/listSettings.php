@@ -1,7 +1,19 @@
     <div class="row-fluid">
-      <div class="box span12">
+      <div id="leftNav" class="box span3" style="margin-bottom:15px;">
         <div class="box-header well">
-          <h2><i class="icon-th"></i> Manage Site Settings</h2>
+          <h2><i class="icon-th"></i> Navigation</h2>
+          <div class="box-icon">
+            <i class="icon-chevron-left" onclick="toggleLeftNav();" style="margin:6px 20px 0px -35px; cursor:pointer;" title="Hide Navigation"></i>
+            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+          </div>
+        </div>
+        <div class="box-content">
+          <?php include('inc/menu.php'); ?>  
+        </div>
+      </div>
+      <div id="rightContent" class="box span9">
+        <div class="box-header well">
+          <h2><i class="icon-chevron-right" onclick="toggleLeftNav();" style="display:none; cursor:pointer;" title="Show Navigation"></i><i class="icon-th"></i> Manage Site Settings</h2>
           <div class="box-icon">
             <!--<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>-->
             <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
@@ -32,11 +44,11 @@
           </div>
           <?php } ?>
           <ul class="nav nav-tabs" id="listSettingsTab">
-            <li class="active"><a href="#currentSettings"><i class="icon-cog"></i> Site Settings</a></li>
-            <li><a href="#newSetting"><i class="icon icon-color icon-plus"></i> New Setting</a></li>
+            <li class="active"><a href="#currentSettingsTab"><i class="icon-cog"></i> Site Settings</a></li>
+            <li><a href="#newSettingTab"><i class="icon icon-color icon-plus"></i> New Setting</a></li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active" id="currentSettings">
+            <div class="tab-pane active" id="currentSettingsTab">
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <tr>
                   <td class="hide-below-480 table-id-head">ID</td>
@@ -91,7 +103,7 @@
               </table>
               <p><strong>( <?php echo $results['totalRows']?> )</strong> setting<?php echo ( $results['totalRows'] != 1 ) ? 's' : '' ?> total</p>
             </div>
-            <div class="tab-pane" id="newSetting">
+            <div class="tab-pane" id="newSettingTab">
               <form action="index.php?action=newSetting" method="post" name="newSetting" id="newSetting">
                 <div class="row-fluid">
                   <div class="span6">

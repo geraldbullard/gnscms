@@ -1,7 +1,19 @@
     <div class="row-fluid">
-      <div class="box span12">
+      <div id="leftNav" class="box span3" style="margin-bottom:15px;">
         <div class="box-header well">
-          <h2><i class="icon-th"></i> Manage Site Content</h2>
+          <h2><i class="icon-th"></i> Navigation</h2>
+          <div class="box-icon">
+            <i class="icon-chevron-left" onclick="toggleLeftNav();" style="margin:6px 20px 0px -35px; cursor:pointer;" title="Hide Navigation"></i>
+            <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+          </div>
+        </div>
+        <div class="box-content">
+          <?php include('inc/menu.php'); ?>  
+        </div>
+      </div>
+      <div id="rightContent" class="box span9">
+        <div class="box-header well">
+          <h2><i class="icon-chevron-right" onclick="toggleLeftNav();" style="display:none; cursor:pointer;" title="Show Navigation"></i><i class="icon-th"></i> Manage Site Content</h2>
           <div class="box-icon">
             <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
           </div>
@@ -24,11 +36,11 @@
           </div>
           <?php } ?>
           <ul class="nav nav-tabs" id="listContentTab">
-            <li class="active"><a href="#currentContent"><i class="icon icon-color icon-book-empty"></i> Current Content</a></li>
-            <li><a href="#newContent"><i class="icon icon-color icon-plus"></i> Add New Content</a></li>
+            <li class="active"><a href="#currentContentTab"><i class="icon icon-color icon-book-empty"></i> Current Content</a></li>
+            <li><a href="#newContentTab"><i class="icon icon-color icon-plus"></i> Add New Content</a></li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active" id="currentContent">
+            <div class="tab-pane active" id="currentContentTab">
               <h4>Content >> <a href="index.php?action=listContent">Top</a> <?php echo (isset($_GET['categoryId']) ? ' > ' : '') . createPath($_GET['categoryId']); ?></h4><br />
               <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable">
                 <thead>
@@ -36,9 +48,9 @@
                     <td class="hide-below-480 table-id-head" style="width:2.5%;">ID</td>
                     <td class="hide-below-480 table-id-head" style="width:2.5%;">Sort</td>
                     <td class="table-title-head">Title</td>
-                    <td class="hide-below-480 table-title-head" style="width:10%;">Index</td>
-                    <td class="hide-below-480 table-title-head" style="width:10%;">Status</td>
-                    <td class="table-title-head" style="text-align:right;" style="width:20%;">Actions</td>
+                    <td class="hide-below-480 table-title-head" style="width:10%;">Index <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></td>
+                    <td class="hide-below-480 table-title-head" style="width:10%;">Status <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></td>
+                    <td class="table-title-head" style="text-align:right;" style="width:20%;">Actions <i class="icon-info-sign" data-rel="popover" data-placement="left" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></td>
                   </tr>
                 </thead>
                 <tbody id="content-list">
@@ -115,10 +127,10 @@
               </div>
               <p><strong>( <?php echo $results['totalCats']; ?> )</strong> categor<?php echo ( $results['totalCats'] != 1 ) ? 'ies' : 'y' ?> and <strong>( <?php echo $results['totalPages']?> )</strong> page<?php echo ( $results['totalPages'] != 1 ) ? 's' : '' ?> total</p>
             </div>
-            <div class="tab-pane" id="newContent">
+            <div class="tab-pane" id="newContentTab">
               <form action="index.php?action=newContent&categoryId=<?php echo (isset($_GET['categoryId']) && $_GET['categoryId'] != '') ? $_GET['categoryId'] : 0; ?>" method="post" name="newContent" id="newContent">
                 <div class="row-fluid">
-                  <label>Content Type</label>
+                  <label>Content Type <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                   <div class="controls" style="margin-left:10px;">
                     <label class="radio">
                       <div class="radio"><span><input type="radio" value="0" id="typeRadio0" name="type" style="opacity: 0;" checked></span></div>
@@ -140,7 +152,7 @@
                 <div class="row-fluid" id="layout_template" style="display:none;">
                   <div class="span8">
                     <div>
-                      <label>Layout Template</label>
+                      <label>Layout Template <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                       <select id="layout" name="layout" onchange="getLayout(this.value);" style="min-width:275px;">
                         <option value="custom">Select a Layout</option>
                         <?php
@@ -158,7 +170,7 @@
                       </select>
                     </div>
                     <div style="display:none; margin-top:10px;" id="layout_preview">
-                      <p>Layout Preview</p>
+                      <p>Layout Preview <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></p>
                       <img src="" style="border:1px solid #ccc; padding:10px; width:255px;" />
                     </div>
                   </div>
@@ -167,55 +179,56 @@
                 <div style="height:10px;"></div>
                 <div class="row-fluid">
                   <div class="span4">
-                    <label>Title</label>
+                    <label>Title <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
+                    
                     <input class="span12" style="width:100%;" type="text" id="contentTitle" name="title" autofocus required />
                   </div>
                 </div>
                 <div class="row-fluid">
                   <div class="span4">
-                    <label>Slug (For Site URL)</label>
+                    <label>Slug (For Site URL) <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                     <input class="span12" style="width:100%;" type="text" id="contentSlug" name="slug" />
                   </div>
                 </div>
                 <div class="row-fluid">
                   <div class="span4">
-                    <label>Menu Title</label>
+                    <label>Menu Title <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                     <input class="span12" style="width:100%;" type="text" id="menuTitle" name="menuTitle" />
                   </div>
                 </div>
                 <div class="row-fluid">
                   <div class="span4">
-                    <label>URL Override</label>
+                    <label>URL Override <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                     <input class="span12" style="width:100%;" type="text" id="override" name="override" />
                   </div>
                 </div>
                 <div class="row-fluid" id="summaryDiv" style="display:none;">
                   <div class="span6">
-                    <label>Summary</label>
+                    <label>Summary <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                     <textarea class="span12" type="text" id="summary" name="summary" style="width:100%;" maxlength="10000"></textarea>
                   </div>
                 </div>
                 <div class="row-fluid" id="contentDiv" style="margin-bottom:10px; display:none;">
                   <div class="span8">
-                    <label>Content</label>
+                    <label>Content <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                     <textarea class="span12 ckeditor" id="content" name="content"></textarea>
                   </div>
                 </div>
                 <div class="row-fluid">
                   <div class="span6">
-                    <label>Meta Description</label>
+                    <label>Meta Description <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                     <textarea class="span12" style="width:100%;" id="metaDescription" name="metaDescription"></textarea>
                   </div>
                 </div>
                 <div class="row-fluid">
                   <div class="span6">
-                    <label>Meta Keywords</label>
+                    <label>Meta Keywords <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                     <textarea class="span12" style="width:100%;" id="metaKeywords" name="metaKeywords"></textarea>
                   </div>
                 </div>
                 <div class="row-fluid">
                   <div class="span6">
-                      <label>Bot Actions</label>
+                      <label>Bot Actions <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                       <input type="checkbox" id="botAction1" name="botAction1" checked />Index this page<br>
                       <input type="checkbox" id="botAction2" name="botAction2" checked />Follow links on this page
                   </div>
@@ -223,7 +236,7 @@
                 <div class="row-fluid">&nbsp;</div>
                 <div class="row-fluid">
                   <div class="span6">
-                      <label>Show in Menu</label>
+                      <label>Show in Menu <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                       <input type="checkbox" id="menu" name="menu" checked />Show In Menu
                   </div>
                 </div>

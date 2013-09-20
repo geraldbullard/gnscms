@@ -101,6 +101,7 @@
                                                                                   dashboard tinyint(1) unsigned NOT NULL DEFAULT '1',
                                                                                   content tinyint(1) unsigned NOT NULL DEFAULT '1',
                                                                                   themes tinyint(1) unsigned NOT NULL DEFAULT '1',
+                                                                                  gallery tinyint(1) unsigned NOT NULL DEFAULT '1',
                                                                                   files tinyint(1) unsigned NOT NULL DEFAULT '1',
                                                                                   settings tinyint(1) unsigned NOT NULL DEFAULT '1',
                                                                                   users tinyint(1) unsigned NOT NULL DEFAULT '1',
@@ -143,8 +144,8 @@
                 @mysql_query("INSERT INTO " . DB_PREFIX . "users (id, firstname, lastname, email, username, password, gender, usergroup, status) VALUES 
                                                                  (1, '" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $username . "', '" . $password . "', '" . $gender . "', 1, 1);") != 0 && 
                 @mysql_query("INSERT INTO " . DB_PREFIX . "groups (id, title, dashboard, content, themes, files, settings, users, status) VALUES 
-                                                                  (1, 'Top Administrator', 4, 4, 4, 4, 4, 4, 1), 
-                                                                  (2, 'Webmaster', 4, 4, 3, 4, 3, 1, 1);")) 
+                                                                  (1, 'Top Administrator', 4, 4, 4, 4, 4, 4, 4, 1), 
+                                                                  (2, 'Webmaster', 4, 4, 3, 4, 4, 3, 1, 1);")) 
                 {
                 $completed = true;
             } else {
