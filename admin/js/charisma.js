@@ -592,8 +592,7 @@ function toggleLeftNav() {
     $("#rightContent .box-header h2 .icon-chevron-right").hide();
     $("#leftNav").show();
     $("#rightContent").removeClass("span12").addClass("span9").removeAttr("style");
-  }        
-<<<<<<< HEAD
+  }
 }
 
 function checkChevronUpDown(el) {
@@ -628,6 +627,4 @@ function sideToolsToggle() {
 function sideSettingsToggle() {
   checkChevronUpDown($("#settingsChevron"));
   $('#side_settings_menu').toggle(300);
-=======
->>>>>>> 36d67b06a7322f5dd0859e816718a33cca9bd57c
 }
