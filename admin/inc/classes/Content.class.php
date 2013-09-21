@@ -203,7 +203,7 @@ class Content {
       } else if ($item->type == 1) {
         $pages[] = $item->id;
       }
-    }     
+    } 
     
     $conn = null;
     
