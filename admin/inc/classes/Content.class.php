@@ -197,12 +197,17 @@ class Content {
     }
  
     // Now get the total number of content objects that matched the criteria
-    $sql = "SELECT FOUND_ROWS() AS totalRows";
-    $totalRows = $conn->query( $sql )->fetch();
+    foreach ($list as $item) {
+      if ($item->type == 0) {
+        $cats[] = $item->id;
+      } else if ($item->type == 1) {
+        $pages[] = $item->id;
+      }
+    }     
     
     $conn = null;
     
-    return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );
+    return ( array ( "results" => $list, "totalCats" => count($cats),  "totalPages" => count($pages) ) );
   }
  
  
@@ -231,12 +236,17 @@ class Content {
     }
  
     // Now get the total number of content objects that matched the criteria
-    $sql = "SELECT FOUND_ROWS() AS totalRows";
-    $totalRows = $conn->query( $sql )->fetch();
+    foreach ($list as $item) {
+      if ($item->type == 0) {
+        $cats[] = $item->id;
+      } else if ($item->type == 1) {
+        $pages[] = $item->id;
+      }
+    }     
     
     $conn = null;
     
-    return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );
+    return ( array ( "results" => $list, "totalCats" => count($cats),  "totalPages" => count($pages) ) );
   }
  
  
@@ -265,13 +275,18 @@ class Content {
       $list[] = $content;
     }
  
-    // Now get the total number of items that matched the criteria
-    $sql = "SELECT FOUND_ROWS() AS totalRows";
-    $totalRows = $conn->query( $sql )->fetch();
+    // Now get the total number of content objects that matched the criteria
+    foreach ($list as $item) {
+      if ($item->type == 0) {
+        $cats[] = $item->id;
+      } else if ($item->type == 1) {
+        $pages[] = $item->id;
+      }
+    }     
     
     $conn = null;
     
-    return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );
+    return ( array ( "results" => $list, "totalCats" => count($cats),  "totalPages" => count($pages) ) );
   }
  
  
