@@ -2,6 +2,17 @@
   // get and list the needed content data
   function listContent() {
     global $lang;
+    $page_lang = scandir('inc/lang/' . $_SESSION['lang']);
+    foreach ($page_lang as $file) {
+      if ($file != '.' && $file != '..') {
+        $parts = explode(".", $file); 
+        $page = $parts[0];
+        if ($page == 'content') {
+          $page_file = $file;
+        }
+      }
+    }
+    include_once('inc/lang/' . $_SESSION['lang'] . '/' . $page_file);
     if ($_SESSION['access']->content > 0) {
       $results = array();
       if (isset($_GET['categoryId']) && $_GET['categoryId'] != '' && $_GET['categoryId'] != 0) {

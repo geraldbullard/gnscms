@@ -1,6 +1,5 @@
 <?php 
   function newUser() {
-    global $lang;
     if ( isset( $_POST['saveChanges'] ) ) {
       $results = array();
       $results['pageTitle'] = 'New User';

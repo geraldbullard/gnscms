@@ -1,4 +1,3 @@
-<?php echo '[' . $lang['afternoon_cms'] . ']'; ?>
     <div class="row-fluid">
       <div id="leftNav" class="box span3" style="margin-bottom:15px;">
         <div class="box-header well">

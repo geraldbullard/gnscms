@@ -1,6 +1,5 @@
 <?php
   function copyContent() {
-    global $lang;
     if ( isset( $_POST['saveChanges'] ) ) {
       $_POST['categoryId'] = $_POST['copyId'];
       $_POST['id'] = $_POST['contentId'];

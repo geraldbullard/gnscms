@@ -17,7 +17,6 @@
   */
 
   /* Common */
-  $lang = array();
   $lang['afternoon_cms'] = 'Afternoon CMS';
   $lang['charisma'] = 'Charisma';
   $lang['content'] = 'Content';

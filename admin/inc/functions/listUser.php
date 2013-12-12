@@ -1,6 +1,17 @@
 <?php
   function listUser() {
     global $lang;
+    $page_lang = scandir('inc/lang/' . $_SESSION['lang']);
+    foreach ($page_lang as $file) {
+      if ($file != '.' && $file != '..') {
+        $parts = explode(".", $file); 
+        $page = $parts[0];
+        if ($page == 'user') {
+          $page_file = $file;
+        }
+      }
+    }
+    include_once('inc/lang/' . $_SESSION['lang'] . '/' . $page_file);
     if ($_SESSION['access']->users > 0) {
       $results = array();
       $gResults = array();

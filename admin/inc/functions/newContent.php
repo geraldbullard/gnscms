@@ -1,6 +1,5 @@
 <?php
   function newContent() {
-    global $lang;
     if ( isset( $_POST['saveChanges'] ) ) {
       ($_POST['botAction1'] == 'on') ? $botAction1 = 'index' : $botAction1 = 'noindex';
       ($_POST['botAction2'] == 'on') ? $botAction2 = 'follow' : $botAction2 = 'nofollow';
