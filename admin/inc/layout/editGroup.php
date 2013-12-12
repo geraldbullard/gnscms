@@ -69,6 +69,22 @@
               <div class="row-fluid">&nbsp;</div>
               <div class="row-fluid">
                 <div class="span6">
+                  <label>Gallery Access</label>
+                  <div class="access-slider">
+                    <div style="height:25px;">
+                      <div style="width:25%;float:right;text-align:right;margin-right:-21px;">Delete</div>
+                      <div style="width:25%;float:right;text-align:right;margin-right:3px;">Insert</div>
+                      <div style="width:25%;float:right;text-align:right;margin-right:5px;">Edit</div>
+                      <div style="width:25%;float:right;text-align:right;margin-right:-3px;">View</div>
+                      <div style="width:0;float:right;position:relative;left:-28px;">None</div>
+                    </div>
+                    <div id="accessSliderGallery" style="clear:both;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row-fluid">&nbsp;</div>
+              <div class="row-fluid">
+                <div class="span6">
                   <label>File Manager Access</label>
                   <div class="access-slider">
                     <div style="height:25px;">
@@ -119,6 +135,7 @@
               <input type="hidden" value="<?php echo $results['group']->dashboard; ?>" name="dashboard" id="dashboard" />
               <input type="hidden" value="<?php echo $results['group']->content; ?>" name="content" id="content" />
               <input type="hidden" value="<?php echo $results['group']->themes; ?>" name="themes" id="themes" />
+              <input type="hidden" value="<?php echo $results['group']->gallery; ?>" name="gallery" id="gallery" />
               <input type="hidden" value="<?php echo $results['group']->files; ?>" name="files" id="files" />
               <input type="hidden" value="<?php echo $results['group']->settings; ?>" name="settings" id="settings" />
               <input type="hidden" value="<?php echo $results['group']->users; ?>" name="users" id="users" />
@@ -155,6 +172,17 @@
         $themesSlider = '25';
       } else if ($results['group']->themes == 0) {
         $themesSlider = '0';
+      }
+      if ($results['group']->gallery == 4) {
+        $gallerySlider = '100';
+      } else if ($results['group']->gallery == 3) {
+        $gallerySlider = '75';
+      } else if ($results['group']->gallery == 2) {
+        $gallerySlider = '50';
+      } else if ($results['group']->gallery == 1) {
+        $gallerySlider = '25';
+      } else if ($results['group']->gallery == 0) {
+        $gallerySlider = '0';
       }
       if ($results['group']->files == 4) {
         $filesSlider = '100';
@@ -226,6 +254,19 @@
         $("#accessSliderThemes a:first").remove();
         $("#accessSliderThemes .ui-slider-range").css("left", "0%").css("width", "<?php echo $themesSlider; ?>%");        
         $("#accessSliderThemes .ui-slider-handle").css("left", "<?php echo $themesSlider; ?>%");        
+        $("#accessSliderGallery").slider({
+          range: true,
+          max: 4,
+          slide: function(event, ui) {
+            if (!allowedAccessValues[ui.value]) return false;
+          },
+          change: function(event, ui){
+            $("#gallery").val(ui.value);
+          }
+        });    
+        $("#accessSliderGallery a:first").remove();
+        $("#accessSliderGallery .ui-slider-range").css("left", "0%").css("width", "<?php echo $gallerySlider; ?>%");        
+        $("#accessSliderGallery .ui-slider-handle").css("left", "<?php echo $gallerySlider; ?>%");        
         $("#accessSliderFileManager").slider({
           range: true,
           max: 4,
