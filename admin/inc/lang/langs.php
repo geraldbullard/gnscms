@@ -1,4 +1,8 @@
-<?php 
+<?php
+ /**
+  * Languages Array
+  */
+  
   $all_langs = array(
     'aa' => 'Afar',
     'ab' => 'Abkhaz',
@@ -183,6 +187,6 @@
     'yo' => 'Yoruba',
     'za' => 'Zhuang',
     'zh' => 'Chinese',
-    'zu' => 'Zulu',
+    'zu' => 'Zulu'
   );
 ?>

@@ -1,5 +1,6 @@
 <?php
   function siteIndex() {
+    global $lang;
     if ( isset( $_POST['siteIndex'] ) ) {
       $content = new Content;
       $content->storeFormValues( $_POST );

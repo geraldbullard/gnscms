@@ -1,5 +1,6 @@
 <?php
   function activateTheme() {
+    global $lang;
     if ( isset( $_GET['value'] ) ) {
       $setting = new Setting;
       $setting->storeFormValues( $_GET );

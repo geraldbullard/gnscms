@@ -1,10 +1,23 @@
 <?php
-  /*------------------
-   Language: English
-  ------------------*/
+ /**
+  * Language: English
+  *  
+  * 
+  * SECTIONS:
+  * 
+  * 1. Common
+  * 2. Content
+  * 3. Dashboard
+  * 4. File Manager
+  * 5. Gallery
+  * 6. Settings
+  * 7. Themes
+  * 8. Users 
+  * 
+  */
 
+  /* Common */
   $lang = array();
-  $lang['language'] = 'English';
   $lang['afternoon_cms'] = 'Afternoon CMS';
   $lang['charisma'] = 'Charisma';
   $lang['content'] = 'Content';
@@ -15,6 +28,7 @@
   $lang['dashboard'] = 'Dashboard';
   $lang['file_manager'] = 'File Manager';
   $lang['gnscms'] = 'gnsCMS';
+  $lang['language'] = 'English';
   $lang['logout'] = 'Logout';
   $lang['manage_content'] = 'Manage Content';
   $lang['manage_files'] = 'Manage Files';
@@ -30,5 +44,4 @@
   $lang['view_dashboard'] = 'View Dashboard';
   $lang['view_site'] = 'View Site';
   $lang['view_site_new_window'] = 'View Site in New Window';
-  //$lang[''] = '';
 ?>

@@ -1,5 +1,6 @@
 <?php
   function editContent() {
+    global $lang;
     if ($_SESSION['access']->content > 1) {
       $results = array();
       if ( isset( $_POST['saveChanges'] ) ) {

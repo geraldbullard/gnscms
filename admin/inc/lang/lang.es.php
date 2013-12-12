@@ -1,10 +1,23 @@
 <?php
-  /*------------------
-   Language: Espanol
-  ------------------*/
+ /**
+  * Language: Español
+  *  
+  * 
+  * SECTIONS:
+  * 
+  * 1. Común
+  * 2. Contenido
+  * 3. Salpicadero
+  * 4. Administrador de Archivos
+  * 5. Galería
+  * 6. Ajustes
+  * 7. Temas
+  * 8. Usuarios 
+  * 
+  */
 
+  /* Common Lang Defines */
   $lang = array();
-  $lang['language'] = 'Espanol';
   $lang['afternoon_cms'] = 'Afternoon CMS';
   $lang['charisma'] = 'Charisma';
   $lang['content'] = 'Contenido';
@@ -15,6 +28,7 @@
   $lang['dashboard'] = 'Salpicadero';
   $lang['file_manager'] = 'Administrador de Archivos';
   $lang['gnscms'] = 'gnsCMS';
+  $lang['language'] = 'Español';
   $lang['logout'] = 'Cierre de Sesion';
   $lang['manage_content'] = 'Administrar el Contenido';
   $lang['manage_files'] = 'Administrar Archivos';
@@ -30,5 +44,5 @@
   $lang['view_dashboard'] = 'Ver Salpicadero';
   $lang['view_site'] = 'Ver la Pagina';
   $lang['view_site_new_window'] = 'Ver la Pagina en una Nueva Ventana';
-  //$lang[''] = '';
+  
 ?>

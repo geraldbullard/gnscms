@@ -1,10 +1,23 @@
 <?php
-  /*------------------
-   Language: German
-  ------------------*/
+ /**
+  * Language: Deutsch
+  *  
+  * 
+  * SECTIONS:
+  * 
+  * 1. Gemeinsam
+  * 2. Inhalt
+  * 3. Armaturenbrett
+  * 4. Galerie
+  * 5. Datei Manager
+  * 6. Einstellungen
+  * 7. Themen
+  * 8. Benutzer 
+  * 
+  */
 
+  /* Common Lang Defines */
   $lang = array();
-  $lang['language'] = 'German';
   $lang['afternoon_cms'] = 'Afternoon CMS';
   $lang['charisma'] = 'Charisma';
   $lang['content'] = 'Inhalt';
@@ -15,6 +28,7 @@
   $lang['dashboard'] = 'Armaturenbrett';
   $lang['file_manager'] = 'Datei Manager';
   $lang['gnscms'] = 'gnsCMS';
+  $lang['language'] = 'Deutsch';
   $lang['logout'] = 'Abmelden';
   $lang['manage_content'] = 'Verwaltung von Inhalten';
   $lang['manage_files'] = 'Verwalten von Dateien';
@@ -30,5 +44,5 @@
   $lang['view_dashboard'] = 'Dashboard Anzeigen';
   $lang['view_site'] = 'Website Sehen';
   $lang['view_site_new_window'] = 'Seite in Neuem Fenster Offnen';
-  //$lang[''] = '';
+  
 ?>

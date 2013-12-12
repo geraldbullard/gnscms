@@ -1,10 +1,23 @@
 <?php
-  /*------------------
-   Language: French
-  ------------------*/
+ /**
+  * Language: French
+  *  
+  * 
+  * SECTIONS:
+  * 
+  * 1. Commun
+  * 2. Contenu
+  * 3. Tableau de Bord
+  * 4. Galerie
+  * 5. Gestionnaire de Fichiers
+  * 6. Reglages
+  * 7. Themes
+  * 8. Utilisateurs 
+  * 
+  */
 
+  /* Common Lang Defines */
   $lang = array(); 
-  $lang['language'] = 'French';
   $lang['afternoon_cms'] = 'Afternoon CMS';
   $lang['charisma'] = 'Charisma';
   $lang['content'] = 'Contenu';
@@ -15,6 +28,7 @@
   $lang['dashboard'] = 'Tableau de Bord';
   $lang['file_manager'] = 'Gestionnaire de Fichiers';
   $lang['gnscms'] = 'gnsCMS';
+  $lang['language'] = 'French';
   $lang['logout'] = 'Deconnexion';
   $lang['manage_content'] = 'Gerer le Contenu';
   $lang['manage_files'] = 'Gerer les Fichiers';
@@ -30,5 +44,5 @@
   $lang['view_dashboard'] = 'Vior Tableau de Bord';
   $lang['view_site'] = 'Voir le Site';
   $lang['view_site_new_window'] = 'Voir le Site dans une Nouvelle Fenetre';
-  //$lang[''] = '';
+  
 ?>

@@ -1,5 +1,6 @@
 <?php
   function editSetting() {
+    global $lang;
     if ($_SESSION['access']->settings > 1) {
       $results = array();
       $results['pageTitle'] = "Edit Setting";

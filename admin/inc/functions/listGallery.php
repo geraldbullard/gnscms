@@ -1,6 +1,7 @@
 <?php
   // get and list the needed gallery data
   function listGallery() {
+    global $lang;
     if ($_SESSION['access']->gallery > 0) {
       /*$results = array();
       if (isset($_GET['albumId']) && $_GET['albumId'] != '' && $_GET['albumId'] != 0) {

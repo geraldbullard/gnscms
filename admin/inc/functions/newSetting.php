@@ -1,5 +1,6 @@
 <?php 
   function newSetting() {
+    global $lang;
     $results = array();
     $results['pageTitle'] = 'New Setting';
     $results['formAction'] = 'newSetting';

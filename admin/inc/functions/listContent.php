@@ -1,6 +1,7 @@
 <?php
   // get and list the needed content data
   function listContent() {
+    global $lang;
     if ($_SESSION['access']->content > 0) {
       $results = array();
       if (isset($_GET['categoryId']) && $_GET['categoryId'] != '' && $_GET['categoryId'] != 0) {

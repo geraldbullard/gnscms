@@ -1,5 +1,6 @@
 <?php
   function listSettings() {
+    global $lang;
     if ($_SESSION['access']->settings > 0) {
       $results = array();
       $data = Setting::getSetting();

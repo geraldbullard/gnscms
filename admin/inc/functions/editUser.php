@@ -1,5 +1,6 @@
 <?php
   function editUser() {
+    global $lang;
     if ($_SESSION['access']->users > 1) {
       $results = array();
       $results['formAction'] = "editUser";

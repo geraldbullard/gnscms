@@ -1,5 +1,6 @@
 <?php
   function listUser() {
+    global $lang;
     if ($_SESSION['access']->users > 0) {
       $results = array();
       $gResults = array();

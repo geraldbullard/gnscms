@@ -1,5 +1,6 @@
 <?php
   function moveContent() {
+    global $lang;
     if ( isset( $_POST['saveChanges'] ) ) {
       $_POST['categoryId'] = $_POST['moveId'];
       $_POST['id'] = $_POST['contentId'];

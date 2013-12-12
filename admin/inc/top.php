@@ -46,10 +46,10 @@
       }
     }
   }
-  include_once 'inc/lang/' . $lang_file;
+  require_once('inc/lang/' . $lang_file);
   $_SESSION['langs_array'] = $langs_array;
-  include_once 'inc/lang/langs.php';
-  $_SESSION['all_langs'] = $all_langs; 
+  require_once('inc/lang/langs.php');
+  $_SESSION['all_langs'] = $all_langs;
   
   mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
   mysql_select_db(DB_NAME);

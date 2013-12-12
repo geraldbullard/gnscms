@@ -1,5 +1,6 @@
 <?php
   function editGroup() {
+    global $lang;
     if ($_SESSION['access']->users > 1) {
       $results = array();
       $results['formAction'] = "editGroup";
