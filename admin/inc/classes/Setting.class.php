@@ -126,12 +126,9 @@ class Setting {
       $list[] = $setting;
     }
 
-    // Now get the total number of settings that matched the criteria
-    $totalRows = $pdo->prepare( "SELECT FOUND_ROWS() AS totalRows" )->fetch();
-    
     $pdo = null;
     
-    return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );
+    return ( array ( "results" => $list, "totalRows" => count($list) ) );
     
   }
 

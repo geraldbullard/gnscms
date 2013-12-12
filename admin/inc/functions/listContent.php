@@ -9,7 +9,8 @@
         $cData = Content::getTopList();
       }
       $results['content'] = $cData['results'];
-      $results['totalCats'] = $cData['totalRows'];
+      $results['totalCats'] = $cData['totalCats'];
+      $results['totalPages'] = $cData['totalPages'];
       if ( isset( $_GET['error'] ) ) {
         if ( $_GET['error'] == "pageNotFound" ) $results['errorMessage'] = "Error: Page not found.";
         if ( $_GET['error'] == "categoryNotFound" ) $results['errorMessage'] = "Error: Category not found.";

@@ -36,7 +36,7 @@
       $f = @fopen("inc/config.php", "w+");
       $database_inf = "<?php
   // DATABASE CONNECTION INFORMATION ///////////////////////////////////////////////////////////
-  ini_set('display_errors', true);
+  ini_set('display_errors', false);
   define('DB_DSN', 'mysql:host=" . $database_host . ";dbname=" . $database_name . "');
   date_default_timezone_set('US/Eastern');                     // http://www.php.net/manual/en/timezones.php later add to install as dropdown option
   define('DB_HOST', '" . $database_host . "');                 // Database host
@@ -143,7 +143,7 @@
                                                                     (12, 'sitemapChangeFrequency', 'Sitemap Change Frequency', 'The Content Change Frequency for the Sitemap Generation (always, hourly, daily, weekly, monthly, yearly, never)', 'daily', 0, 0);") != 0 &&
                 @mysql_query("INSERT INTO " . DB_PREFIX . "users (id, firstname, lastname, email, username, password, gender, usergroup, status) VALUES 
                                                                  (1, '" . $firstname . "', '" . $lastname . "', '" . $email . "', '" . $username . "', '" . $password . "', '" . $gender . "', 1, 1);") != 0 && 
-                @mysql_query("INSERT INTO " . DB_PREFIX . "groups (id, title, dashboard, content, themes, files, settings, users, status) VALUES 
+                @mysql_query("INSERT INTO " . DB_PREFIX . "groups (id, title, dashboard, content, themes, gallery, files, settings, users, status) VALUES 
                                                                   (1, 'Top Administrator', 4, 4, 4, 4, 4, 4, 4, 1), 
                                                                   (2, 'Webmaster', 4, 4, 3, 4, 4, 3, 1, 1);")) 
                 {

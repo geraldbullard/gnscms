@@ -2704,6 +2704,9 @@ input[type="submit"].btn.btn-mini {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);*/
   text-transform: uppercase;
 }
+.nav .nav-header span {
+  cursor: pointer;
+}
 .nav li + .nav-header {
   /*margin-top: 9px;*/
 }
@@ -2779,7 +2782,6 @@ input[type="submit"].btn.btn-mini {
 }
 .nav-tabs > li {
   margin-bottom: -1px;
-  cursor: pointer;
 }
 .nav-tabs > li > a {
   padding-top: 8px;
