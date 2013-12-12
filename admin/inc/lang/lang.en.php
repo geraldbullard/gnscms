@@ -1,19 +1,6 @@
 <?php
  /**
   * Language: English
-  *  
-  * 
-  * SECTIONS:
-  * 
-  * 1. Common
-  * 2. Content
-  * 3. Dashboard
-  * 4. File Manager
-  * 5. Gallery
-  * 6. Settings
-  * 7. Themes
-  * 8. Users 
-  * 
   */
 
   /* Common */
@@ -26,7 +13,9 @@
   $lang['core_code_title'] = 'Core code based on "Build a CMS in an Afternoon with PHP and MySQL" by Matt Doyle'; 
   $lang['dashboard'] = 'Dashboard';
   $lang['file_manager'] = 'File Manager';
+  $lang['gallery'] = 'Gallery';
   $lang['gnscms'] = 'gnsCMS';
+  $lang['group'] = 'Group';
   $lang['language'] = 'English';
   $lang['logout'] = 'Logout';
   $lang['manage_content'] = 'Manage Content';

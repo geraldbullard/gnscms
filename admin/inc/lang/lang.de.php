@@ -1,23 +1,9 @@
 <?php
  /**
   * Language: Deutsch
-  *  
-  * 
-  * SECTIONS:
-  * 
-  * 1. Gemeinsam
-  * 2. Inhalt
-  * 3. Armaturenbrett
-  * 4. Galerie
-  * 5. Datei Manager
-  * 6. Einstellungen
-  * 7. Themen
-  * 8. Benutzer 
-  * 
   */
 
-  /* Common Lang Defines */
-  $lang = array();
+  /* Gemeinsam */
   $lang['afternoon_cms'] = 'Afternoon CMS';
   $lang['charisma'] = 'Charisma';
   $lang['content'] = 'Inhalt';
@@ -27,7 +13,9 @@
   $lang['core_code_title'] = 'Kern code auf "Bauen sie ein CMS an einem nachmittag mit PHP und MySQL" von Matt Doyle'; 
   $lang['dashboard'] = 'Armaturenbrett';
   $lang['file_manager'] = 'Datei Manager';
+  $lang['gallery'] = 'Galerie';
   $lang['gnscms'] = 'gnsCMS';
+  $lang['group'] = 'Gruppe';
   $lang['language'] = 'Deutsch';
   $lang['logout'] = 'Abmelden';
   $lang['manage_content'] = 'Verwaltung von Inhalten';
@@ -43,6 +31,5 @@
   $lang['users'] = 'Benutzer';
   $lang['view_dashboard'] = 'Dashboard Anzeigen';
   $lang['view_site'] = 'Website Sehen';
-  $lang['view_site_new_window'] = 'Seite in Neuem Fenster Offnen';
-  
+  $lang['view_site_new_window'] = 'Seite in Neuem Fenster Offnen';  
 ?>
