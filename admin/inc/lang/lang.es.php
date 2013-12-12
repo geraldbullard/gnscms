@@ -23,6 +23,7 @@
   $lang['manage_settings'] = 'Administrar la Configuracion';
   $lang['manage_themes'] = 'Administrar Temas';
   $lang['manage_users'] = 'Administrar Usuarios';
+  $lang['navigation'] = utf8_encode('Navegación');
   $lang['powered_by'] = 'Administrador Impulsado por';
   $lang['powered_by_title'] = 'de Codigo Abierto, la Piel Mutiple, Plantilla de Administracion Responda Plenamente';
   $lang['settings'] = 'Ajustes';

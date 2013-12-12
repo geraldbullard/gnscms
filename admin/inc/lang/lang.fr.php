@@ -23,6 +23,7 @@
   $lang['manage_settings'] = 'Gerer les Parametres';
   $lang['manage_themes'] = 'Gerer les Themes';
   $lang['manage_users'] = 'Gerer les Utilisateurs';
+  $lang['navigation'] = 'Navigation';
   $lang['powered_by'] = 'Administrateur Alimente par';
   $lang['powered_by_title'] = 'Open Source, la Peau Mutiple, Modele d\'Administration de Repondre Pleinement';
   $lang['settings'] = 'Reglages';

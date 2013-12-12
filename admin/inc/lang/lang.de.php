@@ -23,6 +23,7 @@
   $lang['manage_settings'] = 'Verwalten von Einstellungen';
   $lang['manage_themes'] = 'Verwalten von Themen';
   $lang['manage_users'] = 'Verwalten von Benutzern';
+  $lang['navigation'] = 'Navigation';
   $lang['powered_by'] = 'Admin Angetrieben';
   $lang['powered_by_title'] = 'Open Source, Mutiple Haut, Vollständig Reagiert Admin Template';
   $lang['settings'] = 'Einstellungen';
