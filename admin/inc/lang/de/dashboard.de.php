@@ -4,5 +4,5 @@
   */
 
   /* Armaturenbrett */
-  //$lang['dashboard_'] = '';
+  $lang['dashboard_testing'] = 'Testen';
 ?>

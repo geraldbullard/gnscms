@@ -13,10 +13,10 @@
   $lang['core_code_title'] = 'Codigo del Nucleo basada en "Construir un CMS en una tarde con PHP y MySQL" por Matt Doyle'; 
   $lang['dashboard'] = 'Salpicadero';
   $lang['file_manager'] = 'Administrador de Archivos';
-  $lang['gallery'] = 'Galería';
+  $lang['gallery'] = utf8_encode('Galería');
   $lang['gnscms'] = 'gnsCMS';
   $lang['group'] = 'Grupo';
-  $lang['language'] = 'Español';
+  $lang['language'] = utf8_encode('Español');
   $lang['logout'] = 'Cierre de Sesion';
   $lang['manage_content'] = 'Administrar el Contenido';
   $lang['manage_files'] = 'Administrar Archivos';

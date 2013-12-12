@@ -4,5 +4,5 @@
   */
 
   /* Dashboard */
-  //$lang['dashboard_'] = '';
+  $lang['dashboard_testing'] = 'Testing';
 ?>

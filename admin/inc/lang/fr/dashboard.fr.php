@@ -4,5 +4,5 @@
   */
 
   /* Tableau de Bord */
-  //$lang['dashboard_'] = '';
+  $lang['dashboard_testing'] = utf8_encode('Expérimentation');
 ?>
