@@ -49,4 +49,6 @@
   <script src="theme/pytheas/js/symple_tabs.js"></script>
   <script src="inc/js/fpgallery.js"></script>
   <script src="inc/js/jquery.colorbox-min.js"></script>
-
+  <?php
+    echo $gns_RCI->get('templatebottom', 'add');
+  ?>

@@ -13,9 +13,10 @@
    * 
    */
    require('theme/pytheas/func.php');
+   echo $gns_RCI->get('maintop', 'add');
 ?>
 <?php require('theme/pytheas/head.php'); ?>   
-<body>
+<body<?php echo $gns_RCI->get('body', 'add'); ?>>
   <div id="wrap" class="container clr" style="<?php echo 'width:' . siteWidth; ?>">
     <header id="masthead" class="site-header clr" role="banner">
       <div class="logo">
@@ -50,7 +51,8 @@
         <div id="main" class="site-main row clr fitvids" style="float:left; <?php echo 'width:' . $mainColWidth . '%;'; ?>">
           <div id="primary" class="content-area span_24 row clr">
             <div id="content" class="site-content" role="main"> 
-              <?php  
+              <?php
+                echo $gns_RCI->get('contenttop', 'add');  
                 // get the needed view type and show the content
                 if (isset($view) && $view == 'viewContent') {
                   require('theme/pytheas/block/viewContent.php');
@@ -63,6 +65,7 @@
                 } else {
                   require('theme/pytheas/block/notFound.php');
                 }
+                echo $gns_RCI->get('contentbottom', 'add');
               ?>
             </div>
           </div>
@@ -151,6 +154,9 @@
       </div>
     </div>
   </div>  
-  <?php require('theme/pytheas/bottom.php'); ?>
+  <?php 
+    echo $gns_RCI->get('mainbottom', 'add');
+    require('theme/pytheas/bottom.php'); 
+  ?>
 </body>
 </html>

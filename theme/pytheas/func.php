@@ -12,6 +12,7 @@
   * Copyright © 2012 3G Development. All rights reserved.
   *  
   */
+  
   function isParent( $id = 0 ) {    
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD ); 
     $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -39,5 +40,7 @@
     } else {
       return '';
     }
-  }   
+  } 
+  
+  echo $gns_RCI->get('func', 'add');  
 ?>

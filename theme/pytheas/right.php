@@ -14,3 +14,6 @@
    */
 ?>
         <div id="rightColumn" class="side-column" style="float:left;width:20%;">RIGHT</div>
+        <?php
+          echo $gns_RCI->get('rightcol', 'add');
+        ?>

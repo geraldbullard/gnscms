@@ -98,88 +98,88 @@
 <?php   
   switch ( $action ) {
     case 'newContent':
-      require('inc/functions/newContent.php');
+      require('inc/func/newContent.php');
       newContent();
       break;
     case 'listContent':
-      require('inc/functions/listContent.php');
+      require('inc/func/listContent.php');
       listContent();
       break;
     case 'editContent':
-      require('inc/functions/editContent.php');
+      require('inc/func/editContent.php');
       editContent();
       break;
     case 'copyContent':
-      require('inc/functions/copyContent.php');
+      require('inc/func/copyContent.php');
       copyContent();
       break;
     case 'moveContent':
-      require('inc/functions/moveContent.php');
+      require('inc/func/moveContent.php');
       moveContent();
       break;
     case 'siteIndex':
-      require('inc/functions/siteIndex.php');
+      require('inc/func/siteIndex.php');
       siteIndex();
       break;
     case 'newSetting':
-      require('inc/functions/newSetting.php');
+      require('inc/func/newSetting.php');
       newSetting();
       break;
     case 'listSetting':
-      require('inc/functions/listSetting.php');
+      require('inc/func/listSetting.php');
       listSettings();
       break;
     case 'editSetting':
-      require('inc/functions/editSetting.php');
+      require('inc/func/editSetting.php');
       editSetting();
       break;
     case 'deleteSetting':
-      require('inc/functions/deleteSetting.php');
+      require('inc/func/deleteSetting.php');
       deleteSetting();
       break;
     case 'theme':
-      require('inc/functions/theme.php');
+      require('inc/func/theme.php');
       theme();
       break;
     case 'activateTheme':
-      require('inc/functions/activateTheme.php');
+      require('inc/func/activateTheme.php');
       activateTheme();
       break;
     case 'fileManager':
       $directAccess = true;
-      require('inc/functions/fileManager.php');
+      require('inc/func/fileManager.php');
       fileManager();
       break;
     case 'listUser':
-      require('inc/functions/listUser.php');
+      require('inc/func/listUser.php');
       listUser();
       break;
     case 'newUser':
-      require('inc/functions/newUser.php');
+      require('inc/func/newUser.php');
       newUser();
       break;
     case 'editUser':
-      require('inc/functions/editUser.php');
+      require('inc/func/editUser.php');
       editUser();
       break;
     case 'newGroup':
-      require('inc/functions/newGroup.php');
+      require('inc/func/newGroup.php');
       newGroup();
       break;
     case 'editGroup':
-      require('inc/functions/editGroup.php');
+      require('inc/func/editGroup.php');
       editGroup();
       break;
     case 'listGallery':
-      require('inc/functions/listGallery.php');
+      require('inc/func/listGallery.php');
       listGallery();
       break;
     case 'dashboard':
-      require('inc/functions/dashboard.php');
+      require('inc/func/dashboard.php');
       dashboard();
       break;
     default:
-      require('inc/functions/dashboard.php');
+      require('inc/func/dashboard.php');
       dashboard();
   }
 ?>

@@ -212,9 +212,7 @@
   <script src="js/jquery-1.8.3.min.js"></script>
 </head>
 <body>
-
   <div class="container-fluid">
-  
     <div class="row">
       <div class="span12" style="text-align:center; margin:0 auto 0 auto; width:100%;">
         <br />
@@ -241,12 +239,10 @@
         <br />
       </div>
     </div>
-    
     <?php
       if (!$error) { 
         if ($completed) { 
     ?>
-    
     <div class="row" style="width:80%;margin:0 auto 0 auto;">
       <div class="span12 well">
         <div>
@@ -257,51 +253,41 @@
         </div>
       </div><!--/span-->
     </div>
-    
     <div class="row" style="width:75%;margin:0 auto 0 auto;">
-          
       <div style="float:left;">
         <form action="index.php" method="post" target="_blank"> 
           <input class="btn btn-large btn-primary" type="submit" value="Visit Admin" />
         </form>
       </div>
-      
       <div style="float:right;">
         <form action="../" method="post" target="_blank"> 
           <input class="btn btn-large btn-primary" type="submit" value="Visit Site" />
         </form>
       </div>
-      
     </div>
-    
     <?php 
         } else if (file_exists('inc/config.php')) { 
     ?>
-    
     <div class="notification attention png_bg">
       <a href="#" class="close"><img src="images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
       <div>
         The installation seems to have been previously completed for this web site. Please delete this installation script (admin/install.php) from the server.
       </div>
     </div>
-    
     <div style="float:left; width:50%; text-align:center;">
       <form action="admin.php" method="post" target="_blank"> 
         <input class="button" type="submit" value="Visit Admin" />
       </form>
     </div>
-    
     <div style="float:right; width:50%; text-align:center;">
       <form action="../" method="post" target="_blank"> 
         <input class="button" type="submit" value="Visit Site" />
       </form>
     </div>
     <div class="clear"></div>
-    
     <?php 
         } else { 
     ?>
-    
     <div class="row-fluid">
       <div class="box span12">
         <div data-original-title="" class="box-header well">
@@ -325,122 +311,105 @@
           <form class="form-horizontal" action="install.php" method="post" id="install">
             <fieldset>
               <legend>Please fill out the following information completely<br /><div style="font-weight:bolder; font-size:10px; color:red; margin-top:-10px;">* All Fields Are Required!</div></legend>
-              
-                <div class="control-group">
-                  <label for="database_host" class="control-label">Database Host</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="text" id="database_host" name="database_host" value="<?php echo (isset($database_host)) ? $database_host : 'localhost'; ?>" required />
-                  </div>
+              <div class="control-group">
+                <label for="database_host" class="control-label">Database Host</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="text" id="database_host" name="database_host" value="<?php echo (isset($database_host)) ? $database_host : 'localhost'; ?>" required />
                 </div>
-                
-                <div class="control-group">
-                  <label for="database_prefix" class="control-label">Database Tables Prefix</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="text" id="database_prefix" name="database_prefix" value="<?php echo (isset($database_prefix)) ? $database_prefix : 'gnsCMS_'; ?>" />
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="database_prefix" class="control-label">Database Tables Prefix</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="text" id="database_prefix" name="database_prefix" value="<?php echo (isset($database_prefix)) ? $database_prefix : 'gnsCMS_'; ?>" />
                 </div>
-                
-                <div class="control-group">
-                  <label for="database_name" class="control-label">Database Name</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="text" id="database_name" name="database_name" value="<?php echo $database_name; ?>" required />
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="database_name" class="control-label">Database Name</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="text" id="database_name" name="database_name" value="<?php echo $database_name; ?>" required />
                 </div>
-                
-                <div class="control-group">
-                  <label for="database_username" class="control-label">Database Username</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="text" id="database_username" name="database_username" value="<?php echo $database_username; ?>" required />
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="database_username" class="control-label">Database Username</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="text" id="database_username" name="database_username" value="<?php echo $database_username; ?>" required />
                 </div>
-                
-                <div class="control-group">
-                  <label for="database_password" class="control-label">Database Password</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="password" id="database_password" name="database_password" value="<?php echo $database_password; ?>" required />
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="database_password" class="control-label">Database Password</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="password" id="database_password" name="database_password" value="<?php echo $database_password; ?>" required />
                 </div>
-                
-                <div class="control-group">
-                  <label for="firstname" class="control-label">Admin First Name</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="text" id="firstname" name="firstname" value="<?php echo $firstname; ?>" required />
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="firstname" class="control-label">Admin First Name</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="text" id="firstname" name="firstname" value="<?php echo $firstname; ?>" required />
                 </div>
-                
-                <div class="control-group">
-                  <label for="" class="control-label">Admin Last Name</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="text" id="lastname" name="lastname" value="<?php echo $lastname; ?>" required />
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="" class="control-label">Admin Last Name</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="text" id="lastname" name="lastname" value="<?php echo $lastname; ?>" required />
                 </div>
-                
-                <div class="control-group">
-                  <label for="email" class="control-label">Admin Email</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="text" id="email" name="email" value="<?php echo $email; ?>" required />
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="email" class="control-label">Admin Email</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="text" id="email" name="email" value="<?php echo $email; ?>" required />
                 </div>
-                
-                <div class="control-group">
-                  <label for="username" class="control-label">Admin Username</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="text" id="username" name="username" value="<?php echo $username; ?>" required />
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="username" class="control-label">Admin Username</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="text" id="username" name="username" value="<?php echo $username; ?>" required />
                 </div>
-                
-                <div class="control-group">
-                  <label for="password" class="control-label">Admin Password</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="password" id="password" name="password" value="" required autocomplete="off" onkeyup="passwordStrength(this.value)" />
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="password" class="control-label">Admin Password</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="password" id="password" name="password" value="" required autocomplete="off" onkeyup="passwordStrength(this.value)" />
                 </div>
-                
-                <div class="control-group">
-                  <label for="confirm_password" class="control-label">Confirm Password</label>
-                  <div class="controls">
-                    <input class="text-input small-input" type="password" id="confirm_password" name="confirm_password" value="" required autocomplete="off" onkeyup="checkPass(); return false;" />&nbsp;<span id="passwordMessage" class="passwordMessage"></span>
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="confirm_password" class="control-label">Confirm Password</label>
+                <div class="controls">
+                  <input class="text-input small-input" type="password" id="confirm_password" name="confirm_password" value="" required autocomplete="off" onkeyup="checkPass(); return false;" />&nbsp;<span id="passwordMessage" class="passwordMessage"></span>
                 </div>
-                
-                <div class="control-group">
-                  <label for="passwordStrength" class="control-label">Password strength</label>
-                  <div class="controls">
-                    <div id="passwordDescription">Password not entered</div>
-                    <div id="passwordStrength" class="strength0"></div>
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="passwordStrength" class="control-label">Password strength</label>
+                <div class="controls">
+                  <div id="passwordDescription">Password not entered</div>
+                  <div id="passwordStrength" class="strength0"></div>
                 </div>
-                
-                <div class="control-group">
-                  <label for="gender" class="control-label">Gender</label>
-                  <div class="controls">
-                    <label class="radio">
-                      <div class="radio"><span><input type="radio" value="m" name="gender" style="opacity: 0;"></span></div>
-                      Male
-                    </label>
-                    <div style="clear:both"></div>
-                    <label class="radio">
-                      <div class="radio"><span><input type="radio" value="f" name="gender" style="opacity: 0;"></span></div>
-                      Female
-                    </label>
-                  </div>
+              </div>
+              <div class="control-group">
+                <label for="gender" class="control-label">Gender</label>
+                <div class="controls">
+                  <label class="radio">
+                    <div class="radio"><span><input type="radio" value="m" name="gender" style="opacity: 0;"></span></div>
+                    Male
+                  </label>
+                  <div style="clear:both"></div>
+                  <label class="radio">
+                    <div class="radio"><span><input type="radio" value="f" name="gender" style="opacity: 0;"></span></div>
+                    Female
+                  </label>
                 </div>
-                
-                <input type="hidden" id="level" name="level" value="99" />
-                <input type="hidden" id="status" name="status" value="1" />
-                
-                <div class="control-group">
-                  <div class="controls">
-                    <input class="btn btn-large btn-primary" type="submit" name="submit" value="Install Now!" />
-                  </div>
+              </div>
+              <input type="hidden" id="level" name="level" value="99" />
+              <input type="hidden" id="status" name="status" value="1" />
+              <div class="control-group">
+                <div class="controls">
+                  <input class="btn btn-large btn-primary" type="submit" name="submit" value="Install Now!" />
                 </div>
-              
+              </div>
             </fieldset>
           </form>
         </div>
       </div>
     </div>
-    
     <?php 
         }
       } else {
@@ -449,9 +418,7 @@
     <?php
       }
     ?>
-    
   </div>
-  
   <!-- jQuery UI -->
   <script src="js/jquery-ui-1.10.3.min.js"></script>
   <!-- transition / effect library -->
@@ -519,7 +486,6 @@
   <script src="js/charisma.js"></script>
   <!-- ckeditor script -->
   <script src="ext/ckeditor/ckeditor.js"></script>
-  
   <script type="text/javascript">
     function checkPass() {
       //Store the password field objects into variables ...
@@ -576,7 +542,6 @@
       document.getElementById("passwordDescription").innerHTML = desc[score];
       document.getElementById("passwordStrength").className = "strength" + score;
     } 
-  </script>        
-  
+  </script>
 </body>
 </html>

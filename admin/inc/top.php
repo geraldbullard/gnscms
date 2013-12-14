@@ -1,10 +1,10 @@
 <?php
   require('inc/config.php');
-  require('inc/functions/general.php');
-  require('inc/classes/Content.class.php');
-  require('inc/classes/Group.class.php');
-  require('inc/classes/Setting.class.php');
-  require('inc/classes/User.class.php');
+  require('inc/func/general.php');
+  require('inc/class/Content.class.php');
+  require('inc/class/Group.class.php');
+  require('inc/class/Setting.class.php');
+  require('inc/class/User.class.php');
   
   // set the type of request (secure or not) // save for later - maestro
   $request_type = (getenv('HTTPS') == 'on') ? 'SSL' : 'NONSSL';
@@ -100,6 +100,8 @@
   
   // get user group access and set it into session
   $_SESSION['access'] = Group::getById(User::getGroupID($_SESSION['authuser']));
+  
+  if (!strpos($_SERVER['REQUEST_URI'], 'index.php') && !strpos($_SERVER['REQUEST_URI'], 'search.php')) header("Location: index.php?dashboard");
   
   // get action 
   $action = isset($_GET['action']) ? $_GET['action'] : '';

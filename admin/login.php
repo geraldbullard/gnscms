@@ -94,13 +94,9 @@
   <script src="js/jquery-1.8.3.min.js"></script>
 </head> 
 <body>
-
   <div class="container-fluid">
-
     <div class="row-fluid" style="background:none;">
-    
       <center><img src="img/logo-400.png" id="login-logo" align="center" vspace="10" /></center>
-    
       <div class="well span4 center login-box">
 <?php 
   if (file_exists('install.php')) {
@@ -172,7 +168,6 @@
             Enter your username and password to login.
           </p>
         </div>
-        
         <form class="form-horizontal" action="login.php" method="post">
           <br />
           <fieldset>
