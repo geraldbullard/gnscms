@@ -19,9 +19,9 @@
   } else {
     header('Location: admin/install.php');
   }
-  require('admin/inc/functions/general.php');  
-  require('admin/inc/classes/Content.class.php');
-  require('admin/inc/classes/Setting.class.php');
+  require('admin/inc/func/general.php');  
+  require('admin/inc/class/Content.class.php');
+  require('admin/inc/class/Setting.class.php');
   
   // set php_self in the local scope
   $PHP_SELF = $_SERVER['SCRIPT_NAME'];
