@@ -97,4 +97,9 @@
   } catch(PDOException $e) {
     echo "ERROR: " . $e->getMessage();
   }
+  
+  require('inc/class/rci.php');
+  $gns_RCI = new gns_RCI;
+  
+  echo $gns_RCI->get('add', 'top', false);
 ?>
