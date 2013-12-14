@@ -105,4 +105,6 @@
   
   // get action 
   $action = isset($_GET['action']) ? $_GET['action'] : '';
+  
+  $page_title = '';
 ?>

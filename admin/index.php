@@ -1,35 +1,23 @@
-<?php
-  if (!file_exists('inc/config.php')) {
-    if (file_exists('install.php')) {  
-      header("Location: install.php");
-    } else {
-      die('You are missing needed files. Please upload the files from our archive and try this again.');
-    }
-  }  
-  require('inc/top.php');
-?>
+<?php require_once('inc/top.php'); ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <title>gnsCMS Admin | </title>
+  <title><?php echo $lang['gnscms'] . $lang['admin']; ?> | <?php echo getPageTitle($action); ?></title>
   <link href="../favicon.ico" rel="shortcut icon">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="gnsCMS Admin by maestro">
-  <meta name="keywords" content="these, are, my, site, keywords">
   <meta name="application-name" content="gnsCMS Admin">
-  <meta name="robots" content="index, follow">
   <link rel="shortcut icon" href="favicon.ico">
   <!-- Styles -->
   <link href="css/bootstrap-cerulean.css" rel="stylesheet">
   <link href="css/jquery-ui-1.10.3.css" rel="stylesheet">
   <link href="css/fullcalendar.css" rel='stylesheet'>
-  <link href="css/fullcalendar.print.css" rel="stylesheet"  media='print'>
+  <link href="css/fullcalendar.print.css" rel="stylesheet" media="print">
   <link href="css/chosen.css" rel="stylesheet">
   <link href="css/uniform.default.css" rel="stylesheet">
   <link href="css/colorbox.css" rel="stylesheet">
@@ -41,7 +29,7 @@
   <link href="css/jquery.iphone.toggle.css" rel="stylesheet">
   <link href="css/opa-icons.css" rel="stylesheet">
   <link href="css/uploadify.css" rel="stylesheet">
-  <link href="css/jquery.wysiwyg.css" rel="stylesheet" media="screen" />
+  <link href="css/jquery.wysiwyg.css" rel="stylesheet" />
   <link href="css/bootstrap-responsive.css" rel="stylesheet">
   <link href="css/charisma-app.css" rel="stylesheet">  
   <!--[if lt IE 9]>
@@ -96,92 +84,7 @@
     <!-- topbar ends -->    
     <div id="display_results_320" style="display:none;"></div>
 <?php   
-  switch ( $action ) {
-    case 'newContent':
-      require('inc/func/newContent.php');
-      newContent();
-      break;
-    case 'listContent':
-      require('inc/func/listContent.php');
-      listContent();
-      break;
-    case 'editContent':
-      require('inc/func/editContent.php');
-      editContent();
-      break;
-    case 'copyContent':
-      require('inc/func/copyContent.php');
-      copyContent();
-      break;
-    case 'moveContent':
-      require('inc/func/moveContent.php');
-      moveContent();
-      break;
-    case 'siteIndex':
-      require('inc/func/siteIndex.php');
-      siteIndex();
-      break;
-    case 'newSetting':
-      require('inc/func/newSetting.php');
-      newSetting();
-      break;
-    case 'listSetting':
-      require('inc/func/listSetting.php');
-      listSettings();
-      break;
-    case 'editSetting':
-      require('inc/func/editSetting.php');
-      editSetting();
-      break;
-    case 'deleteSetting':
-      require('inc/func/deleteSetting.php');
-      deleteSetting();
-      break;
-    case 'theme':
-      require('inc/func/theme.php');
-      theme();
-      break;
-    case 'activateTheme':
-      require('inc/func/activateTheme.php');
-      activateTheme();
-      break;
-    case 'fileManager':
-      $directAccess = true;
-      require('inc/func/fileManager.php');
-      fileManager();
-      break;
-    case 'listUser':
-      require('inc/func/listUser.php');
-      listUser();
-      break;
-    case 'newUser':
-      require('inc/func/newUser.php');
-      newUser();
-      break;
-    case 'editUser':
-      require('inc/func/editUser.php');
-      editUser();
-      break;
-    case 'newGroup':
-      require('inc/func/newGroup.php');
-      newGroup();
-      break;
-    case 'editGroup':
-      require('inc/func/editGroup.php');
-      editGroup();
-      break;
-    case 'listGallery':
-      require('inc/func/listGallery.php');
-      listGallery();
-      break;
-    case 'dashboard':
-      require('inc/func/dashboard.php');
-      dashboard();
-      break;
-    default:
-      require('inc/func/dashboard.php');
-      dashboard();
-  }
+  echo load_page_content($action);
 ?>
     <hr>    
     <footer>
@@ -196,13 +99,7 @@
         <div class="span6">
           <p class="pull-right">
             <select id="lang_select" style="width:auto; padding-left:22px; background:url('../images/icons/flags/<?php echo $_SESSION['lang']; ?>.png') no-repeat 4px 8px;">
-            <?php
-              foreach ($_SESSION['langs_array'] as $language) {
-                if (array_key_exists($language, $_SESSION['all_langs'])) {
-                  echo '<option value="' . $language . '" style="padding:2px; background-repeat:no-repeat; background-position:bottom left; padding-left:25px; background:url(../images/icons/flags/' . $language . '.png) no-repeat 3px 6px;"' . (($_SESSION['lang'] == $language) ? ' selected' : '') . '>' . $_SESSION['all_langs'][$language] . '</option>';
-                }
-              }
-            ?>
+            <?php echo langSelectArray(); ?>
             </select>
             <a class="arrow-top scrollToTop" href="#">
               <img src="img/arrow-top.png" style="margin:-10px 0 0 20px;">
@@ -341,7 +238,7 @@
   <?php
     // Include any page specific js files
     if (is_file('js/' . $_GET['action'] . '.js.php')) {
-      include('js/' . $_GET['action'] . '.js.php');
+      include_once('js/' . $_GET['action'] . '.js.php');
     }
   ?>
 </body>
