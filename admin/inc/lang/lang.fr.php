@@ -3,7 +3,7 @@
   * Language: French
   */
 
-  /* Commun */
+  /* Commun */  
   $lang['admin'] = 'Admin';
   $lang['afternoon_cms'] = 'Afternoon CMS';
   $lang['appearance'] = 'Apparence';
@@ -19,6 +19,8 @@
   $lang['gallery'] = 'Galerie';
   $lang['gnscms'] = 'gnsCMS';
   $lang['group'] = 'Groupe';
+  $lang['groups'] = 'Groupes';
+  $lang['hide_navigation'] = 'Masquer la Navigation';
   $lang['language'] = 'French';
   $lang['list'] = 'Liste';
   $lang['logout'] = 'Deconnexion';
@@ -32,10 +34,13 @@
   $lang['navigation'] = 'Navigation';
   $lang['powered_by'] = 'Administrateur Alimente par';
   $lang['powered_by_title'] = 'Open Source, la Peau Mutiple, Modele d\'Administration de Repondre Pleinement';
+  $lang['search'] = 'Recherche';
   $lang['settings'] = 'Reglages';
   $lang['search_content'] = 'Recherche de Contenu';
+  $lang['show_navigation'] = 'Afficher la Navigation';
   $lang['themes'] = 'Themes';
   $lang['tools'] = 'Outils';
+  $lang['user'] = 'Utilisateur';
   $lang['users'] = 'Utilisateurs';
   $lang['view_dashboard'] = 'Vior Tableau de Bord';
   $lang['view_site'] = 'Voir le Site';

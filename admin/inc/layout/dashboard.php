@@ -3,7 +3,7 @@
         <div class="box-header well">
           <h2><i class="icon-th"></i> <?php echo $lang['navigation']; ?></h2>
           <div class="box-icon">
-            <i class="icon-chevron-left" onclick="toggleLeftNav();" style="margin:6px 20px 0px -35px; cursor:pointer;" title="Hide Navigation"></i>
+            <i class="icon-chevron-left" onclick="toggleLeftNav();" style="margin:6px 20px 0px -35px; cursor:pointer;" title="<?php echo $lang['hide_navigation']; ?>"></i>
             <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
           </div>
         </div>
@@ -13,102 +13,100 @@
       </div>
       <div id="rightContent" class="box span9">
         <div class="box-header well">
-          <h2><i class="icon-chevron-right" onclick="toggleLeftNav();" style="display:none; cursor:pointer;" title="Show Navigation"></i><i class="icon-th"></i> Dashboard</h2>
+          <h2><i class="icon-chevron-right" onclick="toggleLeftNav();" style="display:none; cursor:pointer;" title="<?php echo $lang['show_navigation']; ?>"></i><i class="icon-th"></i> <?php echo $lang['dashboard']; ?></h2>
           <div class="box-icon">
             <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
           </div>
         </div>
         <div class="box-content">
           <div class="pad-10">
-            <h2>Welcome to gnsCMS</h2>
-            <p>
-              <b>gnsCMS</b> has been built to be fast, reliable and easy to navigate while keeping in mind an overall simplicity that makes it so wonderful. Our wish is that anyone with the desire can create their own website without the need of high-priced web designers and maintain the appearance, structure and overall user experience of their visitors all on their own. We hope you enjoy the simple yet powerful functionality this system has to offer.
+            <h2><?php echo $lang['dashboard_welcome_to'] . ' ' . $lang['gnscms']; ?></h2>
+            <div>
+              <?php echo $lang['dashboard_welcome_text']; ?>
               <p></p>
-              <span class="pull-right"><em>-- Gerald Bullard Jr :: gnsPLANET</em></span>
+              <span class="pull-right"><?php echo $lang['dashboard_welcome_signature']; ?></span>
               <p>&nbsp;</p>
-            </p>
+            </div>
           </div>
           <div class="clear"></div>
           <ul class="nav nav-tabs" id="dashboardTab">
-            <li class="active"><a href="#gettingStarted"><i class="icon-home"></i> Getting Started</a></li>
-            <li><a href="#gettingHelp"><i class="icon-question-sign"></i> Getting Help</a></li>
+            <li class="active"><a href="#gettingStarted"><i class="icon-home"></i> <?php echo $lang['dashboard_getting_started']; ?></a></li>
+            <li><a href="#gettingHelp"><i class="icon-question-sign"></i> <?php echo $lang['dashboard_getting_help']; ?></a></li>
           </ul>
-           
           <div class="tab-content pad-10">
             <div class="tab-pane active" id="gettingStarted">
-              <p>Below are some of the highlights of the <strong>gnsCMS &copy; Content Management System</strong>. Please take a few moments to look over the area notes before you begin.</p>
-              <br /><table class="table table-bordered table-striped">
+              <p><?php echo $lang['dashboard_highlights']; ?></p>
+              <br />
+              <table class="table table-bordered table-striped">
                 <tbody>
                   <tr>
-                    <td><h3><a href="index.php?action=dashboard">Dashboard</a></h3></td>
+                    <td><h3><a href="index.php?action=dashboard"><?php echo $lang['dashboard']; ?></a></h3></td>
                     <td>
-                      <p>You are on the Dashboard page now. This page will later be given more use for stats, members, messaging and more as the <strong>gnsCMS &copy;</strong> system grows in scope.</p>
+                      <p><?php echo $lang['dashboard_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=listContent">Content</a></h3></td>
+                    <td><h3><a href="index.php?action=listContent"><?php echo $lang['content']; ?></a></h3></td>
                     <td>
-                      <p>The Content area is where you will be spending most of your time while in the admin creating and editing content (Categories and Pages). This area is where the bulk of the <strong>gnsCMS &copy;</strong> development has been focused up to this point. We hope you enjoy its power and simplicity!</p>
+                      <p><?php echo $lang['dashboard_content_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=theme">Themes</a></h3></td>
+                    <td><h3><a href="index.php?action=theme"><?php echo $lang['themes']; ?></a></h3></td>
                     <td>
-                      <p>An area to control your site <strong>Theme</strong> (or template) and any related settings has been added. The main focus of this area is to encourage development of third party Themes and greatly increase the design choices at your disposal when creating or updating your web site.</p>
+                      <p><?php echo $lang['dashboard_themes_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=fileManager">File Manager</a></h3></td>
+                    <td><h3><a href="index.php?action=fileManager"><?php echo $lang['file_manager']; ?></a></h3></td>
                     <td>
-                      <p>A <strong>File Manager</strong> is an obvious need for any true cms system. We have kept pace with the choice made by the developer(s) of the <strong>Charisma Responsive Admin Template</strong> called <strong>elFinder</strong>. Its simplicity and power are one of the noted features of <strong>gnsCMS &copy;</strong></p>
+                      <p><?php echo $lang['dashboard_file_manager_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=listSetting">Settings</a></h3></td>
+                    <td><h3><a href="index.php?action=listSetting"><?php echo $lang['settings']; ?></a></h3></td>
                     <td>
-                      <p>The <strong>Settings</strong> area has been added to assist in the area of repeated use data and settings across the site front end. This area will help Developers and Theme creators with a database table available to hold configuration settings, site-wide data (names, contact info, addresses, titles etc) and any "switchable" settings needed in that creation process.</p>
+                      <p><?php echo $lang['dashboard_settings_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="#">Search</a></h3></td>
+                    <td><h3><a href="#"><?php echo $lang['search']; ?></a></h3></td>
                     <td>
-                      <p>An <strong>Ajax Content Search</strong> has been added to speed the locating of a desired Category or Page for editing or creation. Enjoy!</p>
+                      <p><?php echo $lang['dashboard_search_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=listContent">Draggable Sorting</a></h3></td>
+                    <td><h3><a href="index.php?action=listContent"><?php echo $lang['dashboard_draggable_sorting']; ?></a></h3></td>
                     <td>
-                      <p>In each <strong>Content Listing</strong> row you will see the <img src="img/sortIcon.png" /> icon for draggable sorting of the content per the category location you currently reside in on the page. This is another very noteworthy feature and greatly speeds the deployment of any web site.</p>
+                      <p><?php echo $lang['dashboard_draggable_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=listUser">Users/Groups</a></h3></td>
+                    <td><h3><a href="index.php?action=listUser"><?php echo $lang['users'] . '/' . $lang['groups']; ?></a></h3></td>
                     <td>
-                      <p>The ability to add, edit, enable, disable and delete <strong>Users</strong> has been added. Also <strong>Groups (Access Levels)</strong> has been added as well to support page/action specific access throughout the admin per user group. Each User can now be assigned to a specific group that allows the desired access.</p>
+                      <p><?php echo $lang['dashboard_users_groups_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=listContent">Layout Templates</a></h3></td>
+                    <td><h3><a href="index.php?action=listContent"><?php echo $lang['dashboard_layout_templates']; ?></a></h3></td>
                     <td>
-                      <p>When adding a new page, you can now select from stock page layouts if the Theme provider has supplied them in the correct location in the theme folder structure. This feature will greatly speed the implementation of standard page layouts for the active site theme and save a vast amount of html work for the end user.</p>
+                      <p><?php echo $lang['dashboard_layout_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="index.php?action=dashboard">Multi Language</a></h3></td>
+                    <td><h3><a href="index.php?action=dashboard"><?php echo $lang['dashboard_multi_language']; ?></a></h3></td>
                     <td>
-                      <p>The ability to add multiple languages and select the language of your choice from a dropdown in the footer has been added. Later improvments will include admin user specific language settings, giving each admin the ability to save his or her prefernce for which current admin language is in use during the user session. There is already a cookie session that is set upon the first login for each user, saving the language preference for 30 days.</p>
+                      <p><?php echo $lang['dashboard_multi_lang_description']; ?></p>
                     </td>
                   </tr>
                   <tr>
-                    <td><h3><a href="../sitemap.xml" target="_blank">Auto Generating Sitemap</a></h3></td>
+                    <td><h3><a href="../sitemap.xml" target="_blank"><?php echo $lang['dashboard_sitemap']; ?></a></h3></td>
                     <td>
-                      <p>An auto generating sitemap.xml feature has been added to provide search engine crawl bots with up to date xml sitemap on demand with no interaction from the site administrator. This also brings with it the reintroduction of the database column "publicationDate" and an added one for "lastModified". The Change Frequency and Priority have also been added to the Settings for easy modification to your desired value.</p>
+                      <p><?php echo $lang['dashboard_sitemap_description']; ?></p>
                     </td>
                   </tr>
                 </tbody>
-              </table>                
-                
-                
+              </table>
             </div>
             <div class="tab-pane" id="gettingHelp">
               <p>Coming soon...</p>

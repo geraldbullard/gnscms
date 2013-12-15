@@ -3,7 +3,7 @@
   * Language: Deutsch
   */
 
-  /* Gemeinsam */
+  /* Gemeinsam */  
   $lang['admin'] = 'Admin';
   $lang['afternoon_cms'] = 'Afternoon CMS';
   $lang['appearance'] = 'Aussehen';
@@ -19,6 +19,8 @@
   $lang['gallery'] = 'Galerie';
   $lang['gnscms'] = 'gnsCMS';
   $lang['group'] = 'Gruppe';
+  $lang['groups'] = 'Gruppen';
+  $lang['hide_navigation'] = 'Verstecke Navigation';
   $lang['language'] = 'Deutsch';
   $lang['list'] = 'Lista';
   $lang['logout'] = 'Abmelden';
@@ -33,9 +35,12 @@
   $lang['powered_by'] = 'Admin Angetrieben';
   $lang['powered_by_title'] = 'Open Source, Mutiple Haut, Vollständig Reagiert Admin Template';
   $lang['settings'] = 'Einstellungen';
+  $lang['search'] = 'Suche';
   $lang['search_content'] = 'Suche Inhalt';
+  $lang['show_navigation'] = 'Navigation Anzeigen';
   $lang['themes'] = 'Themen';
   $lang['tools'] = 'Werkzeuge';
+  $lang['user'] = 'Benutzer';
   $lang['users'] = 'Benutzer';
   $lang['view_dashboard'] = 'Dashboard Anzeigen';
   $lang['view_site'] = 'Website Sehen';

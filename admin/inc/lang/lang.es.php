@@ -3,7 +3,7 @@
   * Language: Español
   */
   
-  /* Común */
+  /* Común */  
   $lang['admin'] = 'Admin';
   $lang['afternoon_cms'] = 'Afternoon CMS';
   $lang['appearance'] = 'Apariencia';
@@ -19,6 +19,8 @@
   $lang['gallery'] = utf8_encode('Galería');
   $lang['gnscms'] = 'gnsCMS';
   $lang['group'] = 'Grupo';
+  $lang['groups'] = 'Grupos';
+  $lang['hide_navigation'] = utf8_encode('Ocultar Navegación');
   $lang['language'] = utf8_encode('Español');
   $lang['list'] = 'Liste';
   $lang['logout'] = 'Cierre de Sesion';
@@ -32,10 +34,13 @@
   $lang['navigation'] = utf8_encode('Navegación');
   $lang['powered_by'] = 'Administrador Impulsado por';
   $lang['powered_by_title'] = 'de Codigo Abierto, la Piel Mutiple, Plantilla de Administracion Responda Plenamente';
+  $lang['search'] = utf8_encode('Búsqueda');
   $lang['settings'] = 'Ajustes';
   $lang['search_content'] = 'Contenido Busqueda';
+  $lang['show_navigation'] = utf8_encode('Mostrar Navegación');
   $lang['themes'] = 'Temas';
   $lang['tools'] = 'Instrumentos';
+  $lang['user'] = 'Usuario';
   $lang['users'] = 'Usuarios';
   $lang['view_dashboard'] = 'Ver Salpicadero';
   $lang['view_site'] = 'Ver la Pagina';

@@ -19,6 +19,8 @@
   $lang['gallery'] = 'Gallery';
   $lang['gnscms'] = 'gnsCMS';
   $lang['group'] = 'Group';
+  $lang['groups'] = 'Groups';
+  $lang['hide_navigation'] = 'Hide Navigation';
   $lang['language'] = 'English';
   $lang['list'] = 'List';
   $lang['logout'] = 'Logout';
@@ -32,10 +34,13 @@
   $lang['navigation'] = 'Navigation';
   $lang['powered_by'] = 'Admin Powered by';
   $lang['powered_by_title'] = 'Open Source, Mutiple Skin, Fully Responsive Admin Template';
+  $lang['search'] = 'Search';
   $lang['settings'] = 'Settings';
   $lang['search_content'] = 'Search Content';
+  $lang['show_navigation'] = 'Show Navigation';
   $lang['themes'] = 'Themes';
   $lang['tools'] = 'Tools';
+  $lang['user'] = 'User';
   $lang['users'] = 'Users';
   $lang['view_dashboard'] = 'View Dashboard';
   $lang['view_site'] = 'View Site';
