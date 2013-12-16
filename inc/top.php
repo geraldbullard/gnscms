@@ -71,26 +71,20 @@
     $stl->execute();
     
     $leftBlocks = $stl->fetchAll();
+    $stl->closeCursor();
   
     $str = $pdo->prepare("SELECT title, filename, sort FROM " . DB_PREFIX . "blocks where contentId = :contentId and side = 'r'");
     $str->bindValue(":contentId", $contentResults->id, PDO::PARAM_INT);
     $str->execute();
     
     $rightBlocks = $str->fetchAll();
+    $str->closeCursor();
     
     if (count($leftBlocks) > 0) {
       $hasLeft = true;
     } 
     if (count($rightBlocks) > 0) {
       $hasRight = true;
-    }
-    
-    if ($hasLeft && $hasRight) {
-      $mainColWidth = '60';
-    } else if (($hasLeft && !$hasRight) || (!$hasLeft && $hasRight)) {
-      $mainColWidth = '80';
-    } else {
-      $mainColWidth = '100';
     }
     
     $pdo = null;    
@@ -101,5 +95,5 @@
   require('inc/class/rci.php');
   $gns_RCI = new gns_RCI;
   
-  echo $gns_RCI->get('add', 'top', false);
+  echo $gns_RCI->get('top', 'add', false);
 ?>

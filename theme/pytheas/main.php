@@ -11,7 +11,14 @@
    * Copyright © 2010 gnsPLANET, LLC. All rights reserved.
    * Copyright © 2012 3G Development. All rights reserved.
    * 
-   */
+   */    
+   if ($hasLeft === true && $hasRight === true) {
+     $mainColWidth = '60';
+   } else if (($hasLeft === true && !$hasRight === true) || (!$hasLeft === true && $hasRight === true)) {
+     $mainColWidth = '80';
+   } else {
+     $mainColWidth = '100';
+   }
    require_once('theme/pytheas/func.php');
    require_once('theme/pytheas/head.php');
    echo $gns_RCI->get('maintop', 'add'); 
@@ -44,7 +51,7 @@
         </header>                         
         <?php
           // get the left col if needed
-          if ($hasLeft) {
+          if ($hasLeft === true) {
             require_once('theme/pytheas/left.php');
           }
         ?>
@@ -72,7 +79,7 @@
         </div>
         <?php  
           // get the right col if needed
-          if ($hasRight) {
+          if ($hasRight === true) {
             require_once('theme/pytheas/right.php');
           }
         ?>
