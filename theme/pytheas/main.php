@@ -12,10 +12,10 @@
    * Copyright © 2012 3G Development. All rights reserved.
    * 
    */
-   require('theme/pytheas/func.php');
-   echo $gns_RCI->get('maintop', 'add');
-?>
-<?php require('theme/pytheas/head.php'); ?>   
+   require_once('theme/pytheas/func.php');
+   require_once('theme/pytheas/head.php');
+   echo $gns_RCI->get('maintop', 'add'); 
+?>   
 <body<?php echo $gns_RCI->get('body', 'add'); ?>>
   <div id="wrap" class="container clr" style="<?php echo 'width:' . siteWidth; ?>">
     <header id="masthead" class="site-header clr" role="banner">
@@ -45,7 +45,7 @@
         <?php
           // get the left col if needed
           if ($hasLeft) {
-            require('theme/pytheas/left.php');
+            require_once('theme/pytheas/left.php');
           }
         ?>
         <div id="main" class="site-main row clr fitvids" style="float:left; <?php echo 'width:' . $mainColWidth . '%;'; ?>">
@@ -55,15 +55,15 @@
                 echo $gns_RCI->get('contenttop', 'add');  
                 // get the needed view type and show the content
                 if (isset($view) && $view == 'viewContent') {
-                  require('theme/pytheas/block/viewContent.php');
+                  require_once('theme/pytheas/block/viewContent.php');
                 } else if (isset($view) && $view == 'viewArticle') {
-                  require('theme/pytheas/block/viewArticle.php');
+                  require_once('theme/pytheas/block/viewArticle.php');
                 } else if (isset($view) && $view == 'listPages') {
-                  require('theme/pytheas/block/listPages.php');
+                  require_once('theme/pytheas/block/listPages.php');
                 } else if (isset($view) && $view == 'listArticles') {
-                  require('theme/pytheas/block/listArticles.php');
+                  require_once('theme/pytheas/block/listArticles.php');
                 } else {
-                  require('theme/pytheas/block/notFound.php');
+                  require_once('theme/pytheas/block/notFound.php');
                 }
                 echo $gns_RCI->get('contentbottom', 'add');
               ?>
@@ -73,7 +73,7 @@
         <?php  
           // get the right col if needed
           if ($hasRight) {
-            require('theme/pytheas/right.php');
+            require_once('theme/pytheas/right.php');
           }
         ?>
       </div>
@@ -156,7 +156,7 @@
   </div>  
   <?php 
     echo $gns_RCI->get('mainbottom', 'add');
-    require('theme/pytheas/bottom.php'); 
+    require_once('theme/pytheas/bottom.php'); 
   ?>
 </body>
 </html>
