@@ -1,17 +1,16 @@
 <?php
 
   function url_get_contents($_url) {
-    if (!function_exists('curl_init')){ 
-      die('cURL is not installed!');
+    if (!function_exists('curl_init')) { 
+      return 'cURL is not installed!';
+    } else {
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $_url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      $output = curl_exec($ch);
+      curl_close($ch);
+      return $output;
     }
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $_url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $output = curl_exec($ch);
-    echo '[' . htmlentities($output) . ']';
-    die();
-    curl_close($ch);
-    return $output;
   }
   
   function load_page_content( $_action ) {
@@ -106,7 +105,7 @@
   
   function handleException( $exception ) {
     echo 'Sorry, a problem occurred. Please try later.';
-    error_log($exception->getMessage());
+    error_log( $exception->getMessage() );
   }
   
   function gen_seo_friendly_titles( $_title ) {

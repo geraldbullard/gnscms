@@ -1,6 +1,6 @@
 <?php
   /**
-   * $Id: box_exBlock.php, v 1.0.0 2009/01/07 datazen Exp $ :: updated 2012/06/20 maestro Exp $
+   * $Id: box_exBlock2.php, v 1.0.0 2009/01/07 datazen Exp $ :: updated 2012/06/20 maestro Exp $
    *
    * gnsPLANET.com - The Foundation of Development & Research for the New Millenium
    * http://www.gnsplanet.com/
@@ -13,6 +13,6 @@
    * 
    */
 ?>
-      <div id="exBlock" class="sideBlock">
+      <div id="exBlock2" class="sideBlock">
         Example Side Block 2
       </div>
