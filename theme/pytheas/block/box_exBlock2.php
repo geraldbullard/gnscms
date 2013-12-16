@@ -14,5 +14,5 @@
    */
 ?>
       <div id="exBlock" class="sideBlock">
-        Example Side Block
+        Example Side Block 2
       </div>

@@ -13,7 +13,11 @@
    *  foreach ($leftBlocks as $leftBlock) {
    */
 ?>
-        <div id="leftColumn" class="side-column" style="float:left;width:20%;">LEFT</div>
-        <?php
-          echo $gns_RCI->get('leftcol', 'add');
-        ?>
+        <div id="leftColumn" class="side-column" style="float:left;width:20%;">
+          <?php 
+            foreach ($leftBlocks as $block) { 
+              echo '<h3>' . $block['title'] . '</h3>';            
+              include_once('theme/' . siteTheme . '/block/' . $block['filename']);
+            }
+          ?>
+        </div>

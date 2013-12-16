@@ -55,7 +55,7 @@
             require_once('theme/pytheas/left.php');
           }
         ?>
-        <div id="main" class="site-main row clr fitvids" style="float:left; <?php echo 'width:' . $mainColWidth . '%;'; ?>">
+        <div class="site-main row clr fitvids" style="float:left; <?php echo 'width:' . $mainColWidth . '%;'; ?>">
           <div id="primary" class="content-area span_24 row clr">
             <div id="content" class="site-content" role="main"> 
               <?php

@@ -66,24 +66,24 @@
     $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD); 
     $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     
-    $stl = $pdo->prepare("SELECT title, filename, sort FROM " . DB_PREFIX . "blocks where contentId = :contentId and side = 'l'");
+    $stl = $pdo->prepare("SELECT title, filename, sort FROM " . DB_PREFIX . "blocks where contentId = :contentId and side = 'l' order by sort asc");
     $stl->bindValue(":contentId", $contentResults->id, PDO::PARAM_INT);
     $stl->execute();
     
     $leftBlocks = $stl->fetchAll();
     $stl->closeCursor();
   
-    $str = $pdo->prepare("SELECT title, filename, sort FROM " . DB_PREFIX . "blocks where contentId = :contentId and side = 'r'");
+    $str = $pdo->prepare("SELECT title, filename, sort FROM " . DB_PREFIX . "blocks where contentId = :contentId and side = 'r' order by sort asc");
     $str->bindValue(":contentId", $contentResults->id, PDO::PARAM_INT);
     $str->execute();
     
     $rightBlocks = $str->fetchAll();
     $str->closeCursor();
     
-    if (count($leftBlocks) > 0) {
+    if ($leftBlocks != null) {
       $hasLeft = true;
     } 
-    if (count($rightBlocks) > 0) {
+    if ($rightBlocks != null) {
       $hasRight = true;
     }
     

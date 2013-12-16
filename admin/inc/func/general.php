@@ -1,4 +1,18 @@
 <?php
+
+  function url_get_contents($_url) {
+    if (!function_exists('curl_init')){ 
+      die('cURL is not installed!');
+    }
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $_url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $output = curl_exec($ch);
+    echo '[' . htmlentities($output) . ']';
+    die();
+    curl_close($ch);
+    return $output;
+  }
   
   function load_page_content( $_action ) {
     switch ( $_action ) {
@@ -89,6 +103,7 @@
         dashboard();
     }
   }
+  
   function handleException( $exception ) {
     echo 'Sorry, a problem occurred. Please try later.';
     error_log($exception->getMessage());
