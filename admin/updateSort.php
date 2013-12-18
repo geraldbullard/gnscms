@@ -1,4 +1,4 @@
-<?php 
+<?php
   require('inc/config.php');
   $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
   foreach ($_GET['listItem'] as $newsort => $id) {

@@ -12,6 +12,7 @@
         </div>
       </div>
       <div id="rightContent" class="box span9">
+        <div id="info"></div>
         <div class="box-header well">
           <h2><i class="icon-chevron-right" onclick="toggleLeftNav();" style="display:none; cursor:pointer;" title="Show Navigation"></i><i class="icon-th"></i> Edit <?php echo ($results['content']->type == 0) ? 'Category' : 'Page'; ?> : : <?php echo $results['content']->title; ?></h2>
           <div class="box-icon">
@@ -129,13 +130,23 @@
                 </form>
               </div>
             </div>
-            <div class="tab-pane active" id="editBlocks">
+            <div class="tab-pane active" id="editBlocks"> 
               <?php
                 $blocksDir = '../theme/' . siteTheme . '/block/';
                 if (is_dir('../theme/' . siteTheme . '/block/')) {
                   $files = scandir($blocksDir);
               ?>
               <div class="row-fluid" id="edit_blocks">
+                <?php
+                  $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+                  $sql = 'SELECT filename FROM ' . DB_PREFIX . 'blocks';
+                  $b = $conn->prepare( $sql );
+                  $b->execute();
+                  $b = $b->fetchAll();
+                  foreach ($b as $block) {
+                    $blocks[] = $block['filename'];
+                  }   
+                ?>
                 <div class="span6">
                   <div id="left_block_selection">
                     <label>Select Left Blocks <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
@@ -143,11 +154,13 @@
                       <option value="">Select Left Block</option>
                       <?php
                         foreach ($files as $leftFile) {
-                          if ($leftFile != "." && $leftFile != ".." && $leftFile != ".htaccess") {
-                            $leftFileParts = explode(".", $leftFile);
-                            $leftBlockName = str_replace(array("-", "_"), " ", $leftFileParts[0]);
-                            if (strpos($leftBlockName, 'box') > -1) {
-                              echo '  <option value="' . $leftFileParts[0] . '">' . $leftBlockName . '</option>' . "\n";
+                          if (!in_array($leftFile, $blocks)) {
+                            if ($leftFile != "." && $leftFile != ".." && $leftFile != ".htaccess") {
+                              $leftFileParts = explode(".", $leftFile);
+                              $leftBlockName = str_replace(array("-", "_"), " ", $leftFileParts[0]);
+                              if (strpos($leftBlockName, 'box') > -1) {
+                                echo '  <option value="' . $leftFileParts[0] . '">' . $leftBlockName . '</option>' . "\n";
+                              }
                             }
                           }
                         }
@@ -158,6 +171,12 @@
                     <ul id="leftBlockList" style="list-style:none;margin-left:5px;">
                     </ul>
                   </div>
+                  <div id="updateLeftSortChanges" style="display:none; margin-bottom:10px;">
+                    <a onclick="location.reload();" title="Update Left Sort Changes" data-rel="tooltip" class="btn btn-success">
+                      <i class="icon icon-arrowrefresh-e icon-white"></i> 
+                      <span class="hide-below-768">Update Left Sort Changes</span>
+                    </a>
+                  </div>
                 </div>
                 <div class="span6">
                   <div id="right_block_selection">
@@ -166,11 +185,13 @@
                       <option value="">Select Right Block</option>
                       <?php
                         foreach ($files as $rightFile) {
-                          if ($rightFile != "." && $rightFile != ".." && $rightFile != ".htaccess") {
-                            $rightFileParts = explode(".", $rightFile);
-                            $rightBlockName = str_replace(array("-", "_"), " ", $rightFileParts[0]);
-                            if (strpos($rightBlockName, 'box') > -1) {
-                              echo '  <option value="' . $rightFileParts[0] . '">' . $rightBlockName . '</option>' . "\n";
+                          if (!in_array($rightFile, $blocks)) {
+                            if ($rightFile != "." && $rightFile != ".." && $rightFile != ".htaccess") {
+                              $rightFileParts = explode(".", $rightFile);
+                              $rightBlockName = str_replace(array("-", "_"), " ", $rightFileParts[0]);
+                              if (strpos($rightBlockName, 'box') > -1) {
+                                echo '  <option value="' . $rightFileParts[0] . '">' . $rightBlockName . '</option>' . "\n";
+                              }
                             }
                           }
                         }
