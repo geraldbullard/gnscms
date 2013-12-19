@@ -12,6 +12,8 @@
    * Copyright © 2012 3G Development. All rights reserved.
    * 
    */
+   define('blockTitle', 'Example Block');
+   define('blockSummary', 'Example Block Summary');
 ?>
       <div id="exBlock" class="sideBlock">
         Example Side Block
