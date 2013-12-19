@@ -22,7 +22,10 @@
     $("#leftBlockSelect").change(function() {
       var right = this.value;
       var name = this.value.replace("_", " ");
-      $("#leftBlockList").append("<li id='" + this.value + "' value='" + this.value + "' class=\"pad-5\" style=\"white-space:nowrap;text-transform:capitalize;\"><i class=\"icon-move leftSortHandle\" title=\"Drag to Sort\" data-rel=\"tooltip\"><i class=\"icon-trash\" style=\"cursor:pointer;margin-left:20px;\" onclick=\"removeLeftBlock('" + this.value + "');\" title=\"Remove Block\" data-rel=\"tooltip\"></i> &nbsp;" + name + "</li>");
+      $("#leftBlockList").append("<li id='" + this.value + "' value='" + this.value + "' class=\"pad-5\" style=\"white-space:nowrap;text-transform:capitalize;\">" +
+                                 "<i class=\"icon-move leftSortHandle\" title=\"Drag to Sort\"></i>" +
+                                 "<i class=\"icon-trash\" style=\"cursor:pointer;margin:0 10px 0 6px;\" onclick=\"removeLeftBlock('" + this.value + "');\" title=\"Remove Block\"></i>" +
+                                 name + "</li>");
       $("#leftBlockSelect option[value='" + this.value + "']").remove();
       $("#rightBlockSelect option[value='" + right + "']").remove();
       $("#info").load("blocks.php?leftadd=" + right + "&cId=<?php echo $_GET['editId']; ?>");
@@ -32,7 +35,10 @@
     $("#rightBlockSelect").change(function() {
       var left = this.value;
       var name = this.value.replace("_", " ");
-      $("#rightBlockList").append("<li id='" + this.value + "' value='" + this.value + "' class=\"pad-5\" style=\"white-space:nowrap;text-transform:capitalize;\"><i class=\"icon-move rightSortHandle\" title=\"Drag to Sort\" data-rel=\"tooltip\"><i class=\"icon-trash\" style=\"cursor:pointer;margin-left:20px;\" onclick=\"removeRightBlock('" + this.value + "');\" title=\"Remove Block\" data-rel=\"tooltip\"></i> &nbsp;" + name + "</li>");
+      $("#rightBlockList").append("<li id='" + this.value + "' value='" + this.value + "' class=\"pad-5\" style=\"white-space:nowrap;text-transform:capitalize;\">" +
+                                  "<i class=\"icon-move rightSortHandle\" title=\"Drag to Sort\"></i>" +
+                                  "<i class=\"icon-trash\" style=\"cursor:pointer;margin:0 10px 0 6px;\" onclick=\"removeRightBlock('" + this.value + "');\" title=\"Remove Block\"></i>" +
+                                  name + "</li>");
       $("#rightBlockSelect option[value='" + this.value + "']").remove();
       $("#leftBlockSelect option[value='" + left + "']").remove();
       $("#info").load("blocks.php?rightadd=" + left + "&cId=<?php echo $_GET['editId']; ?>");

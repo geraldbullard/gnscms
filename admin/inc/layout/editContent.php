@@ -12,7 +12,7 @@
         </div>
       </div>
       <div id="rightContent" class="box span9">
-        <div id="info"></div>
+        <div id="info" style="display:none;"></div>
         <div class="box-header well">
           <h2><i class="icon-chevron-right" onclick="toggleLeftNav();" style="display:none; cursor:pointer;" title="Show Navigation"></i><i class="icon-th"></i> Edit <?php echo ($results['content']->type == 0) ? 'Category' : 'Page'; ?> : : <?php echo $results['content']->title; ?></h2>
           <div class="box-icon">
@@ -139,7 +139,7 @@
               <div class="row-fluid" id="edit_blocks">
                 <?php
                   $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-                  $sql = 'SELECT filename FROM ' . DB_PREFIX . 'blocks';
+                  $sql = 'SELECT * FROM ' . DB_PREFIX . 'blocks';
                   $b = $conn->prepare( $sql );
                   $b->execute();
                   $b = $b->fetchAll();
@@ -169,6 +169,20 @@
                   </div>
                   <div id="leftBlocks">
                     <ul id="leftBlockList" style="list-style:none;margin-left:5px;">
+                      <?php
+                        foreach ($b as $block) {
+                          if ($block['side'] == 'l') {
+                            $lnparts = explode(".", $block['filename']);
+                            $box = $lnparts[0];
+                      ?>
+                      <li id="<?php echo $box; ?>" value="" class="pad-5" style="white-space:nowrap;text-transform:capitalize;">
+                        <i class="icon-move leftSortHandle" title="Drag to Sort"></i>
+                        <i class="icon-trash" style="cursor:pointer;margin:0 10px 0 6px;" onclick="removeLeftBlock('<?php echo $box; ?>');" title="Remove Block"></i><?php echo ucfirst(str_replace("_", " ", $box)); ?>
+                      </li>
+                      <?php
+                          }
+                        }
+                      ?>                    
                     </ul>
                   </div>
                   <div id="updateLeftSortChanges" style="display:none; margin-bottom:10px;">
@@ -200,6 +214,20 @@
                   </div>
                   <div id="rightBlocks">
                     <ul id="rightBlockList" style="list-style:none;margin-left:5px;">
+                      <?php
+                        foreach ($b as $block) {
+                          if ($block['side'] == 'r') {
+                            $lnparts = explode(".", $block['filename']);
+                            $box = $lnparts[0];
+                      ?>
+                      <li id="<?php echo $box; ?>" value="" class="pad-5" style="white-space:nowrap;text-transform:capitalize;">
+                        <i class="icon-move leftSortHandle" title="Drag to Sort"></i>
+                        <i class="icon-trash" style="cursor:pointer;margin:0 10px 0 6px;" onclick="removeLeftBlock('<?php echo $box; ?>');" title="Remove Block"></i><?php echo ucfirst(str_replace("_", " ", $box)); ?>
+                      </li>
+                      <?php
+                          }
+                        }
+                      ?>
                     </ul>
                   </div>
                 </div>
