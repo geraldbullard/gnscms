@@ -13,9 +13,9 @@
    * 
    */    
    if ($hasLeft === true && $hasRight === true) {
-     $mainColWidth = '60';
+     $mainColWidth = '50';
    } else if (($hasLeft === true && !$hasRight === true) || (!$hasLeft === true && $hasRight === true)) {
-     $mainColWidth = '80';
+     $mainColWidth = '75';
    } else {
      $mainColWidth = '100';
    }

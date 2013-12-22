@@ -13,7 +13,7 @@
    * 
    */
 ?>
-        <div id="rightColumn" class="side-column" style="float:left;width:20%;">
+        <div id="rightColumn" class="side-column" style="float:left;width:25%;">
           <?php 
             foreach ($rightBlocks as $block) { 
               echo '<h3>' . $block['title'] . '</h3>';            

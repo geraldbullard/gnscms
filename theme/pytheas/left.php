@@ -13,7 +13,7 @@
    *  foreach ($leftBlocks as $leftBlock) {
    */
 ?>
-        <div id="leftColumn" class="side-column" style="float:left;width:20%;">
+        <div id="leftColumn" class="side-column" style="float:left;width:25%;">
           <?php 
             foreach ($leftBlocks as $block) { 
               echo '<h3>' . $block['title'] . '</h3>';            
