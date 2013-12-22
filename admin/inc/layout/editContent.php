@@ -154,7 +154,11 @@
                       <option value="">Select Left Block</option>
                       <?php
                         foreach ($files as $leftFile) {
-                          if (!in_array($leftFile, $blocks)) {
+                          $chkside = 'SELECT side FROM ' . DB_PREFIX . 'blocks where filename = "' . $leftFile . '" and contentId = "' . $_GET['editId'] . '"';
+                          $chk = $conn->prepare( $chkside );
+                          $chk->execute();
+                          $chk = $chk->fetch();
+                          if (empty($chk['side'])) {
                             if ($leftFile != "." && $leftFile != ".." && $leftFile != ".htaccess") {
                               $leftFileParts = explode(".", $leftFile);
                               $leftBlockName = str_replace(array("-", "_"), " ", $leftFileParts[0]);
@@ -171,7 +175,7 @@
                     <ul id="leftBlockList" style="list-style:none;margin-left:5px;">
                       <?php
                         foreach ($b as $block) {
-                          if ($block['side'] == 'l') {
+                          if ($block['contentId'] == $_GET['editId'] && $block['side'] == 'l') {
                             $lnparts = explode(".", $block['filename']);
                             $box = $lnparts[0];
                       ?>
@@ -199,7 +203,11 @@
                       <option value="">Select Right Block</option>
                       <?php
                         foreach ($files as $rightFile) {
-                          if (!in_array($rightFile, $blocks)) {
+                          $chkside = 'SELECT side FROM ' . DB_PREFIX . 'blocks where filename = "' . $rightFile . '" and contentId = "' . $_GET['editId'] . '"';
+                          $chk = $conn->prepare( $chkside );
+                          $chk->execute();
+                          $chk = $chk->fetch();
+                          if (empty($chk['side'])) {
                             if ($rightFile != "." && $rightFile != ".." && $rightFile != ".htaccess") {
                               $rightFileParts = explode(".", $rightFile);
                               $rightBlockName = str_replace(array("-", "_"), " ", $rightFileParts[0]);
@@ -216,7 +224,7 @@
                     <ul id="rightBlockList" style="list-style:none;margin-left:5px;">
                       <?php
                         foreach ($b as $block) {
-                          if ($block['side'] == 'r') {
+                          if ($block['contentId'] == $_GET['editId'] && $block['side'] == 'r') {
                             $lnparts = explode(".", $block['filename']);
                             $box = $lnparts[0];
                       ?>
@@ -232,7 +240,10 @@
                   </div>
                 </div>
               </div>
-              <?php } ?>
+              <?php 
+                  $conn = null;
+                } 
+              ?>
             </div>
           </div>
         </div>
