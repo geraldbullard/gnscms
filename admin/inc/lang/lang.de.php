@@ -44,5 +44,18 @@
   $lang['users'] = 'Benutzer';
   $lang['view_dashboard'] = 'Dashboard Anzeigen';
   $lang['view_site'] = 'Website Sehen';
-  $lang['view_site_new_window'] = 'Seite in Neuem Fenster Offnen';  
+  $lang['view_site_new_window'] = 'Seite in Neuem Fenster Offnen'; 
+  
+  /* Login-Seite */
+  $lang['login'] = 'Login';
+  $lang['login_title'] = 'Verwaltung Login';
+  $lang['login_meta_description'] = 'Verwaltung von Maestro';
+  $lang['login_remove_install'] = 'Bitte entfernen Sie install.php sofort!';
+  $lang['login_wrong_username'] = 'Falscher Benutzername, Kennwort oder Status.<br />Bitte kontaktieren Sie den Administrator der Website.';
+  $lang['login_logged_out'] = 'Sie haben sich erfolgreich abgemeldet.';
+  $lang['login_not_logged_in'] = 'Sie sind nicht angemeldet.';
+  $lang['login_session_ended'] = 'Ihre Sitzung beendet. Einloggen Again.';
+  $lang['login_thanks_for_trying'] = 'Vielen Dank, dass gnsCMS!';
+  $lang['login_no_direct_access'] = 'Kein direkter Zugang zu dieser Datei!';
+  $lang['login_enter_user_pass'] = 'Geben Sie Ihren Benutzernamen und Ihr Passwort ein, um sich anzumelden.'; 
 ?>

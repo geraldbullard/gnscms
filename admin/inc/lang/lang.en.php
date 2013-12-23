@@ -45,4 +45,17 @@
   $lang['view_dashboard'] = 'View Dashboard';
   $lang['view_site'] = 'View Site';
   $lang['view_site_new_window'] = 'View Site in New Window';
+  
+  /* Login Page */
+  $lang['login'] = 'Login';
+  $lang['login_title'] = 'Admin Login';
+  $lang['login_meta_description'] = 'gnsCMS Administration by maestro';
+  $lang['login_remove_install'] = 'Please remove install.php immediately!';
+  $lang['login_wrong_username'] = 'Wrong Username, Password or Status.<br />Please contact the site administrator.';
+  $lang['login_logged_out'] = 'You Have Successfully Logged Out.';
+  $lang['login_not_logged_in'] = 'You Are Not Logged In.';
+  $lang['login_session_ended'] = 'Your Session Has Ended. Login Again.';
+  $lang['login_thanks_for_trying'] = 'Thanks For Trying gnsCMS!';
+  $lang['login_no_direct_access'] = 'No direct access to that file!';
+  $lang['login_enter_user_pass'] = 'Enter your username and password to login.';
 ?>

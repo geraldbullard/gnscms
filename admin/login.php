@@ -3,6 +3,39 @@
   
   session_start();
   
+  // set the language
+  if (isset($_GET['lang'])) {
+    $lang = $_GET['lang'];
+    $_SESSION['lang'] = $lang;
+    setcookie('lang', $lang, time() + (3600 * 24 * 30));
+  } else if (isset($_SESSION['lang'])) {
+    $lang = $_SESSION['lang'];
+  } else if (isset($_COOKIE['lang'])) {
+    $lang = $_COOKIE['lang'];
+    $_SESSION['lang'] = $lang;
+  } else {
+    $lang = 'en';
+    $_SESSION['lang'] = $lang;
+  }
+  $lang_files = scandir('inc/lang');
+  foreach ($lang_files as $file) {
+    if ($file != '.' && $file != '..' && $file != 'langs.php') {
+      $parts = explode(".", $file); 
+      $file_lang = $parts[1];
+      $langs_array[] = $parts[1];
+      if ($lang == $file_lang) {
+        $lang_file = $file;
+      }
+    }
+  }
+  
+  $lang = array();
+  
+  require_once('inc/lang/' . $lang_file);
+  $_SESSION['langs_array'] = $langs_array;
+  require_once('inc/lang/langs.php');
+  $_SESSION['all_langs'] = $all_langs;
+  
   if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     session_destroy();
     session_write_close();
@@ -24,7 +57,7 @@
     echo "ERROR: " . $e->getMessage();
   }
     
-  if (isset($_POST['login'])) {
+  if (isset($_POST['login'])) {  
     try {
       $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD); 
       $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -38,17 +71,17 @@
       echo "ERROR: " . $e->getMessage();
     }
     
-    if (($_POST['username'] != $adminDetails['username']) || (md5($_POST['password']) != $adminDetails['password']) || ($adminDetails['status'] != 1)) {
-      $error = true;
-    } else {
+    if (($_POST['username'] == $adminDetails['username']) && (md5($_POST['password']) == $adminDetails['password']) && ($adminDetails['status'] == '1')) {
       $_SESSION['authuser'] = $adminDetails['username'];
       $_SESSION['sessionStart'] = time();
       $_SESSION['sessionExpire'] = $_SESSION['sessionStart'] + ($sessionExpireTime['value'] * 60);
-      if (isset($_SESSION['oldURL'])) {
+      if (isset($_SESSION['oldURL']) && $_SESSION['oldURL'] != '' && strpos($_SESSION['oldURL'], 'login') === false) {
         header("Location: " . $_SESSION['oldURL']);
       } else {
         header("Location: index.php?action=dashboard");
       }
+    } else {
+      $error = true;
     }
   }
 ?>
@@ -58,33 +91,16 @@
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <title><?php echo $lang['gnscms']; ?> Admin | </title>
+  <title><?php echo $lang['login_title']; ?></title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="gnsCMS Admin by maestro">
-  <meta name="keywords" content="these, are, my, site, keywords">
-  <meta name="application-name" content="gnsCMS Admin">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="<?php echo $lang['login_meta_description']; ?>">
+  <meta name="robots" content="index, nofollow">
   <link rel="shortcut icon" href="favicon.ico">
   <!-- Styles -->
   <link href="css/bootstrap-cerulean.css" rel="stylesheet">
-  <link href="css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
-  <link href="css/fullcalendar.css" rel='stylesheet'>
-  <link href="css/fullcalendar.print.css" rel="stylesheet"  media='print'>
-  <link href="css/chosen.css" rel="stylesheet">
-  <link href="css/uniform.default.css" rel="stylesheet">
-  <link href="css/colorbox.css" rel="stylesheet">
-  <link href="css/jquery.cleditor.css" rel="stylesheet">
-  <link href="css/jquery.noty.css" rel="stylesheet">
-  <link href="css/noty_theme_default.css" rel="stylesheet">
-  <link href="css/elfinder.min.css" rel="stylesheet">
-  <link href="css/elfinder.theme.css" rel="stylesheet">
-  <link href="css/jquery.iphone.toggle.css" rel="stylesheet">
-  <link href="css/opa-icons.css" rel="stylesheet">
-  <link href="css/uploadify.css" rel="stylesheet">
-  <link href="css/jquery.wysiwyg.css" rel="stylesheet" media="screen" />
   <link href="css/bootstrap-responsive.css" rel="stylesheet">
   <link href="css/charisma-app.css" rel="stylesheet">  
   <!--[if lt IE 9]>
@@ -103,7 +119,7 @@
 ?>
         <div id="installFileExists" class="error alert alert-info center">
           <p>
-            Please remove install.php immediately!.
+            <?php echo $lang['login_remove_install']; ?>
           </p>
         </div>
 <?php
@@ -112,7 +128,7 @@
 ?>
         <div id="wrongInformation" class="warning alert alert-info center">
           <p>
-            Wrong Username, Password or Status.<br />Please contact the site administrator.
+            <?php echo $lang['login_wrong_username']; ?>
           </p>
         </div>
 <?php
@@ -121,7 +137,7 @@
 ?>
         <div id="logout" class="success alert alert-info center">
           <p>
-            You Have Successfully Logged Out.
+            <?php echo $lang['login_logged_out']; ?>
           </p>
         </div>
 <?php 
@@ -130,7 +146,7 @@
 ?>
         <div id="notLogged" class="warning alert alert-info center">
           <p>
-            You Are Not Logged In.
+            <?php echo $lang['login_not_logged_in']; ?>
           </p>
         </div>
 <?php 
@@ -139,7 +155,7 @@
 ?>
         <div id="sessionExpired" class="warning alert alert-info center">
           <p>
-            Your Session Has Ended. Login Again.
+            <?php echo $lang['login_session_ended']; ?>
           </p>
         </div>
 <?php 
@@ -148,7 +164,7 @@
 ?>
         <div id="firstLogin" class="success alert alert-info center">
           <p>
-            Thanks For Trying gnsCMS!
+            <?php echo $lang['login_thanks_for_trying']; ?>
           </p>
         </div>
 <?php 
@@ -157,7 +173,7 @@
 ?>
         <div id="noDirectAccess" class="error alert alert-info center">
           <p>
-            No direct access to that file!
+            <?php echo $lang['login_no_direct_access']; ?>
           </p>
         </div>
 <?php 
@@ -165,10 +181,10 @@
 ?>
         <div id="defaultLoginMsg" class="error alert alert-info center" <?php if ($_GET['action']) { echo 'style="display:none;"'; } ?>>
           <p>
-            Enter your username and password to login.
+            <?php echo $lang['login_enter_user_pass']; ?>
           </p>
         </div>
-        <form class="form-horizontal" action="login.php" method="post">
+        <form id="login" class="form-horizontal" action="login.php" method="post">
           <br />
           <fieldset>
             <div class="input-prepend" title="Username">
@@ -182,16 +198,16 @@
             <div class="clearfix"></div>
 
             <p class="center">
-            <button type="submit" name="login" class="btn btn-primary login-button">Login</button>
+            <button type="submit" name="login" id="login" class="btn btn-primary login-button"><?php echo $lang['login']; ?></button>
             </p>
           </fieldset>
         </form>
       </div><!--/span-->
       <div class="span3 center">
         <p>
-          Copyright &copy; <?php echo date('Y') ?> <a href="http://www.gnscms.com/" target="_blank" title="The Best in Web Development!">gnsCMS</a><br />
-          Core Code Based on: <a href="http://www.elated.com/articles/cms-in-an-afternoon-php-mysql/" target="_blank" title='Core code based on "Build a CMS in an Afternoon with PHP and MySQL" by Matt Doyle'>Afternoon CMS</a><br />
-          Admin Powered by: <a href="http://usman.it/free-responsive-admin-template" title="Charisma - Open Source, Mutiple Skin, Fully Responsive Admin Template">Charisma</a><br />
+          <?php echo $lang['copyright']; ?> &copy; <?php echo date('Y') ?> <a href="http://www.gnscms.com/" target="_blank" title="<?php echo $lang['copyright_title']; ?>"><?php echo $lang['gnscms']; ?></a><br />
+          <?php echo $lang['core_code']; ?>: <a href="http://www.elated.com/articles/cms-in-an-afternoon-php-mysql/" target="_blank" title='<?php echo $lang['core_code_title']; ?>'><?php echo $lang['afternoon_cms']; ?></a><br />
+          <?php echo $lang['powered_by']; ?>: <a href="http://usman.it/free-responsive-admin-template" title="<?php echo $lang['powered_by_title']; ?>"><?php echo $lang['charisma']; ?></a><br />
         </p>
       </div>
     </div><!--/row-->
