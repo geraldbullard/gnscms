@@ -142,13 +142,14 @@
   }
   
   function langSelectArray() {
-    $langArr = '';
-    foreach ( $_SESSION['langs_array'] as $language ) {
-      if ( array_key_exists( $language, $_SESSION['all_langs'] ) ) {
-        $langArr .= '<option value="' . $language . '" style="padding:2px; background-repeat:no-repeat; background-position:bottom left; padding-left:25px; background:url(../images/icons/flags/' . $language . '.png) no-repeat 3px 6px;"' . ( ( $_SESSION['lang'] == $language ) ? ' selected' : '' ) . '>' . $_SESSION['all_langs'][$language] . '</option>';
+    $langOptions = '';
+    foreach ($_SESSION['langs_array'] as $language) {
+      echo '[[' . $language . ']]';
+      if (array_key_exists($language, $_SESSION['all_langs'])) {
+        $langOptions .= '<option value="' . $language . '" style="padding:2px; background-repeat:no-repeat; background-position:bottom left; padding-left:25px; background:url(../images/icons/flags/' . $language . '.png) no-repeat 3px 6px;"' . ( ( $_SESSION['language'] == $language ) ? ' selected' : '' ) . '>' . $_SESSION['all_langs'][$language] . '</option>';
       }
     }
-    return $langArr;
+    return $langOptions;
   }
   
 ?>

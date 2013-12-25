@@ -98,7 +98,7 @@
         </div>
         <div class="span6">
           <p class="pull-right">
-            <select id="lang_select" style="width:auto; padding-left:22px; background:url('../images/icons/flags/<?php echo $_SESSION['lang']; ?>.png') no-repeat 4px 8px;">
+            <select id="lang_select" style="width:auto; padding-left:22px; background:url('../images/icons/flags/<?php echo $_SESSION['language']; ?>.png') no-repeat 4px 8px;">
             <?php echo langSelectArray(); ?>
             </select>
             <a class="arrow-top scrollToTop" href="#">
