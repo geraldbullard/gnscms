@@ -1,7 +1,7 @@
 <?php
   function editGroup() {
     global $lang;
-    $page_lang = scandir('inc/lang/' . $_SESSION['lang']);
+    $page_lang = scandir('inc/lang/' . $_SESSION['language']);
     foreach ($page_lang as $file) {
       if ($file != '.' && $file != '..') {
         $parts = explode(".", $file); 
@@ -11,7 +11,7 @@
         }
       }
     }
-    include_once('inc/lang/' . $_SESSION['lang'] . '/' . $page_file);
+    include_once('inc/lang/' . $_SESSION['language'] . '/' . $page_file);
     if ($_SESSION['access']->users > 1) {
       $results = array();
       $results['formAction'] = "editGroup";

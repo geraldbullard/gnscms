@@ -1,7 +1,7 @@
 <?php
   function theme() {
     global $lang;
-    $page_lang = scandir('inc/lang/' . $_SESSION['lang']);
+    $page_lang = scandir('inc/lang/' . $_SESSION['language']);
     foreach ($page_lang as $file) {
       if ($file != '.' && $file != '..') {
         $parts = explode(".", $file); 
@@ -11,7 +11,7 @@
         }
       }
     }
-    include_once('inc/lang/' . $_SESSION['lang'] . '/' . $page_file);
+    include_once('inc/lang/' . $_SESSION['language'] . '/' . $page_file);
     if ($_SESSION['access']->themes > 0) {
       if ( isset( $_GET['error'] ) ) {
         if ( $_GET['error'] == "themeNotActivated" ) $results['errorMessage'] = "Error: The current theme was not updated. Please try again.";

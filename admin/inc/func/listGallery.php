@@ -2,7 +2,7 @@
   // get and list the needed gallery data
   function listGallery() {
     global $lang;
-    $page_lang = scandir('inc/lang/' . $_SESSION['lang']);
+    $page_lang = scandir('inc/lang/' . $_SESSION['language']);
     foreach ($page_lang as $file) {
       if ($file != '.' && $file != '..') {
         $parts = explode(".", $file); 
@@ -12,7 +12,7 @@
         }
       }
     }
-    include_once('inc/lang/' . $_SESSION['lang'] . '/' . $page_file);
+    include_once('inc/lang/' . $_SESSION['language'] . '/' . $page_file);
     if ($_SESSION['access']->gallery > 0) {
       /*$results = array();
       if (isset($_GET['albumId']) && $_GET['albumId'] != '' && $_GET['albumId'] != 0) {
