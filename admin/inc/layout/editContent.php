@@ -130,7 +130,7 @@
                 </form>
               </div>
             </div>
-            <div class="tab-pane active" id="editBlocks"> 
+            <div class="tab-pane" id="editBlocks"> 
               <?php
                 $blocksDir = '../theme/' . siteTheme . '/block/';
                 if (is_dir('../theme/' . siteTheme . '/block/')) {
