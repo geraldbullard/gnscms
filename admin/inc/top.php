@@ -1,11 +1,7 @@
-<?php
-  require('inc/config.php');
-  require('inc/func/general.php');
-  require('inc/class/Content.class.php');
-  require('inc/class/Group.class.php');
-  require('inc/class/Setting.class.php');
-  require('inc/class/User.class.php');
-  
+<?php 
+  require_once('inc/config.php');
+  require_once('inc/func/general.php');
+   
   // set the type of request (secure or not) // save for later - maestro
   $request_type = (getenv('HTTPS') == 'on') ? 'SSL' : 'NONSSL';
   if ($request_type == 'NONSSL') {
@@ -99,6 +95,16 @@
       $_SESSION['sessionExpire'] = $_SESSION['sessionStart'] + (sessionExpire * 60);
     }
   }
+  
+  require_once('inc/class/rci.php');
+  $gns_admin_RCI = new gns_admin_RCI;
+  
+  // include class files 
+  require_once('inc/class/Content.class.php');
+  require_once('inc/class/Group.class.php');
+  require_once('inc/class/Setting.class.php');
+  require_once('inc/class/User.class.php');
+  echo $gns_admin_RCI->get('class', 'add', false);
   
   // get user group access and set it into session
   $_SESSION['access'] = Group::getById(User::getGroupID($_SESSION['authuser']));

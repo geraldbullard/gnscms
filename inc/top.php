@@ -56,7 +56,6 @@
     $contentResults = array();
     $contentResults = Content::getBySlug( $indexPage['slug'] );
     $view = 'viewContent';
-    header('Location: ' . $indexPage['slug'] . '.html');
   }
   
   // get the side blocks for the page
