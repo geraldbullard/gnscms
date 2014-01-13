@@ -26,11 +26,12 @@
     var cnt = 0;
     var links = [];
     for (var key in params) {
-      if (key == 'results') {
+      if (key == 'noresults') {
+      } else if (key == 'results') {
         var results = urldecode(params[key]);
       } else {
         if (isOdd(cnt)) {
-          var urlEnd = params[key].replace(/_/g, " ") + '</a></li>'
+          var urlEnd = params[key].toString().replace(/_/g, " ") + '</a></li>'
         }
         if (!isOdd(cnt)) {
           var url = '<li class="search-result-li"><a href="' + params[key] + '">' + urlEnd;
@@ -46,8 +47,10 @@
       $("#search_form").hide();
       $("#search_terms").html('<h4>Search Results for "' + results + '"</h4>');
       $("#search_results").html('<ul class="search-result-ul">' + links.join("") + '</ul>');
+    } else {
+      $("#search_results").html('<h4 class="search-h4">No Search Results</h4>');
     }
-    
+  
     // Getting URL var by its nam
     // var byName = $.getUrlVar('name');
   });
