@@ -28,7 +28,7 @@
     for (var key in params) {
       if (key != 'results') {
         if (isOdd(cnt)) {
-          var urlEnd = params[key].replace("_", " ") + '</a></li>'
+          var urlEnd = params[key].replace(/_/g, " ") + '</a></li>'
         }
         if (!isOdd(cnt)) {
           var url = '<li class="search-result-li"><a href="' + params[key] + '">' + urlEnd;
