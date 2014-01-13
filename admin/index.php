@@ -83,9 +83,10 @@
     </div>
     <!-- topbar ends -->    
     <div id="display_results_320" style="display:none;"></div>
-<?php   
-  echo load_page_content($action);
-?>
+    <?php   
+      require_once('inc/func/' . $action . '.php');
+      $action();
+    ?>
     <hr>    
     <footer>
       <div class="row-fluid no-bg">
@@ -98,7 +99,7 @@
         </div>
         <div class="span6">
           <p class="pull-right">
-            <select id="lang_select" style="width:auto; padding-left:22px; background:url('../images/icons/flags/<?php echo $_SESSION['language']; ?>.png') no-repeat 4px 8px;">
+            <select id="lang_select" style="width:auto; padding-left:22px; background:url('../images/icons/flags/<?php echo $_SESSION['lang']; ?>.png') no-repeat 4px 8px;">
             <?php echo langSelectArray(); ?>
             </select>
             <a class="arrow-top scrollToTop" href="#">

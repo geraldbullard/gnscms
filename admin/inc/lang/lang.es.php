@@ -57,5 +57,7 @@
   $lang['login_session_ended'] = utf8_encode('La sesión ha expirado. Registrese nuevamente.');
   $lang['login_thanks_for_trying'] = 'Gracias por intentarlo gnsCMS!';
   $lang['login_no_direct_access'] = 'No hay acceso directo a ese archivo!';
-  $lang['login_enter_user_pass'] = utf8_encode('Introduzca su nombre de usuario y contraseña para iniciar sesión.');  
+  $lang['login_enter_user_pass'] = utf8_encode('Introduzca su nombre de usuario y contraseña para iniciar sesión.');
+  
+  echo $gns_admin_RCI->get('eslang', 'add');  
 ?>

@@ -57,5 +57,7 @@
   $lang['login_session_ended'] = utf8_encode('Votre session est terminée. Connectez-vous nouveau.');
   $lang['login_thanks_for_trying'] = 'Merci d\'essayer gnsCMS!';
   $lang['login_no_direct_access'] = utf8_encode('Pas d\'accès direct à ce fichier!');
-  $lang['login_enter_user_pass'] = 'Entrez votre nom d\'utilisateur et mot de passe pour vous connecter.';  
+  $lang['login_enter_user_pass'] = 'Entrez votre nom d\'utilisateur et mot de passe pour vous connecter.';
+  
+  echo $gns_admin_RCI->get('frlang', 'add');  
 ?>

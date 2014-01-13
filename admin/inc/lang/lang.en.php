@@ -1,4 +1,5 @@
 <?php
+  global $gns_admin_RCI;
  /**
   * Language: English
   */
@@ -58,4 +59,6 @@
   $lang['login_thanks_for_trying'] = 'Thanks For Trying gnsCMS!';
   $lang['login_no_direct_access'] = 'No direct access to that file!';
   $lang['login_enter_user_pass'] = 'Enter your username and password to login.';
+  
+  echo $gns_admin_RCI->get('enlang', 'add', false);
 ?>

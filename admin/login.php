@@ -6,21 +6,20 @@
   // set the language
   if (isset($_GET['lang'])) {
     $lang = $_GET['lang'];
-    $_SESSION['language'] = $_GET['lang']; 
-  } else if (isset($_SESSION['language'])) {
-    $lang = $_SESSION['language']; 
+    $_SESSION['lang'] = $lang;
+    setcookie('lang', $lang, time() + (3600 * 24 * 30));
+  } else if (isset($_SESSION['lang'])) {
+    $lang = $_SESSION['lang'];
+  } else if (isset($_COOKIE['lang'])) {
+    $lang = $_COOKIE['lang'];
+    $_SESSION['lang'] = $lang;
   } else {
     $lang = 'en';
-    $_SESSION['language'] = 'en'; 
+    $_SESSION['lang'] = $lang;
   }
-  
-  $langs_array = array();
   $lang_files = scandir('inc/lang');
   foreach ($lang_files as $file) {
-    if (is_dir('inc/lang/' . $file) && $file != "." && $file != "..") {
-      $langs_array[] = $file;
-    }
-    if ($file != '.' && $file != '..' && $file != 'langs.php' && $file != 'de' && $file != 'en' && $file != 'es' && $file != 'fr') {
+    if ($file != '.' && $file != '..' && $file != 'langs.php') {
       $parts = explode(".", $file); 
       $file_lang = $parts[1];
       $langs_array[] = $parts[1];
@@ -30,11 +29,10 @@
     }
   }
   
-  $lang = array();  
+  $lang = array();
+  
   require_once('inc/lang/' . $lang_file);
-  
-  $_SESSION['langs_array'] = array_unique($langs_array);
-  
+  $_SESSION['langs_array'] = $langs_array;
   require_once('inc/lang/langs.php');
   $_SESSION['all_langs'] = $all_langs;
   

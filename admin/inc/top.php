@@ -17,6 +17,9 @@
   set_exception_handler('handleException');
   ob_start();
   
+  require_once('inc/class/rci.php');
+  $gns_admin_RCI = new gns_admin_RCI;
+  
   // set the language
   if (isset($_GET['lang'])) {
     $lang = $_GET['lang'];
@@ -96,9 +99,6 @@
     }
   }
   
-  require_once('inc/class/rci.php');
-  $gns_admin_RCI = new gns_admin_RCI;
-  
   // include class files 
   require_once('inc/class/Content.class.php');
   require_once('inc/class/Group.class.php');
@@ -115,4 +115,6 @@
   $action = isset($_GET['action']) ? $_GET['action'] : '';
   
   $page_title = '';
+  
+  echo $gns_admin_RCI->get('top', 'add', false);
 ?>

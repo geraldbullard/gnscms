@@ -57,5 +57,7 @@
   $lang['login_session_ended'] = 'Ihre Sitzung beendet. Einloggen Again.';
   $lang['login_thanks_for_trying'] = 'Vielen Dank, dass gnsCMS!';
   $lang['login_no_direct_access'] = 'Kein direkter Zugang zu dieser Datei!';
-  $lang['login_enter_user_pass'] = 'Geben Sie Ihren Benutzernamen und Ihr Passwort ein, um sich anzumelden.'; 
+  $lang['login_enter_user_pass'] = 'Geben Sie Ihren Benutzernamen und Ihr Passwort ein, um sich anzumelden.';
+  
+  echo $gns_admin_RCI->get('delang', 'add'); 
 ?>
