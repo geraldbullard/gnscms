@@ -26,15 +26,17 @@
       $results = mysql_num_rows($query);
       
       if ($results == 0) {
-        echo "Sorry, there are no matching result for <b>$search</b>.";
+        header("Location: search.html?noresults");
+        //echo "Sorry, there are no matching result for <b>$search</b>.";
       } else {
-        echo "$results results found!";
+        $cnt = 1;
         while ($result = mysql_fetch_assoc($query)) {
           $title = $result['title'];
           $slug = $result['slug'] . '.html';
-
-          echo "<p><a href='$slug'><b>$title</b></a></p>";
+          $data .= '&title' . $cnt . '=' . str_replace(" ", "_", $title) . '&slug' . $cnt . '=' . $slug;
+          $cnt++;
         }
+        header("Location: search.html?results" . $data);
       }
     }
   }
