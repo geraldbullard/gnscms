@@ -36,7 +36,7 @@
           $data .= '&title' . $cnt . '=' . str_replace(" ", "_", $title) . '&slug' . $cnt . '=' . $slug;
           $cnt++;
         }
-        header("Location: search.html?results" . $data);
+        header("Location: search.html?results=" . urlencode($search) . $data);
       }
     }
   }

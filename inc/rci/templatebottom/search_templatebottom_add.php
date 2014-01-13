@@ -26,7 +26,9 @@
     var cnt = 0;
     var links = [];
     for (var key in params) {
-      if (key != 'results') {
+      if (key == 'results') {
+        var results = urldecode(params[key]);
+      } else {
         if (isOdd(cnt)) {
           var urlEnd = params[key].replace(/_/g, " ") + '</a></li>'
         }
@@ -42,6 +44,7 @@
     
     if (links != '') {
       $("#search_form").hide();
+      $("#search_terms").html('<h4>Search Results for "' + results + '"</h4>');
       $("#search_results").html('<ul class="search-result-ul">' + links.join("") + '</ul>');
     }
     
@@ -51,5 +54,9 @@
   
   function isOdd(n) {
     return /^-?\d*[13579]$/.test(n);
+  }
+  
+  function urldecode(str) {
+    return decodeURIComponent((str+'').replace(/\+/g, '%20'));
   }
   </script>
