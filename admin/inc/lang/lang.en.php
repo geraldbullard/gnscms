@@ -1,5 +1,4 @@
 <?php
-  global $gns_admin_RCI;
  /**
   * Language: English
   */

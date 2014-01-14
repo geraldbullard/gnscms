@@ -3,16 +3,21 @@
   
   session_start();
   
-  // set the language
+  require_once('inc/class/rci.php');
+  $gns_admin_RCI = new gns_admin_RCI;
+  
+  // set the language 
   if (isset($_GET['lang'])) {
     $lang = $_GET['lang'];
-    $_SESSION['lang'] = $lang;
+    $_SESSION['lang'] = $_GET['lang']; 
   } else if (isset($_SESSION['lang'])) {
-    $lang = $_SESSION['lang'];
+    $lang = $_SESSION['lang']; 
   } else {
     $lang = 'en';
-    $_SESSION['lang'] = $lang;
+    $_SESSION['lang'] = 'en'; 
   }
+  
+  $langs_array = array();
   $lang_files = scandir('inc/lang');
   foreach ($lang_files as $file) {
     if (is_dir('inc/lang/' . $file) && $file != "." && $file != "..") {
@@ -28,10 +33,9 @@
     }
   }
   
-  $lang = array();
-  
-  require_once('inc/lang/' . $lang_file);
-  $_SESSION['langs_array'] = $langs_array;
+  $lang = array();  
+  require_once('inc/lang/' . $lang_file);  
+  $_SESSION['langs_array'] = array_unique($langs_array);  
   require_once('inc/lang/langs.php');
   $_SESSION['all_langs'] = $all_langs;
   
