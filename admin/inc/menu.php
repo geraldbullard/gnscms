@@ -1,6 +1,6 @@
           <?php 
             global $gns_admin_RCI; 
-            $_SESSION['conArr'] = array('dashboard', 'listContent', 'listGallery');
+            $_SESSION['conArr'] = array('dashboard', 'listContent');
             $_SESSION['appArr'] = array('theme');
             $_SESSION['useArr'] = array('listUser', 'editUser', 'editGroup');
             $_SESSION['tooArr'] = array('fileManager');
@@ -16,7 +16,6 @@
               <ul id="side_content_menu" class="nav nav-inner-ul<?php echo (empty($_GET['action']) || in_array($_GET['action'], $_SESSION['conArr'])) ? '' : ' hide'; ?>">
                 <li><a href="index.php?action=dashboard"<?php echo (empty($_GET['action']) || $_GET['action'] == 'dashboard') ? ' style="background-color:#43A1DA;color:white;border:1px solid #43A1DA;"' : ''; ?>><?php echo $lang['dashboard']; ?></a></li>
                 <li><a href="index.php?action=listContent"<?php echo ($_GET['action'] == 'listContent') ? ' style="background-color:#43A1DA;color:white;border:1px solid #43A1DA;"' : ''; ?>><?php echo $lang['content']; ?></a></li>
-                <li><a href="index.php?action=listGallery"<?php echo ($_GET['action'] == 'listGallery') ? ' style="background-color:#43A1DA;color:white;border:1px solid #43A1DA;"' : ''; ?>><?php echo $lang['gallery']; ?></a></li>
                 <?php echo $gns_admin_RCI->get('contentmenu', 'add'); ?>
               </ul>
             </li>
