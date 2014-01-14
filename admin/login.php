@@ -7,19 +7,18 @@
   if (isset($_GET['lang'])) {
     $lang = $_GET['lang'];
     $_SESSION['lang'] = $lang;
-    setcookie('lang', $lang, time() + (3600 * 24 * 30));
   } else if (isset($_SESSION['lang'])) {
     $lang = $_SESSION['lang'];
-  } else if (isset($_COOKIE['lang'])) {
-    $lang = $_COOKIE['lang'];
-    $_SESSION['lang'] = $lang;
   } else {
     $lang = 'en';
     $_SESSION['lang'] = $lang;
   }
   $lang_files = scandir('inc/lang');
   foreach ($lang_files as $file) {
-    if ($file != '.' && $file != '..' && $file != 'langs.php') {
+    if (is_dir('inc/lang/' . $file) && $file != "." && $file != "..") {
+      $langs_array[] = $file;
+    }
+    if ($file != '.' && $file != '..' && $file != 'langs.php' && $file != 'de' && $file != 'en' && $file != 'es' && $file != 'fr') {
       $parts = explode(".", $file); 
       $file_lang = $parts[1];
       $langs_array[] = $parts[1];

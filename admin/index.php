@@ -84,8 +84,8 @@
     <!-- topbar ends -->    
     <div id="display_results_320" style="display:none;"></div>
     <?php   
-      require_once('inc/func/' . $action . '.php');
-      $action();
+      require_once('inc/func/' . $_GET['action'] . '.php');
+      $_GET['action']();
     ?>
     <hr>    
     <footer>

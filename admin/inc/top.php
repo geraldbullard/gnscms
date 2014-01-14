@@ -109,7 +109,7 @@
   // get user group access and set it into session
   $_SESSION['access'] = Group::getById(User::getGroupID($_SESSION['authuser']));
   
-  if (!strpos($_SERVER['REQUEST_URI'], 'index.php') && !strpos($_SERVER['REQUEST_URI'], 'search.php')) header("Location: index.php?dashboard");
+  if (!strpos($_SERVER['REQUEST_URI'], 'index.php') && !strpos($_SERVER['REQUEST_URI'], 'search.php')) header("Location: index.php?action=dashboard");
   
   // get action 
   $action = isset($_GET['action']) ? $_GET['action'] : '';
