@@ -327,6 +327,7 @@
                     </div>
                   </div>
                 </div>
+                <?php echo $gns_admin_RCI->get('newgroup', 'add'); ?>
                 <div class="row-fluid">&nbsp;</div>
                 <div class="row-fluid">
                   <div class="span4">
