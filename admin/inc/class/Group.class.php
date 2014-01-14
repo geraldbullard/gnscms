@@ -104,29 +104,29 @@ class Group {
   */
   public function insert() {
       
-      // Does the Group object already have an ID?
-      if ( !is_null( $this->id ) ) trigger_error ( "Group::insert(): Attempt to insert a Group object that already has its ID property set (to $this->id).", E_USER_ERROR );
- 
-      // Insert the Group
-      $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-      $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-      $sql = "INSERT INTO " . DB_PREFIX . "groups ( title, dashboard, content, themes, gallery, files, settings, users, status ) VALUES ( :title, :dashboard, :content, :themes, :gallery, :files, :settings, :users, :status )";
+    // Does the Group object already have an ID?
+    if ( !is_null( $this->id ) ) trigger_error ( "Group::insert(): Attempt to insert a Group object that already has its ID property set (to $this->id).", E_USER_ERROR );
 
-      $st = $conn->prepare( $sql );
-      $st->bindValue( "title", $this->title, PDO::PARAM_STR );
-      $st->bindValue( "dashboard", $this->dashboard, PDO::PARAM_INT );
-      $st->bindValue( "content", $this->content, PDO::PARAM_INT );
-      $st->bindValue( "themes", $this->themes, PDO::PARAM_INT );
-      $st->bindValue( "gallery", $this->gallery, PDO::PARAM_INT );
-      $st->bindValue( "files", $this->files, PDO::PARAM_INT );
-      $st->bindValue( "settings", $this->settings, PDO::PARAM_INT );
-      $st->bindValue( "users", $this->users, PDO::PARAM_INT );
-      $st->bindValue( "status", $this->status, PDO::PARAM_INT );
-      $st->execute();
-      
-      $this->id = $conn->lastInsertId();
-      
-      $conn = null;
+    // Insert the Group
+    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $sql = "INSERT INTO " . DB_PREFIX . "groups ( title, dashboard, content, themes, gallery, files, settings, users, status ) VALUES ( :title, :dashboard, :content, :themes, :gallery, :files, :settings, :users, :status )";
+
+    $st = $conn->prepare( $sql );
+    $st->bindValue( "title", $this->title, PDO::PARAM_STR );
+    $st->bindValue( "dashboard", $this->dashboard, PDO::PARAM_INT );
+    $st->bindValue( "content", $this->content, PDO::PARAM_INT );
+    $st->bindValue( "themes", $this->themes, PDO::PARAM_INT );
+    $st->bindValue( "gallery", $this->gallery, PDO::PARAM_INT );
+    $st->bindValue( "files", $this->files, PDO::PARAM_INT );
+    $st->bindValue( "settings", $this->settings, PDO::PARAM_INT );
+    $st->bindValue( "users", $this->users, PDO::PARAM_INT );
+    $st->bindValue( "status", $this->status, PDO::PARAM_INT );
+    $st->execute();
+    
+    $this->id = $conn->lastInsertId();
+    
+    $conn = null;
     
   }
 

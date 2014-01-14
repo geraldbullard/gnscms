@@ -102,10 +102,12 @@
   require_once('inc/class/Group.class.php');
   require_once('inc/class/Setting.class.php');
   require_once('inc/class/User.class.php');
-  echo $gns_admin_RCI->get('class', 'add', false);
   
   // get user group access and set it into session
   $_SESSION['access'] = Group::getById(User::getGroupID($_SESSION['authuser']));
+  
+  // add any rci class logic needed for addons
+  echo $gns_admin_RCI->get('class', 'add', false);
   
   if (!strpos($_SERVER['REQUEST_URI'], 'index.php') && !strpos($_SERVER['REQUEST_URI'], 'search.php')) header("Location: index.php?action=dashboard");
   
