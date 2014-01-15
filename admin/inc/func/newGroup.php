@@ -7,7 +7,7 @@
       $group = new Group;
       $group->storeFormValues( $_POST );
       $group->insert();
-      header( "Location: index.php?action=listUser&success=groupCreated" );
+      header( "Location: index.php?action=listUser&success=groupCreated&newGroup=" . $group->id );
     } else {
       // the new group form was not submitted, return to the user listing page
       header( "Location: index.php?action=listUser" );
