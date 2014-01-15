@@ -44,7 +44,15 @@
     } else {
       return false;
     }
-  }    
+  }
+  // access sliders
+  var allowedAccessValues = {
+    0: true,
+    1: true,
+    2: true,
+    3: true,
+    4: true
+  };    
   $(document).ready(function(){
     // tabs
     $('#listUsersTab a:first').tab('show');
@@ -57,68 +65,29 @@
       e.preventDefault();
       $(this).tab('show');
     });
-    // access sliders
-    var allowedAccessValues = {
-      0: true,
-      1: true,
-      2: true,
-      3: true,
-      4: true
-    };
-    $("#accessSliderContent").slider({
-      range: true,
-      max: 4,
-      slide: function(event, ui) {
-        if (!allowedAccessValues[ui.value]) return false;
-      },
-      change: function(event, ui){
-        $("#content").val(ui.value);
-      }
-    });    
-    $("#accessSliderContent a:first").remove();
-    $("#accessSliderThemes").slider({
-      range: true,
-      max: 4,
-      slide: function(event, ui) {
-        if (!allowedAccessValues[ui.value]) return false;
-      },
-      change: function(event, ui){
-        $("#themes").val(ui.value);
-      }
-    });    
-    $("#accessSliderThemes a:first").remove();
-    $("#accessSliderFileManager").slider({
-      range: true,
-      max: 4,
-      slide: function(event, ui) {
-        if (!allowedAccessValues[ui.value]) return false;
-      },
-      change: function(event, ui){
-        $("#files").val(ui.value);
-      }
-    });    
-    $("#accessSliderFileManager a:first").remove();
-    $("#accessSliderSettings").slider({
-      range: true,
-      max: 4,
-      slide: function(event, ui) {
-        if (!allowedAccessValues[ui.value]) return false;
-      },
-      change: function(event, ui){
-        $("#settings").val(ui.value);
-      }
-    });    
-    $("#accessSliderSettings a:first").remove();
-    $("#accessSliderUsers").slider({
-      range: true,
-      max: 4,
-      slide: function(event, ui) {
-        if (!allowedAccessValues[ui.value]) return false;
-      },
-      change: function(event, ui){
-        $("#users").val(ui.value);
-      }
-    });    
-    $("#accessSliderUsers a:first").remove();
   });
 </script>
+<?php
+  $results['group'] = Group::getById( 1 );
+  foreach ($results['group'] as $group => $val) {
+    if ($group != 'id' && $group != 'title' && $group != 'status' && $group != 'dashboard') {
+?>
+<script>   
+  $(document).ready(function() {
+    $("#accessSlider<?php echo ucfirst($group); ?>").slider({
+      range: true,
+      max: 4,
+      slide: function(event, ui) {
+        if (!allowedAccessValues[ui.value]) return false;
+      },
+      change: function(event, ui){
+        $("#<?php echo $group; ?>").val(ui.value);
+      }
+    });    
+    $("#accessSlider<?php echo ucfirst($group); ?> a:first").remove();
+  });
+</script>
+<?php
+    }        
+  }
+?>

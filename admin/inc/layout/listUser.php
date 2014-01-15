@@ -247,10 +247,15 @@
                     <input class="text-input span12" type="text" id="title" name="title" required autofocus />
                   </div>
                 </div>
+                <?php
+                  $results['group'] = Group::getById( 1 );
+                  foreach ( $results['group'] as $group => $val ) {
+                    if ($group != 'id' && $group != 'title' && $group != 'status' && $group != 'dashboard') {
+                ?>
                 <div class="row-fluid">&nbsp;</div>
                 <div class="row-fluid">
                   <div class="span6">
-                    <label>Content Access</label>
+                    <label><?php echo ucfirst($group); ?> Access</label>
                     <div class="access-slider">
                       <div style="height:25px;">
                         <div style="width:25%;float:right;text-align:right;margin-right:-21px;">Delete</div>
@@ -259,84 +264,20 @@
                         <div style="width:25%;float:right;text-align:right;margin-right:-3px;">View</div>
                         <div style="width:0;float:right;position:relative;left:-28px;">None</div>
                       </div>
-                      <div id="accessSliderContent" style="clear:both;"></div>
+                      <div id="accessSlider<?php echo ucfirst($group); ?>" style="clear:both;"></div>
                     </div>
                   </div>
                 </div>
-                <div class="row-fluid">&nbsp;</div>
-                <div class="row-fluid">
-                  <div class="span6">
-                    <label>Themes Access</label>
-                    <div class="access-slider">
-                      <div style="height:25px;">
-                        <div style="width:25%;float:right;text-align:right;margin-right:-21px;">Delete</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:3px;">Insert</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:5px;">Edit</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:-3px;">View</div>
-                        <div style="width:0;float:right;position:relative;left:-28px;">None</div>
-                      </div>
-                      <div id="accessSliderThemes" style="clear:both;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row-fluid">&nbsp;</div>
-                <div class="row-fluid">
-                  <div class="span6">
-                    <label>File Manager Access</label>
-                    <div class="access-slider">
-                      <div style="height:25px;">
-                        <div style="width:25%;float:right;text-align:right;margin-right:-21px;">Delete</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:3px;">Insert</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:5px;">Edit</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:-3px;">View</div>
-                        <div style="width:0;float:right;position:relative;left:-28px;">None</div>
-                      </div>
-                      <div id="accessSliderFileManager" style="clear:both;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row-fluid">&nbsp;</div>
-                <div class="row-fluid">
-                  <div class="span6">
-                    <label>Settings Access</label>
-                    <div class="access-slider">
-                      <div style="height:25px;">
-                        <div style="width:25%;float:right;text-align:right;margin-right:-21px;">Delete</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:3px;">Insert</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:5px;">Edit</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:-3px;">View</div>
-                        <div style="width:0;float:right;position:relative;left:-28px;">None</div>
-                      </div>
-                      <div id="accessSliderSettings" style="clear:both;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row-fluid">&nbsp;</div>
-                <div class="row-fluid">
-                  <div class="span6">
-                    <label>Users Access</label>
-                    <div class="access-slider">
-                      <div style="height:25px;">
-                        <div style="width:25%;float:right;text-align:right;margin-right:-21px;">Delete</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:3px;">Insert</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:5px;">Edit</div>
-                        <div style="width:25%;float:right;text-align:right;margin-right:-3px;">View</div>
-                        <div style="width:0;float:right;position:relative;left:-28px;">None</div>
-                      </div>
-                      <div id="accessSliderUsers" style="clear:both;"></div>
-                    </div>
-                  </div>
-                </div>
-                <?php echo $gns_admin_RCI->get('newgroup', 'add'); ?>
+                <input type="hidden" value="" name="<?php echo $group; ?>" id="<?php echo $group; ?>" />
+                <?php
+                    }
+                  }
+                  echo $gns_admin_RCI->get('newgroup', 'add');
+                ?>
                 <div class="row-fluid">&nbsp;</div>
                 <div class="row-fluid">
                   <div class="span4">
-                    <input type="hidden" value="1" name="dashboard" id="dashboard" />
-                    <input type="hidden" value="" name="content" id="content" />
-                    <input type="hidden" value="" name="themes" id="themes" />
-                    <input type="hidden" value="" name="files" id="files" />
-                    <input type="hidden" value="" name="settings" id="settings" />
-                    <input type="hidden" value="" name="users" id="users" />                           
+                    <input type="hidden" value="1" name="dashboard" id="dashboard" />                     
                     <input type="hidden" id="status" name="status" value="1" />
                     <button class="btn btn-primary" type="submit" name="saveChanges">Save</button>
                   </div>

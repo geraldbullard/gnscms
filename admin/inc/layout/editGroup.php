@@ -78,7 +78,7 @@
                       <div style="width:25%;float:right;text-align:right;margin-right:-3px;">View</div>
                       <div style="width:0;float:right;position:relative;left:-28px;">None</div>
                     </div>
-                    <div id="accessSliderFileManager" style="clear:both;"></div>
+                    <div id="accessSliderFiles" style="clear:both;"></div>
                   </div>
                 </div>
               </div>
@@ -114,6 +114,7 @@
                   </div>
                 </div>
               </div>
+              <?php echo $gns_admin_RCI->get('editgroup', 'add'); ?>
               <div class="row-fluid">&nbsp;</div>
               <div style="clear:both;"></div>
               <input type="hidden" value="<?php echo $results['group']->dashboard; ?>" name="dashboard" id="dashboard" />
@@ -133,137 +134,3 @@
         </div>
       </div><!--/span-->
     </div><!--/row-->
-    <?php
-      if ($results['group']->content == 4) {
-        $contentSlider = '100';
-      } else if ($results['group']->content == 3) {
-        $contentSlider = '75';
-      } else if ($results['group']->content == 2) {
-        $contentSlider = '50';
-      } else if ($results['group']->content == 1) {
-        $contentSlider = '25';
-      } else if ($results['group']->content == 0) {
-        $contentSlider = '0';
-      }
-      if ($results['group']->themes == 4) {
-        $themesSlider = '100';
-      } else if ($results['group']->themes == 3) {
-        $themesSlider = '75';
-      } else if ($results['group']->themes == 2) {
-        $themesSlider = '50';
-      } else if ($results['group']->themes == 1) {
-        $themesSlider = '25';
-      } else if ($results['group']->themes == 0) {
-        $themesSlider = '0';
-      }
-      if ($results['group']->files == 4) {
-        $filesSlider = '100';
-      } else if ($results['group']->files == 3) {
-        $filesSlider = '75';
-      } else if ($results['group']->files == 2) {
-        $filesSlider = '50';
-      } else if ($results['group']->files == 1) {
-        $filesSlider = '25';
-      } else if ($results['group']->files == 0) {
-        $filesSlider = '0';
-      }
-      if ($results['group']->settings == 4) {
-        $settingsSlider = '100';
-      } else if ($results['group']->settings == 3) {
-        $settingsSlider = '75';
-      } else if ($results['group']->settings == 2) {
-        $settingsSlider = '50';
-      } else if ($results['group']->settings == 1) {
-        $settingsSlider = '25';
-      } else if ($results['group']->settings == 0) {
-        $settingsSlider = '0';
-      }
-      if ($results['group']->users == 4) {
-        $usersSlider = '100';
-      } else if ($results['group']->users == 3) {
-        $usersSlider = '75';
-      } else if ($results['group']->users == 2) {
-        $usersSlider = '50';
-      } else if ($results['group']->users == 1) {
-        $usersSlider = '25';
-      } else if ($results['group']->users == 0) {
-        $usersSlider = '0';
-      }
-    ?>
-    <script>   
-      $(document).ready(function(){
-        // access sliders
-        var allowedAccessValues = {
-          0: true,
-          1: true,
-          2: true,
-          3: true,
-          4: true
-        };
-        $("#accessSliderContent").slider({
-          range: true,
-          max: 4,
-          slide: function(event, ui) {
-            if (!allowedAccessValues[ui.value]) return false;
-          },
-          change: function(event, ui){
-            $("#content").val(ui.value);
-          }
-        });    
-        $("#accessSliderContent a:first").remove();
-        $("#accessSliderContent .ui-slider-range").css("left", "0%").css("width", "<?php echo $contentSlider; ?>%");        
-        $("#accessSliderContent .ui-slider-handle").css("left", "<?php echo $contentSlider; ?>%");        
-        $("#accessSliderThemes").slider({
-          range: true,
-          max: 4,
-          slide: function(event, ui) {
-            if (!allowedAccessValues[ui.value]) return false;
-          },
-          change: function(event, ui){
-            $("#themes").val(ui.value);
-          }
-        });    
-        $("#accessSliderThemes a:first").remove();
-        $("#accessSliderThemes .ui-slider-range").css("left", "0%").css("width", "<?php echo $themesSlider; ?>%");        
-        $("#accessSliderThemes .ui-slider-handle").css("left", "<?php echo $themesSlider; ?>%");        
-        $("#accessSliderFileManager").slider({
-          range: true,
-          max: 4,
-          slide: function(event, ui) {
-            if (!allowedAccessValues[ui.value]) return false;
-          },
-          change: function(event, ui){
-            $("#files").val(ui.value);
-          }
-        });    
-        $("#accessSliderFileManager a:first").remove();
-        $("#accessSliderFileManager .ui-slider-range").css("left", "0%").css("width", "<?php echo $filesSlider; ?>%");        
-        $("#accessSliderFileManager .ui-slider-handle").css("left", "<?php echo $filesSlider; ?>%");        
-        $("#accessSliderSettings").slider({
-          range: true,
-          max: 4,
-          slide: function(event, ui) {
-            if (!allowedAccessValues[ui.value]) return false;
-          },
-          change: function(event, ui){
-            $("#settings").val(ui.value);
-          }
-        });    
-        $("#accessSliderSettings a:first").remove();
-        $("#accessSliderSettings .ui-slider-range").css("left", "0%").css("width", "<?php echo $settingsSlider; ?>%");        
-        $("#accessSliderSettings .ui-slider-handle").css("left", "<?php echo $settingsSlider; ?>%");        
-        $("#accessSliderUsers").slider({
-          range: true,
-          max: 4,
-          slide: function(event, ui) {
-            if (!allowedAccessValues[ui.value]) return false;
-          },
-          change: function(event, ui){
-            $("#users").val(ui.value);
-          }
-        });    
-        $("#accessSliderUsers a:first").remove();
-        $("#accessSliderUsers .ui-slider-range").css("left", "0%").css("width", "<?php echo $usersSlider; ?>%");        
-        $("#accessSliderUsers .ui-slider-handle").css("left", "<?php echo $usersSlider; ?>%");
-      });
-    </script>
