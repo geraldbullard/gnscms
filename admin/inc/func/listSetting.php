@@ -1,5 +1,5 @@
 <?php
-  function listSettings() {
+  function listSetting() {
     global $lang;
     $page_lang = scandir('inc/lang/' . $_SESSION['language']);
     foreach ($page_lang as $file) {
