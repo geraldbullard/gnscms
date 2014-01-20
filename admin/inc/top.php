@@ -23,24 +23,23 @@
   // set the language 
   if (isset($_GET['lang'])) {
     $lang = $_GET['lang'];
-    $_SESSION['lang'] = $_GET['lang']; 
-  } else if (isset($_SESSION['lang'])) {
-    $lang = $_SESSION['lang']; 
+    $_SESSION['language'] = $_GET['lang']; 
+  } else if (isset($_SESSION['language'])) {
+    $lang = $_SESSION['language']; 
   } else {
     $lang = 'en';
-    $_SESSION['lang'] = 'en'; 
+    $_SESSION['language'] = 'en'; 
   }
   
   $langs_array = array();
   $lang_files = scandir('inc/lang');
   foreach ($lang_files as $file) {
-    if (is_dir('inc/lang/' . $file) && $file != "." && $file != "..") {
+    if (is_dir('inc/lang/' . $file) && $file != "." && $file != ".." && $file != 'langs.php') {
       $langs_array[] = $file;
     }
     if ($file != '.' && $file != '..' && $file != 'langs.php' && $file != 'de' && $file != 'en' && $file != 'es' && $file != 'fr') {
       $parts = explode(".", $file); 
       $file_lang = $parts[1];
-      $langs_array[] = $parts[1];
       if ($lang == $file_lang) {
         $lang_file = $file;
       }
