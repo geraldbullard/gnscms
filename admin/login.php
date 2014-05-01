@@ -51,7 +51,7 @@
     $st->execute();
    
     while ($settings = $st->fetch()) {
-      $sessionExpireTime = $settings['value'];
+      $sessionExpireTime = array('value' => $settings['value']);
     }
     
     $pdo = null;    
