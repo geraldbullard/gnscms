@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <id>Modify admin/inc/func/general.php</id>
+    <version>1.0</version>
+    <vqmver>2.X</vqmver>
+    <author>maestro</author>
+    <file name="admin/inc/func/general.php">
+        <operation info="replace global with extra entry">
+            <search position="replace"><![CDATA[
+            global $gns_admin_RCI;
+            ]]></search>
+            <add><![CDATA[global $gns_admin_RCI, $gns_admin_RCO;]]></add>
+        </operation>
+    </file>
+</modification>
