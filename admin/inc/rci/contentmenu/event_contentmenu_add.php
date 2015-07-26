@@ -1,0 +1,2 @@
+<?php global $lang; ?>
+<li><a href="index.php?action=listEvent"<?php echo ($_GET['action'] == 'listEvent' || $_GET['action'] == 'editEvent') ? ' style="background-color:#43A1DA;color:white;border:1px solid #43A1DA;"' : ''; ?>><?php echo $lang['events']; ?></a></li>

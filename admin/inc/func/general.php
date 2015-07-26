@@ -1,5 +1,6 @@
 <?php
   global $gns_admin_RCI;
+  
   function url_get_contents($_url) {
     if (!function_exists('curl_init')) { 
       return 'cURL is not installed!';

@@ -34,7 +34,7 @@
     </div><!-- /.container -->
   </nav>
   <?php
-    if ( $_GET['locationName'] == substr(getSiteIndex(), 0, -5) ) { 
+    if ( ($_GET['locationName'] == substr(getSiteIndex(), 0, -5)) || ($_GET['locationName'] == '') ) { 
   ?>
   <div id="myCarousel" class="carousel slide">
     <!-- Indicators -->
@@ -93,7 +93,20 @@
     <hr>
     <footer>
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6 col-md-6 col-sm-12 pull-right">
+          <form action="search.php" id="search_form_footer" method="GET">
+            <div class="input-group">
+              <input class="form-control" name="search" type="text" />
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+            <input name="submit" type="hidden" value="submit" />
+          </form>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
           <p>Copyright &copy; Company 2013</p>
         </div>
       </div>

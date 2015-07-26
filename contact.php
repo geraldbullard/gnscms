@@ -11,13 +11,13 @@
   include_once('inc/top.php');
 
   // Main Variables Used Throughout the Script
-  $recipient = 'Julie Hampton';
-  $siteName = 'Jacksonville Pet Grooming';
-  $siteEmail = 'gerald.bullard@gmail.com';
-  $subject = 'Contact from Jacksonville Pet Grooming';
-  $smtphost = 'mail.jacksonvillepetgrooming.com';
-  $smtpuser = 'mail@jacksonvillepetgrooming.com';
-  $smtppass = 'P4ss12e4!@#';
+  $recipient = 'Kevin Ski';
+  $siteName = 'Kevin Ski Music';
+  $siteEmail = 'kswenszkowski@icloud.com';
+  $subject = 'Contact from Kevin Ski Music';
+  $smtphost = 'mail.kevinskimusic.com';
+  $smtpuser = 'contact@kevinskimusic.com';
+  $smtppass = 'K3v1nSk1!@#';
   
   // Check if the web form has been submitted
   if (isset($_POST["save"])) {

@@ -8,8 +8,8 @@
    * 3G Development - The Ultimate in Design, Functionality and Service
    * http://www.3g-dev.com/
    * 
-   * Copyright ? 2010 gnsPLANET, LLC. All rights reserved.
-   * Copyright ? 2012 3G Development. All rights reserved.
+   * Copyright © 2010 gnsPLANET, LLC. All rights reserved.
+   * Copyright © 2012 3G Development. All rights reserved.
    * 
    */
 ?>
@@ -27,11 +27,10 @@
     echo $gns_RCI->get('meta', 'add');
   ?>
   <link href="theme/bootstrap3/css/bootstrap.css" rel="stylesheet">
-  <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
   <link href="theme/bootstrap3/css/modern-business.css" rel="stylesheet">
   <link href="theme/bootstrap3/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <?php
-    echo $gns_RCI->get('css', 'add');
+    echo $gns_RCI->get('stylesheet', 'add');
     echo $gns_RCI->get('headbottom', 'add');
   ?>
 </head>

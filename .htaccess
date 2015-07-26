@@ -7,8 +7,8 @@
 # 3G Development - The Ultimate in Design, Functionality and Service                   #
 # http://www.3g-dev.com/                                                               #
 #                                                                                      #
-# Copyright © 2010 gnsPLANET, LLC. All rights reserved.                                #
-# Copyright © 2012 3G Development. All rights reserved.                                #
+# Copyright 2010 gnsPLANET, LLC. All rights reserved.                                #
+# Copyright 2012 3G Development. All rights reserved.                                #
 #                                                                                      #
 ########################################################################################
  
@@ -22,8 +22,8 @@
   RewriteRule "(^|/)\." - [F] 
   
   RewriteCond %{HTTPS} !=on
-  RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-  RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301]
+  #RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
+  #RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301]
   RewriteRule ^([^/]*)\.html$ index.php?locationName=$1 [L]
   
   RewriteRule (.*)\.xml(.*) $1.php$2 [nocase]

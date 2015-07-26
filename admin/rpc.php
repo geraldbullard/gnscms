@@ -13,7 +13,7 @@
  */
   // include the core functionality
   require_once('inc/top.php');
-
+  
   // set the action from the url
   $action = (isset($_GET['action']) && $_GET['action'] != '') ? $_GET['action'] : '';
   
