@@ -44,7 +44,7 @@
           $pattern = '/(\w*)_*(\w+)_(\w+)_(\w+)\.css$/';
         } else {
           $pattern = '/(\w*)_*(\w+)_(\w+)_(\w+)\.php$/';
-        }
+        } 
         $dir = opendir('inc/rci/' . $pageName);
         while ($file = readdir($dir)) {
           if ($file == '.' || $file == '..') continue;

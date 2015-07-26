@@ -8,20 +8,26 @@
    * 3G Development - The Ultimate in Design, Functionality and Service
    * http://www.3g-dev.com/
    * 
-   * Copyright © 2010 gnsPLANET, LLC. All rights reserved.
-   * Copyright © 2012 3G Development. All rights reserved.
+   * Copyright 2010 gnsPLANET, LLC. All rights reserved.
+   * Copyright 2012 3G Development. All rights reserved.
    * 
    */
    
-  // get all the needed core code
+  // get all the config or run install
   if (is_file('admin/inc/config.php')) {
     require('admin/inc/config.php');  
   } else {
     header('Location: admin/install.php');
   }
-  require('admin/inc/func/general.php');  
-  require('admin/inc/class/Content.class.php');
-  require('admin/inc/class/Setting.class.php');
+  
+  // virtual hook system
+  require_once('ext/vqmod/vqmod.php');
+  VQMod::bootup();
+  
+  // include functions and classes
+  require_once(VQMod::modCheck('admin/inc/func/general.php'));  
+  require_once(VQMod::modCheck('admin/inc/class/Content.class.php'));
+  require_once(VQMod::modCheck('admin/inc/class/Setting.class.php'));
   
   // set php_self in the local scope
   $PHP_SELF = $_SERVER['SCRIPT_NAME'];
@@ -92,7 +98,7 @@
     echo "ERROR: " . $e->getMessage();
   }
   
-  require('inc/class/rci.php');
+  require_once(VQMod::modCheck('inc/class/rci.php'));
   $gns_RCI = new gns_RCI;
   
   echo $gns_RCI->get('top', 'add', false);

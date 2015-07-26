@@ -8,15 +8,21 @@
    * 3G Development - The Ultimate in Design, Functionality and Service
    * http://www.3g-dev.com/
    * 
-   * Copyright © 2010 gnsPLANET, LLC. All rights reserved.
-   * Copyright © 2012 3G Development. All rights reserved.
+   * Copyright ? 2010 gnsPLANET, LLC. All rights reserved.
+   * Copyright ? 2012 3G Development. All rights reserved.
    * 
    */
 ?>
   <!-- JavaScript -->
   <script src="theme/bootstrap3/js/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="theme/bootstrap3/js/bootstrap.js"></script>
   <script src="theme/bootstrap3/js/modern-business.js"></script>
   <?php
     echo $gns_RCI->get('templatebottom', 'add');
   ?>
+  <script>
+    $(function() {
+      $("#faqaccordion").accordion();
+    });
+  </script>
