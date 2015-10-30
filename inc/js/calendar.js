@@ -16,7 +16,7 @@ $(document).ready(function() {
 (function ( $ ) {
     $.fn.calendar = function(array, options) {
     	$this = this;
-		$this.append('<div class="c-month-view"><div class="c-month-arrow" data-dir="left">‹</div><p></p><div class="c-month-arrow" data-dir="right">›</div></div><div class="c-holder"><div class="c-grid"></div><div class="c-specific"><div class="specific-day"><div class="specific-day-info" i="day"></div><div class="specific-day-info" i="month"></div></div><div class="s-scheme"></div></div></div>');
+		$this.append('<div class="c-month-view"><div class="c-month-arrow" data-dir="left">‹</div><p class="c-month-name"></p><div class="c-month-arrow" data-dir="right">›</div></div><div class="c-holder"><div class="c-grid"></div><div class="c-specific"><div class="specific-day"><div class="specific-day-info" i="day"></div><div class="specific-day-info" i="month"></div></div><div class="s-scheme"></div></div></div>');
 		$this.addClass('calendar');
 		var defaults = {
 			color: "red",
@@ -90,7 +90,7 @@ $(document).ready(function() {
 	}
 
 	function calendarSet() {
-		$(".calendar").append('<div class="c-month-view"><div class="c-month-arrow" data-dir="left">‹</div><p></p><div class="c-month-arrow" data-dir="right">›</div></div><div class="c-holder"><div class="c-grid"></div><div class="c-specific"><div class="specific-day"><div class="specific-day-info" i="day"></div><div class="specific-day-info" i="month"></div></div><div class="s-scheme"></div></div></div>');
+		$(".calendar").append('<div class="c-month-view"><div class="c-month-arrow" data-dir="left">‹</div><p class="c-month-name"></p><div class="c-month-arrow" data-dir="right">›</div></div><div class="c-holder"><div class="c-grid"></div><div class="c-specific"><div class="specific-day"><div class="specific-day-info" i="day"></div><div class="specific-day-info" i="month"></div></div><div class="s-scheme"></div></div></div>');
 		$(".calendar").each(function() {
 		var defaults = {
 			color: "red",

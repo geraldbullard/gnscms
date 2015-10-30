@@ -59,7 +59,7 @@
                       <label>Start <i class="icon-info-sign" data-rel="popover" data-content="And here's some amazing content. It's very engaging. right?" title="A Title"></i></label>
                       <select class="span12" name="startTime">
                         <?php
-                          $min = array("00","15","30","45");
+                          $min = array("00", "15", "30", "45");
                           $startOptions = '';
                           for ($a=0; $a<10; $a++) {
                             foreach ($min as $v) {

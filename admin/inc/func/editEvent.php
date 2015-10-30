@@ -1,7 +1,7 @@
 <?php
   function editEvent() {
     global $lang;
-    $page_lang = scandir('inc/lang/' . $_SESSION['lang']);
+    $page_lang = scandir('inc/lang/' . $_SESSION['language']);
     foreach ($page_lang as $file) {
       if ($file != '.' && $file != '..') {
         $parts = explode(".", $file); 
@@ -11,7 +11,7 @@
         }
       }
     }
-    include_once('inc/lang/' . $_SESSION['lang'] . '/' . $page_file);
+    include_once('inc/lang/' . $_SESSION['language'] . '/' . $page_file);
     if ($_SESSION['access']->events > 1) {
       $results = array();
       if ( isset( $_POST['saveChanges'] ) ) {
@@ -36,6 +36,8 @@
         }
         // User has not submitted the event edit form: display the form
         $results['event'] = Event::getById( (int)$_GET['editId'] );
+        $dateParts = explode("-", $results['event']->eventDate);
+        $results['event']->eventDate = $dateParts[1] . "/" . $dateParts[2] . "/" . $dateParts[0];
         require( "inc/layout/editEvent.php" );
       }
     } else {

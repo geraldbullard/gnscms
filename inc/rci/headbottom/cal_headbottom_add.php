@@ -31,14 +31,15 @@
   font-size: 1.6em;
   margin-bottom: 1px;
   text-align: center;
+  background-color: #232323 !important;
 }
 
 .calendar .c-month-view .c-month-arrow {
   width: 15%;
   height: 100%;
   position: absolute;
-  top: 0;
-  color: transparent;
+  top: 15px;
+  /*color: transparent;*/
   cursor: pointer;
 }
 

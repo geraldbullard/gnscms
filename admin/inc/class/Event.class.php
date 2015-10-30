@@ -79,6 +79,14 @@ class Event {
     
     // Store all the parameters
     $this->__construct( $params );
+
+    // Parse and store the event date
+    if ( isset($params['eventDate']) ) {
+      $lastModified = explode ( '/', $params['eventDate'] );
+      if ( count($lastModified) == 3 ) {
+        $this->eventDate = $lastModified[2] . '-' . $lastModified[0] . '-' . $lastModified[1];
+      }
+    }
     
   }
  
@@ -164,7 +172,7 @@ class Event {
     $st->bindValue( ":location", $this->location, PDO::PARAM_STR ); 
     $st->bindValue( ":map", $this->map, PDO::PARAM_STR ); 
     $st->bindValue( ":status", $this->status, PDO::PARAM_INT );
-    $st->execute();
+    $st->execute(); 
     
     $this->id = $conn->lastInsertId();
     
